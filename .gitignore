@@ -1,0 +1,7 @@
+.*/
+*.tgz
+flink-*/
+mycroft-core/
+virtuoso-opensource/
+rmlmapper*
+RMLStreamer*
