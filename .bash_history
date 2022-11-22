@@ -363,3 +363,163 @@ sudo make install
 clear
 export PATH=$PATH:/usr/local/bin
 exec bash
+ls
+pi/mycroft-core/start-mycroft.sh debug
+./pi/mycroft-core/stop-mycroft.sh 
+cd pi/virtuoso-opensource/
+ls
+htop
+netstat -a | grep 1111
+htop
+ps
+vcgencmd measure_temp
+cd pi/mycroft-core/
+ls
+./venv-activate.sh 
+source venv-activate.sh 
+python -v
+clear
+df -h
+vcgencmd measure_temp
+df -h
+ls
+cd
+ls
+cd ..
+ls
+ls -al
+cd ..
+ls
+cd var/lib/
+ls
+cd ..
+ls
+cd ..
+ls
+cd usr/
+ls
+cd local/
+ls
+cd lib/
+ls
+cd ..
+cd virtuoso-opensource/
+ls
+cd var/lib/virtuoso/db/
+ls
+ls -al
+virtuoso-t -f &
+cd
+pwd
+ls
+git status
+git log
+git log --oneline 
+git reset --hard
+git log
+git init
+git status
+git log
+git status
+git rm rmlmapper-6.0.0-r363-all.jar 
+git rm RMLStreamer-2.4.2-standalone.jar 
+git status
+git commit -m "removed jar RMLStreamer and rmlmapper"
+git status
+git push -u origin main
+git log
+git status
+git diff --cached
+git diff --staged
+gut status
+git status
+git add .
+git commit -m "test"
+git status
+git push -u origin main
+ls -al
+rm .git
+rm -r .git
+rm -f .git
+rmdir -f .git
+rm -rf .git
+ls -al
+git init
+ls -al
+git status
+git add .
+git remove -v
+git remote -v
+git remote add origin https://github.com/thomas-stroobants/RPI-thesis.git
+git branch -M main
+git push -u origin main
+git remote add origin https://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@github.com/thomas-stroobants/RPI-thesis.git
+git remote -v
+git remote remove origin
+git remote -v
+git remote add origin https://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@github.com/thomas-stroobants/RPI-thesis.git
+git branch -M main
+git push -u origin main
+git status
+git commit -m "initial commit"
+git push -u origin main
+git fetch
+git pull
+clear
+ls
+mkdir virtuoso
+cd virtuoso
+ls
+apt-cache search '^virtuoso'
+sudo aptitude install virtuoso-opensource
+sudo apt-get install virtuoso-opensource
+cd ..
+ls
+cd virtuoso/
+sudo apt-get purge --auto-remove virtuoso-opensource*
+sudo apt-get install virtuoso-opensource
+ls
+cd /usr/local/var/lib/
+cd 
+ls
+cd /usr/local/virtuoso-opensource/var/lib/virtuoso/db/
+ls
+cp virtuoso.ini /home/pi/virtuoso/.
+cd 
+cd virtuoso/
+ls
+cd /usr/local/virtuoso-opensource/var/lib/virtuoso/db/
+ls
+virtuoso-t -df
+sudo virtuoso-t -df
+tail -f virtuoso.log 
+sudo virtuoso-t -df
+tail -f virtuoso.log 
+cd ..
+ls
+cd ..
+ls
+cd ..
+ls
+cd bin/
+ls
+./virtuoso-t -?
+cd ..
+ls
+cd var/
+ls
+cd lib/
+l
+ls
+cd virtuoso/
+ls
+cd db/
+ls
+sudo virtuoso-t -df
+sudo reboot
+ls
+htop
+ls
+ps
+ls
+htop
