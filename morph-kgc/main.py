@@ -36,7 +36,7 @@ def get_gtfs_lijn():
     response = requests.get('https://api.delijn.be/gtfs/v2/realtime?', params=params, headers=headers)
     feed.ParseFromString(response.content)
     for entity in feed.entity:
-    if entity.HasField('trip_update'):
-        print(entity)
+        if entity.HasField('trip_update'):
+            print(entity)
 
 download_files(nmbs_rt_url, "nmbs-rt-data/nmbs-rt-proto")
