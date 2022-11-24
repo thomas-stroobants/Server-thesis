@@ -36,18 +36,13 @@ def download_files(url, file_name):
 def unzip_file(file_name, dst_folder):
     subprocess.run(["unzip", file_name, "-d", dst_folder])
 
-def get_gtfs_lijn():
+def get_gtfs_rt_lijn():
     feed = gtfs_realtime_pb2.FeedMessage()
     response = requests.get('https://api.delijn.be/gtfs/v2/realtime?', params=params, headers=headers)
     feed.ParseFromString(response.content)
     feed_json = MessageToJson(feed)
-    # print(type(feed_json))
-    
-    open(f"de-lijn-data/de-lijn-{int(time.time())}.json", "w").write(feed_json)
-    
-    # for entity in feed.entity:
-    #     if entity.HasField('trip_update'):
-    #         print(entity)
+    #write data to file
+    open(f"de-lijn-data/de-lijn-rt-gtfs.json", "w").write(feed_json)
 
 #download_files(nmbs_rt_url, "nmbs-rt-data/nmbs-rt-proto")
-get_gtfs_lijn()
+get_gtfs_rt_lijn()
