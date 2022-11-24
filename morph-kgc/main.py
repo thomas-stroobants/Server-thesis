@@ -1,6 +1,9 @@
 import morph_kgc
 import requests
 import subprocess
+import http.client, urllib.request, urllib.parse, urllib.error, base64
+from google.transit import gtfs_realtime_pb2
+import time
 
 nmbs_url = "https://sncb-opendata.hafas.de/gtfs/static/c21ac6758dd25af84cca5b707f3cb3de"
 nmbs_rt_url = "https://sncb-opendata.hafas.de/gtfs/realtime/c21ac6758dd25af84cca5b707f3cb3de"
@@ -35,8 +38,10 @@ def get_gtfs_lijn():
     feed = gtfs_realtime_pb2.FeedMessage()
     response = requests.get('https://api.delijn.be/gtfs/v2/realtime?', params=params, headers=headers)
     feed.ParseFromString(response.content)
-    for entity in feed.entity:
-        if entity.HasField('trip_update'):
-            print(entity)
+    open(f"de-lijn-data/de-lijn-{int(time.time())}", "wb").write(feed)
+    # for entity in feed.entity:
+    #     if entity.HasField('trip_update'):
+    #         print(entity)
 
-download_files(nmbs_rt_url, "nmbs-rt-data/nmbs-rt-proto")
+#download_files(nmbs_rt_url, "nmbs-rt-data/nmbs-rt-proto")
+get_gtfs_lijn()
