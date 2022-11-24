@@ -4,6 +4,8 @@ import subprocess
 import http.client, urllib.request, urllib.parse, urllib.error, base64
 from google.transit import gtfs_realtime_pb2
 import time
+import json
+from google.protobuf.json_format import MessageToJson
 
 nmbs_url = "https://sncb-opendata.hafas.de/gtfs/static/c21ac6758dd25af84cca5b707f3cb3de"
 nmbs_rt_url = "https://sncb-opendata.hafas.de/gtfs/realtime/c21ac6758dd25af84cca5b707f3cb3de"
@@ -38,7 +40,12 @@ def get_gtfs_lijn():
     feed = gtfs_realtime_pb2.FeedMessage()
     response = requests.get('https://api.delijn.be/gtfs/v2/realtime?', params=params, headers=headers)
     feed.ParseFromString(response.content)
-    open(f"de-lijn-data/de-lijn-{int(time.time())}", "wb").write(feed)
+    feed_json = MessageToJson(feed)
+
+    print(feed_json)
+    
+    # open(f"de-lijn-data/de-lijn-{int(time.time())}", "wb").write(feed_json)
+    
     # for entity in feed.entity:
     #     if entity.HasField('trip_update'):
     #         print(entity)
