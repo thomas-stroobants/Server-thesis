@@ -41,10 +41,9 @@ def get_gtfs_lijn():
     response = requests.get('https://api.delijn.be/gtfs/v2/realtime?', params=params, headers=headers)
     feed.ParseFromString(response.content)
     feed_json = MessageToJson(feed)
-
-    print(feed_json)
+    # print(type(feed_json))
     
-    # open(f"de-lijn-data/de-lijn-{int(time.time())}", "wb").write(feed_json)
+    open(f"de-lijn-data/de-lijn-{int(time.time())}.json", "w").write(feed_json)
     
     # for entity in feed.entity:
     #     if entity.HasField('trip_update'):
