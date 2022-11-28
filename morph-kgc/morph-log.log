@@ -1,31 +1,31 @@
-DEBUG | 2022-11-28 21:27:40,311 | CONFIGURATION: {'logging_level': 'DEBUG', 'logging_file': 'morph-log.log', 'output_file': 'knowledge-graph', 'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'safe_percent_encoding': '', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partition': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'infer_sql_datatypes': 'no', 'number_of_processes': '8'}
-DEBUG | 2022-11-28 21:27:40,311 | DATA SOURCE `Datasource1`: {'mappings': './gtfs-nmbs-csv.rml.ttl'}
-DEBUG | 2022-11-28 21:27:43,648 | Removed self-join from mapping rule `72`.
-INFO | 2022-11-28 21:27:43,667 | 93 mapping rules retrieved.
-DEBUG | 2022-11-28 21:27:43,979 | All graph maps are constant-valued, invariant subset is not enforced.
-INFO | 2022-11-28 21:27:44,031 | Mapping partition with 26 groups generated.
-INFO | 2022-11-28 21:27:44,033 | Maximum number of rules within mapping group: 9.
-INFO | 2022-11-28 21:27:44,048 | Mappings processed in 3.716 seconds.
-DEBUG | 2022-11-28 21:27:44,604 | 1 triples generated for mapping rule `30`.
-DEBUG | 2022-11-28 21:27:44,643 | 2 triples generated for mapping rule `29`.
-DEBUG | 2022-11-28 21:27:44,763 | 1 triples generated for mapping rule `32`.
-DEBUG | 2022-11-28 21:27:44,807 | 2 triples generated for mapping rule `31`.
-DEBUG | 2022-11-28 21:27:44,850 | 3 triples generated for mapping rule `33`.
-DEBUG | 2022-11-28 21:27:44,886 | 3 triples generated for mapping rule `34`.
-DEBUG | 2022-11-28 21:27:45,098 | 2041 triples generated for mapping rule `46`.
-DEBUG | 2022-11-28 21:27:45,183 | 2041 triples generated for mapping rule `43`.
-DEBUG | 2022-11-28 21:27:45,336 | 4695 triples generated for mapping rule `44`.
-DEBUG | 2022-11-28 21:27:45,434 | 7349 triples generated for mapping rule `35`.
-DEBUG | 2022-11-28 21:27:45,692 | 0 triples generated for mapping rule `36`.
-DEBUG | 2022-11-28 21:27:45,844 | 2654 triples generated for mapping rule `38`.
-DEBUG | 2022-11-28 21:27:45,969 | 5308 triples generated for mapping rule `41`.
-DEBUG | 2022-11-28 21:27:46,099 | 7962 triples generated for mapping rule `40`.
-DEBUG | 2022-11-28 21:27:46,158 | 7962 triples generated for mapping rule `42`.
-DEBUG | 2022-11-28 21:27:46,264 | 10616 triples generated for mapping rule `37`.
-DEBUG | 2022-11-28 21:27:46,364 | 12103 triples generated for mapping rule `45`.
-DEBUG | 2022-11-28 21:27:46,423 | 12103 triples generated for mapping rule `39`.
-DEBUG | 2022-11-28 21:28:05,924 | 462331 triples generated for mapping rule `6`.
-DEBUG | 2022-11-28 21:28:29,298 | 924662 triples generated for mapping rule `8`.
-DEBUG | 2022-11-28 21:28:48,785 | 1386993 triples generated for mapping rule `9`.
-DEBUG | 2022-11-28 21:29:07,510 | 1849324 triples generated for mapping rule `5`.
-DEBUG | 2022-11-28 21:29:23,910 | 2311655 triples generated for mapping rule `0`.
+DEBUG | 2022-11-28 22:37:33,722 | CONFIGURATION: {'logging_level': 'DEBUG', 'logging_file': 'morph-log.log', 'output_file': 'knowledge-graph', 'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'safe_percent_encoding': '', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partition': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'infer_sql_datatypes': 'no', 'number_of_processes': '8'}
+DEBUG | 2022-11-28 22:37:33,722 | DATA SOURCE `Datasource1`: {'mappings': './gtfs-nmbs-csv.rml.ttl'}
+DEBUG | 2022-11-28 22:37:37,469 | Removed self-join from mapping rule `72`.
+INFO | 2022-11-28 22:37:37,493 | 93 mapping rules retrieved.
+DEBUG | 2022-11-28 22:37:37,835 | All graph maps are constant-valued, invariant subset is not enforced.
+INFO | 2022-11-28 22:37:37,894 | Mapping partition with 26 groups generated.
+INFO | 2022-11-28 22:37:37,896 | Maximum number of rules within mapping group: 9.
+INFO | 2022-11-28 22:37:37,913 | Mappings processed in 4.166 seconds.
+DEBUG | 2022-11-28 22:37:38,516 | 1 triples generated for mapping rule `30`.
+DEBUG | 2022-11-28 22:37:38,581 | 2 triples generated for mapping rule `29`.
+DEBUG | 2022-11-28 22:37:38,750 | 1 triples generated for mapping rule `32`.
+DEBUG | 2022-11-28 22:37:38,789 | 2 triples generated for mapping rule `31`.
+DEBUG | 2022-11-28 22:37:38,834 | 3 triples generated for mapping rule `33`.
+DEBUG | 2022-11-28 22:37:38,878 | 3 triples generated for mapping rule `34`.
+DEBUG | 2022-11-28 22:37:39,109 | 2041 triples generated for mapping rule `46`.
+DEBUG | 2022-11-28 22:37:39,183 | 2041 triples generated for mapping rule `43`.
+DEBUG | 2022-11-28 22:37:39,303 | 4695 triples generated for mapping rule `44`.
+DEBUG | 2022-11-28 22:37:39,399 | 7349 triples generated for mapping rule `35`.
+DEBUG | 2022-11-28 22:37:39,639 | 0 triples generated for mapping rule `36`.
+DEBUG | 2022-11-28 22:37:39,774 | 2654 triples generated for mapping rule `38`.
+DEBUG | 2022-11-28 22:37:39,908 | 5308 triples generated for mapping rule `41`.
+DEBUG | 2022-11-28 22:37:40,063 | 7962 triples generated for mapping rule `40`.
+DEBUG | 2022-11-28 22:37:40,150 | 7962 triples generated for mapping rule `42`.
+DEBUG | 2022-11-28 22:37:40,278 | 10616 triples generated for mapping rule `37`.
+DEBUG | 2022-11-28 22:37:40,385 | 12103 triples generated for mapping rule `45`.
+DEBUG | 2022-11-28 22:37:40,448 | 12103 triples generated for mapping rule `39`.
+DEBUG | 2022-11-28 22:38:01,277 | 462331 triples generated for mapping rule `6`.
+DEBUG | 2022-11-28 22:38:25,276 | 924662 triples generated for mapping rule `8`.
+DEBUG | 2022-11-28 22:38:45,397 | 1386993 triples generated for mapping rule `9`.
+DEBUG | 2022-11-28 22:39:04,735 | 1849324 triples generated for mapping rule `5`.
+DEBUG | 2022-11-28 22:39:22,016 | 2311655 triples generated for mapping rule `0`.

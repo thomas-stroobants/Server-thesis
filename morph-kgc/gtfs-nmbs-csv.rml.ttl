@@ -527,7 +527,7 @@
 :pom_51 rr:objectMap :om_52.
 :map_calendar_date_rules_0 rml:logicalSource :source_7.
 :source_7 a rml:LogicalSource;
-    rml:source "./nmbs-static-data/CALENDAR_DATES.csv";
+    rml:source "./nmbs-static-data/calendar_dates.csv";
     rml:referenceFormulation ql:CSV.
 :map_calendar_date_rules_0 a rr:TriplesMap;
     rdfs:label "calendar_date_rules".
@@ -565,7 +565,7 @@
     rr:datatype xsd:boolean.
 :map_calendar_rules_0 rml:logicalSource :source_8.
 :source_8 a rml:LogicalSource;
-    rml:source "./nmbs-static-data/CALENDAR.csv";
+    rml:source "./nmbs-static-data/calendar.csv";
     rml:referenceFormulation ql:CSV.
 :map_calendar_rules_0 a rr:TriplesMap;
     rdfs:label "calendar_rules".
@@ -889,7 +889,7 @@
 :pom_84 rr:objectMap :om_85.
 :map_transfers_0 rml:logicalSource :source_13.
 :source_13 a rml:LogicalSource;
-    rml:source "./nmbs-static-data/TRANSFERS.csv";
+    rml:source "./nmbs-static-data/transfers.csv";
     rml:referenceFormulation ql:CSV.
 :map_transfers_0 a rr:TriplesMap;
     rdfs:label "transfers".
