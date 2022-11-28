@@ -18,7 +18,7 @@
 
 :map_stoptimes_0 rml:logicalSource :source_0.
 :source_0 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/stop_times.txt";
+    rml:source "./nmbs-static-data/stop_times.csv";
     rml:referenceFormulation ql:CSV.
 :map_stoptimes_0 a rr:TriplesMap;
     rdfs:label "stoptimes".
@@ -114,7 +114,7 @@
 :pom_9 rr:objectMap :om_9.
 :map_trips_0 rml:logicalSource :source_1.
 :source_1 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/TRIPS.txt";
+    rml:source "./nmbs-static-data/trips.csv";
     rml:referenceFormulation ql:CSV.
 :map_trips_0 a rr:TriplesMap;
     rdfs:label "trips".
@@ -195,7 +195,7 @@
 :pom_18 rr:objectMap :om_19.
 :map_routes_0 rml:logicalSource :source_2.
 :source_2 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/ROUTES.txt";
+    rml:source "./nmbs-static-data/routes.csv";
     rml:referenceFormulation ql:CSV.
 :map_routes_0 a rr:TriplesMap;
     rdfs:label "routes".
@@ -282,7 +282,7 @@
 :pom_27 rr:objectMap :om_28.
 :map_agency_0 rml:logicalSource :source_3.
 :source_3 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/AGENCY.txt";
+    rml:source "./nmbs-static-data/agency.csv";
     rml:referenceFormulation ql:CSV.
 :map_agency_0 a rr:TriplesMap;
     rdfs:label "agency".
@@ -343,18 +343,18 @@
 :om_34 a rr:ObjectMap;
     rml:reference "agency_phone";
     rr:termType rr:Literal.
-:pom_34 a rr:PredicateObjectMap.
-:map_agency_0 rr:predicateObjectMap :pom_34.
-:pm_34 a rr:PredicateMap.
-:pom_34 rr:predicateMap :pm_34.
-:pm_34 rr:constant gtfs:fareUrl.
-:pom_34 rr:objectMap :om_35.
-:om_35 a rr:ObjectMap;
-    rml:reference "agency_fare_url";
-    rr:termType rr:IRI.
+# :pom_34 a rr:PredicateObjectMap.
+# :map_agency_0 rr:predicateObjectMap :pom_34.
+# :pm_34 a rr:PredicateMap.
+# :pom_34 rr:predicateMap :pm_34.
+# :pm_34 rr:constant gtfs:fareUrl.
+# :pom_34 rr:objectMap :om_35.
+# :om_35 a rr:ObjectMap;
+#     rml:reference "agency_fare_url";
+#     rr:termType rr:IRI.
 :map_stops_0 rml:logicalSource :source_4.
 :source_4 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/STOPS.txt";
+    rml:source "./nmbs-static-data/stops.csv";
     rml:referenceFormulation ql:CSV.
 :map_stops_0 a rr:TriplesMap;
     rdfs:label "stops".
@@ -462,15 +462,15 @@
 :om_46 a rr:ObjectMap;
     rml:reference "platform_code";
     rr:termType rr:Literal.
-:pom_46 a rr:PredicateObjectMap.
-:map_stops_0 rr:predicateObjectMap :pom_46.
-:pm_46 a rr:PredicateMap.
-:pom_46 rr:predicateMap :pm_46.
-:pm_46 rr:constant gtfs:wheelchairAccessible.
-:pom_46 rr:objectMap :om_47.
-:om_47 a rr:ObjectMap;
-    rr:template "http://example.com/resource/WheelchairBoardingStatus/{wheelchair_boarding}";
-    rr:termType rr:IRI.
+# :pom_46 a rr:PredicateObjectMap.
+# :map_stops_0 rr:predicateObjectMap :pom_46.
+# :pm_46 a rr:PredicateMap.
+# :pom_46 rr:predicateMap :pm_46.
+# :pm_46 rr:constant gtfs:wheelchairAccessible.
+# :pom_46 rr:objectMap :om_47.
+# :om_47 a rr:ObjectMap;
+#     rr:template "http://example.com/resource/WheelchairBoardingStatus/{wheelchair_boarding}";
+#     rr:termType rr:IRI.
 :pom_47 a rr:PredicateObjectMap.
 :map_stops_0 rr:predicateObjectMap :pom_47.
 :pm_47 a rr:PredicateMap.
@@ -479,7 +479,7 @@
 :pom_47 rr:objectMap :om_48.
 :map_services1_0 rml:logicalSource :source_5.
 :source_5 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/CALENDAR.txt";
+    rml:source "./nmbs-static-data/calendar.csv";
     rml:referenceFormulation ql:CSV.
 :map_services1_0 a rr:TriplesMap;
     rdfs:label "services1".
@@ -503,7 +503,7 @@
 :pom_49 rr:objectMap :om_50.
 :map_services2_0 rml:logicalSource :source_6.
 :source_6 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/CALENDAR_DATES.txt";
+    rml:source "./nmbs-static-data/calendar_dates.csv";
     rml:referenceFormulation ql:CSV.
 :map_services2_0 a rr:TriplesMap;
     rdfs:label "services2".
@@ -527,7 +527,7 @@
 :pom_51 rr:objectMap :om_52.
 :map_calendar_date_rules_0 rml:logicalSource :source_7.
 :source_7 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/CALENDAR_DATES.txt";
+    rml:source "./nmbs-static-data/CALENDAR_DATES.csv";
     rml:referenceFormulation ql:CSV.
 :map_calendar_date_rules_0 a rr:TriplesMap;
     rdfs:label "calendar_date_rules".
@@ -565,7 +565,7 @@
     rr:datatype xsd:boolean.
 :map_calendar_rules_0 rml:logicalSource :source_8.
 :source_8 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/CALENDAR.txt";
+    rml:source "./nmbs-static-data/CALENDAR.csv";
     rml:referenceFormulation ql:CSV.
 :map_calendar_rules_0 a rr:TriplesMap;
     rdfs:label "calendar_rules".
@@ -673,7 +673,7 @@
     rr:datatype xsd:date.
 :map_feed_0 rml:logicalSource :source_9.
 :source_9 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/FEED_INFO.txt";
+    rml:source "./nmbs-static-data/FEED_INFO.csv";
     rml:referenceFormulation ql:CSV.
 :map_feed_0 a rr:TriplesMap;
     rdfs:label "feed".
@@ -747,7 +747,7 @@
     rr:termType rr:Literal.
 :map_shapes_0 rml:logicalSource :source_10.
 :source_10 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/SHAPES.txt";
+    rml:source "./nmbs-static-data/SHAPES.csv";
     rml:referenceFormulation ql:CSV.
 :map_shapes_0 a rr:TriplesMap;
     rdfs:label "shapes".
@@ -771,7 +771,7 @@
 :pom_73 rr:objectMap :om_74.
 :map_shapePoints_0 rml:logicalSource :source_11.
 :source_11 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/SHAPES.txt";
+    rml:source "./nmbs-static-data/SHAPES.csv";
     rml:referenceFormulation ql:CSV.
 :map_shapePoints_0 a rr:TriplesMap;
     rdfs:label "shapePoints".
@@ -827,7 +827,7 @@
     rr:termType rr:Literal.
 :map_frequencies_0 rml:logicalSource :source_12.
 :source_12 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/FREQUENCIES.txt";
+    rml:source "./nmbs-static-data/FREQUENCIES.csv";
     rml:referenceFormulation ql:CSV.
 :map_frequencies_0 a rr:TriplesMap;
     rdfs:label "frequencies".
@@ -889,7 +889,7 @@
 :pom_84 rr:objectMap :om_85.
 :map_transfers_0 rml:logicalSource :source_13.
 :source_13 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/TRANSFERS.txt";
+    rml:source "./nmbs-static-data/TRANSFERS.csv";
     rml:referenceFormulation ql:CSV.
 :map_transfers_0 a rr:TriplesMap;
     rdfs:label "transfers".
@@ -939,7 +939,7 @@
 
 :map_translation_0 rml:logicalSource :source_14.
 :source_14 a rml:LogicalSource;
-    rml:source "/nmbs-static-data/translation.txt";
+    rml:source "./nmbs-static-data/translation.csv";
     rml:referenceFormulation ql:CSV.
 :map_translation_0 a rr:TriplesMap;
     rdfs:label "translations".

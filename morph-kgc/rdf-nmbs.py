@@ -1,12 +1,15 @@
 import morph_kgc
 config =    """
                 [Datasource1]
-                mappings: ./gtfs-nmbs-csv1.rml.ttl
-                file_path: ./nmbs-static-data/
+                mappings: ./gtfs-nmbs-csv.rml.ttl
+
+                [CONFIGURATION]
+                logging_level: DEBUG
+                logging_file: morph-log.log
             """
 
 # Create a Graph
-g = morph_kgc.materialize(config)
+g = morph_kgc.materialize_oxigraph(config)
 
 
 # Loop through each triple in the graph (subj, pred, obj)
