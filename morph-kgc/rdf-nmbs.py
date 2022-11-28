@@ -9,7 +9,7 @@ config =    """
             """
 
 # Create a Graph
-g = morph_kgc.materialize(config)
+g = morph_kgc.materialize_oxigraph(config)
 
 
 # Loop through each triple in the graph (subj, pred, obj)

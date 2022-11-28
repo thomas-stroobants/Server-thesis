@@ -187,12 +187,12 @@
 :pom_17 rr:predicateMap :pm_17.
 :pm_17 rr:constant gtfs:route.
 :pom_17 rr:objectMap :om_18.
-:pom_18 a rr:PredicateObjectMap.
-:map_trips_0 rr:predicateObjectMap :pom_18.
-:pm_18 a rr:PredicateMap.
-:pom_18 rr:predicateMap :pm_18.
-:pm_18 rr:constant gtfs:shape.
-:pom_18 rr:objectMap :om_19.
+# :pom_18 a rr:PredicateObjectMap.
+# :map_trips_0 rr:predicateObjectMap :pom_18.
+# :pm_18 a rr:PredicateMap.
+# :pom_18 rr:predicateMap :pm_18.
+# :pm_18 rr:constant gtfs:shape.
+# :pom_18 rr:objectMap :om_19.
 :map_routes_0 rml:logicalSource :source_2.
 :source_2 a rml:LogicalSource;
     rml:source "./nmbs-static-data/routes.csv";
@@ -288,7 +288,7 @@
     rdfs:label "agency".
 :s_3 a rr:SubjectMap.
 :map_agency_0 rr:subjectMap :s_3.
-:s_3 rr:template "http://example.com/madrid/agency/{agency_id}".
+:s_3 rr:template "http://example.com/nmbs/agency/{agency_id}".
 :pom_28 a rr:PredicateObjectMap.
 :map_agency_0 rr:predicateObjectMap :pom_28.
 :pm_28 a rr:PredicateMap.
@@ -671,222 +671,222 @@
     rml:reference "end_date";
     rr:termType rr:Literal;
     rr:datatype xsd:date.
-:map_feed_0 rml:logicalSource :source_9.
-:source_9 a rml:LogicalSource;
-    rml:source "./nmbs-static-data/FEED_INFO.csv";
-    rml:referenceFormulation ql:CSV.
-:map_feed_0 a rr:TriplesMap;
-    rdfs:label "feed".
-:s_9 a rr:SubjectMap.
-:map_feed_0 rr:subjectMap :s_9.
-:s_9 rr:template "http://example.com/nmbs/feed/{feed_publisher_name}".
-:pom_65 a rr:PredicateObjectMap.
-:map_feed_0 rr:predicateObjectMap :pom_65.
-:pm_65 a rr:PredicateMap.
-:pom_65 rr:predicateMap :pm_65.
-:pm_65 rr:constant rdf:type.
-:pom_65 rr:objectMap :om_66.
-:om_66 a rr:ObjectMap;
-    rr:constant "http://vocab.gtfs.org/terms#Feed";
-    rr:termType rr:IRI.
-:pom_66 a rr:PredicateObjectMap.
-:map_feed_0 rr:predicateObjectMap :pom_66.
-:pm_66 a rr:PredicateMap.
-:pom_66 rr:predicateMap :pm_66.
-:pm_66 rr:constant dct:publisher.
-:pom_66 rr:objectMap :om_67.
-:om_67 a rr:ObjectMap;
-    rml:reference "feed_publisher_name";
-    rr:termType rr:Literal.
-:pom_67 a rr:PredicateObjectMap.
-:map_feed_0 rr:predicateObjectMap :pom_67.
-:pm_67 a rr:PredicateMap.
-:pom_67 rr:predicateMap :pm_67.
-:pm_67 rr:constant foaf:page.
-:pom_67 rr:objectMap :om_68.
-:om_68 a rr:ObjectMap;
-    rml:reference "feed_publisher_url";
-    rr:termType rr:IRI.
-:pom_68 a rr:PredicateObjectMap.
-:map_feed_0 rr:predicateObjectMap :pom_68.
-:pm_68 a rr:PredicateMap.
-:pom_68 rr:predicateMap :pm_68.
-:pm_68 rr:constant dct:language.
-:pom_68 rr:objectMap :om_69.
-:om_69 a rr:ObjectMap;
-    rml:reference "feed_lang";
-    rr:termType rr:Literal.
-:pom_69 a rr:PredicateObjectMap.
-:map_feed_0 rr:predicateObjectMap :pom_69.
-:pm_69 a rr:PredicateMap.
-:pom_69 rr:predicateMap :pm_69.
-:pm_69 rr:constant schema:startDate.
-:pom_69 rr:objectMap :om_70.
-:om_70 a rr:ObjectMap;
-    rml:reference "feed_start_date";
-    rr:termType rr:Literal;
-    rr:datatype xsd:date.
-:pom_70 a rr:PredicateObjectMap.
-:map_feed_0 rr:predicateObjectMap :pom_70.
-:pm_70 a rr:PredicateMap.
-:pom_70 rr:predicateMap :pm_70.
-:pm_70 rr:constant schema:endDate.
-:pom_70 rr:objectMap :om_71.
-:om_71 a rr:ObjectMap;
-    rml:reference "feed_end_date";
-    rr:termType rr:Literal;
-    rr:datatype xsd:date.
-:pom_71 a rr:PredicateObjectMap.
-:map_feed_0 rr:predicateObjectMap :pom_71.
-:pm_71 a rr:PredicateMap.
-:pom_71 rr:predicateMap :pm_71.
-:pm_71 rr:constant schema:version.
-:pom_71 rr:objectMap :om_72.
-:om_72 a rr:ObjectMap;
-    rml:reference "feed_version";
-    rr:termType rr:Literal.
-:map_shapes_0 rml:logicalSource :source_10.
-:source_10 a rml:LogicalSource;
-    rml:source "./nmbs-static-data/SHAPES.csv";
-    rml:referenceFormulation ql:CSV.
-:map_shapes_0 a rr:TriplesMap;
-    rdfs:label "shapes".
-:s_10 a rr:SubjectMap.
-:map_shapes_0 rr:subjectMap :s_10.
-:s_10 rr:template "http://example.com/nmbs/shape/{shape_id}".
-:pom_72 a rr:PredicateObjectMap.
-:map_shapes_0 rr:predicateObjectMap :pom_72.
-:pm_72 a rr:PredicateMap.
-:pom_72 rr:predicateMap :pm_72.
-:pm_72 rr:constant rdf:type.
-:pom_72 rr:objectMap :om_73.
-:om_73 a rr:ObjectMap;
-    rr:constant "http://vocab.gtfs.org/terms#Shape";
-    rr:termType rr:IRI.
-:pom_73 a rr:PredicateObjectMap.
-:map_shapes_0 rr:predicateObjectMap :pom_73.
-:pm_73 a rr:PredicateMap.
-:pom_73 rr:predicateMap :pm_73.
-:pm_73 rr:constant gtfs:shapePoint.
-:pom_73 rr:objectMap :om_74.
-:map_shapePoints_0 rml:logicalSource :source_11.
-:source_11 a rml:LogicalSource;
-    rml:source "./nmbs-static-data/SHAPES.csv";
-    rml:referenceFormulation ql:CSV.
-:map_shapePoints_0 a rr:TriplesMap;
-    rdfs:label "shapePoints".
-:s_11 a rr:SubjectMap.
-:map_shapePoints_0 rr:subjectMap :s_11.
-:s_11 rr:template "http://example.com/nmbs/shape_point/{shape_id}-{shape_pt_sequence}".
-:pom_74 a rr:PredicateObjectMap.
-:map_shapePoints_0 rr:predicateObjectMap :pom_74.
-:pm_74 a rr:PredicateMap.
-:pom_74 rr:predicateMap :pm_74.
-:pm_74 rr:constant rdf:type.
-:pom_74 rr:objectMap :om_75.
-:om_75 a rr:ObjectMap;
-    rr:constant "http://vocab.gtfs.org/terms#ShapePoint";
-    rr:termType rr:IRI.
-:pom_75 a rr:PredicateObjectMap.
-:map_shapePoints_0 rr:predicateObjectMap :pom_75.
-:pm_75 a rr:PredicateMap.
-:pom_75 rr:predicateMap :pm_75.
-:pm_75 rr:constant geo:lat.
-:pom_75 rr:objectMap :om_76.
-:om_76 a rr:ObjectMap;
-    rml:reference "shape_pt_lat";
-    rr:termType rr:Literal;
-    rr:datatype xsd:double.
-:pom_76 a rr:PredicateObjectMap.
-:map_shapePoints_0 rr:predicateObjectMap :pom_76.
-:pm_76 a rr:PredicateMap.
-:pom_76 rr:predicateMap :pm_76.
-:pm_76 rr:constant geo:long.
-:pom_76 rr:objectMap :om_77.
-:om_77 a rr:ObjectMap;
-    rml:reference "shape_pt_lon";
-    rr:termType rr:Literal;
-    rr:datatype xsd:double.
-:pom_77 a rr:PredicateObjectMap.
-:map_shapePoints_0 rr:predicateObjectMap :pom_77.
-:pm_77 a rr:PredicateMap.
-:pom_77 rr:predicateMap :pm_77.
-:pm_77 rr:constant gtfs:pointSequence.
-:pom_77 rr:objectMap :om_78.
-:om_78 a rr:ObjectMap;
-    rml:reference "shape_pt_sequence";
-    rr:termType rr:Literal.
-:pom_78 a rr:PredicateObjectMap.
-:map_shapePoints_0 rr:predicateObjectMap :pom_78.
-:pm_78 a rr:PredicateMap.
-:pom_78 rr:predicateMap :pm_78.
-:pm_78 rr:constant gtfs:distanceTraveled.
-:pom_78 rr:objectMap :om_79.
-:om_79 a rr:ObjectMap;
-    rml:reference "shape_dist_traveled";
-    rr:termType rr:Literal.
-:map_frequencies_0 rml:logicalSource :source_12.
-:source_12 a rml:LogicalSource;
-    rml:source "./nmbs-static-data/FREQUENCIES.csv";
-    rml:referenceFormulation ql:CSV.
-:map_frequencies_0 a rr:TriplesMap;
-    rdfs:label "frequencies".
-:s_12 a rr:SubjectMap.
-:map_frequencies_0 rr:subjectMap :s_12.
-:s_12 rr:template "http://example.com/nmbs/frequency/{trip_id}-{start_time}".
-:pom_79 a rr:PredicateObjectMap.
-:map_frequencies_0 rr:predicateObjectMap :pom_79.
-:pm_79 a rr:PredicateMap.
-:pom_79 rr:predicateMap :pm_79.
-:pm_79 rr:constant rdf:type.
-:pom_79 rr:objectMap :om_80.
-:om_80 a rr:ObjectMap;
-    rr:constant "http://vocab.gtfs.org/terms#Frequency";
-    rr:termType rr:IRI.
-:pom_80 a rr:PredicateObjectMap.
-:map_frequencies_0 rr:predicateObjectMap :pom_80.
-:pm_80 a rr:PredicateMap.
-:pom_80 rr:predicateMap :pm_80.
-:pm_80 rr:constant gtfs:startTime.
-:pom_80 rr:objectMap :om_81.
-:om_81 a rr:ObjectMap;
-    rml:reference "start_time";
-    rr:termType rr:Literal.
-:pom_81 a rr:PredicateObjectMap.
-:map_frequencies_0 rr:predicateObjectMap :pom_81.
-:pm_81 a rr:PredicateMap.
-:pom_81 rr:predicateMap :pm_81.
-:pm_81 rr:constant gtfs:endTime.
-:pom_81 rr:objectMap :om_82.
-:om_82 a rr:ObjectMap;
-    rml:reference "end_time";
-    rr:termType rr:Literal.
-:pom_82 a rr:PredicateObjectMap.
-:map_frequencies_0 rr:predicateObjectMap :pom_82.
-:pm_82 a rr:PredicateMap.
-:pom_82 rr:predicateMap :pm_82.
-:pm_82 rr:constant gtfs:headwaySeconds.
-:pom_82 rr:objectMap :om_83.
-:om_83 a rr:ObjectMap;
-    rml:reference "headway_secs";
-    rr:termType rr:Literal;
-    rr:datatype xsd:integer.
-:pom_83 a rr:PredicateObjectMap.
-:map_frequencies_0 rr:predicateObjectMap :pom_83.
-:pm_83 a rr:PredicateMap.
-:pom_83 rr:predicateMap :pm_83.
-:pm_83 rr:constant gtfs:exactTimes.
-:pom_83 rr:objectMap :om_84.
-:om_84 a rr:ObjectMap;
-    rml:reference "exact_times";
-    rr:termType rr:Literal;
-    rr:datatype xsd:boolean.
-:pom_84 a rr:PredicateObjectMap.
-:map_frequencies_0 rr:predicateObjectMap :pom_84.
-:pm_84 a rr:PredicateMap.
-:pom_84 rr:predicateMap :pm_84.
-:pm_84 rr:constant gtfs:trip.
-:pom_84 rr:objectMap :om_85.
+# :map_feed_0 rml:logicalSource :source_9.
+# :source_9 a rml:LogicalSource;
+#     rml:source "./nmbs-static-data/FEED_INFO.csv";
+#     rml:referenceFormulation ql:CSV.
+# :map_feed_0 a rr:TriplesMap;
+#     rdfs:label "feed".
+# :s_9 a rr:SubjectMap.
+# :map_feed_0 rr:subjectMap :s_9.
+# :s_9 rr:template "http://example.com/nmbs/feed/{feed_publisher_name}".
+# :pom_65 a rr:PredicateObjectMap.
+# :map_feed_0 rr:predicateObjectMap :pom_65.
+# :pm_65 a rr:PredicateMap.
+# :pom_65 rr:predicateMap :pm_65.
+# :pm_65 rr:constant rdf:type.
+# :pom_65 rr:objectMap :om_66.
+# :om_66 a rr:ObjectMap;
+#     rr:constant "http://vocab.gtfs.org/terms#Feed";
+#     rr:termType rr:IRI.
+# :pom_66 a rr:PredicateObjectMap.
+# :map_feed_0 rr:predicateObjectMap :pom_66.
+# :pm_66 a rr:PredicateMap.
+# :pom_66 rr:predicateMap :pm_66.
+# :pm_66 rr:constant dct:publisher.
+# :pom_66 rr:objectMap :om_67.
+# :om_67 a rr:ObjectMap;
+#     rml:reference "feed_publisher_name";
+#     rr:termType rr:Literal.
+# :pom_67 a rr:PredicateObjectMap.
+# :map_feed_0 rr:predicateObjectMap :pom_67.
+# :pm_67 a rr:PredicateMap.
+# :pom_67 rr:predicateMap :pm_67.
+# :pm_67 rr:constant foaf:page.
+# :pom_67 rr:objectMap :om_68.
+# :om_68 a rr:ObjectMap;
+#     rml:reference "feed_publisher_url";
+#     rr:termType rr:IRI.
+# :pom_68 a rr:PredicateObjectMap.
+# :map_feed_0 rr:predicateObjectMap :pom_68.
+# :pm_68 a rr:PredicateMap.
+# :pom_68 rr:predicateMap :pm_68.
+# :pm_68 rr:constant dct:language.
+# :pom_68 rr:objectMap :om_69.
+# :om_69 a rr:ObjectMap;
+#     rml:reference "feed_lang";
+#     rr:termType rr:Literal.
+# :pom_69 a rr:PredicateObjectMap.
+# :map_feed_0 rr:predicateObjectMap :pom_69.
+# :pm_69 a rr:PredicateMap.
+# :pom_69 rr:predicateMap :pm_69.
+# :pm_69 rr:constant schema:startDate.
+# :pom_69 rr:objectMap :om_70.
+# :om_70 a rr:ObjectMap;
+#     rml:reference "feed_start_date";
+#     rr:termType rr:Literal;
+#     rr:datatype xsd:date.
+# :pom_70 a rr:PredicateObjectMap.
+# :map_feed_0 rr:predicateObjectMap :pom_70.
+# :pm_70 a rr:PredicateMap.
+# :pom_70 rr:predicateMap :pm_70.
+# :pm_70 rr:constant schema:endDate.
+# :pom_70 rr:objectMap :om_71.
+# :om_71 a rr:ObjectMap;
+#     rml:reference "feed_end_date";
+#     rr:termType rr:Literal;
+#     rr:datatype xsd:date.
+# :pom_71 a rr:PredicateObjectMap.
+# :map_feed_0 rr:predicateObjectMap :pom_71.
+# :pm_71 a rr:PredicateMap.
+# :pom_71 rr:predicateMap :pm_71.
+# :pm_71 rr:constant schema:version.
+# :pom_71 rr:objectMap :om_72.
+# :om_72 a rr:ObjectMap;
+#     rml:reference "feed_version";
+#     rr:termType rr:Literal.
+# :map_shapes_0 rml:logicalSource :source_10.
+# :source_10 a rml:LogicalSource;
+#     rml:source "./nmbs-static-data/SHAPES.csv";
+#     rml:referenceFormulation ql:CSV.
+# :map_shapes_0 a rr:TriplesMap;
+#     rdfs:label "shapes".
+# :s_10 a rr:SubjectMap.
+# :map_shapes_0 rr:subjectMap :s_10.
+# :s_10 rr:template "http://example.com/nmbs/shape/{shape_id}".
+# :pom_72 a rr:PredicateObjectMap.
+# :map_shapes_0 rr:predicateObjectMap :pom_72.
+# :pm_72 a rr:PredicateMap.
+# :pom_72 rr:predicateMap :pm_72.
+# :pm_72 rr:constant rdf:type.
+# :pom_72 rr:objectMap :om_73.
+# :om_73 a rr:ObjectMap;
+#     rr:constant "http://vocab.gtfs.org/terms#Shape";
+#     rr:termType rr:IRI.
+# :pom_73 a rr:PredicateObjectMap.
+# :map_shapes_0 rr:predicateObjectMap :pom_73.
+# :pm_73 a rr:PredicateMap.
+# :pom_73 rr:predicateMap :pm_73.
+# :pm_73 rr:constant gtfs:shapePoint.
+# :pom_73 rr:objectMap :om_74.
+# :map_shapePoints_0 rml:logicalSource :source_11.
+# :source_11 a rml:LogicalSource;
+#     rml:source "./nmbs-static-data/SHAPES.csv";
+#     rml:referenceFormulation ql:CSV.
+# :map_shapePoints_0 a rr:TriplesMap;
+#     rdfs:label "shapePoints".
+# :s_11 a rr:SubjectMap.
+# :map_shapePoints_0 rr:subjectMap :s_11.
+# :s_11 rr:template "http://example.com/nmbs/shape_point/{shape_id}-{shape_pt_sequence}".
+# :pom_74 a rr:PredicateObjectMap.
+# :map_shapePoints_0 rr:predicateObjectMap :pom_74.
+# :pm_74 a rr:PredicateMap.
+# :pom_74 rr:predicateMap :pm_74.
+# :pm_74 rr:constant rdf:type.
+# :pom_74 rr:objectMap :om_75.
+# :om_75 a rr:ObjectMap;
+#     rr:constant "http://vocab.gtfs.org/terms#ShapePoint";
+#     rr:termType rr:IRI.
+# :pom_75 a rr:PredicateObjectMap.
+# :map_shapePoints_0 rr:predicateObjectMap :pom_75.
+# :pm_75 a rr:PredicateMap.
+# :pom_75 rr:predicateMap :pm_75.
+# :pm_75 rr:constant geo:lat.
+# :pom_75 rr:objectMap :om_76.
+# :om_76 a rr:ObjectMap;
+#     rml:reference "shape_pt_lat";
+#     rr:termType rr:Literal;
+#     rr:datatype xsd:double.
+# :pom_76 a rr:PredicateObjectMap.
+# :map_shapePoints_0 rr:predicateObjectMap :pom_76.
+# :pm_76 a rr:PredicateMap.
+# :pom_76 rr:predicateMap :pm_76.
+# :pm_76 rr:constant geo:long.
+# :pom_76 rr:objectMap :om_77.
+# :om_77 a rr:ObjectMap;
+#     rml:reference "shape_pt_lon";
+#     rr:termType rr:Literal;
+#     rr:datatype xsd:double.
+# :pom_77 a rr:PredicateObjectMap.
+# :map_shapePoints_0 rr:predicateObjectMap :pom_77.
+# :pm_77 a rr:PredicateMap.
+# :pom_77 rr:predicateMap :pm_77.
+# :pm_77 rr:constant gtfs:pointSequence.
+# :pom_77 rr:objectMap :om_78.
+# :om_78 a rr:ObjectMap;
+#     rml:reference "shape_pt_sequence";
+#     rr:termType rr:Literal.
+# :pom_78 a rr:PredicateObjectMap.
+# :map_shapePoints_0 rr:predicateObjectMap :pom_78.
+# :pm_78 a rr:PredicateMap.
+# :pom_78 rr:predicateMap :pm_78.
+# :pm_78 rr:constant gtfs:distanceTraveled.
+# :pom_78 rr:objectMap :om_79.
+# :om_79 a rr:ObjectMap;
+#     rml:reference "shape_dist_traveled";
+#     rr:termType rr:Literal.
+# :map_frequencies_0 rml:logicalSource :source_12.
+# :source_12 a rml:LogicalSource;
+#     rml:source "./nmbs-static-data/FREQUENCIES.csv";
+#     rml:referenceFormulation ql:CSV.
+# :map_frequencies_0 a rr:TriplesMap;
+#     rdfs:label "frequencies".
+# :s_12 a rr:SubjectMap.
+# :map_frequencies_0 rr:subjectMap :s_12.
+# :s_12 rr:template "http://example.com/nmbs/frequency/{trip_id}-{start_time}".
+# :pom_79 a rr:PredicateObjectMap.
+# :map_frequencies_0 rr:predicateObjectMap :pom_79.
+# :pm_79 a rr:PredicateMap.
+# :pom_79 rr:predicateMap :pm_79.
+# :pm_79 rr:constant rdf:type.
+# :pom_79 rr:objectMap :om_80.
+# :om_80 a rr:ObjectMap;
+#     rr:constant "http://vocab.gtfs.org/terms#Frequency";
+#     rr:termType rr:IRI.
+# :pom_80 a rr:PredicateObjectMap.
+# :map_frequencies_0 rr:predicateObjectMap :pom_80.
+# :pm_80 a rr:PredicateMap.
+# :pom_80 rr:predicateMap :pm_80.
+# :pm_80 rr:constant gtfs:startTime.
+# :pom_80 rr:objectMap :om_81.
+# :om_81 a rr:ObjectMap;
+#     rml:reference "start_time";
+#     rr:termType rr:Literal.
+# :pom_81 a rr:PredicateObjectMap.
+# :map_frequencies_0 rr:predicateObjectMap :pom_81.
+# :pm_81 a rr:PredicateMap.
+# :pom_81 rr:predicateMap :pm_81.
+# :pm_81 rr:constant gtfs:endTime.
+# :pom_81 rr:objectMap :om_82.
+# :om_82 a rr:ObjectMap;
+#     rml:reference "end_time";
+#     rr:termType rr:Literal.
+# :pom_82 a rr:PredicateObjectMap.
+# :map_frequencies_0 rr:predicateObjectMap :pom_82.
+# :pm_82 a rr:PredicateMap.
+# :pom_82 rr:predicateMap :pm_82.
+# :pm_82 rr:constant gtfs:headwaySeconds.
+# :pom_82 rr:objectMap :om_83.
+# :om_83 a rr:ObjectMap;
+#     rml:reference "headway_secs";
+#     rr:termType rr:Literal;
+#     rr:datatype xsd:integer.
+# :pom_83 a rr:PredicateObjectMap.
+# :map_frequencies_0 rr:predicateObjectMap :pom_83.
+# :pm_83 a rr:PredicateMap.
+# :pom_83 rr:predicateMap :pm_83.
+# :pm_83 rr:constant gtfs:exactTimes.
+# :pom_83 rr:objectMap :om_84.
+# :om_84 a rr:ObjectMap;
+#     rml:reference "exact_times";
+#     rr:termType rr:Literal;
+#     rr:datatype xsd:boolean.
+# :pom_84 a rr:PredicateObjectMap.
+# :map_frequencies_0 rr:predicateObjectMap :pom_84.
+# :pm_84 a rr:PredicateMap.
+# :pom_84 rr:predicateMap :pm_84.
+# :pm_84 rr:constant gtfs:trip.
+# :pom_84 rr:objectMap :om_85.
 :map_transfers_0 rml:logicalSource :source_13.
 :source_13 a rml:LogicalSource;
     rml:source "./nmbs-static-data/transfers.csv";
@@ -939,7 +939,7 @@
 
 :map_translation_0 rml:logicalSource :source_14.
 :source_14 a rml:LogicalSource;
-    rml:source "./nmbs-static-data/translation.csv";
+    rml:source "./nmbs-static-data/translations.csv";
     rml:referenceFormulation ql:CSV.
 :map_translation_0 a rr:TriplesMap;
     rdfs:label "translations".
@@ -996,11 +996,11 @@
     rr:joinCondition :jc_4.
 :jc_4 rr:child "route_id";
     rr:parent "route_id".
-:om_19 a rr:ObjectMap;
-    rr:parentTriplesMap :map_shapes_0;
-    rr:joinCondition :jc_5.
-:jc_5 rr:child "shape_id";
-    rr:parent "shape_id".
+# :om_19 a rr:ObjectMap;
+#     rr:parentTriplesMap :map_shapes_0;
+#     rr:joinCondition :jc_5.
+# :jc_5 rr:child "shape_id";
+#     rr:parent "shape_id".
 :om_28 a rr:ObjectMap;
     rr:parentTriplesMap :map_agency_0;
     rr:joinCondition :jc_6.
@@ -1021,11 +1021,11 @@
     rr:joinCondition :jc_9.
 :jc_9 rr:child "service_id";
     rr:parent "service_id".
-:om_74 a rr:ObjectMap;
-    rr:parentTriplesMap :map_shapePoints_0;
-    rr:joinCondition :jc_10.
-:jc_10 rr:child "shape_id";
-    rr:parent "shape_id".
+# :om_74 a rr:ObjectMap;
+#     rr:parentTriplesMap :map_shapePoints_0;
+#     rr:joinCondition :jc_10.
+# :jc_10 rr:child "shape_id";
+#     rr:parent "shape_id".
 :om_85 a rr:ObjectMap;
     rr:parentTriplesMap :map_trips_0;
     rr:joinCondition :jc_11.
