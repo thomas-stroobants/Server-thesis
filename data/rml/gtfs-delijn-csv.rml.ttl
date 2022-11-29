@@ -863,42 +863,42 @@ map:s_009 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/de-lijn/shape_point/{shape_id}-{shape_pt_sequence}" .
 
 map:source_000 rml:referenceFormulation ql:CSV ;
-	rml:source "./de-lijn-gtfs/stop_times.csv" ;
+	rml:source "../de-lijn-gtfs/stop_times.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_001 rml:referenceFormulation ql:CSV ;
-	rml:source "./de-lijn-gtfs/trips.csv" ;
+	rml:source "../de-lijn-gtfs/trips.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_002 rml:referenceFormulation ql:CSV ;
-	rml:source "./de-lijn-gtfs/routes.csv" ;
+	rml:source "../de-lijn-gtfs/routes.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_003 rml:referenceFormulation ql:CSV ;
-	rml:source "./de-lijn-gtfs/agency.csv" ;
+	rml:source "../de-lijn-gtfs/agency.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_004 rml:referenceFormulation ql:CSV ;
-	rml:source "./de-lijn-gtfs/stops.csv" ;
+	rml:source "../de-lijn-gtfs/stops.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_005 rml:referenceFormulation ql:CSV ;
-	rml:source "./de-lijn-gtfs/calendar_dates.csv" ;
+	rml:source "../de-lijn-gtfs/calendar_dates.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_006 rml:referenceFormulation ql:CSV ;
-	rml:source "./de-lijn-gtfs/calendar_dates.csv" ;
+	rml:source "../de-lijn-gtfs/calendar_dates.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_007 rml:referenceFormulation ql:CSV ;
-	rml:source "./de-lijn-gtfs/feed_info.csv" ;
+	rml:source "../de-lijn-gtfs/feed_info.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_008 rml:referenceFormulation ql:CSV ;
-	rml:source "./de-lijn-gtfs/shapes.csv" ;
+	rml:source "../de-lijn-gtfs/shapes.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_009 rml:referenceFormulation ql:CSV ;
-	rml:source "./de-lijn-gtfs/shapes.csv" ;
+	rml:source "../de-lijn-gtfs/shapes.csv" ;
 	rdf:type rml:LogicalSource .
 
