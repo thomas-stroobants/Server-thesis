@@ -55,12 +55,6 @@ mappings:
       - [gtfs:block, $(block_id)]
       - p: gtfs:service
         o:
-          # - mapping: services1
-          #   condition:
-          #     function: equal
-          #     parameters:
-          #       - [str1, $(service_id)]
-          #       - [str2, $(service_id)]
           - mapping: services2
             condition:
               function: equal
@@ -188,3 +182,28 @@ mappings:
       - [schema:endDate,$(feed_end_date), xsd:date]
       - [schema:version,$(feed_version)]  
       - [schema:email,$(feed_contact_email)] #email
+
+  shapes:
+    sources:
+      - [./de-lijn-gtfs/shapes.csv~csv]
+    s: http://example.com/de-lijn/shape/$(shape_id)
+    po:
+      - [a, gtfs:Shape]
+      - p: gtfs:shapePoint
+        o:
+          - mapping: shapePoints
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(shape_id)]
+                - [str2, $(shape_id)]
+  shapePoints:
+    sources:
+      - [./de-lijn-gtfs/shapes.csv~csv]
+    s: http://example.com/de-lijn/shape_point/$(shape_id)-$(shape_pt_sequence)
+    po:
+      - [a, gtfs:ShapePoint]
+      - [geo:lat,$(shape_pt_lat),xsd:double]
+      - [geo:long,$(shape_pt_lon),xsd:double]
+      - [gtfs:pointSequence,$(shape_pt_sequence)]
+      - [gtfs:distanceTraveled,$(shape_dist_traveled)]  
