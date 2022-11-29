@@ -53,7 +53,6 @@ mappings:
       - [gtfs:shortName, $(trip_short_name)]
       - [gtfs:direction, $(direction_id)]
       - [gtfs:block, $(block_id)]
-      - [gtfs:wheelchairAccessible,http://example.com/nmbs/resource/WheelchairBoardingStatus/$(wheelchair_accessible)~iri]
       - p: gtfs:service
         o:
           - mapping: services1
@@ -124,8 +123,7 @@ mappings:
       - [gtfs:zone,$(zone_id)]
       - [foaf:page,$(stop_url)~iri]
       - [gtfs:locationType,http://example.com/nmbs/resource/LocationType/$(location_type)~iri]
-      - [gtfs:timeZone,$(stop_timezone)]
-      - [gtfs:wheelchairAccessible,http://example.com/nmbs/resource/WheelchairBoardingStatus/$(wheelchair_boarding)~iri]
+      - [dct:identifier,$(platform_code)]
       - p: gtfs:parentStation
         o:
           - mapping: stops
@@ -185,4 +183,20 @@ mappings:
       - [gtfs:sunday, $(sunday), xsd:boolean]
       - [schema:startDate, $(start_date), xsd:date]
       - [schema:endDate, $(end_date), xsd:date]
-  
+  translations:
+    sources:
+      - [./translations.txt~csv]
+    s: http://example.com/nmbs/translations/$(trans_id)
+    po:
+      - [a, gtfs:Route]
+      - [dct:language, $(lang)]
+      - [gtfs:headsign, $(translation)]
+
+      - p: gtfs:headsign
+        o:
+          - mapping: agency
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(trans_id)]
+                - [str2, $(trip_headsign)]
