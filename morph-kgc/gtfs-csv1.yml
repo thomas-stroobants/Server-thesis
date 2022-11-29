@@ -200,3 +200,21 @@ mappings:
               parameters:
                 - [str1, $(trans_id)]
                 - [str2, $(trip_headsign)]
+  transfers:
+    sources:
+      - [./transfers.txt~csv]
+    s: http://example.com/nmbs/transfers/$(from_stop_id)_$(to_stop_id)
+    po:
+      - [a, gtfs:TransferRule]
+      - [gtfs:originStop, $(from_stop_id)]
+      - [gtfs:destinationStop, $(to_stop_id)]
+      - [gtfs:transferType, $(transfer_type)]
+
+      # - p: dct:identifier
+      #   o:
+      #     - mapping: stops
+      #       condition:
+      #         function: equal
+      #         parameters:
+      #           - [str1, $(parent_station)]
+      #           - [str2, $(stop_id)]
