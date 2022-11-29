@@ -952,7 +952,7 @@ map:s_007 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/mivb/calendar_date_rule/{service_id}-{date}" .
 
 map:s_008 rdf:type rr:SubjectMap ;
-	rr:template "http://example.com/nmbs/calendar_rules/{service_id}" .
+	rr:template "http://example.com/mivb/calendar_rules/{service_id}" .
 
 map:s_009 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/mivb/shape/{shape_id}" .
@@ -996,7 +996,7 @@ map:source_007 rml:referenceFormulation ql:CSV ;
 	rdf:type rml:LogicalSource .
 
 map:source_008 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-static-data/calendar.csv" ;
+	rml:source "./data/mivb-gtfs/calendar.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_009 rml:referenceFormulation ql:CSV ;

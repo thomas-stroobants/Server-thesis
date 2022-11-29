@@ -1,0 +1,3672 @@
+{
+  "header": {
+    "gtfsRealtimeVersion": "1.0",
+    "incrementality": "FULL_DATASET",
+    "timestamp": "1669755810"
+  },
+  "entity": [
+    {
+      "id": "88____:007::8896008:8894508:35:2236:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8896008:8894508:35:2236:20221209",
+          "startTime": "19:38:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669747680"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669747860"
+            },
+            "stopId": "8885704"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669748040"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669748100"
+            },
+            "stopId": "8885753"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669748820"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669748940"
+            },
+            "stopId": "8885001"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669749660"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669749840"
+            },
+            "stopId": "8886348"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669750260"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669750440"
+            },
+            "stopId": "8886009"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751400"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669751520"
+            },
+            "stopId": "8883311"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752120"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669752300"
+            },
+            "stopId": "8814308"
+          },
+          {
+            "arrival": {
+              "delay": 180,
+              "time": "1669752420"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669752420"
+            },
+            "stopId": "8814340"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669752960"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753080"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753200"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753200"
+            },
+            "stopId": "8813037"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753260"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669753320"
+            },
+            "stopId": "8813003"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669754100"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754220"
+            },
+            "stopId": "8812047"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754400"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754400"
+            },
+            "stopId": "8812062"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755360"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755960"
+            },
+            "stopId": "8893401"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8872009:8821402:47:2213:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8872009:8821402:47:2213:20221209",
+          "startTime": "19:54:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669748100"
+            },
+            "stopId": "8872009"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669748340"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669748460"
+            },
+            "stopId": "8871100"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669749000"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669749120"
+            },
+            "stopId": "8871308"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669750140"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669750320"
+            },
+            "stopId": "8814258"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751100"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669751400"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751580"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669751760"
+            },
+            "stopId": "8813003"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669751940"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669752180"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752960"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669753140"
+            },
+            "stopId": "8822004"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753800"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753920"
+            },
+            "stopId": "8821121"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754160"
+            },
+            "departure": {
+              "delay": 1020,
+              "time": "1669755240"
+            },
+            "stopId": "8821006"
+          },
+          {
+            "arrival": {
+              "delay": 1020,
+              "time": "1669755540"
+            },
+            "departure": {
+              "delay": 960,
+              "time": "1669755540"
+            },
+            "stopId": "8821063"
+          },
+          {
+            "arrival": {
+              "delay": 1080,
+              "time": "1669755780"
+            },
+            "departure": {
+              "delay": 1140,
+              "time": "1669755840"
+            },
+            "stopId": "8821089"
+          },
+          {
+            "arrival": {
+              "delay": 1080,
+              "time": "1669755960"
+            },
+            "departure": {
+              "delay": 1080,
+              "time": "1669756020"
+            },
+            "stopId": "8821071"
+          },
+          {
+            "arrival": {
+              "delay": 1080,
+              "time": "1669756080"
+            },
+            "departure": {
+              "delay": 1140,
+              "time": "1669756140"
+            },
+            "stopId": "8821543"
+          },
+          {
+            "arrival": {
+              "delay": 1080,
+              "time": "1669756320"
+            },
+            "departure": {
+              "delay": 1080,
+              "time": "1669756380"
+            },
+            "stopId": "8821535"
+          },
+          {
+            "arrival": {
+              "delay": 1140,
+              "time": "1669756740"
+            },
+            "departure": {
+              "delay": 1140,
+              "time": "1669756800"
+            },
+            "stopId": "8821519"
+          },
+          {
+            "arrival": {
+              "delay": 1080,
+              "time": "1669756920"
+            },
+            "departure": {
+              "delay": 1140,
+              "time": "1669756980"
+            },
+            "stopId": "8821451"
+          },
+          {
+            "arrival": {
+              "delay": 1200,
+              "time": "1669757100"
+            },
+            "departure": {
+              "delay": 1200,
+              "time": "1669757160"
+            },
+            "stopId": "8821444"
+          },
+          {
+            "arrival": {
+              "delay": 1200,
+              "time": "1669757340"
+            },
+            "departure": {
+              "delay": 1260,
+              "time": "1669757400"
+            },
+            "stopId": "8821436"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8831765:8891009:37:2250:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8831765:8891009:37:2250:20221209",
+          "startTime": "20:03:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 180,
+              "time": "1669748760"
+            },
+            "stopId": "8831765"
+          },
+          {
+            "arrival": {
+              "delay": 180,
+              "time": "1669749120"
+            },
+            "departure": {
+              "delay": 240,
+              "time": "1669749240"
+            },
+            "stopId": "8831781"
+          },
+          {
+            "arrival": {
+              "delay": 240,
+              "time": "1669749480"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669749480"
+            },
+            "stopId": "8832375"
+          },
+          {
+            "arrival": {
+              "delay": 240,
+              "time": "1669749900"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669750200"
+            },
+            "stopId": "8831005"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669750560"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669750620"
+            },
+            "stopId": "8831039"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751100"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669751220"
+            },
+            "stopId": "8831807"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669751760"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669751880"
+            },
+            "stopId": "8833605"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669752120"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669752120"
+            },
+            "stopId": "8833670"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752420"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669752540"
+            },
+            "stopId": "8833308"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669752840"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669752840"
+            },
+            "stopId": "8833050"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753200"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669753380"
+            },
+            "stopId": "8833001"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669753560"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669753560"
+            },
+            "stopId": "8811288"
+          },
+          {
+            "arrival": {
+              "delay": 180,
+              "time": "1669754460"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669754580"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669754760"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669754880"
+            },
+            "stopId": "8813003"
+          },
+          {
+            "arrival": {
+              "delay": 180,
+              "time": "1669755000"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669755000"
+            },
+            "stopId": "8813037"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669755060"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669755240"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755480"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755480"
+            },
+            "stopId": "8811940"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:070::8821006:8814209:31:2205:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:070::8821006:8814209:31:2205:20231208",
+          "startTime": "20:05:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669749180"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669749240"
+            },
+            "stopId": "8821147"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669749660"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669749720"
+            },
+            "stopId": "8821337"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669749840"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669749960"
+            },
+            "stopId": "8821311"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669750200"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669750260"
+            },
+            "stopId": "8822210"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669750440"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669750440"
+            },
+            "stopId": "8822228"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669750680"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669750800"
+            },
+            "stopId": "8822343"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669751040"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669751220"
+            },
+            "stopId": "8822004"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751580"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669751580"
+            },
+            "stopId": "8822251"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751760"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669751820"
+            },
+            "stopId": "8822269"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752240"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669752240"
+            },
+            "stopId": "8811148"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752420"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669752480"
+            },
+            "stopId": "8811007"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752720"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669752780"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752900"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669752900"
+            },
+            "stopId": "8813045"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752960"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753080"
+            },
+            "stopId": "8813003"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753140"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753140"
+            },
+            "stopId": "8813037"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753260"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669753500"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753860"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753920"
+            },
+            "stopId": "8814126"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754220"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754280"
+            },
+            "stopId": "8814142"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754400"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669754520"
+            },
+            "stopId": "8814159"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669754640"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669754700"
+            },
+            "stopId": "8814167"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669754820"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669754880"
+            },
+            "stopId": "8814175"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669755000"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669755060"
+            },
+            "stopId": "8814266"
+          },
+          {
+            "arrival": {
+              "delay": 180,
+              "time": "1669755300"
+            },
+            "departure": {
+              "delay": 240,
+              "time": "1669755420"
+            },
+            "stopId": "8814258"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669755600"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669755660"
+            },
+            "stopId": "8814241"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755960"
+            },
+            "stopId": "8814209"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8844628:8891702:41:2216:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8844628:8891702:41:2216:20221209",
+          "startTime": "20:07:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 2040,
+              "time": "1669750860"
+            },
+            "stopId": "8841202"
+          },
+          {
+            "arrival": {
+              "delay": 660,
+              "time": "1669750920"
+            },
+            "departure": {
+              "delay": 660,
+              "time": "1669751100"
+            },
+            "stopId": "8833001"
+          },
+          {
+            "arrival": {
+              "delay": 480,
+              "time": "1669752060"
+            },
+            "departure": {
+              "delay": 480,
+              "time": "1669752180"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 420,
+              "time": "1669752360"
+            },
+            "departure": {
+              "delay": 420,
+              "time": "1669752420"
+            },
+            "stopId": "8813003"
+          },
+          {
+            "arrival": {
+              "delay": 420,
+              "time": "1669752660"
+            },
+            "departure": {
+              "delay": 300,
+              "time": "1669752780"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669754280"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754400"
+            },
+            "stopId": "8892007"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755660"
+            },
+            "departure": {
+              "delay": 480,
+              "time": "1669756260"
+            },
+            "stopId": "8891009"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669756620"
+            },
+            "stopId": "8891702"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8844628:8891702:41:2316:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8844628:8891702:41:2316:20221209",
+          "startTime": "20:17:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 720,
+              "time": "1669750140"
+            },
+            "stopId": "8844628"
+          },
+          {
+            "arrival": {
+              "delay": 720,
+              "time": "1669750620"
+            },
+            "departure": {
+              "delay": 780,
+              "time": "1669750740"
+            },
+            "stopId": "8844503"
+          },
+          {
+            "arrival": {
+              "delay": 780,
+              "time": "1669751040"
+            },
+            "departure": {
+              "delay": 780,
+              "time": "1669751040"
+            },
+            "stopId": "8844545"
+          },
+          {
+            "arrival": {
+              "delay": 660,
+              "time": "1669751220"
+            },
+            "departure": {
+              "delay": 660,
+              "time": "1669751220"
+            },
+            "stopId": "8844057"
+          },
+          {
+            "arrival": {
+              "delay": 720,
+              "time": "1669751340"
+            },
+            "departure": {
+              "delay": 720,
+              "time": "1669751400"
+            },
+            "stopId": "8844008"
+          },
+          {
+            "arrival": {
+              "delay": 660,
+              "time": "1669752420"
+            },
+            "departure": {
+              "delay": 540,
+              "time": "1669752600"
+            },
+            "stopId": "8841004"
+          },
+          {
+            "arrival": {
+              "delay": 480,
+              "time": "1669752900"
+            },
+            "departure": {
+              "delay": 480,
+              "time": "1669752900"
+            },
+            "stopId": "8841202"
+          },
+          {
+            "arrival": {
+              "delay": 360,
+              "time": "1669754220"
+            },
+            "departure": {
+              "delay": 360,
+              "time": "1669754400"
+            },
+            "stopId": "8833001"
+          },
+          {
+            "arrival": {
+              "delay": 300,
+              "time": "1669755480"
+            },
+            "departure": {
+              "delay": 300,
+              "time": "1669755600"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 180,
+              "time": "1669756020"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669756140"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669756440"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669756440"
+            },
+            "stopId": "8811940"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669757760"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669757940"
+            },
+            "stopId": "8892007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "84____:007::8400058:8821105:5:2200:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "84____:007::8400058:8821105:5:2200:20221209",
+          "startTime": "20:28:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 720,
+              "time": "1669756320"
+            },
+            "stopId": "8821105"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:046::8822004:8891009:25:2227:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:046::8822004:8891009:25:2227:20231208",
+          "startTime": "20:31:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669750320"
+            },
+            "stopId": "8822004"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669750800"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669750800"
+            },
+            "stopId": "8822053"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751460"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669751460"
+            },
+            "stopId": "8822145"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751700"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669751760"
+            },
+            "stopId": "8822160"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751940"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669752120"
+            },
+            "stopId": "8893401"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755000"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669755060"
+            },
+            "stopId": "8892031"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755300"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755300"
+            },
+            "stopId": "8892056"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755540"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755540"
+            },
+            "stopId": "8891165"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8821006:8896735:27:2253:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8821006:8896735:27:2253:20221209",
+          "startTime": "20:37:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669750860"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669751040"
+            },
+            "stopId": "8821121"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752660"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669752720"
+            },
+            "stopId": "8894201"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753440"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753560"
+            },
+            "stopId": "8893120"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669754100"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754220"
+            },
+            "stopId": "8892007"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755120"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669755240"
+            },
+            "stopId": "8896149"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669755780"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669756200"
+            },
+            "stopId": "8896008"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669756560"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669756620"
+            },
+            "stopId": "8896388"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669758840"
+            },
+            "stopId": "8896735"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:071::8833001:8883006:24:2211:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:071::8833001:8883006:24:2211:20231208",
+          "startTime": "20:41:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669750920"
+            },
+            "stopId": "8833001"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751160"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669751220"
+            },
+            "stopId": "8811288"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669751940"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669752000"
+            },
+            "stopId": "8811254"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752120"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669752180"
+            },
+            "stopId": "8811247"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752300"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669752360"
+            },
+            "stopId": "8811221"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752660"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669752720"
+            },
+            "stopId": "8811130"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752960"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753020"
+            },
+            "stopId": "8811007"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753200"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669753380"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753560"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753680"
+            },
+            "stopId": "8813003"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753740"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753740"
+            },
+            "stopId": "8813037"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753860"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669754040"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754880"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754940"
+            },
+            "stopId": "8814340"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755060"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755180"
+            },
+            "stopId": "8814308"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755360"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669755420"
+            },
+            "stopId": "8814332"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755540"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755600"
+            },
+            "stopId": "8883808"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8891702:8844503:40:2333:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8891702:8844503:40:2333:20221209",
+          "startTime": "20:43:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669751040"
+            },
+            "stopId": "8891702"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751760"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669751880"
+            },
+            "stopId": "8891009"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8821402:8814001:30:2211:20221129",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8821402:8814001:30:2211:20221129",
+          "startTime": "20:45:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 180,
+              "time": "1669751280"
+            },
+            "stopId": "8821402"
+          },
+          {
+            "arrival": {
+              "delay": 180,
+              "time": "1669751520"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669751520"
+            },
+            "stopId": "8821436"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669751640"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669751700"
+            },
+            "stopId": "8821444"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669751940"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669751940"
+            },
+            "stopId": "8821519"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752360"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669752420"
+            },
+            "stopId": "8821535"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752600"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669752660"
+            },
+            "stopId": "8821071"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753320"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753560"
+            },
+            "stopId": "8821006"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753980"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753980"
+            },
+            "stopId": "8821154"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669754940"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669754940"
+            },
+            "stopId": "8822251"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:071::8883006:8833001:24:2219:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:071::8883006:8833001:24:2219:20231208",
+          "startTime": "20:51:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669751820"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669751940"
+            },
+            "stopId": "8883022"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752120"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669752180"
+            },
+            "stopId": "8883808"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752300"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669752360"
+            },
+            "stopId": "8814332"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752540"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669752600"
+            },
+            "stopId": "8814308"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752780"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669752840"
+            },
+            "stopId": "8814340"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752960"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753020"
+            },
+            "stopId": "8814357"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753140"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669753140"
+            },
+            "stopId": "8814365"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753320"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669753440"
+            },
+            "stopId": "8814373"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669753680"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753860"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753980"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753980"
+            },
+            "stopId": "8813037"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754040"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669754220"
+            },
+            "stopId": "8813003"
+          },
+          {
+            "arrival": {
+              "delay": 180,
+              "time": "1669754340"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669754340"
+            },
+            "stopId": "8813045"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669754400"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754460"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669754760"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669754820"
+            },
+            "stopId": "8811007"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669755660"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669755720"
+            },
+            "stopId": "8811247"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669755840"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669755900"
+            },
+            "stopId": "8811254"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669756020"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669756080"
+            },
+            "stopId": "8811262"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669756380"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669756440"
+            },
+            "stopId": "8811288"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8891405:8831005:36:2330:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8891405:8831005:36:2330:20221209",
+          "startTime": "20:52:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752300"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669752480"
+            },
+            "stopId": "8891009"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753320"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669753380"
+            },
+            "stopId": "8891140"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669757940"
+            },
+            "departure": {
+              "delay": 720,
+              "time": "1669758780"
+            },
+            "stopId": "8833001"
+          },
+          {
+            "arrival": {
+              "delay": 660,
+              "time": "1669759140"
+            },
+            "departure": {
+              "delay": 720,
+              "time": "1669759200"
+            },
+            "stopId": "8833050"
+          },
+          {
+            "arrival": {
+              "delay": 720,
+              "time": "1669759440"
+            },
+            "departure": {
+              "delay": 720,
+              "time": "1669759500"
+            },
+            "stopId": "8833308"
+          },
+          {
+            "arrival": {
+              "delay": 720,
+              "time": "1669759740"
+            },
+            "departure": {
+              "delay": 780,
+              "time": "1669759800"
+            },
+            "stopId": "8833449"
+          },
+          {
+            "arrival": {
+              "delay": 780,
+              "time": "1669759920"
+            },
+            "departure": {
+              "delay": 840,
+              "time": "1669759980"
+            },
+            "stopId": "8833670"
+          },
+          {
+            "arrival": {
+              "delay": 840,
+              "time": "1669760100"
+            },
+            "departure": {
+              "delay": 780,
+              "time": "1669760160"
+            },
+            "stopId": "8833605"
+          },
+          {
+            "arrival": {
+              "delay": 660,
+              "time": "1669760580"
+            },
+            "departure": {
+              "delay": 660,
+              "time": "1669760640"
+            },
+            "stopId": "8831807"
+          },
+          {
+            "arrival": {
+              "delay": 540,
+              "time": "1669761060"
+            },
+            "departure": {
+              "delay": 540,
+              "time": "1669761120"
+            },
+            "stopId": "8831039"
+          },
+          {
+            "arrival": {
+              "delay": 420,
+              "time": "1669761420"
+            },
+            "stopId": "8831005"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8872009:8821006:37:2235:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8872009:8821006:37:2235:20221209",
+          "startTime": "20:54:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 0,
+              "time": "1669751640"
+            },
+            "stopId": "8872009"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669757700"
+            },
+            "stopId": "8821006"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:046::8872413:8863008:19:2212:20221129",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:046::8872413:8863008:19:2212:20221129",
+          "startTime": "20:55:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752780"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753020"
+            },
+            "stopId": "8872009"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753320"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753380"
+            },
+            "stopId": "8874054"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753860"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669753980"
+            },
+            "stopId": "8874559"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669754040"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754100"
+            },
+            "stopId": "8874567"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669754340"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669754340"
+            },
+            "stopId": "8874583"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8892007:8833001:24:2213:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8892007:8833001:24:2213:20221209",
+          "startTime": "20:57:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752480"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669752600"
+            },
+            "stopId": "8893559"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753260"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669753440"
+            },
+            "stopId": "8893401"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669754040"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669754100"
+            },
+            "stopId": "8822111"
+          },
+          {
+            "arrival": {
+              "delay": 300,
+              "time": "1669755060"
+            },
+            "departure": {
+              "delay": 300,
+              "time": "1669755180"
+            },
+            "stopId": "8822004"
+          },
+          {
+            "arrival": {
+              "delay": 360,
+              "time": "1669755660"
+            },
+            "departure": {
+              "delay": 360,
+              "time": "1669755720"
+            },
+            "stopId": "8822475"
+          },
+          {
+            "arrival": {
+              "delay": 300,
+              "time": "1669755840"
+            },
+            "departure": {
+              "delay": 300,
+              "time": "1669755900"
+            },
+            "stopId": "8822517"
+          },
+          {
+            "arrival": {
+              "delay": 240,
+              "time": "1669756020"
+            },
+            "departure": {
+              "delay": 240,
+              "time": "1669756020"
+            },
+            "stopId": "8822525"
+          },
+          {
+            "arrival": {
+              "delay": 180,
+              "time": "1669756200"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669756260"
+            },
+            "stopId": "8833175"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669756500"
+            },
+            "stopId": "8833001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:G70::8892007:8892908:8:2146:20231209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:G70::8892007:8892908:8:2146:20231209",
+          "startTime": "20:57:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752240"
+            },
+            "departure": {
+              "delay": 1980,
+              "time": "1669754280"
+            },
+            "stopId": "8892080"
+          },
+          {
+            "arrival": {
+              "delay": 1920,
+              "time": "1669754520"
+            },
+            "departure": {
+              "delay": 1980,
+              "time": "1669754580"
+            },
+            "stopId": "8892650"
+          },
+          {
+            "arrival": {
+              "delay": 1980,
+              "time": "1669754820"
+            },
+            "departure": {
+              "delay": 1920,
+              "time": "1669754820"
+            },
+            "stopId": "8892643"
+          },
+          {
+            "arrival": {
+              "delay": 1860,
+              "time": "1669754940"
+            },
+            "departure": {
+              "delay": 1920,
+              "time": "1669755060"
+            },
+            "stopId": "8892635"
+          },
+          {
+            "arrival": {
+              "delay": 1860,
+              "time": "1669755300"
+            },
+            "departure": {
+              "delay": 1860,
+              "time": "1669755300"
+            },
+            "stopId": "8892627"
+          },
+          {
+            "arrival": {
+              "delay": 1920,
+              "time": "1669755540"
+            },
+            "departure": {
+              "delay": 1560,
+              "time": "1669755660"
+            },
+            "stopId": "8892601"
+          },
+          {
+            "arrival": {
+              "delay": 1440,
+              "time": "1669756200"
+            },
+            "stopId": "8892908"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8891702:8896008:9:2205:20221201",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8891702:8896008:9:2205:20221201",
+          "startTime": "20:58:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669751940"
+            },
+            "stopId": "8891702"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752720"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669752840"
+            },
+            "stopId": "8891009"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753320"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669753380"
+            },
+            "stopId": "8891264"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755240"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669755360"
+            },
+            "stopId": "8896925"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8821006:8814001:20:2203:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8821006:8814001:20:2203:20231208",
+          "startTime": "21:06:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669752420"
+            },
+            "stopId": "8821006"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669752600"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669752660"
+            },
+            "stopId": "8821121"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8841004:8845005:13:2221:20221129",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8841004:8845005:13:2221:20221129",
+          "startTime": "21:07:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669752480"
+            },
+            "stopId": "8841004"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669752660"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669752720"
+            },
+            "stopId": "8842002"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753320"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669753320"
+            },
+            "stopId": "8842663"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754340"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669754340"
+            },
+            "stopId": "8842754"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755480"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755480"
+            },
+            "stopId": "8845229"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669756920"
+            },
+            "stopId": "8845005"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8892007:8833605:31:2321:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8892007:8833605:31:2321:20221209",
+          "startTime": "21:12:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669754460"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754640"
+            },
+            "stopId": "8895000"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754820"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754880"
+            },
+            "stopId": "8895091"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669755180"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669755240"
+            },
+            "stopId": "8895802"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755420"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669755480"
+            },
+            "stopId": "8895836"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669756260"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669756500"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669758660"
+            },
+            "stopId": "8833001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8811007:8882206:20:2222:20221201",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8811007:8882206:20:2222:20221201",
+          "startTime": "21:13:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669753080"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753140"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753380"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669753500"
+            },
+            "stopId": "8813003"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753680"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669753860"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754460"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669754580"
+            },
+            "stopId": "8814308"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754820"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754880"
+            },
+            "stopId": "8883808"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755420"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755480"
+            },
+            "stopId": "8883006"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755780"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755840"
+            },
+            "stopId": "8883212"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:G70::8892908:8892007:8:2203:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:G70::8892908:8892007:8:2203:20231208",
+          "startTime": "21:14:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669753560"
+            },
+            "departure": {
+              "delay": 240,
+              "time": "1669754220"
+            },
+            "stopId": "8892601"
+          },
+          {
+            "arrival": {
+              "delay": 240,
+              "time": "1669754460"
+            },
+            "departure": {
+              "delay": 240,
+              "time": "1669754460"
+            },
+            "stopId": "8892627"
+          },
+          {
+            "arrival": {
+              "delay": 300,
+              "time": "1669754760"
+            },
+            "departure": {
+              "delay": 300,
+              "time": "1669754820"
+            },
+            "stopId": "8892635"
+          },
+          {
+            "arrival": {
+              "delay": 240,
+              "time": "1669754940"
+            },
+            "departure": {
+              "delay": 240,
+              "time": "1669755000"
+            },
+            "stopId": "8892643"
+          },
+          {
+            "arrival": {
+              "delay": 240,
+              "time": "1669755240"
+            },
+            "departure": {
+              "delay": 300,
+              "time": "1669755300"
+            },
+            "stopId": "8892650"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669755900"
+            },
+            "stopId": "8892007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8896008:8891009:8:2203:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8896008:8891009:8:2203:20231208",
+          "startTime": "21:16:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 0,
+              "time": "1669752960"
+            },
+            "stopId": "8896008"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755780"
+            },
+            "stopId": "8891009"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8832664:8821006:17:2251:20221129",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8832664:8821006:17:2251:20221129",
+          "startTime": "21:19:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669753200"
+            },
+            "stopId": "8832664"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753680"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669753800"
+            },
+            "stopId": "8832615"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669753980"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754040"
+            },
+            "stopId": "8832573"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754400"
+            },
+            "departure": {
+              "delay": 180,
+              "time": "1669754520"
+            },
+            "stopId": "8832565"
+          },
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669755060"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755480"
+            },
+            "stopId": "8832409"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755900"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755960"
+            },
+            "stopId": "8832433"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:C73::8872009:8875002:11:2212:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:C73::8872009:8875002:11:2212:20231208",
+          "startTime": "21:21:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669756380"
+            },
+            "stopId": "8875002"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:046::8822004:8892007:16:2240:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:046::8822004:8892007:16:2240:20221209",
+          "startTime": "21:31:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669754340"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754400"
+            },
+            "stopId": "8822053"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754640"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669754640"
+            },
+            "stopId": "8822111"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669754880"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669754880"
+            },
+            "stopId": "8822137"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:046::8891009:8892007:10:2215:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:046::8891009:8892007:10:2215:20221209",
+          "startTime": "21:34:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669754400"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754460"
+            },
+            "stopId": "8891116"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754760"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754760"
+            },
+            "stopId": "8891124"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755180"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755240"
+            },
+            "stopId": "8891140"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:046::8895505:8886009:7:2159:20221201",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:046::8895505:8886009:7:2159:20221201",
+          "startTime": "21:37:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 0,
+              "time": "1669754220"
+            },
+            "stopId": "8895505"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755540"
+            },
+            "stopId": "8886009"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8885001:8863008:39:2323:20221129",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8885001:8863008:39:2323:20221129",
+          "startTime": "21:43:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669754640"
+            },
+            "stopId": "8885001"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669754940"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669754940"
+            },
+            "stopId": "8885522"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755720"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755780"
+            },
+            "stopId": "8884004"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669758480"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669758540"
+            },
+            "stopId": "8872009"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669759320"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669759380"
+            },
+            "stopId": "8874609"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669760640"
+            },
+            "stopId": "8863008"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8821402:8821006:11:2222:20221202",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8821402:8821006:11:2222:20221202",
+          "startTime": "21:45:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669754760"
+            },
+            "stopId": "8821402"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755000"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669755000"
+            },
+            "stopId": "8821436"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669755180"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669755240"
+            },
+            "stopId": "8821444"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755960"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669756020"
+            },
+            "stopId": "8821535"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669756200"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669756260"
+            },
+            "stopId": "8821071"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:046::8892601:8896008:4:2207:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:046::8892601:8896008:4:2207:20231208",
+          "startTime": "21:46:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 120,
+              "time": "1669754880"
+            },
+            "stopId": "8892601"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755240"
+            },
+            "departure": {
+              "delay": 420,
+              "time": "1669755600"
+            },
+            "stopId": "8892734"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755600"
+            },
+            "departure": {
+              "delay": 660,
+              "time": "1669756200"
+            },
+            "stopId": "8896230"
+          },
+          {
+            "arrival": {
+              "delay": 420,
+              "time": "1669756440"
+            },
+            "stopId": "8896008"
+          }
+        ]
+      }
+    },
+    {
+      "id": "84____:007::8400530:8400058:3:2235:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "84____:007::8400530:8400058:3:2235:20221209",
+          "startTime": "21:54:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669755300"
+            },
+            "stopId": "8400530"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669756800"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669756920"
+            },
+            "stopId": "8400561"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8814001:8821006:20:2253:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8814001:8821006:20:2253:20231208",
+          "startTime": "21:56:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 60,
+              "time": "1669755420"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755540"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669755540"
+            },
+            "stopId": "8813037"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755960"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669756080"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669756260"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669756260"
+            },
+            "stopId": "8811007"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:G70::8892007:8892601:7:2227:20231209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:G70::8892007:8892601:7:2227:20231209",
+          "startTime": "21:57:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 120,
+              "time": "1669755540"
+            },
+            "stopId": "8892007"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669755900"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669755960"
+            },
+            "stopId": "8892080"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669756200"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669756200"
+            },
+            "stopId": "8892650"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669757280"
+            },
+            "stopId": "8892601"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8821006:8814001:20:2303:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8821006:8814001:20:2303:20231208",
+          "startTime": "22:06:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 0,
+              "time": "1669755960"
+            },
+            "stopId": "8821006"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669759380"
+            },
+            "stopId": "8814001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:A71::8822715:8821006:10:2248:20221201",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:A71::8822715:8821006:10:2248:20221201",
+          "startTime": "22:06:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669756500"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669756560"
+            },
+            "stopId": "8822814"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669756800"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669756800"
+            },
+            "stopId": "8824240"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669758540"
+            },
+            "stopId": "8821006"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8896735:8896008:8:2250:20221201",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8896735:8896008:8:2250:20221201",
+          "startTime": "22:07:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669756500"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669756560"
+            },
+            "stopId": "8896503"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669757280"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669757340"
+            },
+            "stopId": "8896396"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:G70::8892908:8892007:8:2303:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:G70::8892908:8892007:8:2303:20231208",
+          "startTime": "22:14:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 120,
+              "time": "1669756560"
+            },
+            "stopId": "8892908"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669757160"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669757580"
+            },
+            "stopId": "8892601"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669757820"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669757820"
+            },
+            "stopId": "8892627"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:C73::8875002:8875127:2:2221:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:C73::8875002:8875127:2:2221:20231208",
+          "startTime": "22:15:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669756920"
+            },
+            "stopId": "8875127"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:C70::8811601:8872009:12:2313:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:C70::8811601:8872009:12:2313:20221209",
+          "startTime": "22:24:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 0,
+              "time": "1669757040"
+            },
+            "stopId": "8811601"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669759980"
+            },
+            "stopId": "8872009"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8821006:8814001:20:2311:20221202",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8821006:8814001:20:2311:20221202",
+          "startTime": "22:25:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669758180"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669758300"
+            },
+            "stopId": "8822004"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669759200"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669759320"
+            },
+            "stopId": "8812005"
+          }
+        ]
+      }
+    },
+    {
+      "id": "84____:007::8400131:8400058:4:2335:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "84____:007::8400131:8400058:4:2335:20221209",
+          "startTime": "22:26:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 0,
+              "time": "1669757160"
+            },
+            "stopId": "8400131"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669761300"
+            },
+            "stopId": "8400058"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:A71::8829009:8821006:12:2310:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:A71::8829009:8821006:12:2310:20221209",
+          "startTime": "22:28:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669758720"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669758780"
+            },
+            "stopId": "8821535"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669758900"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669758900"
+            },
+            "stopId": "8821543"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669759320"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669759320"
+            },
+            "stopId": "8821089"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8821006:8821402:11:2313:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8821006:8821402:11:2313:20221209",
+          "startTime": "22:37:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 0,
+              "time": "1669757820"
+            },
+            "stopId": "8821006"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669759980"
+            },
+            "stopId": "8821402"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8821402:8814001:30:2411:20221202",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8821402:8814001:30:2411:20221202",
+          "startTime": "22:45:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669759560"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669759620"
+            },
+            "stopId": "8821535"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669759800"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669759860"
+            },
+            "stopId": "8821071"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669761780"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669761900"
+            },
+            "stopId": "8822004"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669762800"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669762920"
+            },
+            "stopId": "8812005"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8891702:8841004:41:2544:20221201",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8891702:8841004:41:2544:20221201",
+          "startTime": "22:50:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 120,
+              "time": "1669764060"
+            },
+            "departure": {
+              "delay": 120,
+              "time": "1669764120"
+            },
+            "stopId": "8814001"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669764300"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669764360"
+            },
+            "stopId": "8813003"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669764540"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669764660"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669766700"
+            },
+            "departure": {
+              "delay": 60,
+              "time": "1669766760"
+            },
+            "stopId": "8833308"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:071::8883006:8833001:24:2419:20231208",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:071::8883006:8833001:24:2419:20231208",
+          "startTime": "22:51:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "departure": {
+              "delay": 0,
+              "time": "1669758660"
+            },
+            "stopId": "8883006"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669763940"
+            },
+            "stopId": "8833001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88____:007::8821105:8814001:22:2417:20221209",
+      "tripUpdate": {
+        "trip": {
+          "tripId": "88____:007::8821105:8814001:22:2417:20221209",
+          "startTime": "23:01:00",
+          "startDate": "20221129"
+        },
+        "stopTimeUpdate": [
+          {
+            "arrival": {
+              "delay": 60,
+              "time": "1669763160"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669763280"
+            },
+            "stopId": "8812005"
+          },
+          {
+            "arrival": {
+              "delay": 0,
+              "time": "1669763400"
+            },
+            "departure": {
+              "delay": 0,
+              "time": "1669763400"
+            },
+            "stopId": "8813045"
+          }
+        ]
+      }
+    }
+  ]
+}

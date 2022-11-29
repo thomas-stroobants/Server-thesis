@@ -176,8 +176,8 @@ mappings:
       - [gtfs:dateAddition, $(exception_type), xsd:boolean]
   calendar_rules:
     sources:
-      - [./nmbs-static-data/calendar.csv~csv]
-    s: http://example.com/nmbs/calendar_rules/$(service_id)
+      - [./mivb-gtfs/calendar.csv~csv]
+    s: http://example.com/mivb/calendar_rules/$(service_id)
     po:
       - [a, gtfs:CalendarRule]
       - [gtfs:monday, $(monday), xsd:boolean]

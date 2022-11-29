@@ -66,5 +66,5 @@ def get_gtfs_rt(url, file_name, params=None, headers=None):
 #download_files(nmbs_rt_url, "nmbs-rt-data/nmbs-rt-proto")
 # get_gtfs_rt_lijn()
 # get_gtfs_rf_nmbs()
-get_gtfs_rt(de_lijn_rt_url, "de-lijn-data/de-lijn-rt-gtfs-staking.json", params=params, headers=headers)
-get_gtfs_rt(nmbs_rt_url, "nmbs-rt-data/nmbs-rt-gtfs-staking.json")
+get_gtfs_rt(de_lijn_rt_url, "de-lijn-data/de-lijn-rt-gtfs-staking1.json", params=params, headers=headers)
+get_gtfs_rt(nmbs_rt_url, "nmbs-rt-data/nmbs-rt-gtfs-staking1.json")
