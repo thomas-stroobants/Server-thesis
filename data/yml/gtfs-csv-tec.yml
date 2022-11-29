@@ -1,0 +1,209 @@
+prefixes:
+  rr: http://www.w3.org/ns/r2rml#
+  foaf: http://xmlns.com/foaf/0.1/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dc: http://purl.org/dc/elements/1.1/
+  rev: http://purl.org/stuff/rev#
+  gtfs: http://vocab.gtfs.org/terms#
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  schema: http://schema.org/
+  dct: http://purl.org/dc/terms/
+  rml: http://semweb.mmlab.be/ns/rml#
+  ql: http://semweb.mmlab.be/ns/ql#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+
+mappings:
+  stoptimes:
+    sources:
+      - [./tec/stop_times.csv~csv]
+    s: http://example.com/tec/stoptimes/$(trip_id)-$(stop_id)-$(arrival_time)
+    po:
+      - [a, gtfs:StopTime]
+      - [gtfs:arrivalTime, $(arrival_time),xsd:duration]
+      - [gtfs:departureTime, $(departure_time),xsd:duration]
+      - [gtfs:stopSequence, $(stop_sequence),xsd:integer]
+      - [gtfs:headsign, $(stop_headsign)]
+      - [gtfs:pickupType, http://example.com/tec/resource/PickupType/$(pickup_type)~iri]
+      - [gtfs:dropOffType, http://example.com/tec/resource/DropOffType/$(drop_off_type)~iri]
+      - [gtfs:distanceTraveled, $(shape_dist_traveled)]
+      - p: gtfs:trip
+        o:
+          - mapping: trips
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(trip_id)]
+                - [str2, $(trip_id)]
+      - p: gtfs:stop
+        o:
+          - mapping: stops
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(stop_id)]
+                - [str2, $(stop_id)]
+  trips:
+    sources:
+      - [./tec/trips.csv~csv]
+    s: http://example.com/tec/trips/$(trip_id)
+    po:
+      - [a, gtfs:Trip]
+      - [gtfs:headsign, $(trip_headsign)]
+      - [gtfs:shortName, $(trip_short_name)]
+      - [gtfs:direction, $(direction_id)]
+      - [gtfs:block, $(block_id)]
+      - p: gtfs:service
+        o:
+          - mapping: services2
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(service_id)]
+                - [str2, $(service_id)]
+      - p: gtfs:route
+        o:
+          - mapping: routes
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(route_id)]
+                - [str2, $(route_id)]
+      - p: gtfs:shape
+        o:
+          - mapping: shapes
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(shape_id)]
+                - [str2, $(shape_id)]
+  routes:
+    sources:
+      - [./tec/routes.csv~csv]
+    s: http://example.com/tec/routes/$(route_id)
+    po:
+      - [a, gtfs:Route]
+      - [gtfs:shortName, $(route_short_name)]
+      - [gtfs:longName, $(route_long_name)]
+      - [dct:description, $(route_desc)]
+      - [gtfs:routeType, http://example.com/tec/resource/RouteType/$(route_type)~iri]
+      - [gtfs:routeUrl, $(route_url)~iri]
+      - [gtfs:color, $(route_color)]
+      - [gtfs:textColor, $(route_text_color)]
+      - p: gtfs:agency
+        o:
+          - mapping: agency
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(agency_id)]
+                - [str2, $(agency_id)]
+  agency:
+    sources:
+      - [./tec/agency.csv~csv]
+    s: http://example.com/tec/agency/$(agency_id)
+    po:
+      - [a, gtfs:Agency]
+      - [foaf:page, $(agency_url)~iri]
+      - [foaf:name,$(agency_name)]
+      - [gtfs:timeZone,$(agency_timezone)]
+      - [dct:language,$(agency_lang)]
+      - [foaf:phone,$(agency_phone)]
+  stops:
+    sources:
+      - [./tec/stops.csv~csv]
+    s: http://example.com/tec/stops/$(stop_id)
+    po:
+      - [a,gtfs:Stop]
+      - [gtfs:code,$(stop_code)]
+      - [dct:identifier,$(stop_id)]
+      - [foaf:name,$(stop_name)]
+      - [dct:description,$(stop_desc)]
+      - [geo:lat,$(stop_lat),xsd:double]
+      - [geo:long,$(stop_lon),xsd:double]
+      - [gtfs:zone,$(zone_id)]
+      - [foaf:page,$(stop_url)~iri]
+      - [gtfs:locationType,http://example.com/tec/resource/LocationType/$(location_type)~iri]
+      - [gtfs:wheelchairAccessible,http://example.com/tec/resource/WheelchairBoardingStatus/$(wheelchair_boarding)~iri]
+      - p: gtfs:parentStation
+        o:
+          - mapping: stops
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(parent_station)]
+                - [str2, $(stop_id)]
+  # services1:
+  #   sources:
+  #     - [./tec/calendar.csv~csv]
+  #   s: http://example.com/tec/services/$(service_id)
+  #   po:
+  #     - [a, gtfs:Service]
+  #     - p: gtfs:serviceRule
+  #       o:
+  #         - mapping: calendar_rules
+  #           condition:
+  #             function: equal
+  #             parameters:
+  #               - [str1, $(service_id)]
+  #               - [str2, $(service_id)]
+  services2:
+    sources:
+      - [./tec/calendar_dates.csv~csv]
+    s: http://example.com/tec/services/$(service_id)
+    po:
+      - [a, gtfs:Service]
+      - p: gtfs:serviceRule
+        o:
+          - mapping: calendar_date_rules
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(service_id)]
+                - [str2, $(service_id)] 
+  calendar_date_rules:
+    sources:
+      - [./tec/calendar_dates.csv~csv]
+    s: http://example.com/tec/calendar_date_rule/$(service_id)-$(date)
+    po:
+      - [a, gtfs:CalendarDateRule]
+      - [dct:date, $(date), xsd:date]
+      - [gtfs:dateAddition, $(exception_type), xsd:boolean]
+  feed:
+    sources:
+      - [./tec/feed_info.csv~csv]
+    s: http://example.com/tec/feed/$(feed_publisher_name)
+    po:
+      - [a, gtfs:Feed]
+      - [dct:publisher,$(feed_publisher_name)]
+      - [foaf:page,$(feed_publisher_url)~iri]
+      - [dct:language,$(feed_lang)]
+      - [schema:startDate,$(feed_start_date), xsd:date]
+      - [schema:endDate,$(feed_end_date), xsd:date]
+      - [schema:email,$(feed_contact_email)] #email
+      - [foaf:page,$(feed_contact_url)~iri]  
+
+  shapes:
+    sources:
+      - [./tec/shapes.csv~csv]
+    s: http://example.com/tec/shape/$(shape_id)
+    po:
+      - [a, gtfs:Shape]
+      - p: gtfs:shapePoint
+        o:
+          - mapping: shapePoints
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(shape_id)]
+                - [str2, $(shape_id)]
+  shapePoints:
+    sources:
+      - [./tec/shapes.csv~csv]
+    s: http://example.com/tec/shape_point/$(shape_id)-$(shape_pt_sequence)
+    po:
+      - [a, gtfs:ShapePoint]
+      - [geo:lat,$(shape_pt_lat),xsd:double]
+      - [geo:long,$(shape_pt_lon),xsd:double]
+      - [gtfs:pointSequence,$(shape_pt_sequence)]
+      - [gtfs:distanceTraveled,$(shape_dist_traveled)]  
