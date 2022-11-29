@@ -107,7 +107,7 @@ mappings:
   agency:
     sources:
       - [./de-lijn-gtfs/agency.csv~csv]
-    s: http://example.com/nmb/madrid/agency/$(agency_id)
+    s: http://example.com/de-lijn/agency/$(agency_id)
     po:
       - [a, gtfs:Agency]
       - [foaf:page, $(agency_url)~iri]
@@ -175,24 +175,9 @@ mappings:
       - [a, gtfs:CalendarDateRule]
       - [dct:date, $(date), xsd:date]
       - [gtfs:dateAddition, $(exception_type), xsd:boolean]
-  # calendar_rules:
-  #   sources:
-  #     - [./de-lijn-gtfs/calendar.csv~csv]
-  #   s: http://example.com/de-lijn/calendar_rules/$(service_id)
-  #   po:
-  #     - [a, gtfs:CalendarRule]
-  #     - [gtfs:monday, $(monday), xsd:boolean]
-  #     - [gtfs:tuesday, $(tuesday), xsd:boolean]
-  #     - [gtfs:wednesday, $(wednesday), xsd:boolean]
-  #     - [gtfs:thursday, $(thursday), xsd:boolean]
-  #     - [gtfs:friday, $(friday), xsd:boolean]
-  #     - [gtfs:saturday, $(saturday), xsd:boolean]
-  #     - [gtfs:sunday, $(sunday), xsd:boolean]
-  #     - [schema:startDate, $(start_date), xsd:date]
-  #     - [schema:endDate, $(end_date), xsd:date]
   feed:
     sources:
-      - [./de-lijn-gtfs/FEED_INFO.csv~csv]
+      - [./de-lijn-gtfs/feed_info.csv~csv]
     s: http://example.com/de-lijn/feed/$(feed_publisher_name)
     po:
       - [a, gtfs:Feed]
@@ -202,4 +187,4 @@ mappings:
       - [schema:startDate,$(feed_start_date), xsd:date]
       - [schema:endDate,$(feed_end_date), xsd:date]
       - [schema:version,$(feed_version)]  
-      # - [] #email
+      - [schema:email,$(feed_contact_email)] #email
