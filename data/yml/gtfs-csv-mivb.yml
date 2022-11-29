@@ -50,7 +50,7 @@ mappings:
     po:
       - [a, gtfs:Trip]
       - [gtfs:headsign, $(trip_headsign)]
-      - [gtfs:shortName, $(trip_short_name)]
+      # - [gtfs:shortName, $(trip_short_name)]
       - [gtfs:direction, $(direction_id)]
       - [gtfs:block, $(block_id)]
       - p: gtfs:service
