@@ -26,7 +26,7 @@ mappings:
       # - [gtfs:headsign, $(stop_headsign)]
       - [gtfs:pickupType, http://example.com/mivb/resource/PickupType/$(pickup_type)~iri]
       - [gtfs:dropOffType, http://example.com/mivb/resource/DropOffType/$(drop_off_type)~iri]
-      - [gtfs:distanceTraveled, $(shape_dist_traveled)]
+      # - [gtfs:distanceTraveled, $(shape_dist_traveled)]
       - p: gtfs:trip
         o:
           - mapping: trips
