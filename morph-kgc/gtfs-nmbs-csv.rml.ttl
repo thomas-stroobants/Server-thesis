@@ -166,15 +166,15 @@
 :om_14 a rr:ObjectMap;
     rml:reference "block_id";
     rr:termType rr:Literal.
-:pom_15 a rr:PredicateObjectMap.
-:map_trips_0 rr:predicateObjectMap :pom_15.
-:pm_15 a rr:PredicateMap.
-:pom_15 rr:predicateMap :pm_15.
-:pm_15 rr:constant gtfs:wheelchairAccessible.
-:pom_15 rr:objectMap :om_15.
-:om_15 a rr:ObjectMap;
-    rr:template "http://example.com/resource/WheelchairBoardingStatus/{wheelchair_accessible}";
-    rr:termType rr:IRI.
+# :pom_15 a rr:PredicateObjectMap.
+# :map_trips_0 rr:predicateObjectMap :pom_15.
+# :pm_15 a rr:PredicateMap.
+# :pom_15 rr:predicateMap :pm_15.
+# :pm_15 rr:constant gtfs:wheelchairAccessible.
+# :pom_15 rr:objectMap :om_15.
+# :om_15 a rr:ObjectMap;
+#     rr:template "http://example.com/resource/WheelchairBoardingStatus/{wheelchair_accessible}";
+#     rr:termType rr:IRI.
 :pom_16 a rr:PredicateObjectMap.
 :map_trips_0 rr:predicateObjectMap :pom_16.
 :pm_16 a rr:PredicateMap.
@@ -903,7 +903,7 @@
 :pm_85 rr:constant rdf:type.
 :pom_85 rr:objectMap :om_86.
 :om_86 a rr:ObjectMap;
-    rr:constant "http://vocab.gtfs.org/terms#TransferRule";
+    rr:constant "http://vocab.gtfs.org/terms#TransferType";
     rr:termType rr:IRI.
 :pom_86 a rr:PredicateObjectMap.
 :map_transfers_0 rr:predicateObjectMap :pom_86.
@@ -924,13 +924,13 @@
 :pm_88 rr:constant gtfs:transferType.
 :pom_88 rr:objectMap :om_89.
 :om_89 a rr:ObjectMap;
-    rml:reference "transfer_type";
-    rr:termType rr:Literal.
+    rml:reference "http://example.com/resource/TransferType/{transfer_type}";
+    rr:termType rr:IRI.
 :pom_89 a rr:PredicateObjectMap.
 :map_transfers_0 rr:predicateObjectMap :pom_89.
 :pm_88 a rr:PredicateMap.
 :pom_89 rr:predicateMap :pm_89.
-:pm_88 rr:constant gtfs:MinimumTimeTransfer.
+:pm_88 rr:constant gtfs:minimumTransferTime.
 :pom_89 rr:objectMap :om_90.
 :om_90 a rr:ObjectMap;
     rml:reference "min_transfer_time";
