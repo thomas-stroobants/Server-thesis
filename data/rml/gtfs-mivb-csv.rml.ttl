@@ -88,7 +88,7 @@ map:map_services2_000 rml:logicalSource map:source_006 ;
 map:map_shapePoints_000 rml:logicalSource map:source_010 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "shapePoints" ;
-	rr:predicateObjectMap map:pom_061, map:pom_062, map:pom_063, map:pom_064, map:pom_065 ;
+	rr:predicateObjectMap map:pom_061, map:pom_062, map:pom_063, map:pom_064 ;
 	rr:subjectMap map:s_010 .
 
 map:map_shapes_000 rml:logicalSource map:source_009 ;
@@ -112,7 +112,7 @@ map:map_stoptimes_000 rml:logicalSource map:source_000 ;
 map:map_translations_000 rml:logicalSource map:source_011 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "translations" ;
-	rr:predicateObjectMap map:pom_066, map:pom_067, map:pom_068, map:pom_069 ;
+	rr:predicateObjectMap map:pom_065, map:pom_066, map:pom_067, map:pom_068 ;
 	rr:subjectMap map:s_011 .
 
 map:map_trips_000 rml:logicalSource map:source_001 ;
@@ -403,23 +403,19 @@ map:om_065 rml:reference "shape_pt_sequence" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_066 rml:reference "shape_dist_traveled" ;
-	rdf:type rr:ObjectMap ;
-	rr:termType rr:Literal .
-
-map:om_067 rdf:type rr:ObjectMap ;
+map:om_066 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#Route" ;
 	rr:termType rr:IRI .
 
-map:om_068 rml:reference "lang" ;
+map:om_067 rml:reference "lang" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_069 rml:reference "translation" ;
+map:om_068 rml:reference "translation" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_070 rdf:type rr:ObjectMap ;
+map:om_069 rdf:type rr:ObjectMap ;
 	rr:joinCondition map:jc_010 ;
 	rr:parentTriplesMap map:map_trips_000 .
 
@@ -619,18 +615,15 @@ map:pm_064 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:pointSequence .
 
 map:pm_065 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:distanceTraveled .
-
-map:pm_066 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
 
-map:pm_067 rdf:type rr:PredicateMap ;
+map:pm_066 rdf:type rr:PredicateMap ;
 	rr:constant dct:language .
 
-map:pm_068 rdf:type rr:PredicateMap ;
+map:pm_067 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:headsign .
 
-map:pm_069 rdf:type rr:PredicateMap ;
+map:pm_068 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:headsign .
 
 map:pom_000 rdf:type rr:PredicateObjectMap ;
@@ -908,10 +901,6 @@ map:pom_067 rdf:type rr:PredicateObjectMap ;
 map:pom_068 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_069 ;
 	rr:predicateMap map:pm_068 .
-
-map:pom_069 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_070 ;
-	rr:predicateMap map:pm_069 .
 
 map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_agency_000, map:map_calendar_date_rules_000, map:map_calendar_rules_000, map:map_routes_000, map:map_services1_000, map:map_services2_000, map:map_shapePoints_000, map:map_shapes_000, map:map_stops_000, map:map_stoptimes_000, map:map_translations_000, map:map_trips_000 ;
 	rdf:type <http://rdfs.org/ns/void#Dataset> .
