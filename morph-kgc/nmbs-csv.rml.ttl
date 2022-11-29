@@ -43,46 +43,49 @@ map:jc_007 rr:child "service_id" ;
 map:jc_008 rr:child "service_id" ;
 	rr:parent "service_id" .
 
+map:jc_009 rr:child "trans_id" ;
+	rr:parent "trip_headsign" .
+
 map:map_agency_000 rml:logicalSource map:source_003 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "agency" ;
-	rr:predicateObjectMap map:pom_027, map:pom_028, map:pom_029, map:pom_030, map:pom_031, map:pom_032, map:pom_033 ;
+	rr:predicateObjectMap map:pom_026, map:pom_027, map:pom_028, map:pom_029, map:pom_030, map:pom_031, map:pom_032 ;
 	rr:subjectMap map:s_003 .
 
 map:map_calendar_date_rules_000 rml:logicalSource map:source_007 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "calendar_date_rules" ;
-	rr:predicateObjectMap map:pom_051, map:pom_052, map:pom_053 ;
+	rr:predicateObjectMap map:pom_049, map:pom_050, map:pom_051 ;
 	rr:subjectMap map:s_007 .
 
 map:map_calendar_rules_000 rml:logicalSource map:source_008 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "calendar_rules" ;
-	rr:predicateObjectMap map:pom_054, map:pom_055, map:pom_056, map:pom_057, map:pom_058, map:pom_059, map:pom_060, map:pom_061, map:pom_062, map:pom_063 ;
+	rr:predicateObjectMap map:pom_052, map:pom_053, map:pom_054, map:pom_055, map:pom_056, map:pom_057, map:pom_058, map:pom_059, map:pom_060, map:pom_061 ;
 	rr:subjectMap map:s_008 .
 
 map:map_routes_000 rml:logicalSource map:source_002 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "routes" ;
-	rr:predicateObjectMap map:pom_018, map:pom_019, map:pom_020, map:pom_021, map:pom_022, map:pom_023, map:pom_024, map:pom_025, map:pom_026 ;
+	rr:predicateObjectMap map:pom_017, map:pom_018, map:pom_019, map:pom_020, map:pom_021, map:pom_022, map:pom_023, map:pom_024, map:pom_025 ;
 	rr:subjectMap map:s_002 .
 
 map:map_services1_000 rml:logicalSource map:source_005 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "services1" ;
-	rr:predicateObjectMap map:pom_047, map:pom_048 ;
+	rr:predicateObjectMap map:pom_045, map:pom_046 ;
 	rr:subjectMap map:s_005 .
 
 map:map_services2_000 rml:logicalSource map:source_006 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "services2" ;
-	rr:predicateObjectMap map:pom_049, map:pom_050 ;
+	rr:predicateObjectMap map:pom_047, map:pom_048 ;
 	rr:subjectMap map:s_006 .
 
 map:map_stops_000 rml:logicalSource map:source_004 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "stops" ;
-	rr:predicateObjectMap map:pom_034, map:pom_035, map:pom_036, map:pom_037, map:pom_038, map:pom_039, map:pom_040, map:pom_041, map:pom_042, map:pom_043, map:pom_044, map:pom_045, map:pom_046 ;
+	rr:predicateObjectMap map:pom_033, map:pom_034, map:pom_035, map:pom_036, map:pom_037, map:pom_038, map:pom_039, map:pom_040, map:pom_041, map:pom_042, map:pom_043, map:pom_044 ;
 	rr:subjectMap map:s_004 .
 
 map:map_stoptimes_000 rml:logicalSource map:source_000 ;
@@ -91,10 +94,22 @@ map:map_stoptimes_000 rml:logicalSource map:source_000 ;
 	rr:predicateObjectMap map:pom_000, map:pom_001, map:pom_002, map:pom_003, map:pom_004, map:pom_005, map:pom_006, map:pom_007, map:pom_008, map:pom_009 ;
 	rr:subjectMap map:s_000 .
 
+map:map_transfers_000 rml:logicalSource map:source_010 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "transfers" ;
+	rr:predicateObjectMap map:pom_066, map:pom_067, map:pom_068, map:pom_069 ;
+	rr:subjectMap map:s_010 .
+
+map:map_translations_000 rml:logicalSource map:source_009 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "translations" ;
+	rr:predicateObjectMap map:pom_062, map:pom_063, map:pom_064, map:pom_065 ;
+	rr:subjectMap map:s_009 .
+
 map:map_trips_000 rml:logicalSource map:source_001 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "trips" ;
-	rr:predicateObjectMap map:pom_010, map:pom_011, map:pom_012, map:pom_013, map:pom_014, map:pom_015, map:pom_016, map:pom_017 ;
+	rr:predicateObjectMap map:pom_010, map:pom_011, map:pom_012, map:pom_013, map:pom_014, map:pom_015, map:pom_016 ;
 	rr:subjectMap map:s_001 .
 
 map:om_000 rdf:type rr:ObjectMap ;
@@ -161,216 +176,240 @@ map:om_014 rml:reference "block_id" ;
 	rr:termType rr:Literal .
 
 map:om_015 rdf:type rr:ObjectMap ;
-	rr:template "http://example.com/nmbs/resource/WheelchairBoardingStatus/{wheelchair_accessible}" ;
-	rr:termType rr:IRI .
-
-map:om_016 rdf:type rr:ObjectMap ;
 	rr:joinCondition map:jc_002 ;
 	rr:parentTriplesMap map:map_services1_000 .
 
-map:om_017 rdf:type rr:ObjectMap ;
+map:om_016 rdf:type rr:ObjectMap ;
 	rr:joinCondition map:jc_003 ;
 	rr:parentTriplesMap map:map_services2_000 .
 
-map:om_018 rdf:type rr:ObjectMap ;
+map:om_017 rdf:type rr:ObjectMap ;
 	rr:joinCondition map:jc_004 ;
 	rr:parentTriplesMap map:map_routes_000 .
 
-map:om_019 rdf:type rr:ObjectMap ;
+map:om_018 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#Route" ;
 	rr:termType rr:IRI .
 
-map:om_020 rml:reference "route_short_name" ;
+map:om_019 rml:reference "route_short_name" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_021 rml:reference "route_long_name" ;
+map:om_020 rml:reference "route_long_name" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_022 rml:reference "route_desc" ;
+map:om_021 rml:reference "route_desc" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_023 rdf:type rr:ObjectMap ;
+map:om_022 rdf:type rr:ObjectMap ;
 	rr:template "http://example.com/nmbs/resource/RouteType/{route_type}" ;
 	rr:termType rr:IRI .
 
-map:om_024 rml:reference "route_url" ;
+map:om_023 rml:reference "route_url" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:IRI .
 
-map:om_025 rml:reference "route_color" ;
+map:om_024 rml:reference "route_color" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_026 rml:reference "route_text_color" ;
+map:om_025 rml:reference "route_text_color" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_027 rdf:type rr:ObjectMap ;
+map:om_026 rdf:type rr:ObjectMap ;
 	rr:joinCondition map:jc_005 ;
 	rr:parentTriplesMap map:map_agency_000 .
 
-map:om_028 rdf:type rr:ObjectMap ;
+map:om_027 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#Agency" ;
 	rr:termType rr:IRI .
 
-map:om_029 rml:reference "agency_url" ;
+map:om_028 rml:reference "agency_url" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:IRI .
 
-map:om_030 rml:reference "agency_name" ;
+map:om_029 rml:reference "agency_name" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_031 rml:reference "agency_timezone" ;
+map:om_030 rml:reference "agency_timezone" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_032 rml:reference "agency_lang" ;
+map:om_031 rml:reference "agency_lang" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_033 rml:reference "agency_phone" ;
+map:om_032 rml:reference "agency_phone" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_034 rml:reference "agency_fare_url" ;
+map:om_033 rml:reference "agency_fare_url" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:IRI .
 
-map:om_035 rdf:type rr:ObjectMap ;
+map:om_034 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#Stop" ;
 	rr:termType rr:IRI .
 
-map:om_036 rml:reference "stop_code" ;
+map:om_035 rml:reference "stop_code" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_037 rml:reference "stop_id" ;
+map:om_036 rml:reference "stop_id" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_038 rml:reference "stop_name" ;
+map:om_037 rml:reference "stop_name" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_039 rml:reference "stop_desc" ;
+map:om_038 rml:reference "stop_desc" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_040 rml:reference "stop_lat" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:double ;
-	rr:termType rr:Literal .
-
-map:om_041 rml:reference "stop_lon" ;
+map:om_039 rml:reference "stop_lat" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:double ;
 	rr:termType rr:Literal .
 
-map:om_042 rml:reference "zone_id" ;
+map:om_040 rml:reference "stop_lon" ;
+	rdf:type rr:ObjectMap ;
+	rr:datatype xsd:double ;
+	rr:termType rr:Literal .
+
+map:om_041 rml:reference "zone_id" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_043 rml:reference "stop_url" ;
+map:om_042 rml:reference "stop_url" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:IRI .
 
-map:om_044 rdf:type rr:ObjectMap ;
+map:om_043 rdf:type rr:ObjectMap ;
 	rr:template "http://example.com/nmbs/resource/LocationType/{location_type}" ;
 	rr:termType rr:IRI .
 
-map:om_045 rml:reference "stop_timezone" ;
+map:om_044 rml:reference "platform_code" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
+map:om_045 rdf:type rr:ObjectMap ;
+	rr:joinCondition map:jc_006 ;
+	rr:parentTriplesMap map:map_stops_000 .
+
 map:om_046 rdf:type rr:ObjectMap ;
-	rr:template "http://example.com/nmbs/resource/WheelchairBoardingStatus/{wheelchair_boarding}" ;
+	rr:constant "http://vocab.gtfs.org/terms#Service" ;
 	rr:termType rr:IRI .
 
 map:om_047 rdf:type rr:ObjectMap ;
-	rr:joinCondition map:jc_006 ;
-	rr:parentTriplesMap map:map_stops_000 .
+	rr:joinCondition map:jc_007 ;
+	rr:parentTriplesMap map:map_calendar_rules_000 .
 
 map:om_048 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#Service" ;
 	rr:termType rr:IRI .
 
 map:om_049 rdf:type rr:ObjectMap ;
-	rr:joinCondition map:jc_007 ;
-	rr:parentTriplesMap map:map_calendar_rules_000 .
-
-map:om_050 rdf:type rr:ObjectMap ;
-	rr:constant "http://vocab.gtfs.org/terms#Service" ;
-	rr:termType rr:IRI .
-
-map:om_051 rdf:type rr:ObjectMap ;
 	rr:joinCondition map:jc_008 ;
 	rr:parentTriplesMap map:map_calendar_date_rules_000 .
 
-map:om_052 rdf:type rr:ObjectMap ;
+map:om_050 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#CalendarDateRule" ;
 	rr:termType rr:IRI .
 
-map:om_053 rml:reference "date" ;
+map:om_051 rml:reference "date" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:date ;
 	rr:termType rr:Literal .
 
-map:om_054 rml:reference "exception_type" ;
+map:om_052 rml:reference "exception_type" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:boolean ;
 	rr:termType rr:Literal .
 
-map:om_055 rdf:type rr:ObjectMap ;
+map:om_053 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#CalendarRule" ;
 	rr:termType rr:IRI .
 
-map:om_056 rml:reference "monday" ;
+map:om_054 rml:reference "monday" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:boolean ;
 	rr:termType rr:Literal .
 
-map:om_057 rml:reference "tuesday" ;
+map:om_055 rml:reference "tuesday" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:boolean ;
 	rr:termType rr:Literal .
 
-map:om_058 rml:reference "wednesday" ;
+map:om_056 rml:reference "wednesday" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:boolean ;
 	rr:termType rr:Literal .
 
-map:om_059 rml:reference "thursday" ;
+map:om_057 rml:reference "thursday" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:boolean ;
 	rr:termType rr:Literal .
 
-map:om_060 rml:reference "friday" ;
+map:om_058 rml:reference "friday" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:boolean ;
 	rr:termType rr:Literal .
 
-map:om_061 rml:reference "saturday" ;
+map:om_059 rml:reference "saturday" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:boolean ;
 	rr:termType rr:Literal .
 
-map:om_062 rml:reference "sunday" ;
+map:om_060 rml:reference "sunday" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:boolean ;
 	rr:termType rr:Literal .
 
-map:om_063 rml:reference "start_date" ;
+map:om_061 rml:reference "start_date" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:date ;
 	rr:termType rr:Literal .
 
-map:om_064 rml:reference "end_date" ;
+map:om_062 rml:reference "end_date" ;
 	rdf:type rr:ObjectMap ;
 	rr:datatype xsd:date ;
+	rr:termType rr:Literal .
+
+map:om_063 rdf:type rr:ObjectMap ;
+	rr:constant "http://vocab.gtfs.org/terms#Route" ;
+	rr:termType rr:IRI .
+
+map:om_064 rml:reference "lang" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_065 rml:reference "translation" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_066 rdf:type rr:ObjectMap ;
+	rr:joinCondition map:jc_009 ;
+	rr:parentTriplesMap map:map_agency_000 .
+
+map:om_067 rdf:type rr:ObjectMap ;
+	rr:constant "http://vocab.gtfs.org/terms#TransferRule" ;
+	rr:termType rr:IRI .
+
+map:om_068 rml:reference "from_stop_id" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_069 rml:reference "to_stop_id" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_070 rml:reference "transfer_type" ;
+	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
 map:pm_000 rdf:type rr:PredicateMap ;
@@ -419,100 +458,100 @@ map:pm_014 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:block .
 
 map:pm_015 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:wheelchairAccessible .
-
-map:pm_016 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:service .
 
-map:pm_017 rdf:type rr:PredicateMap ;
+map:pm_016 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:route .
 
-map:pm_018 rdf:type rr:PredicateMap ;
+map:pm_017 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
 
-map:pm_019 rdf:type rr:PredicateMap ;
+map:pm_018 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:shortName .
 
-map:pm_020 rdf:type rr:PredicateMap ;
+map:pm_019 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:longName .
 
-map:pm_021 rdf:type rr:PredicateMap ;
+map:pm_020 rdf:type rr:PredicateMap ;
 	rr:constant dct:description .
 
-map:pm_022 rdf:type rr:PredicateMap ;
+map:pm_021 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:routeType .
 
-map:pm_023 rdf:type rr:PredicateMap ;
+map:pm_022 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:routeUrl .
 
-map:pm_024 rdf:type rr:PredicateMap ;
+map:pm_023 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:color .
 
-map:pm_025 rdf:type rr:PredicateMap ;
+map:pm_024 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:textColor .
 
-map:pm_026 rdf:type rr:PredicateMap ;
+map:pm_025 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:agency .
 
-map:pm_027 rdf:type rr:PredicateMap ;
+map:pm_026 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
+
+map:pm_027 rdf:type rr:PredicateMap ;
+	rr:constant foaf:page .
 
 map:pm_028 rdf:type rr:PredicateMap ;
-	rr:constant foaf:page .
+	rr:constant foaf:name .
 
 map:pm_029 rdf:type rr:PredicateMap ;
-	rr:constant foaf:name .
+	rr:constant gtfs:timeZone .
 
 map:pm_030 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:timeZone .
-
-map:pm_031 rdf:type rr:PredicateMap ;
 	rr:constant dct:language .
 
-map:pm_032 rdf:type rr:PredicateMap ;
+map:pm_031 rdf:type rr:PredicateMap ;
 	rr:constant foaf:phone .
 
-map:pm_033 rdf:type rr:PredicateMap ;
+map:pm_032 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:fareUrl .
 
-map:pm_034 rdf:type rr:PredicateMap ;
+map:pm_033 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
 
-map:pm_035 rdf:type rr:PredicateMap ;
+map:pm_034 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:code .
 
-map:pm_036 rdf:type rr:PredicateMap ;
+map:pm_035 rdf:type rr:PredicateMap ;
 	rr:constant dct:identifier .
 
-map:pm_037 rdf:type rr:PredicateMap ;
+map:pm_036 rdf:type rr:PredicateMap ;
 	rr:constant foaf:name .
 
-map:pm_038 rdf:type rr:PredicateMap ;
+map:pm_037 rdf:type rr:PredicateMap ;
 	rr:constant dct:description .
 
-map:pm_039 rdf:type rr:PredicateMap ;
+map:pm_038 rdf:type rr:PredicateMap ;
 	rr:constant geo:lat .
 
-map:pm_040 rdf:type rr:PredicateMap ;
+map:pm_039 rdf:type rr:PredicateMap ;
 	rr:constant geo:long .
 
-map:pm_041 rdf:type rr:PredicateMap ;
+map:pm_040 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:zone .
 
-map:pm_042 rdf:type rr:PredicateMap ;
+map:pm_041 rdf:type rr:PredicateMap ;
 	rr:constant foaf:page .
 
-map:pm_043 rdf:type rr:PredicateMap ;
+map:pm_042 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:locationType .
 
+map:pm_043 rdf:type rr:PredicateMap ;
+	rr:constant dct:identifier .
+
 map:pm_044 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:timeZone .
+	rr:constant gtfs:parentStation .
 
 map:pm_045 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:wheelchairAccessible .
+	rr:constant rdf:type .
 
 map:pm_046 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:parentStation .
+	rr:constant gtfs:serviceRule .
 
 map:pm_047 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
@@ -524,46 +563,64 @@ map:pm_049 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
 
 map:pm_050 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:serviceRule .
-
-map:pm_051 rdf:type rr:PredicateMap ;
-	rr:constant rdf:type .
-
-map:pm_052 rdf:type rr:PredicateMap ;
 	rr:constant dct:date .
 
-map:pm_053 rdf:type rr:PredicateMap ;
+map:pm_051 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:dateAddition .
 
-map:pm_054 rdf:type rr:PredicateMap ;
+map:pm_052 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
 
-map:pm_055 rdf:type rr:PredicateMap ;
+map:pm_053 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:monday .
 
-map:pm_056 rdf:type rr:PredicateMap ;
+map:pm_054 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:tuesday .
 
-map:pm_057 rdf:type rr:PredicateMap ;
+map:pm_055 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:wednesday .
 
-map:pm_058 rdf:type rr:PredicateMap ;
+map:pm_056 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:thursday .
 
-map:pm_059 rdf:type rr:PredicateMap ;
+map:pm_057 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:friday .
 
-map:pm_060 rdf:type rr:PredicateMap ;
+map:pm_058 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:saturday .
 
-map:pm_061 rdf:type rr:PredicateMap ;
+map:pm_059 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:sunday .
 
-map:pm_062 rdf:type rr:PredicateMap ;
+map:pm_060 rdf:type rr:PredicateMap ;
 	rr:constant schema:startDate .
 
-map:pm_063 rdf:type rr:PredicateMap ;
+map:pm_061 rdf:type rr:PredicateMap ;
 	rr:constant schema:endDate .
+
+map:pm_062 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+map:pm_063 rdf:type rr:PredicateMap ;
+	rr:constant dct:language .
+
+map:pm_064 rdf:type rr:PredicateMap ;
+	rr:constant gtfs:headsign .
+
+map:pm_065 rdf:type rr:PredicateMap ;
+	rr:constant gtfs:headsign .
+
+map:pm_066 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+map:pm_067 rdf:type rr:PredicateMap ;
+	rr:constant gtfs:originStop .
+
+map:pm_068 rdf:type rr:PredicateMap ;
+	rr:constant gtfs:destinationStop .
+
+map:pm_069 rdf:type rr:PredicateMap ;
+	rr:constant gtfs:transferType .
 
 map:pom_000 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_000 ;
@@ -626,11 +683,11 @@ map:pom_014 rdf:type rr:PredicateObjectMap ;
 	rr:predicateMap map:pm_014 .
 
 map:pom_015 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_015 ;
+	rr:objectMap map:om_015, map:om_016 ;
 	rr:predicateMap map:pm_015 .
 
 map:pom_016 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_016, map:om_017 ;
+	rr:objectMap map:om_017 ;
 	rr:predicateMap map:pm_016 .
 
 map:pom_017 rdf:type rr:PredicateObjectMap ;
@@ -821,7 +878,31 @@ map:pom_063 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_064 ;
 	rr:predicateMap map:pm_063 .
 
-map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_agency_000, map:map_calendar_date_rules_000, map:map_calendar_rules_000, map:map_routes_000, map:map_services1_000, map:map_services2_000, map:map_stops_000, map:map_stoptimes_000, map:map_trips_000 ;
+map:pom_064 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_065 ;
+	rr:predicateMap map:pm_064 .
+
+map:pom_065 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_066 ;
+	rr:predicateMap map:pm_065 .
+
+map:pom_066 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_067 ;
+	rr:predicateMap map:pm_066 .
+
+map:pom_067 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_068 ;
+	rr:predicateMap map:pm_067 .
+
+map:pom_068 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_069 ;
+	rr:predicateMap map:pm_068 .
+
+map:pom_069 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_070 ;
+	rr:predicateMap map:pm_069 .
+
+map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_agency_000, map:map_calendar_date_rules_000, map:map_calendar_rules_000, map:map_routes_000, map:map_services1_000, map:map_services2_000, map:map_stops_000, map:map_stoptimes_000, map:map_transfers_000, map:map_translations_000, map:map_trips_000 ;
 	rdf:type <http://rdfs.org/ns/void#Dataset> .
 
 map:s_000 rdf:type rr:SubjectMap ;
@@ -850,6 +931,12 @@ map:s_007 rdf:type rr:SubjectMap ;
 
 map:s_008 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/nmbs/calendar_rules/{service_id}" .
+
+map:s_009 rdf:type rr:SubjectMap ;
+	rr:template "http://example.com/nmbs/translations/{trans_id}" .
+
+map:s_010 rdf:type rr:SubjectMap ;
+	rr:template "http://example.com/nmbs/transfers/{from_stop_id}_{to_stop_id}" .
 
 map:source_000 rml:referenceFormulation ql:CSV ;
 	rml:source "./nmbs-static-data/stop_times.txt" ;
@@ -885,5 +972,13 @@ map:source_007 rml:referenceFormulation ql:CSV ;
 
 map:source_008 rml:referenceFormulation ql:CSV ;
 	rml:source "./nmbs-static-data/calendar.txt" ;
+	rdf:type rml:LogicalSource .
+
+map:source_009 rml:referenceFormulation ql:CSV ;
+	rml:source "./nmbs-static-data/translations.txt" ;
+	rdf:type rml:LogicalSource .
+
+map:source_010 rml:referenceFormulation ql:CSV ;
+	rml:source "./nmbs-static-data/transfers.txt" ;
 	rdf:type rml:LogicalSource .
 
