@@ -33,7 +33,7 @@ mappings:
   agency:
     sources:
       - [./agency.txt~csv]
-    s: http://transport.linkeddata.es/madrid/agency/$(agency_id)
+    s: http://example.com/nmbs/agency/$(agency_id)
     po:
       - [a, gtfs:Agency]
       - [foaf:page, $(agency_url)~iri]
