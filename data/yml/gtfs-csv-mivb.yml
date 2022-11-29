@@ -55,6 +55,12 @@ mappings:
       - [gtfs:block, $(block_id)]
       - p: gtfs:service
         o:
+          - mapping: services1
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(service_id)]
+                - [str2, $(service_id)]
           - mapping: services2
             condition:
               function: equal
@@ -90,14 +96,14 @@ mappings:
       - [gtfs:routeUrl, $(route_url)~iri]
       - [gtfs:color, $(route_color)]
       - [gtfs:textColor, $(route_text_color)]
-      - p: gtfs:agency
-        o:
-          - mapping: agency
-            condition:
-              function: equal
-              parameters:
-                - [str1, $(agency_id)]
-                - [str2, $(agency_id)]
+      # - p: gtfs:agency
+      #   o:
+      #     - mapping: agency
+      #       condition:
+      #         function: equal
+      #         parameters:
+      #           - [str1, $(agency_id)]
+      #           - [str2, $(agency_id)]
   agency:
     sources:
       - [./mivb-gtfs/agency.csv~csv]
@@ -124,7 +130,6 @@ mappings:
       - [gtfs:zone,$(zone_id)]
       - [foaf:page,$(stop_url)~iri]
       - [gtfs:locationType,http://example.com/mivb/resource/LocationType/$(location_type)~iri]
-      - [gtfs:wheelchairAccessible,http://example.com/mivb/resource/WheelchairBoardingStatus/$(wheelchair_boarding)~iri]
       - p: gtfs:parentStation
         o:
           - mapping: stops
@@ -133,20 +138,20 @@ mappings:
               parameters:
                 - [str1, $(parent_station)]
                 - [str2, $(stop_id)]
-  # services1:
-  #   sources:
-  #     - [./mivb-gtfs/calendar.csv~csv]
-  #   s: http://example.com/mivb/services/$(service_id)
-  #   po:
-  #     - [a, gtfs:Service]
-  #     - p: gtfs:serviceRule
-  #       o:
-  #         - mapping: calendar_rules
-  #           condition:
-  #             function: equal
-  #             parameters:
-  #               - [str1, $(service_id)]
-  #               - [str2, $(service_id)]
+  services1:
+    sources:
+      - [./mivb-gtfs/calendar.csv~csv]
+    s: http://example.com/mivb/services/$(service_id)
+    po:
+      - [a, gtfs:Service]
+      - p: gtfs:serviceRule
+        o:
+          - mapping: calendar_rules
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(service_id)]
+                - [str2, $(service_id)]
   services2:
     sources:
       - [./mivb-gtfs/calendar_dates.csv~csv]
@@ -169,19 +174,21 @@ mappings:
       - [a, gtfs:CalendarDateRule]
       - [dct:date, $(date), xsd:date]
       - [gtfs:dateAddition, $(exception_type), xsd:boolean]
-  feed:
+  calendar_rules:
     sources:
-      - [./mivb-gtfs/feed_info.csv~csv]
-    s: http://example.com/mivb/feed/$(feed_publisher_name)
+      - [./nmbs-static-data/calendar.csv~csv]
+    s: http://example.com/nmbs/calendar_rules/$(service_id)
     po:
-      - [a, gtfs:Feed]
-      - [dct:publisher,$(feed_publisher_name)]
-      - [foaf:page,$(feed_publisher_url)~iri]
-      - [dct:language,$(feed_lang)]
-      - [schema:startDate,$(feed_start_date), xsd:date]
-      - [schema:endDate,$(feed_end_date), xsd:date]
-      - [schema:version,$(feed_version)]  
-      - [schema:email,$(feed_contact_email)] #email
+      - [a, gtfs:CalendarRule]
+      - [gtfs:monday, $(monday), xsd:boolean]
+      - [gtfs:tuesday, $(tuesday), xsd:boolean]
+      - [gtfs:wednesday, $(wednesday), xsd:boolean]
+      - [gtfs:thursday, $(thursday), xsd:boolean]
+      - [gtfs:friday, $(friday), xsd:boolean]
+      - [gtfs:saturday, $(saturday), xsd:boolean]
+      - [gtfs:sunday, $(sunday), xsd:boolean]
+      - [schema:startDate, $(start_date), xsd:date]
+      - [schema:endDate, $(end_date), xsd:date]
 
   shapes:
     sources:
@@ -207,3 +214,20 @@ mappings:
       - [geo:long,$(shape_pt_lon),xsd:double]
       - [gtfs:pointSequence,$(shape_pt_sequence)]
       - [gtfs:distanceTraveled,$(shape_dist_traveled)]  
+  translations:
+    sources:
+      - [./mivb-gtfs/translations.csv~csv]
+    s: http://example.com/mivb/translations/$(trans_id)
+    po:
+      - [a, gtfs:Route]
+      - [dct:language, $(lang)]
+      - [gtfs:headsign, $(translation)]
+
+      - p: gtfs:headsign
+        o:
+          - mapping: trips
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(trans_id)]
+                - [str2, $(trip_headsign)]
