@@ -16,7 +16,7 @@ prefixes:
 mappings:
   stoptimes:
     sources:
-      - [./tec-gtfs/stop_times.csv~csv]
+      - [./data/tec-gtfs/stop_times.csv~csv]
     s: http://example.com/tec/stoptimes/$(trip_id)-$(stop_id)-$(arrival_time)
     po:
       - [a, gtfs:StopTime]
@@ -45,11 +45,11 @@ mappings:
                 - [str2, $(stop_id)]
   trips:
     sources:
-      - [./tec-gtfs/trips.csv~csv]
+      - [./data/tec-gtfs/trips.csv~csv]
     s: http://example.com/tec/trips/$(trip_id)
     po:
       - [a, gtfs:Trip]
-      - [gtfs:headsign, $(trip_headsign)]
+      # - [gtfs:headsign, $(trip_headsign)]
       - [gtfs:shortName, $(trip_short_name)]
       - [gtfs:direction, $(direction_id)]
       - [gtfs:block, $(block_id)]
@@ -79,7 +79,7 @@ mappings:
                 - [str2, $(shape_id)]
   routes:
     sources:
-      - [./tec-gtfs/routes.csv~csv]
+      - [./data/tec-gtfs/routes.csv~csv]
     s: http://example.com/tec/routes/$(route_id)
     po:
       - [a, gtfs:Route]
@@ -100,7 +100,7 @@ mappings:
                 - [str2, $(agency_id)]
   agency:
     sources:
-      - [./tec-gtfs/agency.csv~csv]
+      - [./data/tec-gtfs/agency.csv~csv]
     s: http://example.com/tec/agency/$(agency_id)
     po:
       - [a, gtfs:Agency]
@@ -111,7 +111,7 @@ mappings:
       - [foaf:phone,$(agency_phone)]
   stops:
     sources:
-      - [./tec-gtfs/stops.csv~csv]
+      - [./data/tec-gtfs/stops.csv~csv]
     s: http://example.com/tec/stops/$(stop_id)
     po:
       - [a,gtfs:Stop]
@@ -135,7 +135,7 @@ mappings:
                 - [str2, $(stop_id)]
   # services1:
   #   sources:
-  #     - [./tec-gtfs/calendar.csv~csv]
+  #     - [./data/tec-gtfs/calendar.csv~csv]
   #   s: http://example.com/tec/services/$(service_id)
   #   po:
   #     - [a, gtfs:Service]
@@ -149,7 +149,7 @@ mappings:
   #               - [str2, $(service_id)]
   services2:
     sources:
-      - [./tec-gtfs/calendar_dates.csv~csv]
+      - [./data/tec-gtfs/calendar_dates.csv~csv]
     s: http://example.com/tec/services/$(service_id)
     po:
       - [a, gtfs:Service]
@@ -163,7 +163,7 @@ mappings:
                 - [str2, $(service_id)] 
   calendar_date_rules:
     sources:
-      - [./tec-gtfs/calendar_dates.csv~csv]
+      - [./data/tec-gtfs/calendar_dates.csv~csv]
     s: http://example.com/tec/calendar_date_rule/$(service_id)-$(date)
     po:
       - [a, gtfs:CalendarDateRule]
@@ -171,21 +171,22 @@ mappings:
       - [gtfs:dateAddition, $(exception_type), xsd:boolean]
   feed:
     sources:
-      - [./tec-gtfs/feed_info.csv~csv]
+      - [./data/tec-gtfs/feed_info.csv~csv]
     s: http://example.com/tec/feed/$(feed_publisher_name)
     po:
       - [a, gtfs:Feed]
       - [dct:publisher,$(feed_publisher_name)]
       - [foaf:page,$(feed_publisher_url)~iri]
       - [dct:language,$(feed_lang)]
+      - [dct:language,$(default_lang)]
       - [schema:startDate,$(feed_start_date), xsd:date]
-      - [schema:endDate,$(feed_end_date), xsd:date]
+      # - [schema:endDate,$(feed_end_date), xsd:date]
       - [schema:email,$(feed_contact_email)] #email
       - [foaf:page,$(feed_contact_url)~iri]  
 
   shapes:
     sources:
-      - [./tec-gtfs/shapes.csv~csv]
+      - [./data/tec-gtfs/shapes.csv~csv]
     s: http://example.com/tec/shape/$(shape_id)
     po:
       - [a, gtfs:Shape]
@@ -199,7 +200,7 @@ mappings:
                 - [str2, $(shape_id)]
   shapePoints:
     sources:
-      - [./tec-gtfs/shapes.csv~csv]
+      - [./data/tec-gtfs/shapes.csv~csv]
     s: http://example.com/tec/shape_point/$(shape_id)-$(shape_pt_sequence)
     po:
       - [a, gtfs:ShapePoint]
