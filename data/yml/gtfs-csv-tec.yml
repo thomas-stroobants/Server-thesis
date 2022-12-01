@@ -23,10 +23,10 @@ mappings:
       - [gtfs:arrivalTime, $(arrival_time),xsd:duration]
       - [gtfs:departureTime, $(departure_time),xsd:duration]
       - [gtfs:stopSequence, $(stop_sequence),xsd:integer]
-      - [gtfs:headsign, $(stop_headsign)]
+      # - [gtfs:headsign, $(stop_headsign)]
       - [gtfs:pickupType, http://example.com/tec/resource/PickupType/$(pickup_type)~iri]
       - [gtfs:dropOffType, http://example.com/tec/resource/DropOffType/$(drop_off_type)~iri]
-      - [gtfs:distanceTraveled, $(shape_dist_traveled)]
+      # - [gtfs:distanceTraveled, $(shape_dist_traveled)]
       - p: gtfs:trip
         o:
           - mapping: trips
@@ -88,8 +88,8 @@ mappings:
       - [dct:description, $(route_desc)]
       - [gtfs:routeType, http://example.com/tec/resource/RouteType/$(route_type)~iri]
       - [gtfs:routeUrl, $(route_url)~iri]
-      - [gtfs:color, $(route_color)]
-      - [gtfs:textColor, $(route_text_color)]
+      # - [gtfs:color, $(route_color)]
+      # - [gtfs:textColor, $(route_text_color)]
       - p: gtfs:agency
         o:
           - mapping: agency
@@ -124,15 +124,15 @@ mappings:
       - [gtfs:zone,$(zone_id)]
       - [foaf:page,$(stop_url)~iri]
       - [gtfs:locationType,http://example.com/tec/resource/LocationType/$(location_type)~iri]
-      - [gtfs:wheelchairAccessible,http://example.com/tec/resource/WheelchairBoardingStatus/$(wheelchair_boarding)~iri]
-      - p: gtfs:parentStation
-        o:
-          - mapping: stops
-            condition:
-              function: equal
-              parameters:
-                - [str1, $(parent_station)]
-                - [str2, $(stop_id)]
+      # - [gtfs:wheelchairAccessible,http://example.com/tec/resource/WheelchairBoardingStatus/$(wheelchair_boarding)~iri]
+      # - p: gtfs:parentStation
+      #   o:
+      #     - mapping: stops
+      #       condition:
+      #         function: equal
+      #         parameters:
+      #           - [str1, $(parent_station)]
+      #           - [str2, $(stop_id)]
   # services1:
   #   sources:
   #     - [./data/tec-gtfs/calendar.csv~csv]
@@ -207,4 +207,4 @@ mappings:
       - [geo:lat,$(shape_pt_lat),xsd:double]
       - [geo:long,$(shape_pt_lon),xsd:double]
       - [gtfs:pointSequence,$(shape_pt_sequence)]
-      - [gtfs:distanceTraveled,$(shape_dist_traveled)]  
+      # - [gtfs:distanceTraveled,$(shape_dist_traveled)]  
