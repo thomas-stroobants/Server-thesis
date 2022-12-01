@@ -20,33 +20,48 @@
     rml:logicalSource [
         rml:source "./de-lijn-rt-gtfs.json" ;
         rml:iterator "$.header[*]" ;
-        rml:referenceFormulation ql:JSONPath ;
+        rml:referenceFormulation ql:JSONPath 
     ];
 
-    rml:subjectMap [
-        rr:template "http://example.com/nmbs/rt/{timestamp}"
+    rr:subjectMap [
+        rr:template "http://example.com/nmbs/rt/{timestamp}" ;
         rr:class ex:FeedHeader
     ];
 
     rr:predicateObjectMap [
-        rr:predicate schema:version;
+        rr:predicate schema:version ;
         rr:objectMap [
             rml:reference "gtfsRealtimeVersion"
         ]
     ];
 
     rr:predicateObjectMap [
-        rr:predicate rdfs:label;
+        rr:predicate rdfs:label ;
         rr:objectMap [
             rml:reference "incrementality"
         ]
     ];
 
     rr:predicateObjectMap [
-        rr:predicate dct:modified;
+        rr:predicate dct:modified ;
         rr:objectMap [
             rml:reference "timestamp";
             rr:datatype xsd:date
         ]
     ].
 
+<#EntityMapping> a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "./de-lijn-rt-gtfs.json" ;
+        rml:iterator "$.entity[*]" ;
+        rml:referenceFormulation ql:JSONPath 
+    ];
+
+    rr:subjectMap [
+        rr:template "http://example.com/nmbs/rt/{id}" ;
+        rr:constant rdf:type
+    ]
+
+    rr:predicateObjectMap [
+        rr:predicate 
+    ]
