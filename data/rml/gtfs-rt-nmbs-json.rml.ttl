@@ -14,7 +14,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix gtfs: <http://vocab.gtfs.org/terms#> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .  
 
 <#HeaderMapping> a rr:TriplesMap;
     rml:logicalSource [
@@ -66,13 +66,14 @@
         rr:predicate xsd:date ;
         rr:objectMap [
             rml:reference "tripUpdate.startDate"
+            rr:datatype xsd:date
         ]
     ];
 
     rr:predicateObjectMap [
         rr:predicate xsd:time ;
         rr:objectMap [
-            rml:reference "tripUpdate.startDate"
+            rml:reference "tripUpdate.startTime"
         ]
     ];
 
