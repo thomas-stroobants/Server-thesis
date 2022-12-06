@@ -5,6 +5,8 @@ import time
 with open('nmbs-rt-data/nmbs-rt-gtfs.json') as sfile:
     data = json.load(sfile)
 
+data["header"]["timestamp"] = time.strftime('%H:%M:%S', time.localtime(int(data["header"]["timestamp"])))
+
 for item in data["entity"]:
     for tripdata in item["tripUpdate"]["stopTimeUpdate"]:
         if 'arrival' in tripdata:
