@@ -6,8 +6,11 @@ with open('nmbs-rt-data/nmbs-rt-gtfs.json') as sfile:
     data = json.load(sfile)
 
 for item in data["entity"]:
-    for tripdata in item["tripUpdate"]:
-        for stopdata in tripdata["stopTimeUpdate"]:
-            for arrivaldata in stopdata["arrival"]:
-                print(f"delay is {arrivaldata["delay"]}")
-                # arrivaldata["delay"] = time.strftime('%H:%M:%S', time.localtime(arrivaldata["delay"]))
+    for tripdata in item["tripUpdate"]["stopTimeUpdate"]:
+        if 'arrival' in tripdata:
+            tripdata['arrival']['time'] = time.strftime('%H:%M:%S', time.localtime(int(tripdata['arrival']['time'])))
+        if 'departure' in tripdata:
+            tripdata['departure']['time'] = time.strftime('%H:%M:%S', time.localtime(int(tripdata['departure']['time'])))
+
+with open('nmbs-rt-json-adap.json', 'w') as ofile:
+    json.dump(data, ofile, indent = 2, sort_keys=True)
