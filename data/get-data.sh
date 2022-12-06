@@ -19,17 +19,25 @@ function unzip_data() {
     for dir in ${DIR[@]}; do
         if [ ! -d "$dir" ];
         then 
-            echo "mkdir $dir"
+            mkdir $dir
         else
             echo "Directory $dir already exists.."
         fi
     done
 
-    echo "unzip ./de_lijn-gtfs.zip -d ${DIRS[0]}"
-    echo "unzip ./latest.zip -d ${DIRS[1]}"
-    echo "unzip ./mivb-gtfs.zip -d ${DIRS[2]}"
-    echo "unzip ./tec-gtfs.zip -d ${DIRS[3]}"
+    unzip ./de_lijn-gtfs.zip -d ${DIR[0]}
+    unzip ./latest.zip -d ${DIR[1]}
+    unzip ./mivb-gtfs.zip -d ${DIR[2]}
+    unzip ./tec-gtfs.zip -d ${DIR[3]}
 }
-# download_data
+function txt_to_csv() {
+    for dir in ${DIR[@]}; do
+        for file in $dir/*.txt; do 
+            mv -- "$file" "${file%.txt}.csv"
+        done
+    done
+}
+download_data
 unzip_data
+txt_to_csv
 # for f in *txt; do mv -- "$f" "${f%.txt}.csv"; done
