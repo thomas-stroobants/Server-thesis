@@ -16,7 +16,7 @@ prefixes:
 mappings:
   stoptimes:
     sources:
-      - [./nmbs-static-data/stop_times.csv~csv]
+      - [./data/nmbs-gtfs/stop_times.csv~csv]
     s: http://example.com/nmbs/stoptimes/$(trip_id)-$(stop_id)-$(arrival_time)
     po:
       - [a, gtfs:StopTime]
@@ -45,7 +45,7 @@ mappings:
                 - [str2, $(stop_id)]
   trips:
     sources:
-      - [./nmbs-static-data/trips.csv~csv]
+      - [./data/nmbs-gtfs/trips.csv~csv]
     s: http://example.com/nmbs/trips/$(trip_id)
     po:
       - [a, gtfs:Trip]
@@ -77,7 +77,7 @@ mappings:
                 - [str2, $(route_id)]
   routes:
     sources:
-      - [./nmbs-static-data/routes.csv~csv]
+      - [./data/nmbs-gtfs/routes.csv~csv]
     s: http://example.com/nmbs/routes/$(route_id)
     po:
       - [a, gtfs:Route]
@@ -98,8 +98,8 @@ mappings:
                 - [str2, $(agency_id)]
   agency:
     sources:
-      - [./nmbs-static-data/agency.csv~csv]
-    s: http://example.com/nmb/madrid/agency/$(agency_id)
+      - [./data/nmbs-gtfs/agency.csv~csv]
+    s: http://example.com/nmbs/nmbs/agency/$(agency_id)
     po:
       - [a, gtfs:Agency]
       - [foaf:page, $(agency_url)~iri]
@@ -109,7 +109,7 @@ mappings:
       - [foaf:phone,$(agency_phone)]
   stops:
     sources:
-      - [./nmbs-static-data/stops.csv~csv]
+      - [./data/nmbs-gtfs/stops.csv~csv]
     s: http://example.com/nmbs/stops/$(stop_id)
     po:
       - [a,gtfs:Stop]
@@ -133,7 +133,7 @@ mappings:
                 - [str2, $(stop_id)]
   services1:
     sources:
-      - [./nmbs-static-data/calendar.csv~csv]
+      - [./data/nmbs-gtfs/calendar.csv~csv]
     s: http://example.com/nmbs/services/$(service_id)
     po:
       - [a, gtfs:Service]
@@ -147,7 +147,7 @@ mappings:
                 - [str2, $(service_id)]
   services2:
     sources:
-      - [./nmbs-static-data/calendar_dates.csv~csv]
+      - [./data/nmbs-gtfs/calendar_dates.csv~csv]
     s: http://example.com/nmbs/services/$(service_id)
     po:
       - [a, gtfs:Service]
@@ -161,7 +161,7 @@ mappings:
                 - [str2, $(service_id)] 
   calendar_date_rules:
     sources:
-      - [./nmbs-static-data/calendar_dates.csv~csv]
+      - [./data/nmbs-gtfs/calendar_dates.csv~csv]
     s: http://example.com/nmbs/calendar_date_rule/$(service_id)-$(date)
     po:
       - [a, gtfs:CalendarDateRule]
@@ -169,7 +169,7 @@ mappings:
       - [gtfs:dateAddition, $(exception_type), xsd:boolean]
   calendar_rules:
     sources:
-      - [./nmbs-static-data/calendar.csv~csv]
+      - [./data/nmbs-gtfs/calendar.csv~csv]
     s: http://example.com/nmbs/calendar_rules/$(service_id)
     po:
       - [a, gtfs:CalendarRule]
@@ -184,7 +184,7 @@ mappings:
       - [schema:endDate, $(end_date), xsd:date]
   translations:
     sources:
-      - [./nmbs-static-data/translations.csv~csv]
+      - [./data/nmbs-gtfs/translations.csv~csv]
     s: http://example.com/nmbs/translations/$(trans_id)
     po:
       - [a, gtfs:Route]
@@ -201,7 +201,7 @@ mappings:
                 - [str2, $(trip_headsign)]
   transfers:
     sources:
-      - [./nmbs-static-data/transfers.csv~csv]
+      - [./data/nmbs-gtfs/transfers.csv~csv]
     s: http://example.com/nmbs/transfers/$(from_stop_id)_$(to_stop_id)
     po:
       - [a, gtfs:TransferRule]
