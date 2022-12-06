@@ -5,14 +5,14 @@ DIR=( "./de-lijn-gtfs/" "./nmbs-gtfs/" "./mivb-gtfs/" "./tec-gtfs/" )
 
 #download file
 function download_data() {
-    wget https://gtfs.irail.be/de-lijn/de_lijn-gtfs.zip
-    wget https://gtfs.irail.be/mivb/mivb-gtfs.zip
-    wget https://gtfs.irail.be/nmbs/gtfs/latest.zip
-    wget https://gtfs.irail.be/tec/tec-gtfs.zip
+    curl -O https://gtfs.irail.be/de-lijn/de_lijn-gtfs.zip
+    curl -O https://gtfs.irail.be/mivb/mivb-gtfs.zip
+    curl -o "nmbs-gtfs.zip" https://sncb-opendata.hafas.de/gtfs/static/c21ac6758dd25af84cca5b707f3cb3de 
+    curl -O https://gtfs.irail.be/tec/tec-gtfs.zip
 
-    wget https://raw.githubusercontent.com/iRail/stations/master/stations.csv
-    wget https://raw.githubusercontent.com/iRail/stations/master/stops.csv
-    wget https://raw.githubusercontent.com/iRail/stations/master/facilities.csv
+    curl -O https://raw.githubusercontent.com/iRail/stations/master/stations.csv
+    curl -O https://raw.githubusercontent.com/iRail/stations/master/stops.csv
+    curl -O https://raw.githubusercontent.com/iRail/stations/master/facilities.csv
 }
 
 function unzip_data() {
@@ -26,7 +26,7 @@ function unzip_data() {
     done
 
     unzip ./de_lijn-gtfs.zip -d ${DIR[0]}
-    unzip ./latest.zip -d ${DIR[1]}
+    unzip ./nmbs-gtfs.zip -d ${DIR[1]}
     unzip ./mivb-gtfs.zip -d ${DIR[2]}
     unzip ./tec-gtfs.zip -d ${DIR[3]}
 }
