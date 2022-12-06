@@ -30,6 +30,7 @@ function unzip_data() {
     unzip ./mivb-gtfs.zip -d ${DIR[2]}
     unzip ./tec-gtfs.zip -d ${DIR[3]}
 }
+
 function txt_to_csv() {
     for dir in ${DIR[@]}; do
         for file in $dir/*.txt; do 
@@ -37,6 +38,7 @@ function txt_to_csv() {
         done
     done
 }
+
 download_data
 unzip_data
 txt_to_csv
