@@ -58,14 +58,14 @@
     ];
 
     rr:subjectMap [
-        rr:template "http://example.com/nmbs/rt/{id}-{tripUpdate.trip.startDate}-{tripUpdate.trip.startTime}" 
+        rr:template "http://example.com/nmbs/trips/{id}"
         
     ];
 
     rr:predicateObjectMap [
         rr:predicate xsd:date ;
         rr:objectMap [
-            rml:reference "tripUpdate.startDate"
+            rml:reference "tripUpdate.trip.startDate"
             rr:datatype xsd:date
         ]
     ];
@@ -73,7 +73,7 @@
     rr:predicateObjectMap [
         rr:predicate xsd:time ;
         rr:objectMap [
-            rml:reference "tripUpdate.startTime"
+            rml:reference "tripUpdate.trip.startTime"
         ]
     ];
 
