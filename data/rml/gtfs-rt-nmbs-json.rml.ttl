@@ -58,7 +58,7 @@
     ];
 
     rr:subjectMap [
-        rr:template "http://example.com/nmbs/stoptimes/{tripUpdate.trip.tripId}-{tripUpdate.stopTimeUpdate.stopId"
+        rr:template "http://example.com/nmbs/stoptimes/{tripUpdate.trip.tripId}-{tripUpdate.stopTimeUpdate[*].stopId}"
         
     ];
 
