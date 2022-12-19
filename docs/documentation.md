@@ -9,7 +9,7 @@
 | trip.startDate | schema:startDate ^^xsd:date
 | trip.startTime | 
 | ---------- | ---------- | ---------- | ---------- |
-| stopTimeUpdate.stopID |
+| stopTimeUpdate.stopID | 
 | stopTimeUpdate.stopID.arrival |
 | stopTimeUpdate.stopID.departure |
 
@@ -17,4 +17,4 @@ stopTimeUpdate.stopID --> delay is in seconden!
 
 
 88____:L70::8841525:8844008:11:1951:20231208
-            stopID start: stopID stop: aantal stops: aankomsttijd
+            stopID start: stopID stop: aantal stops: aankomsttijd: tot wanneer geldig?
