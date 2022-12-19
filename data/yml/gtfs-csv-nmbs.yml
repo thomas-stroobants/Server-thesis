@@ -17,7 +17,8 @@ mappings:
   stoptimes:
     sources:
       - [./data/nmbs-gtfs/stop_times.csv~csv]
-    s: http://example.com/nmbs/stoptimes/$(trip_id)-$(stop_id)-$(arrival_time)
+    # s: http://example.com/nmbs/stoptimes/$(trip_id)-$(stop_id)-$(arrival_time)
+    s: http://example.com/nmbs/stoptimes/$(trip_id)-$(stop_id)
     po:
       - [a, gtfs:StopTime]
       - [gtfs:arrivalTime, $(arrival_time),xsd:time]

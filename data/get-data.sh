@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/local/bin/bash
 
 DIR=( "./de-lijn-gtfs/" "./nmbs-gtfs/" "./mivb-gtfs/" "./tec-gtfs/" )
 

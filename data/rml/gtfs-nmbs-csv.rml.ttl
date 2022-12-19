@@ -895,7 +895,8 @@ map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_agency_000, map:
 	rdf:type <http://rdfs.org/ns/void#Dataset> .
 
 map:s_000 rdf:type rr:SubjectMap ;
-	rr:template "http://example.com/nmbs/stoptimes/{trip_id}-{stop_id}-{arrival_time}" .
+	# rr:template "http://example.com/nmbs/stoptimes/{trip_id}-{stop_id}-{arrival_time}" .
+	rr:template "http://example.com/nmbs/stoptimes/{trip_id}-{stop_id}" .
 
 map:s_001 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/nmbs/trips/{trip_id}" .
