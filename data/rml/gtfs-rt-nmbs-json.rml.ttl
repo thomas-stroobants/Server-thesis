@@ -100,4 +100,4 @@
             rr:template "http://example.com/nmbs/stops/{stopId}" ;
 	        rr:termType rr:IRI ;
         ]
-    ];
+    ].
