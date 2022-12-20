@@ -25,7 +25,7 @@
 
     rr:subjectMap [
         rr:template "http://example.com/nmbs/rt/{timestamp}" ;
-        rr:class ex:FeedHeader
+        # rr:class ex:FeedHeader;
     ];
 
     rr:predicateObjectMap [
