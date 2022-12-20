@@ -18,7 +18,7 @@
 
 <#HeaderMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "./morph-kgc/nmbs-rt-json-new-adapted.json" ;
+        rml:source "./morph-kgc/nmbs-rt-json-new-adap.json" ;
         rml:iterator "$.header[*]" ;
         rml:referenceFormulation ql:JSONPath 
     ];
@@ -52,7 +52,7 @@
 
 <#StopTimeUpdateMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "./morph-kgc/nmbs-rt-json-new-adapted.json" ;
+        rml:source "./morph-kgc/nmbs-rt-json-new-adap.json" ;
         rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
         rml:referenceFormulation ql:JSONPath 
     ];
