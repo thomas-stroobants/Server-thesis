@@ -1,4 +1,4 @@
-#! /usr/local/bin/bash
+#! /usr/bin/bash
 
 DIR=( "../de-lijn-gtfs/" "../nmbs-gtfs/" "../mivb-gtfs/" "../tec-gtfs/" )
 
@@ -25,10 +25,10 @@ function unzip_data() {
         fi
     done
 
-    unzip ./de_lijn-gtfs.zip -d ${DIR[0]}
-    unzip ./nmbs-gtfs.zip -d ${DIR[1]}
-    unzip ./mivb-gtfs.zip -d ${DIR[2]}
-    unzip ./tec-gtfs.zip -d ${DIR[3]}
+    unzip -o ./de_lijn-gtfs.zip -d ${DIR[0]}
+    unzip -o ./nmbs-gtfs.zip -d ${DIR[1]}
+    unzip -o ./mivb-gtfs.zip -d ${DIR[2]}
+    unzip -o ./tec-gtfs.zip -d ${DIR[3]}
 }
 
 function txt_to_csv() {
