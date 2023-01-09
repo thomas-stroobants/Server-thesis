@@ -79,5 +79,5 @@ def get_gtfs_rt(url, file_name, params=None, headers=None):
 # get_gtfs_rf_nmbs()
 # get_gtfs_rt(de_lijn_rt_url, "de-lijn-data/de-lijn-rt-gtfs-new2.json", params=params, headers=headers)
 # get_gtfs_rt(de_lijn_rt1_url, "de-lijn-data/de-lijn-rt1-gtfs-new.json", headers=headers)
-get_gtfs_rt(nmbs_rt_url, "nmbs-rt-data/nmbs-rt-gtfs-new.json")
+get_gtfs_rt(nmbs_rt_url, "../nmbs-rt-data/nmbs-rt-gtfs-new.json")
 # get_gtfs_rt_lijn()

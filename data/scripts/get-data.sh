@@ -10,9 +10,9 @@ function download_data() {
     curl -o "./nmbs-gtfs.zip" https://sncb-opendata.hafas.de/gtfs/static/c21ac6758dd25af84cca5b707f3cb3de 
     curl -O https://gtfs.irail.be/tec/tec-gtfs.zip
 
-    curl -O https://raw.githubusercontent.com/iRail/stations/master/stations.csv -d ./iRail
-    curl -O https://raw.githubusercontent.com/iRail/stations/master/stops.csv -d ./iRail
-    curl -O https://raw.githubusercontent.com/iRail/stations/master/facilities.csv -d ./iRail
+    curl -O https://raw.githubusercontent.com/iRail/stations/master/stations.csv 
+    curl -O https://raw.githubusercontent.com/iRail/stations/master/stops.csv
+    curl -O https://raw.githubusercontent.com/iRail/stations/master/facilities.csv
 }
 
 function unzip_data() {
