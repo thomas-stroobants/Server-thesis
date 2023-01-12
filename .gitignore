@@ -12,3 +12,4 @@ data/*-gtfs*/
 data/*.zip
 .DS-Store
 data/*rt*
+data/nmbs-*
