@@ -8,5 +8,7 @@ RMLStreamer*
 .bash_history
 env/
 *.nt
-data/*-gtfs/
+data/*-gtfs*/
 data/*.zip
+.DS-Store
+data/*rt*
