@@ -13,3 +13,5 @@ data/*.zip
 .DS-Store
 data/*rt*
 data/nmbs-*
+.*
+Code/
