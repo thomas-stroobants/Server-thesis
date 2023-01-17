@@ -36,3 +36,8 @@ De Lijn GTFS RT data
             id voor het voertuig te identificeren
         timestamp
             tijd van laatste update van voertuig/lijn??
+
+
+# Setup Virtuoso server
+checkpoint interval = 60
+scheduler interval = 10
