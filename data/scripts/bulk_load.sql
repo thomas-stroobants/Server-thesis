@@ -10,3 +10,5 @@ ld_dir()
 --delta-aware bulk loading of datasets into virtuoso
 --bulk loarder is told to use "graph delta" load process with special option with_delete applied in the ld_dir() command
 -- IMPORTANT, not available in VOS (Virtuoso Open Source)
+
+--isql 1111 dba dba VERBOSE=OFF --> disabled message "Done xxx msec" from apprearing
