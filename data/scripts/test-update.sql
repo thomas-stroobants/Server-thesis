@@ -7,14 +7,14 @@ PREFIX example: <http://example.com/>
 MODIFY example:nmbs
 DELETE
     {
-        ?s dct:date ?d .
+        -- ?s dct:date ?d .
         ?s gtfs:arrivalTime ?a .
         ?s gtfs:departureTime ?dt .
         ?s gtfs:stop ?st .
     }
 INSERT
     {
-        ?s dct:date ?nd .
+        -- ?s dct:date ?nd .
         ?s gtfs:arrivalTime ?na .
         ?s gtfs:departureTime ?ndt .
         ?s gtfs:stop ?nst .
