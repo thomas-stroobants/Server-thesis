@@ -17,113 +17,36 @@
 @prefix dct: <http://purl.org/dc/terms/> .  
 @base <http://example.com> .
 
-<#HeaderMapping> a rr:TriplesMap;
+<#NameMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "./data/nmbs-rt-data/nmbs-rt-json-new-adap.json" ;
-        rml:iterator "$.header" ;
-        rml:referenceFormulation ql:JSONPath 
+        rml:source "./data/iRail/facilities.csv" ;
+        rml:referenceFormulation ql:CSV 
     ];
 
     rr:subjectMap [
-        rr:template "http://example.com/nmbs/rt/{timestamp}" ;
-        # rr:class ex:FeedHeader;
+        rr:template "http://example.com/nmbs/stops/{URI}" ;
     ];
 
     rr:predicateObjectMap [
-        rr:predicate schema:version ;
+        rr:predicate foaf:name ;
         rr:objectMap [
-            rml:reference "gtfsRealtimeVersion"
-        ]
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate rdfs:label ;
-        rr:objectMap [
-            rml:reference "incrementality"
-        ]
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate dct:modified ;
-        rr:objectMap [
-            rml:reference "timestamp";
-            rr:datatype xsd:date
+            rml:reference "name"
         ]
     ].
 
-<#TripStartDateMapping> a rr:TriplesMap;
+<#BlueBikeMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "./data/nmbs-rt-data/nmbs-rt-json-new-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
+        rml:source "./data/iRail/facilities.csv" ;
+        rml:referenceFormulation ql:CSV 
     ];
 
     rr:subjectMap [
-        rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
+        rr:template "http://example.com/nmbs/stops/{URI}" ;
     ];
 
     rr:predicateObjectMap [
-        rr:predicate dct:date ;
+        rr:predicate gtfs:bikeAllowed ;
         rr:objectMap [
-            rml:reference "tripStartDate";
-            rr:datatype xsd:date;
-        ]
-    ].
-
-<#ArrivalTimeMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "./data/nmbs-rt-data/nmbs-rt-json-new-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate gtfs:arrivalTime ;
-        rr:objectMap [
-            rml:reference "arrival.time";
-            rr:datatype xsd:time;
-        ]
-    ].
-
-<#DepartureTimeMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "./data/nmbs-rt-data/nmbs-rt-json-new-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate gtfs:departureTime ;
-        rr:objectMap [
-            rml:reference "departure.time";
-            rr:datatype xsd:time;
-        ]
-    ].
-
-<#StopIDMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "./data/nmbs-rt-data/nmbs-rt-json-new-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate gtfs:stop ;
-        rr:objectMap [
-            # rml:reference "stopId";
-            rr:template "http://example.com/nmbs/stops/{stopId}" ;
-	        rr:termType rr:IRI ;
+            rml:reference "blue-bike"
         ]
     ].
