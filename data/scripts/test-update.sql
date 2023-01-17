@@ -20,9 +20,13 @@ WHERE
         GRAPH <http://example.com/nmbs>
             {
                 ?s gtfs:stop ?st .
+                ?s gtfs:arrivalTime ?a .
+                ?s gtfs:departureTime ?dt .
             }
         GRAPH <http://example.com/nmbs-rt>
             {
                 ?s gtfs:stop ?nst .
+                ?s gtfs:arrivalTime ?na .
+                ?s gtfs:departureTime ?ndt .
             }
     };
