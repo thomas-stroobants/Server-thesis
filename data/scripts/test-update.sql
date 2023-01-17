@@ -27,6 +27,6 @@ WHERE
             }
         GRAPH example:nmbs-rt
             {
-                ?s gtfs:stop ?st .
+                ?s gtfs:stop ?nst .
             }
     };
