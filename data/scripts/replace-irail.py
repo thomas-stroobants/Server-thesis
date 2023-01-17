@@ -1,5 +1,5 @@
 import pandas as pd
-pd.set_option('precision', 0)
+# pd.set_option('precision', 0)
 df = pd.read_csv("/home/thomas/data/iRail/facilities.csv")
 
 for i in range(len(df.index)):
@@ -8,6 +8,10 @@ for i in range(len(df.index)):
     print(old_value, new_value)
     print()
     df.loc[i, "URI"] = new_value
+
+df["blue-bike"] = df["blue-bike"].fillna(0)
+df["blue-bike"] = df["blue-bike"].astype(int)
+
 
 
 
