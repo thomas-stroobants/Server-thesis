@@ -1,0 +1,1 @@
+SPARQL SELECT * from <http://example.com/nmbs> where { ?s ?p ?o } LIMIT 100;
