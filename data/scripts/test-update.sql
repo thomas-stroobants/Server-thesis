@@ -29,4 +29,4 @@ WHERE
             {
                 ?s gtfs:stop ?st .
             }
-    }
+    };
