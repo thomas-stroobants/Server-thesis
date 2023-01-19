@@ -53,13 +53,13 @@
 
 <#TripStartDateMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "./morph-kgc/de-lijn-rt-gtfs.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs.json" ;
+        rml:iterator "$.entity[*].tripUpdate" ;
         rml:referenceFormulation ql:JSONPath 
     ];
 
     rr:subjectMap [
-        rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
+        rr:template "http://example.com/de-lijn/stoptimes/{trip.tripId}-{stopTimeUpdate[*].stopId}"  ;
     ];
 
     rr:predicateObjectMap [
@@ -70,60 +70,41 @@
         ]
     ].
 
-<#ArrivalTimeMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "./morph-kgc/de-lijn-rt-gtfs.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate gtfs:arrivalTime ;
-        rr:objectMap [
-            rml:reference "arrival.time";
-            rr:datatype xsd:time;
-        ]
-    ].
-
 <#DepartureTimeMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "./morph-kgc/de-lijn-rt-gtfs.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs.json" ;
+        rml:iterator "$.entity[*].tripUpdate" ;
         rml:referenceFormulation ql:JSONPath 
     ];
 
     rr:subjectMap [
-        rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
+        rr:template "http://example.com/de-lijn/stoptimes/{trip.tripId}-{stopTimeUpdate[*].stopId}"  ;
     ];
 
     rr:predicateObjectMap [
         rr:predicate gtfs:departureTime ;
         rr:objectMap [
-            rml:reference "departure.time";
+            rml:reference "timestamp";
             rr:datatype xsd:time;
         ]
     ].
 
 <#StopIDMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "./morph-kgc/de-lijn-rt-gtfs.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs.json" ;
+        rml:iterator "$.entity[*].tripUpdate" ;
         rml:referenceFormulation ql:JSONPath 
     ];
 
     rr:subjectMap [
-        rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
+        rr:template "http://example.com/de-lijn/stoptimes/{trip.tripId}-{stopTimeUpdate[*].stopId}"  ;
     ];
 
     rr:predicateObjectMap [
         rr:predicate gtfs:stop ;
         rr:objectMap [
             # rml:reference "stopId";
-            rr:template "http://example.com/de-lijn/stops/{stopId}" ;
+            rr:template "http://example.com/de-lijn/stops/{stopTimeUpdate[*].stopId}" ;
 	        rr:termType rr:IRI ;
         ]
     ].
