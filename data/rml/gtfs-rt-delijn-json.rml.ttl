@@ -108,3 +108,21 @@
 	        rr:termType rr:IRI ;
         ]
     ].
+
+<#CancledMapping> a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs.json" ;
+        rml:iterator "$.entity[*].tripUpdate" ;
+        rml:referenceFormulation ql:JSONPath 
+    ];
+
+    rr:subjectMap [
+        rr:template "http://example.com/de-lijn/stoptimes/{trip.tripId}-{stopTimeUpdate[*].stopId}"  ;
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "trip.scheduleRelationship";
+        ]
+    ].
