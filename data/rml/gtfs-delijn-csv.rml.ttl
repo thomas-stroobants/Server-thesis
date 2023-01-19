@@ -836,7 +836,6 @@ map:s_000 rdf:type rr:SubjectMap ;
 	# rr:template "http://example.com/de-lijn/stoptimes/{trip_id}-{stop_id}-{arrival_time}" .
 	rr:template "http://example.com/de-lijn/stoptimes/{trip_id}-{stop_id}" .
 
-
 map:s_001 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/de-lijn/trips/{trip_id}" .
 
