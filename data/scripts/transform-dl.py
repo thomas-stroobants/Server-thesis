@@ -1,7 +1,7 @@
 import json
 import time
 
-with open('de-lijn-data/de-lijn-rt-gtfs-new.json') as sfile:
+with open('./de-lijn-rt-data/de-lijn-rt-gtfs-new.json') as sfile:
     data = json.load(sfile)
 
     data["header"]["timestamp"] = time.strftime('%Y-%m-%dT%H:%M:%S', time.localtime(int(data["header"]["timestamp"])))
