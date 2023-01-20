@@ -109,20 +109,20 @@
         ]
     ].
 
-# <#CancledMapping> a rr:TriplesMap;
-#     rml:logicalSource [
-#         rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
-#         rml:iterator "$.entity[*].tripUpdate.trip" ;
-#         rml:referenceFormulation ql:JSONPath 
-#     ];
+<#CancledMapping> a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
+        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+        rml:referenceFormulation ql:JSONPath 
+    ];
 
-#     rr:subjectMap [
-#         rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
-#     ];
+    rr:subjectMap [
+        rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
+    ];
 
-#     rr:predicateObjectMap [
-#         rr:predicate rdfs:label ;
-#         rr:objectMap [
-#             rml:reference "trip.scheduleRelationship";
-#         ]
-#     ].
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "scheduleRelationship";
+        ]
+    ].
