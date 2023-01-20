@@ -1,7 +1,8 @@
 import json
 import time
+import os
 
-with open('./de-lijn-rt-data/de-lijn-rt-gtfs-new.json') as sfile:
+with open(f'{os.environ.get('HOME')}/data/de-lijn-rt-data/de-lijn-rt-gtfs-new.json') as sfile:
     data = json.load(sfile)
 
     data["header"]["timestamp"] = time.strftime('%Y-%m-%dT%H:%M:%S', time.localtime(int(data["header"]["timestamp"])))
@@ -14,5 +15,5 @@ with open('./de-lijn-rt-data/de-lijn-rt-gtfs-new.json') as sfile:
         item['tripUpdate']['timestamp'] = time.strftime('%H:%M:%S', time.localtime(int(item['tripUpdate']['timestamp'])))
         
 
-with open('de-lijn-rt-gtfs-new-adap.json', 'w') as ofile:
+with open(f'{os.environ.get('HOME')}/data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json', 'w') as ofile:
     json.dump(data, ofile, indent = 2, sort_keys=True)

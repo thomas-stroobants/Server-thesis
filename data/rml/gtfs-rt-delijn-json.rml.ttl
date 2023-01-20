@@ -19,7 +19,7 @@
 
 <#HeaderMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "./morph-kgc/de-lijn-rt-gtfs.json" ;
+        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
         rml:iterator "$.header" ;
         rml:referenceFormulation ql:JSONPath 
     ];
@@ -53,7 +53,7 @@
 
 <#TripStartDateMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "$DATAPATH/data/de-lijn-rt-data/de-lijn-rt-gtfs.json" ;
+        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
         rml:iterator "$.entity[*].tripUpdate" ;
         rml:referenceFormulation ql:JSONPath 
     ];
@@ -72,7 +72,7 @@
 
 <#DepartureTimeMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "$DATAPATH/data/de-lijn-rt-data/de-lijn-rt-gtfs.json" ;
+        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
         rml:iterator "$.entity[*].tripUpdate" ;
         rml:referenceFormulation ql:JSONPath 
     ];
@@ -91,7 +91,7 @@
 
 <#StopIDMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "$DATAPATH/data/de-lijn-rt-data/de-lijn-rt-gtfs.json" ;
+        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
         rml:iterator "$.entity[*].tripUpdate" ;
         rml:referenceFormulation ql:JSONPath 
     ];
@@ -111,7 +111,7 @@
 
 <#CancledMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "$DATAPATH/data/de-lijn-rt-data/de-lijn-rt-gtfs.json" ;
+        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
         rml:iterator "$.entity[*].tripUpdate" ;
         rml:referenceFormulation ql:JSONPath 
     ];
