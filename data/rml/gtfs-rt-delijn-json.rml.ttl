@@ -112,7 +112,7 @@
 <#CancledMapping> a rr:TriplesMap;
     rml:logicalSource [
         rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+        rml:iterator "$.entity[*].tripUpdate.tripInfo[*]" ;
         rml:referenceFormulation ql:JSONPath 
     ];
 

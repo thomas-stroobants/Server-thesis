@@ -29,8 +29,8 @@ with open("/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs.json") as sfile:
             new_data = [{ "timestamp" : time.strftime('%H:%M:%S', time.localtime(int(item['tripUpdate']['timestamp']))),
                          "tripId" : item['tripUpdate']['trip']['tripId'],
                          "scheduleRelationship" : item["tripUpdate"]["trip"]['scheduleRelationship'] }]
-            stopTime = { "stopTimeUpdate" : new_data}
-            item["tripUpdate"]["stopTimeUpdate"] = new_data
+            stopTime = { "tripInfo" : new_data}
+            item["tripUpdate"]["tripInfo"] = new_data
             
 
 with open('/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json', 'w') as ofile:
