@@ -1,0 +1,7 @@
+alias gts='git status'
+alias gta='git add'
+alias gtc='git commit -m'
+alias gtac='git add . && git commit -m'
+alias gtpl='git pull'
+alias gtps='git push'
+alias seba='source env/bin/activate'
