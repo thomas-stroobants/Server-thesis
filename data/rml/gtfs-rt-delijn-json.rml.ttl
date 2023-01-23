@@ -70,44 +70,44 @@
 #         ]
 #     ].
 
-<#DepartureTimeMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
+# <#DepartureTimeMapping> a rr:TriplesMap;
+#     rml:logicalSource [
+#         rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
+#         rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+#         rml:referenceFormulation ql:JSONPath 
+#     ];
 
-    rr:subjectMap [
-        rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
-    ];
+#     rr:subjectMap [
+#         rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
+#     ];
 
-    rr:predicateObjectMap [
-        rr:predicate gtfs:departureTime ;
-        rr:objectMap [
-            rml:reference "timestamp";
-            rr:datatype xsd:time;
-        ]
-    ].
+#     rr:predicateObjectMap [
+#         rr:predicate gtfs:departureTime ;
+#         rr:objectMap [
+#             rml:reference "timestamp";
+#             rr:datatype xsd:time;
+#         ]
+#     ].
 
-<#StopIDMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
+# <#StopIDMapping> a rr:TriplesMap;
+#     rml:logicalSource [
+#         rml:source "./data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
+#         rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+#         rml:referenceFormulation ql:JSONPath 
+#     ];
 
-    rr:subjectMap [
-        rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
-    ];
+#     rr:subjectMap [
+#         rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
+#     ];
 
-    rr:predicateObjectMap [
-        rr:predicate gtfs:stop ;
-        rr:objectMap [
-            # rml:reference "stopId";
-            rr:template "http://example.com/de-lijn/stops/{stopId}" ;
-	        rr:termType rr:IRI ;
-        ]
-    ].
+#     rr:predicateObjectMap [
+#         rr:predicate gtfs:stop ;
+#         rr:objectMap [
+#             # rml:reference "stopId";
+#             rr:template "http://example.com/de-lijn/stops/{stopId}" ;
+# 	        rr:termType rr:IRI ;
+#         ]
+#     ].
 
 <#CancledMapping> a rr:TriplesMap;
     rml:logicalSource [
