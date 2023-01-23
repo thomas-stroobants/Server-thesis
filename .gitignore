@@ -19,5 +19,5 @@ Code/
 .m*
 .o*
 .s*
-.ba*
-.pro*
+.bashrc
+.profile
