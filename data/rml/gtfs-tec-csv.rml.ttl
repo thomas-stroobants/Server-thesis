@@ -97,7 +97,7 @@ map:map_stoptimes_000 rml:logicalSource map:source_000 ;
 map:map_trips_000 rml:logicalSource map:source_001 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "trips" ;
-	rr:predicateObjectMap map:pom_008, map:pom_009, map:pom_010, map:pom_011, map:pom_012, map:pom_013, map:pom_014 ;
+	rr:predicateObjectMap map:pom_008, map:pom_009, map:pom_010, map:pom_011, map:pom_012, map:pom_013; #, map:pom_014 ;
 	rr:subjectMap map:s_001 .
 
 map:om_000 rdf:type rr:ObjectMap ;
@@ -380,8 +380,8 @@ map:pm_012 rdf:type rr:PredicateMap ;
 map:pm_013 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:route .
 
-map:pm_014 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:shape .
+# map:pm_014 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:shape .
 
 map:pm_015 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
@@ -565,9 +565,9 @@ map:pom_013 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_013 ;
 	rr:predicateMap map:pm_013 .
 
-map:pom_014 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_014 ;
-	rr:predicateMap map:pm_014 .
+# map:pom_014 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_014 ;
+# 	rr:predicateMap map:pm_014 .
 
 map:pom_015 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_015 ;
