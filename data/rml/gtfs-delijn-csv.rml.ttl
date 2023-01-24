@@ -829,7 +829,7 @@ map:pom_057 rdf:type rr:PredicateObjectMap ;
 # 	rr:objectMap map:om_064 ;
 # 	rr:predicateMap map:pm_064 .
 
-map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_agency_000, map:map_calendar_date_rules_000, map:map_feed_000, map:map_routes_000, map:map_services2_000, map:map_shapePoints_000, map:map_shapes_000, map:map_stops_000, map:map_stoptimes_000, map:map_trips_000 ;
+map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_agency_000, map:map_calendar_date_rules_000, map:map_feed_000, map:map_routes_000, map:map_services2_000, map:map_stops_000, map:map_stoptimes_000, map:map_trips_000 ; #, map:map_shapePoints_000, map:map_shapes_000;
 	rdf:type <http://rdfs.org/ns/void#Dataset> .
 
 map:s_000 rdf:type rr:SubjectMap ;
