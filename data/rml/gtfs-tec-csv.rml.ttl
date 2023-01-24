@@ -159,9 +159,9 @@ map:om_013 rdf:type rr:ObjectMap ;
 	rr:joinCondition map:jc_003 ;
 	rr:parentTriplesMap map:map_routes_000 .
 
-map:om_014 rdf:type rr:ObjectMap ;
-	rr:joinCondition map:jc_004 ;
-	rr:parentTriplesMap map:map_shapes_000 .
+# map:om_014 rdf:type rr:ObjectMap ;
+# 	rr:joinCondition map:jc_004 ;
+# 	rr:parentTriplesMap map:map_shapes_000 .
 
 map:om_015 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#Route" ;
