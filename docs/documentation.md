@@ -41,3 +41,14 @@ De Lijn GTFS RT data
 # Setup Virtuoso server
 checkpoint interval = 60
 scheduler interval = 10
+
+
+# Testing van morph-kgc engine configuration
+Bij het testen is uitgebleken dat morph-kgc voldoende ram geheugen nodig heeft om te kunnen werken.
+
+Uit de paper is te lezen dat er 3 verschillende configuraties zijn:
+- zonder mapping partitions
+- met mapping partitions en sequentieel processing
+- met mapping partitions en parallel processing
+
+Uit de grafieken blijken dat het gebruik van mapping partities met sequentieel processing het minste ram gebruikt maar wel langer aan het werken is (maar een beetke langer dan zonder mapping partities)
