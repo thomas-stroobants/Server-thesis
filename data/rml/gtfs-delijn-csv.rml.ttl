@@ -28,8 +28,8 @@ map:jc_002 rr:child "service_id" ;
 map:jc_003 rr:child "route_id" ;
 	rr:parent "route_id" .
 
-map:jc_004 rr:child "shape_id" ;
-	rr:parent "shape_id" .
+# map:jc_004 rr:child "shape_id" ;
+# 	rr:parent "shape_id" .
 
 map:jc_005 rr:child "agency_id" ;
 	rr:parent "agency_id" .
@@ -40,8 +40,8 @@ map:jc_006 rr:child "parent_station" ;
 map:jc_007 rr:child "service_id" ;
 	rr:parent "service_id" .
 
-map:jc_008 rr:child "shape_id" ;
-	rr:parent "shape_id" .
+# map:jc_008 rr:child "shape_id" ;
+# 	rr:parent "shape_id" .
 
 map:map_agency_000 rml:logicalSource map:source_003 ;
 	rdf:type rr:TriplesMap ;
@@ -100,7 +100,7 @@ map:map_stoptimes_000 rml:logicalSource map:source_000 ;
 map:map_trips_000 rml:logicalSource map:source_001 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "trips" ;
-	rr:predicateObjectMap map:pom_010, map:pom_011, map:pom_012, map:pom_013, map:pom_014, map:pom_015, map:pom_016, map:pom_017 ;
+	rr:predicateObjectMap map:pom_010, map:pom_011, map:pom_012, map:pom_013, map:pom_014, map:pom_015, map:pom_016; #, map:pom_017 ;
 	rr:subjectMap map:s_001 .
 
 map:om_000 rdf:type rr:ObjectMap ;
@@ -174,9 +174,9 @@ map:om_016 rdf:type rr:ObjectMap ;
 	rr:joinCondition map:jc_003 ;
 	rr:parentTriplesMap map:map_routes_000 .
 
-map:om_017 rdf:type rr:ObjectMap ;
-	rr:joinCondition map:jc_004 ;
-	rr:parentTriplesMap map:map_shapes_000 .
+# map:om_017 rdf:type rr:ObjectMap ;
+# 	rr:joinCondition map:jc_004 ;
+# 	rr:parentTriplesMap map:map_shapes_000 .
 
 map:om_018 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#Route" ;
@@ -637,9 +637,9 @@ map:pom_016 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_016 ;
 	rr:predicateMap map:pm_016 .
 
-map:pom_017 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_017 ;
-	rr:predicateMap map:pm_017 .
+# map:pom_017 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_017 ;
+# 	rr:predicateMap map:pm_017 .
 
 map:pom_018 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_018 ;
