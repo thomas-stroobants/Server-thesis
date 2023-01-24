@@ -73,17 +73,17 @@ map:map_services2_000 rml:logicalSource map:source_005 ;
 	rr:predicateObjectMap map:pom_045, map:pom_046 ;
 	rr:subjectMap map:s_005 .
 
-map:map_shapePoints_000 rml:logicalSource map:source_009 ;
-	rdf:type rr:TriplesMap ;
-	rdfs:label "shapePoints" ;
-	rr:predicateObjectMap map:pom_060, map:pom_061, map:pom_062, map:pom_063, map:pom_064 ;
-	rr:subjectMap map:s_009 .
+# map:map_shapePoints_000 rml:logicalSource map:source_009 ;
+# 	rdf:type rr:TriplesMap ;
+# 	rdfs:label "shapePoints" ;
+# 	rr:predicateObjectMap map:pom_060, map:pom_061, map:pom_062, map:pom_063, map:pom_064 ;
+# 	rr:subjectMap map:s_009 .
 
-map:map_shapes_000 rml:logicalSource map:source_008 ;
-	rdf:type rr:TriplesMap ;
-	rdfs:label "shapes" ;
-	rr:predicateObjectMap map:pom_058, map:pom_059 ;
-	rr:subjectMap map:s_008 .
+# map:map_shapes_000 rml:logicalSource map:source_008 ;
+# 	rdf:type rr:TriplesMap ;
+# 	rdfs:label "shapes" ;
+# 	rr:predicateObjectMap map:pom_058, map:pom_059 ;
+# 	rr:subjectMap map:s_008 .
 
 map:map_stops_000 rml:logicalSource map:source_004 ;
 	rdf:type rr:TriplesMap ;
@@ -344,35 +344,35 @@ map:om_057 rml:reference "feed_contact_email" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_058 rdf:type rr:ObjectMap ;
-	rr:constant "http://vocab.gtfs.org/terms#Shape" ;
-	rr:termType rr:IRI .
+# map:om_058 rdf:type rr:ObjectMap ;
+# 	rr:constant "http://vocab.gtfs.org/terms#Shape" ;
+# 	rr:termType rr:IRI .
 
-map:om_059 rdf:type rr:ObjectMap ;
-	rr:joinCondition map:jc_008 ;
-	rr:parentTriplesMap map:map_shapePoints_000 .
+# map:om_059 rdf:type rr:ObjectMap ;
+# 	rr:joinCondition map:jc_008 ;
+# 	rr:parentTriplesMap map:map_shapePoints_000 .
 
-map:om_060 rdf:type rr:ObjectMap ;
-	rr:constant "http://vocab.gtfs.org/terms#ShapePoint" ;
-	rr:termType rr:IRI .
+# map:om_060 rdf:type rr:ObjectMap ;
+# 	rr:constant "http://vocab.gtfs.org/terms#ShapePoint" ;
+# 	rr:termType rr:IRI .
 
-map:om_061 rml:reference "shape_pt_lat" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:double ;
-	rr:termType rr:Literal .
+# map:om_061 rml:reference "shape_pt_lat" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:double ;
+# 	rr:termType rr:Literal .
 
-map:om_062 rml:reference "shape_pt_lon" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:double ;
-	rr:termType rr:Literal .
+# map:om_062 rml:reference "shape_pt_lon" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:double ;
+# 	rr:termType rr:Literal .
 
-map:om_063 rml:reference "shape_pt_sequence" ;
-	rdf:type rr:ObjectMap ;
-	rr:termType rr:Literal .
+# map:om_063 rml:reference "shape_pt_sequence" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:termType rr:Literal .
 
-map:om_064 rml:reference "shape_dist_traveled" ;
-	rdf:type rr:ObjectMap ;
-	rr:termType rr:Literal .
+# map:om_064 rml:reference "shape_dist_traveled" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:termType rr:Literal .
 
 map:pm_000 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
@@ -548,26 +548,26 @@ map:pm_056 rdf:type rr:PredicateMap ;
 map:pm_057 rdf:type rr:PredicateMap ;
 	rr:constant schema:email .
 
-map:pm_058 rdf:type rr:PredicateMap ;
-	rr:constant rdf:type .
+# map:pm_058 rdf:type rr:PredicateMap ;
+# 	rr:constant rdf:type .
 
-map:pm_059 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:shapePoint .
+# map:pm_059 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:shapePoint .
 
-map:pm_060 rdf:type rr:PredicateMap ;
-	rr:constant rdf:type .
+# map:pm_060 rdf:type rr:PredicateMap ;
+# 	rr:constant rdf:type .
 
-map:pm_061 rdf:type rr:PredicateMap ;
-	rr:constant geo:lat .
+# map:pm_061 rdf:type rr:PredicateMap ;
+# 	rr:constant geo:lat .
 
-map:pm_062 rdf:type rr:PredicateMap ;
-	rr:constant geo:long .
+# map:pm_062 rdf:type rr:PredicateMap ;
+# 	rr:constant geo:long .
 
-map:pm_063 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:pointSequence .
+# map:pm_063 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:pointSequence .
 
-map:pm_064 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:distanceTraveled .
+# map:pm_064 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:distanceTraveled .
 
 map:pom_000 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_000 ;
@@ -801,33 +801,33 @@ map:pom_057 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_057 ;
 	rr:predicateMap map:pm_057 .
 
-map:pom_058 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_058 ;
-	rr:predicateMap map:pm_058 .
+# map:pom_058 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_058 ;
+# 	rr:predicateMap map:pm_058 .
 
-map:pom_059 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_059 ;
-	rr:predicateMap map:pm_059 .
+# map:pom_059 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_059 ;
+# 	rr:predicateMap map:pm_059 .
 
-map:pom_060 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_060 ;
-	rr:predicateMap map:pm_060 .
+# map:pom_060 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_060 ;
+# 	rr:predicateMap map:pm_060 .
 
-map:pom_061 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_061 ;
-	rr:predicateMap map:pm_061 .
+# map:pom_061 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_061 ;
+# 	rr:predicateMap map:pm_061 .
 
-map:pom_062 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_062 ;
-	rr:predicateMap map:pm_062 .
+# map:pom_062 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_062 ;
+# 	rr:predicateMap map:pm_062 .
 
-map:pom_063 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_063 ;
-	rr:predicateMap map:pm_063 .
+# map:pom_063 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_063 ;
+# 	rr:predicateMap map:pm_063 .
 
-map:pom_064 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_064 ;
-	rr:predicateMap map:pm_064 .
+# map:pom_064 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_064 ;
+# 	rr:predicateMap map:pm_064 .
 
 map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_agency_000, map:map_calendar_date_rules_000, map:map_feed_000, map:map_routes_000, map:map_services2_000, map:map_shapePoints_000, map:map_shapes_000, map:map_stops_000, map:map_stoptimes_000, map:map_trips_000 ;
 	rdf:type <http://rdfs.org/ns/void#Dataset> .
@@ -857,11 +857,11 @@ map:s_006 rdf:type rr:SubjectMap ;
 map:s_007 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/de-lijn/feed/{feed_publisher_name}" .
 
-map:s_008 rdf:type rr:SubjectMap ;
-	rr:template "http://example.com/de-lijn/shape/{shape_id}" .
+# map:s_008 rdf:type rr:SubjectMap ;
+# 	rr:template "http://example.com/de-lijn/shape/{shape_id}" .
 
-map:s_009 rdf:type rr:SubjectMap ;
-	rr:template "http://example.com/de-lijn/shape_point/{shape_id}-{shape_pt_sequence}" .
+# map:s_009 rdf:type rr:SubjectMap ;
+# 	rr:template "http://example.com/de-lijn/shape_point/{shape_id}-{shape_pt_sequence}" .
 
 map:source_000 rml:referenceFormulation ql:CSV ;
 	rml:source "./data/de-lijn-gtfs/stop_times.csv" ;
@@ -895,11 +895,11 @@ map:source_007 rml:referenceFormulation ql:CSV ;
 	rml:source "./data/de-lijn-gtfs/feed_info.csv" ;
 	rdf:type rml:LogicalSource .
 
-map:source_008 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/de-lijn-gtfs/shapes.csv" ;
-	rdf:type rml:LogicalSource .
+# map:source_008 rml:referenceFormulation ql:CSV ;
+# 	rml:source "./data/de-lijn-gtfs/shapes.csv" ;
+# 	rdf:type rml:LogicalSource .
 
-map:source_009 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/de-lijn-gtfs/shapes.csv" ;
-	rdf:type rml:LogicalSource .
+# map:source_009 rml:referenceFormulation ql:CSV ;
+# 	rml:source "./data/de-lijn-gtfs/shapes.csv" ;
+# 	rdf:type rml:LogicalSource .
 
