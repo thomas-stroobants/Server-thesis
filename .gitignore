@@ -21,3 +21,5 @@ Code/
 .s*
 .bashrc
 .profile
+.wget-hsts
+data/test-data/
