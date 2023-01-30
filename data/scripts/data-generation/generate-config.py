@@ -36,7 +36,7 @@ def argumentcheck(argv):
         elif opt in ("-p", "--processes"):
             arg_processes = arg
 
-    print(f"Configuration for .ini file:")
+    print("Configuration for .ini file:")
     print(f"\tconfig: {arg_config}")
     print(f"\tmapping: {arg_mapping}")
     print(f"\toutput: {arg_output}")
