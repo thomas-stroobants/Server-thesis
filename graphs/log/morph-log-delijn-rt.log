@@ -1,7 +1,15 @@
-DEBUG | 2023-01-30 22:32:43,112 | CONFIGURATION: {'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'output_file': '/home/thomas/graphs/knowledge-graph-delijn-rt.nt', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'safe_percent_encoding': '', 'number_of_processes': '2', 'logging_level': 'DEBUG', 'logging_file': '/home/thomas/graphs/log/morph-log-delijn-rt.log', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partitioning': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'infer_sql_datatypes': 'no'}
-DEBUG | 2023-01-30 22:32:43,112 | DATA SOURCE `Datasource1`: {'mappings': '/home/thomas/data/rml/gtfs-rt-delijn-json.rml.ttl'}
-INFO | 2023-01-30 22:32:43,392 | 6 mapping rules retrieved.
-INFO | 2023-01-30 22:32:43,399 | Mapping partition with 6 groups generated.
-INFO | 2023-01-30 22:32:43,399 | Maximum number of rules within mapping group: 1.
-INFO | 2023-01-30 22:32:43,400 | Mappings processed in 0.286 seconds.
-DEBUG | 2023-01-30 22:32:43,401 | Parallelizing with 2 cores.
+DEBUG | 2023-01-30 22:34:48,284 | CONFIGURATION: {'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'output_file': '/home/thomas/graphs/knowledge-graph-delijn-rt.nt', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'safe_percent_encoding': '', 'number_of_processes': '2', 'logging_level': 'DEBUG', 'logging_file': '/home/thomas/graphs/log/morph-log-delijn-rt.log', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partitioning': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'infer_sql_datatypes': 'no'}
+DEBUG | 2023-01-30 22:34:48,284 | DATA SOURCE `Datasource1`: {'mappings': '/home/thomas/data/rml/gtfs-rt-delijn-json.rml.ttl'}
+INFO | 2023-01-30 22:34:48,569 | 6 mapping rules retrieved.
+INFO | 2023-01-30 22:34:48,575 | Mapping partition with 6 groups generated.
+INFO | 2023-01-30 22:34:48,576 | Maximum number of rules within mapping group: 1.
+INFO | 2023-01-30 22:34:48,576 | Mappings processed in 0.291 seconds.
+DEBUG | 2023-01-30 22:34:48,577 | Parallelizing with 2 cores.
+DEBUG | 2023-01-30 22:34:48,601 | 1 triples generated for mapping rule `0` in 0.013 seconds.
+DEBUG | 2023-01-30 22:34:48,602 | 1 triples generated for mapping rule `2` in 0.015 seconds.
+DEBUG | 2023-01-30 22:34:48,617 | 1 triples generated for mapping rule `1` in 0.009 seconds.
+DEBUG | 2023-01-30 22:34:48,624 | 312 triples generated for mapping rule `3` in 0.016 seconds.
+DEBUG | 2023-01-30 22:34:48,631 | 312 triples generated for mapping rule `4` in 0.010 seconds.
+DEBUG | 2023-01-30 22:34:48,638 | 188 triples generated for mapping rule `5` in 0.009 seconds.
+INFO | 2023-01-30 22:34:48,658 | Number of triples generated in total: 815.
+INFO | 2023-01-30 22:34:48,658 | Materialization finished in 0.081 seconds.
