@@ -920,50 +920,50 @@ map:s_011 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/mivb/translations/{trans_id}" .
 
 map:source_000 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/mivb-gtfs/stop_times.csv" ;
+	rml:source "/home/thomas/mivb-gtfs/stop_times.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_001 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/mivb-gtfs/trips.csv" ;
+	rml:source "/home/thomas/mivb-gtfs/trips.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_002 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/mivb-gtfs/routes.csv" ;
+	rml:source "/home/thomas/mivb-gtfs/routes.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_003 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/mivb-gtfs/agency.csv" ;
+	rml:source "/home/thomas/mivb-gtfs/agency.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_004 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/mivb-gtfs/stops.csv" ;
+	rml:source "/home/thomas/mivb-gtfs/stops.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_005 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/mivb-gtfs/calendar.csv" ;
+	rml:source "/home/thomas/mivb-gtfs/calendar.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_006 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/mivb-gtfs/calendar_dates.csv" ;
+	rml:source "/home/thomas/mivb-gtfs/calendar_dates.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_007 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/mivb-gtfs/calendar_dates.csv" ;
+	rml:source "/home/thomas/mivb-gtfs/calendar_dates.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_008 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/mivb-gtfs/calendar.csv" ;
+	rml:source "/home/thomas/mivb-gtfs/calendar.csv" ;
 	rdf:type rml:LogicalSource .
 
 # map:source_009 rml:referenceFormulation ql:CSV ;
-# 	rml:source "./data/mivb-gtfs/shapes.csv" ;
+# 	rml:source "/home/thomas/mivb-gtfs/shapes.csv" ;
 # 	rdf:type rml:LogicalSource .
 
 # map:source_010 rml:referenceFormulation ql:CSV ;
-# 	rml:source "./data/mivb-gtfs/shapes.csv" ;
+# 	rml:source "/home/thomas/mivb-gtfs/shapes.csv" ;
 # 	rdf:type rml:LogicalSource .
 
 map:source_011 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/mivb-gtfs/translations.csv" ;
+	rml:source "/home/thomas/mivb-gtfs/translations.csv" ;
 	rdf:type rml:LogicalSource .
 

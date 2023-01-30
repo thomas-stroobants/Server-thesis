@@ -771,42 +771,42 @@ map:s_007 rdf:type rr:SubjectMap ;
 # 	rr:template "http://example.com/tec/shape_point/{shape_id}-{shape_pt_sequence}" .
 
 map:source_000 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/tec-gtfs/stop_times.csv" ;
+	rml:source "/home/thomas/tec-gtfs/stop_times.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_001 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/tec-gtfs/trips.csv" ;
+	rml:source "/home/thomas/tec-gtfs/trips.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_002 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/tec-gtfs/routes.csv" ;
+	rml:source "/home/thomas/tec-gtfs/routes.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_003 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/tec-gtfs/agency.csv" ;
+	rml:source "/home/thomas/tec-gtfs/agency.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_004 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/tec-gtfs/stops.csv" ;
+	rml:source "/home/thomas/tec-gtfs/stops.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_005 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/tec-gtfs/calendar_dates.csv" ;
+	rml:source "/home/thomas/tec-gtfs/calendar_dates.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_006 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/tec-gtfs/calendar_dates.csv" ;
+	rml:source "/home/thomas/tec-gtfs/calendar_dates.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_007 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/tec-gtfs/feed_info.csv" ;
+	rml:source "/home/thomas/tec-gtfs/feed_info.csv" ;
 	rdf:type rml:LogicalSource .
 
 # map:source_008 rml:referenceFormulation ql:CSV ;
-# 	rml:source "./data/tec-gtfs/shapes.csv" ;
+# 	rml:source "/home/thomas/tec-gtfs/shapes.csv" ;
 # 	rdf:type rml:LogicalSource .
 
 # map:source_009 rml:referenceFormulation ql:CSV ;
-# 	rml:source "./data/tec-gtfs/shapes.csv" ;
+# 	rml:source "/home/thomas/tec-gtfs/shapes.csv" ;
 # 	rdf:type rml:LogicalSource .
 

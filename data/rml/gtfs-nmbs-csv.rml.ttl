@@ -929,46 +929,46 @@ map:s_010 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/nmbs/transfers/{from_stop_id}_{to_stop_id}" .
 
 map:source_000 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/stop_times.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/stop_times.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_001 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/trips.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/trips.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_002 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/routes.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/routes.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_003 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/agency.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/agency.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_004 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/stops.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/stops.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_005 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/calendar.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/calendar.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_006 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/calendar_dates.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/calendar_dates.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_007 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/calendar_dates.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/calendar_dates.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_008 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/calendar.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/calendar.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_009 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/translations.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/translations.csv" ;
 	rdf:type rml:LogicalSource .
 
 map:source_010 rml:referenceFormulation ql:CSV ;
-	rml:source "./data/nmbs-gtfs/transfers.csv" ;
+	rml:source "/home/thomas/nmbs-gtfs/transfers.csv" ;
 	rdf:type rml:LogicalSource .
 
