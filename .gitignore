@@ -23,3 +23,7 @@ Code/
 .profile
 .wget-hsts
 data/test-data/
+.bash_logout
+.pam*
+Desktop/
+snap/
