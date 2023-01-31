@@ -1,5 +1,4 @@
 import pandas as pd
-# pd.set_option('precision', 0)
 df = pd.read_csv("/home/thomas/data/iRail/facilities.csv")
 
 for i in range(len(df.index)):
