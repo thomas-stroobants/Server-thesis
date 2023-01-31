@@ -85,7 +85,7 @@
         rr:predicate gtfs:departureTime ;
         rr:objectMap [
             rml:reference "timestamp";
-            rr:datatype xsd:time;
+            rr:datatype xsd:dateTime;
         ]
     ].
 

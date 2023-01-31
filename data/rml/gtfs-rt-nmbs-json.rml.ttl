@@ -104,7 +104,7 @@
         rr:predicate gtfs:departureTime ;
         rr:objectMap [
             rml:reference "departure.time";
-            rr:datatype xsd:time;
+            rr:datatype xsd:dateTime;
         ]
     ].
 

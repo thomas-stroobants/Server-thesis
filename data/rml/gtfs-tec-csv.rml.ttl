@@ -111,7 +111,7 @@ map:om_001 rml:reference "arrival_time" ;
 
 map:om_002 rml:reference "departure_time" ;
 	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:duration ;
+	rr:datatype xsd:dateTime ;
 	rr:termType rr:Literal .
 
 map:om_003 rml:reference "stop_sequence" ;
