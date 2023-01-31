@@ -31,7 +31,7 @@ stop_times_df = pd.read_csv('/home/thomas/data/nmbs-gtfs/stop_times.csv')
 stop_times_df = stop_times_df[stop_times_df['departure_time'] <= '24:59:59']
 
 # create a new column in the stop_times_df to store the modified departure_time
-stop_times_df['adapted_departure_time'] = ''
+# stop_times_df['adapted_departure_time'] = ''
 
 # loop through the stop_times_df and modify the departure_time if it's above 24:00:00
 for index, row in stop_times_df.iterrows():
@@ -40,7 +40,7 @@ for index, row in stop_times_df.iterrows():
     if hour >= 24:
         hour = hour % 24
         departure_time = f"{hour:02d}:{minute:02d}:{second:02d}"
-    stop_times_df.at[index, 'adapted_departure_time'] = departure_time
+    stop_times_df.at[index, 'departure_time'] = departure_time
 
 # merge calendar_dates_df and trips_df on the service_id column
 merged_df = pd.merge(calendar_dates_df, trips_df, on='service_id')
@@ -51,15 +51,16 @@ for index, row in merged_df.iterrows():
     trip_id_dict[row['trip_id']] = [row['date'], row['service_id']]
 
 # creating a new column for the modified stop times
-stop_times_df['modified_departure_time'] = ''
+# stop_times_df['modified_departure_time'] = ''
 
+# iterate over the stop_times_df to replace the departure_time to an iso format
 for index, row in stop_times_df.iterrows():
     trip_id = row['trip_id']
     if trip_id in trip_id_dict:
         date = trip_id_dict[trip_id][0]
-        departure_time = row['adapted_departure_time']
+        departure_time = row['departure_time']
         mod_departure_time = datetime.datetime.strptime(str(date)+departure_time, '%Y%m%d%H:%M:%S')
-        stop_times_df.at[index, 'modified_departure_time'] = mod_departure_time.isoformat()
+        stop_times_df.at[index, 'departure_time'] = mod_departure_time.isoformat()
 
 # write results to new file
 stop_times_df.to_csv('/home/thomas/data/nmbs-gtfs/stop_times_mod.csv', index=False)
