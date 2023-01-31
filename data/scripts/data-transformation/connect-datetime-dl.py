@@ -41,4 +41,4 @@ for index, row in stop_times_df.iterrows():
         stop_times_df.at[index, 'departure_time'] = mod_departure_time.isoformat() # convert to iso format
 
 # write results to new file
-stop_times_df.to_csv('/home/thomas/data/de-lijn-gtfs/stop_times_mod.csv', index=False)
+stop_times_df.to_csv('/home/thomas/data/de-lijn-gtfs/stop_times.csv', index=False)
