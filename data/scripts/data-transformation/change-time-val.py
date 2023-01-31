@@ -1,4 +1,4 @@
-with open('./graphs/knowledge-graph-nmbs.nt', 'r') as sfile:
+with open('/home/thomas/graphs/knowledge-graph-nmbs.nt', 'r') as sfile:
     filedata = sfile.read()
 
 filedata = filedata.replace('\"0:', '\"00:')
@@ -14,5 +14,5 @@ filedata = filedata.replace('\"24:', '\"00:')
 # filedata = filedata.replace('\"09:', '\"9:')
 
 
-with open('./graphs/knowledge-graph-nmbs.nt', 'w') as dfile:
+with open('/home/thomas/graphs/knowledge-graph-nmbs.nt', 'w') as dfile:
     dfile.write(filedata)

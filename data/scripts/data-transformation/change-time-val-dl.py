@@ -1,4 +1,4 @@
-with open(f'./graphs/knowledge-graph-delijn.nt', 'r') as sfile:
+with open(f'/home/thomas/graphs/knowledge-graph-delijn.nt', 'r') as sfile:
     filedata = sfile.read()
 
 filedata = filedata.replace('\"0:', '\"00:')
@@ -14,5 +14,5 @@ filedata = filedata.replace('\"24:', '\"00:')
 # filedata = filedata.replace('\"09:', '\"9:')
 
 
-with open(f'./graphs/knowledge-graph-delijn.nt', 'w') as dfile:
+with open(f'/home/thomas/graphs/knowledge-graph-delijn.nt', 'w') as dfile:
     dfile.write(filedata)
