@@ -1,9 +1,9 @@
-import morph_kgc
 import requests
 import subprocess
 import http.client, urllib.request, urllib.parse, urllib.error, base64
 from google.transit import gtfs_realtime_pb2
 import time
+import datetime
 import json
 from google.protobuf.json_format import MessageToJson
 
@@ -77,7 +77,8 @@ def get_gtfs_rt(url, file_name, params=None, headers=None):
 #download_files(nmbs_rt_url, "nmbs-rt-data/nmbs-rt-proto")
 # get_gtfs_rt_lijn()
 # get_gtfs_rf_nmbs()
-get_gtfs_rt(de_lijn_rt_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs2-{time.time()}.json", params=params, headers=headers)
-get_gtfs_rt(de_lijn_rt1_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs1-{time.time()}.json", headers=headers)
-get_gtfs_rt(nmbs_rt_url, f"/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-{time.time()}.json")
+isotime = datetime.datetime.now().replace(microsecond=0).isoformat()
+get_gtfs_rt(de_lijn_rt_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs2-{isotime}.json", params=params, headers=headers)
+get_gtfs_rt(de_lijn_rt1_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs1-{isotime}.json", headers=headers)
+get_gtfs_rt(nmbs_rt_url, f"/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-{isotime}.json")
 # get_gtfs_rt_lijn()
