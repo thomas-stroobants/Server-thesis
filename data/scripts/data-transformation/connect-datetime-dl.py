@@ -14,6 +14,8 @@ stop_times_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs/stop_times.csv')
 # remove the rows with departure_time above 24:59:59
 stop_times_df = stop_times_df[stop_times_df['departure_time'] <= '24:59:59']
 
+print("Modifying departure times above 24...")
+
 # loop through the stop_times_df and modify the departure_time if it's above 24:00:00
 for index, row in stop_times_df.iterrows():
     departure_time = row['departure_time']
@@ -31,6 +33,8 @@ trip_id_dict = {}
 for index, row in merged_df.iterrows():
     trip_id_dict[row['trip_id']] = [row['date'], row['service_id']]
 
+print("Replacing time format to ISO dateTime...")
+
 # iterate over the stop_times_df to replace the departure_time to an iso format
 for index, row in stop_times_df.iterrows():
     trip_id = row['trip_id']
@@ -42,3 +46,5 @@ for index, row in stop_times_df.iterrows():
 
 # write results to new file
 stop_times_df.to_csv('/home/thomas/data/de-lijn-gtfs/stop_times.csv', index=False)
+
+print("Finished adapting data stop_times from De Lijn..")
