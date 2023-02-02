@@ -53,9 +53,9 @@ function txt_to_csv() {
 # Process
 echo "Starting process of data retrieval and transformation of GTFS static data.."
 echo "Downloading data from servers.."
-download_data
+# download_data
 echo "Extract files from ZIP folders.."
-unzip_data
+# unzip_data
 echo "Changing file extensions from .txt to .csv.."
 txt_to_csv
 
@@ -64,7 +64,12 @@ source $HOME/env/bin/activate
 
 # Change departuretimes from time format to ISO dateTime
 python3 $HOME/data/scripts/data-transformation/connect-datetime.py &
-python3 $HOME/data/scripts/data-transformation/connect-datetime-dl.py 
+pid_nmbs=$!
+python3 $HOME/data/scripts/data-transformation/connect-datetime-dl.py &
+pid_dl=$!
+echo "PID NMBS is $pid_nmbs and delijn $pid_dl"
+
+wait $pid_nmbs $pid_dl
 
 echo "data transformation complete?"
 
