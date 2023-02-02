@@ -126,7 +126,7 @@
             rml:template "https://www.delijn.be/nl/haltes/halte/{stopCode}" ;
             rml:termType rr:IRI ;
         ]
-    ]
+    ].
 
 <#CancledMapping> a rr:TriplesMap;
     rml:logicalSource [
