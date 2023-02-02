@@ -40,14 +40,6 @@ paramsjson = urllib.parse.urlencode({
     'gtfsversion': '{string}',
 })
 
-def download_files(url, file_name):
-    response = requests.get(url)
-    open(file_name, "wb").write(response.content)
-    print(f"Content downloaded to {file_name}.")
-
-def unzip_file(file_name, dst_folder):
-    subprocess.run(["unzip", file_name, "-d", dst_folder])
-
 def get_gtfs_rt_lijn():
     response = requests.get(de_lijn_rt_url, params=paramsjson, headers=headers)
     # print(response.content)
