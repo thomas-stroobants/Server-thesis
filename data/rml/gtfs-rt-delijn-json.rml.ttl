@@ -109,6 +109,25 @@
         ]
     ].
 
+<#StopCodeMapping> a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "/home/tomas/data/de-lijn-rt-data/de-lijn-new-adap.json" ;
+        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+        rml:referenceFormulation ql:JSONPath
+    ];
+
+    rr:subjectMap [
+        rr:template "http://example.com/de-lijn/stops/{stopId}" ;
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate gtfs:stop ;        # TODO: correct value??
+        rr:objectMap [
+            rml:template "https://www.delijn.be/nl/haltes/halte/{stopCode}" ;
+            rml:termType rr:IRI ;
+        ]
+    ]
+
 <#CancledMapping> a rr:TriplesMap;
     rml:logicalSource [
         rml:source "/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
