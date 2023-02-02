@@ -42,4 +42,3 @@ function txt_to_csv() {
 download_data
 unzip_data
 txt_to_csv
-# for f in *txt; do mv -- "$f" "${f%.txt}.csv"; done
