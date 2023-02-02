@@ -6,6 +6,7 @@ import time
 import datetime
 import json
 from google.protobuf.json_format import MessageToJson
+from pathlib import Path
 
 nmbs_url = "https://sncb-opendata.hafas.de/gtfs/static/c21ac6758dd25af84cca5b707f3cb3de"
 nmbs_rt_url = "https://sncb-opendata.hafas.de/gtfs/realtime/c21ac6758dd25af84cca5b707f3cb3de"
@@ -40,25 +41,35 @@ paramsjson = urllib.parse.urlencode({
     'gtfsversion': '{string}',
 })
 
-def get_gtfs_rt(url, file_name, params=None, headers=None):
+# Download GTFS-RT Protobuf data from URL
+def get_protobuf_gtfs_rt(url, file_name, params=None, headers=None):
     feed = gtfs_realtime_pb2.FeedMessage()
+    # Download Protobuf data from the server
     response = requests.get(url, params=params, headers=headers)
-    feed.ParseFromString(response.content)
-    feed_json = MessageToJson(feed)
-    #write data to file
-    open(file_name, "w").write(feed_json)
+    if response.status_code == 200:
+        # Convert data to string and to JSON
+        feed.ParseFromString(response.content)
+        feed_json = MessageToJson(feed)
+        #write data to file
+        open(file_name, "w").write(feed_json)
+    else: 
+        print(f"Request failed with status code: {response.status_code}")
 
-def get_gtfs_rt_json(url, file_name, params=None, headers=None):
-    feed = gtfs_realtime_pb2.FeedMessage()
+# Donwload GTFS-RT JSON data from URL
+def get_json_gtfs_rt(url, file_name, params=None, headers=None):
+    # Download the JSON response from the server
     response = requests.get(url, params=params, headers=headers)
-    feed.ParseFromString(response.content)
-    # feed_json = MessageToJson(feed)
-    #write data to file
-    open(file_name, "w").write(feed)
 
+    if response.status_code == 200:
+        # Write the results to a JSON file
+        with open(file_name, "w") as out_file:
+            json.dump(response.json(), out_file, indent=4)
+
+    else: 
+        print(f"Request failed with status code: {response.status_code}")
 
 isotime = datetime.datetime.now().replace(microsecond=0).isoformat()
-get_gtfs_rt(de_lijn_rt_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-{isotime}.json", params=params, headers=headers)
-# get_gtfs_rt(de_lijn_rt1_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs1-{isotime}.json", headers=headers)
-get_gtfs_rt(nmbs_rt_url, f"/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-{isotime}.json")
-get_gtfs_rt(de_lijn_rt_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-json-{isotime}.json", params=paramsjson, headers=headers)
+# get_protobuf_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs-{isotime}.json", params=params, headers=headers)
+get_protobuf_gtfs_rt(nmbs_rt_url, f"{Path.home()}/data/nmbs-rt-data/nmbs-rt-gtfs-{isotime}.json")
+get_json_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-{isotime}.json", params=paramsjson, headers=headers)
+# get_protobuf_gtfs_rt(de_lijn_rt1_url, f"{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs1-{isotime}.json", headers=headers)
