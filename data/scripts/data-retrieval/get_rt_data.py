@@ -40,23 +40,6 @@ paramsjson = urllib.parse.urlencode({
     'gtfsversion': '{string}',
 })
 
-def get_gtfs_rt_lijn():
-    response = requests.get(de_lijn_rt_url, params=paramsjson, headers=headers)
-    # print(response.content)
-    # feed.ParseFromString(response.content)
-    # feed_json = MessageToJson(feed)
-    #write data to file
-    # open(f"de-lijn-data/de-lijn-rt1-gtfs.json", "w").write(response.json())
-    with open('de-lijn-data/de-lijn-rt1-gtfs.json', 'w') as ofile:
-        json.dump(response.json(), ofile, indent = 2, sort_keys=True)
-
-def get_gtfs_rf_nmbs():
-    feed = gtfs_realtime_pb2.FeedMessage()
-    response = requests.get(nmbs_rt_url)
-    feed.ParseFromString(response.content)
-    feed_json = MessageToJson(feed)
-    print(feed_json)
-
 def get_gtfs_rt(url, file_name, params=None, headers=None):
     feed = gtfs_realtime_pb2.FeedMessage()
     response = requests.get(url, params=params, headers=headers)
@@ -65,12 +48,17 @@ def get_gtfs_rt(url, file_name, params=None, headers=None):
     #write data to file
     open(file_name, "w").write(feed_json)
 
+def get_gtfs_rt_json(url, file_name, params=None, headers=None):
+    feed = gtfs_realtime_pb2.FeedMessage()
+    response = requests.get(url, params=params, headers=headers)
+    feed.ParseFromString(response.content)
+    # feed_json = MessageToJson(feed)
+    #write data to file
+    open(file_name, "w").write(feed)
 
-#download_files(nmbs_rt_url, "nmbs-rt-data/nmbs-rt-proto")
-# get_gtfs_rt_lijn()
-# get_gtfs_rf_nmbs()
+
 isotime = datetime.datetime.now().replace(microsecond=0).isoformat()
-get_gtfs_rt(de_lijn_rt_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs2-{isotime}.json", params=params, headers=headers)
-get_gtfs_rt(de_lijn_rt1_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs1-{isotime}.json", headers=headers)
+get_gtfs_rt(de_lijn_rt_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-{isotime}.json", params=params, headers=headers)
+# get_gtfs_rt(de_lijn_rt1_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs1-{isotime}.json", headers=headers)
 get_gtfs_rt(nmbs_rt_url, f"/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-{isotime}.json")
-# get_gtfs_rt_lijn()
+get_gtfs_rt(de_lijn_rt_url, f"/home/thomas/data/de-lijn-rt-data/de-lijn-rt-json-{isotime}.json", params=paramsjson, headers=headers)
