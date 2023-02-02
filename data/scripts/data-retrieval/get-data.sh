@@ -60,7 +60,7 @@ echo "Changing file extensions from .txt to .csv.."
 txt_to_csv
 
 # Activate virtual environment for Python
-seba
+source $HOME/env/bin/activate
 
 # Change departuretimes from time format to ISO dateTime
 python3 $HOME/data/scripts/data-transformation/connect-datetime.py &

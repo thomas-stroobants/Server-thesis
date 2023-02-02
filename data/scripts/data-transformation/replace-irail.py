@@ -4,8 +4,8 @@ df = pd.read_csv("/home/thomas/data/iRail/facilities.csv")
 for i in range(len(df.index)):
     old_value = df.loc[i, "URI"]
     new_value = format(int(old_value.split('/')[-1]), '07d')
-    print(old_value, new_value)
-    print()
+    # print(old_value, new_value)
+    # print()
     df.loc[i, "URI"] = new_value
 
 df["blue-bike"] = df["blue-bike"].fillna(0)
