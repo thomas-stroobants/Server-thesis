@@ -11,6 +11,8 @@ echo "$(date) | Start of data retrieval static data"
 # Download the static data
 $HOME/data/scripts/data-retrieval/get-data.sh
 
+# TODO: download BlueBike Data
+
 
 # Delete NMBS data from Virtuoso
 isql 1111 dba dba ~/data/scripts/query/clear-bulk-load-list.sql ~/data/scripts/query/delete-nmbs-graph.sql &
@@ -61,6 +63,8 @@ isql 1111 dba dba ~/data/scripts/query/nmbs-load.sql &
 pid_load_nmbs=$!
 isql 1111 dba dba ~/data/scripts/query/delijn-load.sql &
 pid_load_delijn=$!
+
+# TODO: loading blue-bike data into Virtuoso
 
 wait $pid_load_nmbs $pid_load_delijn
 echo "$(date) | Loading data into Virtuoso complete"
