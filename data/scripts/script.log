@@ -103,3 +103,110 @@ Modifying departure times above 24...
 Replacing time format to ISO dateTime...
 Finished adapting data stop_times from De Lijn..
 vr 03 feb 2023 16:18:25 CET | data transformation complete
+
+===================================================================
+
+vr 03 feb 2023 16:22:22 CET | Start of data retrieval static data
+vr 03 feb 2023 16:22:22 CET | Starting process of data retrieval and transformation of GTFS static data..
+vr 03 feb 2023 16:22:22 CET | Downloading data from servers..
+vr 03 feb 2023 16:22:38 CET | Extract files from ZIP folders..
+Directory /home/thomas/data/de-lijn-gtfs/ already exists..
+Directory /home/thomas/data/nmbs-gtfs/ already exists..
+Archive:  /home/thomas/data/de_lijn-gtfs.zip
+  inflating: /home/thomas/data/de-lijn-gtfs/agency.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/calendar_dates.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/feed_info.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/routes.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/shapes.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/stops.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/stop_times.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/trips.txt  
+Archive:  /home/thomas/data/nmbs-gtfs.zip
+  inflating: /home/thomas/data/nmbs-gtfs/trips.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stop_times.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stop_time_overrides.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stops.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/routes.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/agency.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/transfers.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/calendar.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/calendar_dates.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/translations.txt  
+vr 03 feb 2023 16:22:41 CET | Changing file extensions from .txt to .csv..
+vr 03 feb 2023 16:22:42 CET | Deleting ZIP folders
+vr 03 feb 2023 16:22:42 CET | PID isql delete nmbs is 44415
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+vr 03 feb 2023 16:22:42 CET | PID isql delete delijn is 44417
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.
+
+vr 03 feb 2023 16:22:42 CET | transforming iRail data
+Done. -- 1 msec.
+vr 03 feb 2023 16:22:42 CET | transforming departure times
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 1 msec.
+vr 03 feb 2023 16:22:42 CET | Waiting for PID NMBS (44422) and De Lijn (44423) to finish
+
+Done. -- 0 msec.
+
+Done. -- 1 msec.
+Modifying departure times above 24...
+Replacing time format to ISO dateTime...
+Finished adapting data stop_times from NMBS..
+Modifying departure times above 24...
+Replacing time format to ISO dateTime...
+Finished adapting data stop_times from De Lijn..
+vr 03 feb 2023 16:36:50 CET | data transformation complete
+vr 03 feb 2023 16:36:50 CET | Starting materialization of iRail data using Morph-KGC
+vr 03 feb 2023 16:36:50 CET | Starting materialization of NMBS data using Morph-KGC
+vr 03 feb 2023 16:36:50 CET | Starting materialization of De Lijn data using Morph-KGC
+vr 03 feb 2023 16:39:02 CET | Materialization complete
+vr 03 feb 2023 16:39:02 CET | Loading data into Virtuoso...
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 1 msec.
+
+Done. -- 0 msec.
+
+Done. -- 46 msec.
+
+Done. -- 35609 msec.
+
+Done. -- 6239 msec.
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.
+
+Done. -- 245653 msec.
+
+Done. -- 6893 msec.
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.
+vr 03 feb 2023 16:43:14 CET | Loading data into Virtuoso complete
+vr 03 feb 2023 16:43:14 CET | Time taken to run the script: 1252 seconds..
+

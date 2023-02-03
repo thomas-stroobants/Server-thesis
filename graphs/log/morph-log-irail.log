@@ -1,11 +1,11 @@
-DEBUG | 2023-01-30 22:35:18,437 | CONFIGURATION: {'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'output_file': '/home/thomas/graphs/knowledge-graph-irail.nt', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'safe_percent_encoding': '', 'number_of_processes': '2', 'logging_level': 'DEBUG', 'logging_file': '/home/thomas/graphs/log/morph-log-irail.log', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partitioning': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'infer_sql_datatypes': 'no'}
-DEBUG | 2023-01-30 22:35:18,437 | DATA SOURCE `Datasource1`: {'mappings': '/home/thomas/data/rml/irail-facilities.rml.ttl'}
-INFO | 2023-01-30 22:35:18,649 | 2 mapping rules retrieved.
-INFO | 2023-01-30 22:35:18,654 | Mapping partition with 2 groups generated.
-INFO | 2023-01-30 22:35:18,655 | Maximum number of rules within mapping group: 1.
-INFO | 2023-01-30 22:35:18,655 | Mappings processed in 0.216 seconds.
-DEBUG | 2023-01-30 22:35:18,656 | Parallelizing with 2 cores.
-DEBUG | 2023-01-30 22:35:18,683 | 676 triples generated for mapping rule `1` in 0.016 seconds.
-DEBUG | 2023-01-30 22:35:18,683 | 676 triples generated for mapping rule `0` in 0.016 seconds.
-INFO | 2023-01-30 22:35:18,704 | Number of triples generated in total: 1352.
-INFO | 2023-01-30 22:35:18,704 | Materialization finished in 0.048 seconds.
+DEBUG | 2023-02-03 16:36:51,149 | CONFIGURATION: {'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'output_file': '/home/thomas/graphs/knowledge-graph-irail.nt', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'safe_percent_encoding': '', 'number_of_processes': '2', 'logging_level': 'DEBUG', 'logging_file': '/home/thomas/graphs/log/morph-log-irail.log', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partitioning': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'infer_sql_datatypes': 'no'}
+DEBUG | 2023-02-03 16:36:51,149 | DATA SOURCE `Datasource1`: {'mappings': '/home/thomas/data/rml/irail-facilities.rml.ttl'}
+INFO | 2023-02-03 16:36:51,377 | 2 mapping rules retrieved.
+INFO | 2023-02-03 16:36:51,382 | Mapping partition with 2 groups generated.
+INFO | 2023-02-03 16:36:51,383 | Maximum number of rules within mapping group: 1.
+INFO | 2023-02-03 16:36:51,383 | Mappings processed in 0.232 seconds.
+DEBUG | 2023-02-03 16:36:51,384 | Parallelizing with 2 cores.
+DEBUG | 2023-02-03 16:36:51,406 | 676 triples generated for mapping rule `0` in 0.012 seconds.
+DEBUG | 2023-02-03 16:36:51,408 | 676 triples generated for mapping rule `1` in 0.013 seconds.
+INFO | 2023-02-03 16:36:51,421 | Number of triples generated in total: 1352.
+INFO | 2023-02-03 16:36:51,421 | Materialization finished in 0.037 seconds.
