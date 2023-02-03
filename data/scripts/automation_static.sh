@@ -39,19 +39,24 @@ python3 $HOME/data/scripts/data-transformation/replace-irail.py
 
 
 # Transforming the data to KG
+echo "$(date) | Starting materialization of iRail data using Morph-KGC"
+python3 -m morph_kgc ~/graphs/config/config-irail.ini &
+pid_morph_irail=$!
+
 echo "$(date) | Starting materialization of NMBS data using Morph-KGC"
 python3 -m morph_kgc ~/graphs/config/config-nmbs.ini &
 pid_morph_nmbs=$!
 
-echo "$(date) | Starting materialization of NMBS data using Morph-KGC"
+echo "$(date) | Starting materialization of De Lijn data using Morph-KGC"
 python3 -m morph_kgc ~/graphs/config/config-dl.ini &
 pid_morph_delijn=$!
 
 
-wait $pid_morph_nmbs $pid_morph_delijn
+wait $pid_morph_nmbs $pid_morph_delijn $pid_morph_irail
 echo "$(date) | Materialization complete"
 
 # Loading the data into Virtuoso
+echo "$(date) | Loading data into Virtuoso..."
 isql 1111 dba dba ~/data/scripts/query/nmbs-load.sql &
 pid_load_nmbs=$!
 isql 1111 dba dba ~/data/scripts/query/delijn-load.sql &
@@ -61,6 +66,7 @@ wait $pid_load_nmbs $pid_load_delijn
 echo "$(date) | Loading data into Virtuoso complete"
 
 stop_time=$(date +%s)
-
+# Calculate duration of script
 time_diff=$((stop_time - start_time))
 echo "$(date) | Time taken to run the script: $time_diff seconds.."
+echo ""
