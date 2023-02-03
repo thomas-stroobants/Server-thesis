@@ -1,8 +1,13 @@
 #! /usr/bin/bash
 
 # DIR=( "$HOME/data/de-lijn-gtfs-$(date +'%d-%m-%Y')/" "$HOME/data/nmbs-gtfs-$(date +'%d-%m-%Y')/" "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y')/" "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y')/" )
-DIR=(   "$HOME/data/de-lijn-gtfs-$(date +'%d-%m-%Y')/" 
-        "$HOME/data/nmbs-gtfs-$(date +'%d-%m-%Y')/" 
+# DIR=(   "$HOME/data/de-lijn-gtfs-$(date +'%d-%m-%Y')/" 
+#         "$HOME/data/nmbs-gtfs-$(date +'%d-%m-%Y')/" 
+#         # "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y')/" 
+#         # "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y')/" 
+#     )
+DIR=(   "$HOME/data/de-lijn-gtfs/" 
+        "$HOME/data/nmbs-gtfs/" 
         # "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y')/" 
         # "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y')/" 
     )
@@ -52,16 +57,16 @@ function txt_to_csv() {
 
 # Delete the downloaded zip folders with data
 function delete_zip() {
-    rm *.zip
+    rm $HOME/data/*.zip
 }
 
 # Process
-echo "Starting process of data retrieval and transformation of GTFS static data.."
-echo "Downloading data from servers.."
+echo "$(date) | Starting process of data retrieval and transformation of GTFS static data.."
+echo "$(date) | Downloading data from servers.."
 download_data
-echo "Extract files from ZIP folders.."
+echo "$(date) | Extract files from ZIP folders.."
 unzip_data
-echo "Changing file extensions from .txt to .csv.."
+echo "$(date) | Changing file extensions from .txt to .csv.."
 txt_to_csv
-echo "Deleting ZIP folders"
+echo "$(date) | Deleting ZIP folders"
 delete_zip

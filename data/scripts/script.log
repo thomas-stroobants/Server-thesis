@@ -1,0 +1,40 @@
+----------------------------------------------
+vr 03 feb 2023 15:20:24 CET | Start of data retrieval static data
+vr 03 feb 2023 15:20:24 CET | Starting process of data retrieval and transformation of GTFS static data..
+vr 03 feb 2023 15:20:24 CET | Downloading data from servers..
+vr 03 feb 2023 15:20:34 CET | Extract files from ZIP folders..
+Directory /home/thomas/data/de-lijn-gtfs/ already exists..
+Directory /home/thomas/data/nmbs-gtfs/ already exists..
+Archive:  /home/thomas/data/de_lijn-gtfs.zip
+  inflating: /home/thomas/data/de-lijn-gtfs/agency.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/calendar_dates.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/feed_info.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/routes.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/shapes.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/stops.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/stop_times.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/trips.txt  
+Archive:  /home/thomas/data/nmbs-gtfs.zip
+  inflating: /home/thomas/data/nmbs-gtfs/trips.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stop_times.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stop_time_overrides.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stops.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/routes.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/agency.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/transfers.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/calendar.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/calendar_dates.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/translations.txt  
+vr 03 feb 2023 15:20:38 CET | Changing file extensions from .txt to .csv..
+vr 03 feb 2023 15:20:39 CET | Deleting ZIP folders
+PID is 26296
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+vr 03 feb 2023 15:20:39 CET | Waiting for PID NMBS (26297) and De Lijn (26298) to finish
+Modifying departure times above 24...
+Replacing time format to ISO dateTime...
+Finished adapting data stop_times from NMBS..
+vr 03 feb 2023 15:22:35 CET | data transformation complete
+vr 03 feb 2023 15:22:35 CET | transforming iRail data
+vr 03 feb 2023 15:22:35 CET | Time taken to run the script: 131 seconds..
