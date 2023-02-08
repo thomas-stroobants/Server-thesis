@@ -1,16 +1,16 @@
 #! /usr/bin/bash
 
 # DIR=( "$HOME/data/de-lijn-gtfs-$(date +'%d-%m-%Y')/" "$HOME/data/nmbs-gtfs-$(date +'%d-%m-%Y')/" "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y')/" "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y')/" )
-# DIR=(   "$HOME/data/de-lijn-gtfs-$(date +'%d-%m-%Y')/" 
-#         "$HOME/data/nmbs-gtfs-$(date +'%d-%m-%Y')/" 
-#         # "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y')/" 
-#         # "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y')/" 
-#     )
-DIR=(   "$HOME/data/de-lijn-gtfs/" 
-        "$HOME/data/nmbs-gtfs/" 
+DIR=(   "$HOME/data/de-lijn-gtfs-$(date +'%d-%m-%Y')/" 
+        "$HOME/data/nmbs-gtfs-$(date +'%d-%m-%Y')/" 
         # "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y')/" 
         # "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y')/" 
     )
+# DIR=(   "$HOME/data/de-lijn-gtfs/" 
+#         "$HOME/data/nmbs-gtfs/" 
+#         # "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y')/" 
+#         # "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y')/" 
+#     )
 
 
 #download file

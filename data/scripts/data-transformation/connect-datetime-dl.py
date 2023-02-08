@@ -5,24 +5,30 @@ import csv
 import pandas as pd
 
 # read calendar_dates to dataframe
-calendar_dates_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs/calendar_dates.csv')
+calendar_dates_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs-03-02-2023/calendar_dates.csv')
 # read trips to dataframe
-trips_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs/trips.csv')
+trips_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs-03-02-2023/trips.csv')
 # read stop_times to dataframe
-stop_times_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs/stop_times.csv')
+stop_times_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs-03-02-2023/stop_times.csv')
 
 # remove the rows with departure_time above 24:59:59
-stop_times_df = stop_times_df[stop_times_df['departure_time'] <= '24:59:59']
+# stop_times_df = stop_times_df[stop_times_df['departure_time'] <= '24:59:59']
 
 print("Modifying departure times above 24...")
 
 # loop through the stop_times_df and modify the departure_time if it's above 24:00:00
 for index, row in stop_times_df.iterrows():
     departure_time = row['departure_time']
-    hour, minute, second = [int(i) for i in departure_time.split(":")]
-    if hour >= 24:
-        hour = hour % 24
-        departure_time = f"{hour:02d}:{minute:02d}:{second:02d}"
+    # hour, minute, second = [int(i) for i in departure_time.split(":")]
+    hour, minute, second = map(int, departure_time.split(":"))
+    # print(f"{departure_time} -- hour is {hour}")
+
+    # if hour >= 24:
+    #     hour = hour % 24
+    #     departure_time = f"{hour:02d}:{minute:02d}:{second:02d}"
+    if hour <10:
+        departure_time = "0" + departure_time
+
     stop_times_df.at[index, 'departure_time'] = departure_time
 
 # merge calendar_dates_df and trips_df on the service_id column
@@ -45,6 +51,6 @@ for index, row in stop_times_df.iterrows():
         stop_times_df.at[index, 'departure_time'] = mod_departure_time.isoformat() # convert to iso format
 
 # write results to new file
-stop_times_df.to_csv('/home/thomas/data/de-lijn-gtfs/stop_times.csv', index=False)
+stop_times_df.to_csv('/home/thomas/data/de-lijn-gtfs-03-02-2023/stop_times1.csv', index=False)
 
 print("Finished adapting data stop_times from De Lijn..")
