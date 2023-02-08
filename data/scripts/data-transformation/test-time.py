@@ -6,71 +6,51 @@ import pandas as pd
 
 # read calendar_dates to dataframe
 calendar_dates_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs-03-02-2023/calendar_dates.csv')
+calendar_dates_df = calendar_dates_df.drop('exception_type', axis=1)
 # read trips to dataframe
 trips_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs-03-02-2023/trips.csv')
+# delete columns that we don't need
+column_list_trip = ['route_id', 'trip_headsign', 'trip_short_name', 'direction_id', 'block_id', 'shape_id']
+trips_df = trips_df.drop(column_list_trip, axis=1)
 # read stop_times to dataframe
 stop_times_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs-03-02-2023/stop_times.csv')
 
-# remove the rows with departure_time above 24:59:59
-# stop_times_df = stop_times_df[stop_times_df['departure_time'] <= '24:59:59']
-
 #apply leading zero where needed on time and remove all times from daylight savings
 stop_times_df['departure_time'] = stop_times_df['departure_time'].apply(lambda x: '0'+x if len(x) == 7 else x)
-# print(stop_times_df['departure_time'])
-stop_times_df_filtered = stop_times_df[stop_times_df['departure_time'] <= '24:59:59']
-# print(stop_times_df_filtered)
-
-# merge calendar_dates_df and trips_df on the service_id column
-#TODO drop columns that are not nescessarry
-merged_df = pd.merge(calendar_dates_df, trips_df, on='service_id')
-# print(merged_df.head(500))
-# merged_df.to_csv('/home/thomas/data/de-lijn-gtfs-03-02-2023/merged.csv', index=False)
-# TODO same drop of columns here
-merged_df2 = pd.merge(merged_df, stop_times_df_filtered, on='trip_id')
-print(merged_df2)
-# TODO drop unnecessary columns here
-
-# TODO append date column to time and delete date column --> convert to iso
-exit()
 
 
-print("Modifying departure times above 24...")
-
-# loop through the stop_times_df and modify the departure_time if it's above 24:00:00
-for index, row in stop_times_df.iterrows():
-    departure_time = row['departure_time']
-    # hour, minute, second = [int(i) for i in departure_time.split(":")]
-    hour, minute, second = map(int, departure_time.split(":"))
+def checkmidnight(time):
+    hour, minute, second = map(int, time.split(":"))
     # print(f"{departure_time} -- hour is {hour}")
 
     if hour >= 24:
         hour = hour % 24
-        departure_time = f"{hour:02d}:{minute:02d}:{second:02d}"
-    if hour <10:
-        departure_time = "0" + departure_time
+        time = f"{hour:02d}:{minute:02d}:{second:02d}"
+    return time
 
-    stop_times_df.at[index, 'departure_time'] = departure_time
+# remove the rows with departure_time above 24:59:59
+stop_times_df = stop_times_df[stop_times_df['departure_time'] <= '24:59:59']
+stop_times_df['departure_time'] = stop_times_df['departure_time'].apply(lambda x: checkmidnight(x))
 
 # merge calendar_dates_df and trips_df on the service_id column
 merged_df = pd.merge(calendar_dates_df, trips_df, on='service_id')
 
-# create dict to store the merged data
-trip_id_dict = {}
-for index, row in merged_df.iterrows():
-    trip_id_dict[row['trip_id']] = [row['date'], row['service_id']]
+# merge trips_df and stop_times_df on trip_id
+merged_df2 = pd.merge(merged_df, stop_times_df, on='trip_id')
+# print(merged_df2)
 
-print("Replacing time format to ISO dateTime...")
+def dateToISO(row):
+    return datetime.datetime.strptime(str(row['date'])+row['departure_time'], '%Y%m%d%H:%M:%S').isoformat()
 
-# iterate over the stop_times_df to replace the departure_time to an iso format
-for index, row in stop_times_df.iterrows():
-    trip_id = row['trip_id']
-    if trip_id in trip_id_dict:
-        date = trip_id_dict[trip_id][0]
-        departure_time = row['departure_time']
-        mod_departure_time = datetime.datetime.strptime(str(date)+departure_time, '%Y%m%d%H:%M:%S') # set combine date and time
-        stop_times_df.at[index, 'departure_time'] = mod_departure_time.isoformat() # convert to iso format
+print(f"{datetime.datetime.now()} Replacing time format to ISO dateTime...")
+merged_df2['departure_time'] = merged_df2.apply(lambda row: dateToISO(row), axis=1)
+
+
+# drop service_id and date
+column_list_stop = ['service_id', 'date']
+merged_df2 = merged_df2.drop(column_list_stop, axis=1)
+# print(merged_df2)
 
 # write results to new file
-stop_times_df.to_csv('/home/thomas/data/de-lijn-gtfs-03-02-2023/stop_times1.csv', index=False)
-
-print("Finished adapting data stop_times from De Lijn..")
+print(f"{datetime.datetime.now()} Writing results to file")
+merged_df2.to_csv('/home/thomas/data/de-lijn-gtfs-03-02-2023/stop_times1.csv', index=False)
