@@ -21,8 +21,6 @@ stop_times_df['departure_time'] = stop_times_df['departure_time'].apply(lambda x
 
 def checkmidnight(time):
     hour, minute, second = map(int, time.split(":"))
-    # print(f"{departure_time} -- hour is {hour}")
-
     if hour >= 24:
         hour = hour % 24
         time = f"{hour:02d}:{minute:02d}:{second:02d}"
