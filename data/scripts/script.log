@@ -432,3 +432,57 @@ Done. -- 0 msec.
 Done. -- 0 msec.
 
 Done. -- 0 msec.
+
+===================================================================
+
+do 09 feb 2023 14:25:21 CET | Start of data retrieval static data
+do 09 feb 2023 14:25:21 CET | Starting process of data retrieval and transformation of GTFS static data..
+do 09 feb 2023 14:25:21 CET | Downloading data from servers..
+do 09 feb 2023 14:25:39 CET | Extract files from ZIP folders..
+Directory /home/thomas/data/de-lijn-gtfs/ already exists..
+Directory /home/thomas/data/nmbs-gtfs/ already exists..
+Archive:  /home/thomas/data/de_lijn-gtfs.zip
+  inflating: /home/thomas/data/de-lijn-gtfs/agency.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/calendar_dates.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/feed_info.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/routes.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/shapes.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/stops.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/stop_times.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/trips.txt  
+Archive:  /home/thomas/data/nmbs-gtfs.zip
+  inflating: /home/thomas/data/nmbs-gtfs/trips.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stop_times.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stop_time_overrides.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stops.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/routes.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/agency.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/transfers.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/calendar.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/calendar_dates.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/translations.txt  
+do 09 feb 2023 14:25:43 CET | Changing file extensions from .txt to .csv..
+do 09 feb 2023 14:25:44 CET | Deleting ZIP folders
+do 09 feb 2023 14:25:44 CET | transforming iRail data
+do 09 feb 2023 14:25:44 CET | transforming departure times
+2023-02-09 14:25:45.385041 Modifying departure times above 24...
+2023-02-09 14:25:47.186484 Replacing time format to ISO dateTime...
+2023-02-09 14:30:54.934066 Writing results to file
+2023-02-09 14:31:40.569367 Finished adapting data stop_times from NMBS..
+2023-02-09 14:31:44.845112 Modifying departure times above 24...
+2023-02-09 14:31:55.636567 Replacing time format to ISO dateTime...
+2023-02-09 14:41:36.954543 Writing results to file
+2023-02-09 14:42:48.429356 Finished adapting data stop_times from De Lijn..
+do 09 feb 2023 14:42:49 CET | data transformation complete
+do 09 feb 2023 14:42:49 CET | PID isql delete nmbs is 12262
+do 09 feb 2023 14:42:49 CET | PID isql delete delijn is 12264
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+do 09 feb 2023 14:42:49 CET | Starting materialization of iRail data using Morph-KGC
+do 09 feb 2023 14:42:49 CET | Starting materialization of NMBS data using Morph-KGC
+do 09 feb 2023 14:42:49 CET | Starting materialization of De Lijn data using Morph-KGC
+stopped at 14:49
