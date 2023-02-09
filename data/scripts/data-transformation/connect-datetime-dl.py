@@ -47,6 +47,8 @@ column_list_stop = ['service_id', 'date']
 merged_df2 = merged_df2.drop(column_list_stop, axis=1)
 # print(merged_df2)
 
+print(f"{datetime.datetime.now()} len of DF is {len(merged_df2)}")
+
 # write results to new file
 print(f"{datetime.datetime.now()} Writing results to file")
 merged_df2.to_csv('/home/thomas/data/de-lijn-gtfs/stop_times.csv', index=False)

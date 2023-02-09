@@ -47,7 +47,7 @@ merged_df2['departure_time'] = merged_df2.apply(lambda row: dateToISO(row), axis
 # drop service_id and date
 column_list_stop = ['service_id', 'date']
 merged_df2 = merged_df2.drop(column_list_stop, axis=1)
-
+print(f"{datetime.datetime.now()} len of DF is {len(merged_df2)}")
 # write results to new file
 print(f"{datetime.datetime.now()} Writing results to file")
 merged_df2.to_csv('/home/thomas/data/nmbs-gtfs/stop_times.csv', index=False)
