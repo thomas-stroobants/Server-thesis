@@ -380,3 +380,55 @@ Done. -- 0 msec.
 za 04 feb 2023 14:48:45 CET | Loading data into Virtuoso complete
 za 04 feb 2023 14:48:45 CET | Time taken to run the script: 1248 seconds..
 
+
+===================================================================
+
+do 09 feb 2023 14:09:48 CET | Start of data retrieval static data
+do 09 feb 2023 14:09:48 CET | Starting process of data retrieval and transformation of GTFS static data..
+do 09 feb 2023 14:09:48 CET | Downloading data from servers..
+do 09 feb 2023 14:10:08 CET | Extract files from ZIP folders..
+Directory /home/thomas/data/de-lijn-gtfs/ already exists..
+Directory /home/thomas/data/nmbs-gtfs/ already exists..
+Archive:  /home/thomas/data/de_lijn-gtfs.zip
+  inflating: /home/thomas/data/de-lijn-gtfs/agency.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/calendar_dates.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/feed_info.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/routes.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/shapes.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/stops.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/stop_times.txt  
+  inflating: /home/thomas/data/de-lijn-gtfs/trips.txt  
+Archive:  /home/thomas/data/nmbs-gtfs.zip
+  inflating: /home/thomas/data/nmbs-gtfs/trips.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stop_times.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stop_time_overrides.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/stops.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/routes.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/agency.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/transfers.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/calendar.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/calendar_dates.txt  
+  inflating: /home/thomas/data/nmbs-gtfs/translations.txt  
+do 09 feb 2023 14:10:11 CET | Changing file extensions from .txt to .csv..
+do 09 feb 2023 14:10:13 CET | Deleting ZIP folders
+do 09 feb 2023 14:10:13 CET | PID isql delete nmbs is 344200
+do 09 feb 2023 14:10:13 CET | PID isql delete delijn is 344202
+do 09 feb 2023 14:10:13 CET | transforming iRail data
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+do 09 feb 2023 14:10:13 CET | transforming departure times
+do 09 feb 2023 14:10:13 CET | Waiting for PID NMBS (344209) and De Lijn (344211) to finish
+Type HELP; for help and EXIT; to exit.
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.

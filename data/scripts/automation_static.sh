@@ -13,6 +13,23 @@ $HOME/data/scripts/data-retrieval/get-data.sh
 
 # TODO: download BlueBike Data
 
+echo "$(date) | transforming iRail data"
+python3 $HOME/data/scripts/data-transformation/replace-irail.py &
+pid_irail_transf=$!
+
+# Change departuretimes from time format to ISO dateTime
+echo "$(date) | transforming departure times"
+python3 $HOME/data/scripts/data-transformation/connect-datetime.py 
+# pid_nmbs=$!
+python3 $HOME/data/scripts/data-transformation/connect-datetime-dl.py 
+# pid_dl=$!
+# echo "$(date) | Waiting for PID NMBS ($pid_nmbs) and De Lijn ($pid_dl) to finish"
+
+wait $pid_irail_transf # $pid_nmbs $pid_dl 
+echo "$(date) | data transformation complete"
+cd /var/lib/virtuoso/db/
+sudo virtuoso-t -f &
+cd $HOME
 
 # Delete NMBS data from Virtuoso
 isql 1111 dba dba ~/data/scripts/query/clear-bulk-load-list.sql ~/data/scripts/query/delete-nmbs-graph.sql &
@@ -24,22 +41,9 @@ isql 1111 dba dba ~/data/scripts/query/delete-delijn-graph.sql &
 pid_delete_delijn=$!
 echo "$(date) | PID isql delete delijn is $pid_delete_delijn"
 
-# wait $pid_delete_nmbs $pid_delete_delijn
+wait $pid_delete_nmbs $pid_delete_delijn
 
-echo "$(date) | transforming iRail data"
-python3 $HOME/data/scripts/data-transformation/replace-irail.py &
-pid_irail_transf=$!
 
-# Change departuretimes from time format to ISO dateTime
-echo "$(date) | transforming departure times"
-python3 $HOME/data/scripts/data-transformation/connect-datetime.py &
-pid_nmbs=$!
-python3 $HOME/data/scripts/data-transformation/connect-datetime-dl.py &
-pid_dl=$!
-echo "$(date) | Waiting for PID NMBS ($pid_nmbs) and De Lijn ($pid_dl) to finish"
-
-wait $pid_nmbs $pid_dl $pid_delete_nmbs $pid_delete_delijn $pid_irail_transf
-echo "$(date) | data transformation complete"
 
 
 # Transforming the data to KG
