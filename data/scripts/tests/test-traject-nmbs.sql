@@ -26,6 +26,6 @@ where {
     ?stoptime gtfs:departureTime ?depature_time.
     ?trip_id gtfs:headsign ?name .
     FILTER (?depature_time >= "2023-02-21T07:21:00"^^xsd:dateTime && ?depature_time <= "2023-02-21T07:40:00"^^xsd:dateTime)
-    FILTER (?name != "Saint-Nicolas")
+    FILTER (?name != "Saint-Nicolas") -- ignore the trains that are arriving in the tstaion we want to depart from
 } 
 LIMIT 20;
