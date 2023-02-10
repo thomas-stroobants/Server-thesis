@@ -22,11 +22,11 @@ map:jc_000 rr:child "trip_id" ;
 map:jc_001 rr:child "stop_id" ;
 	rr:parent "stop_id" .
 
-map:jc_002 rr:child "service_id" ;
-	rr:parent "service_id" .
+# map:jc_002 rr:child "service_id" ;
+# 	rr:parent "service_id" .
 
-map:jc_003 rr:child "service_id" ;
-	rr:parent "service_id" .
+# map:jc_003 rr:child "service_id" ;
+# 	rr:parent "service_id" .
 
 map:jc_004 rr:child "route_id" ;
 	rr:parent "route_id" .
@@ -58,11 +58,11 @@ map:map_calendar_date_rules_000 rml:logicalSource map:source_007 ;
 	rr:predicateObjectMap map:pom_048, map:pom_049, map:pom_050 ;
 	rr:subjectMap map:s_007 .
 
-map:map_calendar_rules_000 rml:logicalSource map:source_008 ;
-	rdf:type rr:TriplesMap ;
-	rdfs:label "calendar_rules" ;
-	rr:predicateObjectMap map:pom_051, map:pom_052, map:pom_053, map:pom_054, map:pom_055, map:pom_056, map:pom_057, map:pom_058, map:pom_059, map:pom_060 ;
-	rr:subjectMap map:s_008 .
+# map:map_calendar_rules_000 rml:logicalSource map:source_008 ;
+# 	rdf:type rr:TriplesMap ;
+# 	rdfs:label "calendar_rules" ;
+# 	rr:predicateObjectMap map:pom_051, map:pom_052, map:pom_053, map:pom_054, map:pom_055, map:pom_056, map:pom_057, map:pom_058, map:pom_059, map:pom_060 ;
+# 	rr:subjectMap map:s_008 .
 
 map:map_routes_000 rml:logicalSource map:source_002 ;
 	rdf:type rr:TriplesMap ;
@@ -70,11 +70,11 @@ map:map_routes_000 rml:logicalSource map:source_002 ;
 	rr:predicateObjectMap map:pom_017, map:pom_018, map:pom_019, map:pom_020, map:pom_021, map:pom_022, map:pom_023, map:pom_024, map:pom_025 ;
 	rr:subjectMap map:s_002 .
 
-map:map_services1_000 rml:logicalSource map:source_005 ;
-	rdf:type rr:TriplesMap ;
-	rdfs:label "services1" ;
-	rr:predicateObjectMap map:pom_044, map:pom_045 ;
-	rr:subjectMap map:s_005 .
+# map:map_services1_000 rml:logicalSource map:source_005 ;
+# 	rdf:type rr:TriplesMap ;
+# 	rdfs:label "services1" ;
+# 	rr:predicateObjectMap map:pom_044, map:pom_045 ;
+# 	rr:subjectMap map:s_005 .
 
 map:map_services2_000 rml:logicalSource map:source_006 ;
 	rdf:type rr:TriplesMap ;
@@ -109,7 +109,7 @@ map:map_translations_000 rml:logicalSource map:source_009 ;
 map:map_trips_000 rml:logicalSource map:source_001 ;
 	rdf:type rr:TriplesMap ;
 	rdfs:label "trips" ;
-	rr:predicateObjectMap map:pom_010, map:pom_011, map:pom_012, map:pom_013, map:pom_014, map:pom_015, map:pom_016 ;
+	rr:predicateObjectMap map:pom_010, map:pom_011, map:pom_012, map:pom_013, map:pom_014, map:pom_016 ; # map:pom_015, 
 	rr:subjectMap map:s_001 .
 
 map:om_000 rdf:type rr:ObjectMap ;
@@ -175,13 +175,13 @@ map:om_014 rml:reference "block_id" ;
 	rdf:type rr:ObjectMap ;
 	rr:termType rr:Literal .
 
-map:om_015 rdf:type rr:ObjectMap ;
-	rr:joinCondition map:jc_002 ;
-	rr:parentTriplesMap map:map_services1_000 .
+# map:om_015 rdf:type rr:ObjectMap ;
+# 	rr:joinCondition map:jc_002 ;
+# 	rr:parentTriplesMap map:map_services1_000 .
 
-map:om_016 rdf:type rr:ObjectMap ;
-	rr:joinCondition map:jc_003 ;
-	rr:parentTriplesMap map:map_services2_000 .
+# map:om_016 rdf:type rr:ObjectMap ;
+# 	rr:joinCondition map:jc_003 ;
+# 	rr:parentTriplesMap map:map_services2_000 .
 
 map:om_017 rdf:type rr:ObjectMap ;
 	rr:joinCondition map:jc_004 ;
@@ -301,9 +301,9 @@ map:om_045 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#Service" ;
 	rr:termType rr:IRI .
 
-map:om_046 rdf:type rr:ObjectMap ;
-	rr:joinCondition map:jc_007 ;
-	rr:parentTriplesMap map:map_calendar_rules_000 .
+# map:om_046 rdf:type rr:ObjectMap ;
+# 	rr:joinCondition map:jc_007 ;
+# 	rr:parentTriplesMap map:map_calendar_rules_000 .
 
 map:om_047 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#Service" ;
@@ -327,54 +327,54 @@ map:om_051 rml:reference "exception_type" ;
 	rr:datatype xsd:boolean ;
 	rr:termType rr:Literal .
 
-map:om_052 rdf:type rr:ObjectMap ;
-	rr:constant "http://vocab.gtfs.org/terms#CalendarRule" ;
-	rr:termType rr:IRI .
+# map:om_052 rdf:type rr:ObjectMap ;
+# 	rr:constant "http://vocab.gtfs.org/terms#CalendarRule" ;
+# 	rr:termType rr:IRI .
 
-map:om_053 rml:reference "monday" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:boolean ;
-	rr:termType rr:Literal .
+# map:om_053 rml:reference "monday" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:boolean ;
+# 	rr:termType rr:Literal .
 
-map:om_054 rml:reference "tuesday" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:boolean ;
-	rr:termType rr:Literal .
+# map:om_054 rml:reference "tuesday" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:boolean ;
+# 	rr:termType rr:Literal .
 
-map:om_055 rml:reference "wednesday" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:boolean ;
-	rr:termType rr:Literal .
+# map:om_055 rml:reference "wednesday" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:boolean ;
+# 	rr:termType rr:Literal .
 
-map:om_056 rml:reference "thursday" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:boolean ;
-	rr:termType rr:Literal .
+# map:om_056 rml:reference "thursday" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:boolean ;
+# 	rr:termType rr:Literal .
 
-map:om_057 rml:reference "friday" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:boolean ;
-	rr:termType rr:Literal .
+# map:om_057 rml:reference "friday" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:boolean ;
+# 	rr:termType rr:Literal .
 
-map:om_058 rml:reference "saturday" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:boolean ;
-	rr:termType rr:Literal .
+# map:om_058 rml:reference "saturday" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:boolean ;
+# 	rr:termType rr:Literal .
 
-map:om_059 rml:reference "sunday" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:boolean ;
-	rr:termType rr:Literal .
+# map:om_059 rml:reference "sunday" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:boolean ;
+# 	rr:termType rr:Literal .
 
-map:om_060 rml:reference "start_date" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:date ;
-	rr:termType rr:Literal .
+# map:om_060 rml:reference "start_date" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:date ;
+# 	rr:termType rr:Literal .
 
-map:om_061 rml:reference "end_date" ;
-	rdf:type rr:ObjectMap ;
-	rr:datatype xsd:date ;
-	rr:termType rr:Literal .
+# map:om_061 rml:reference "end_date" ;
+# 	rdf:type rr:ObjectMap ;
+# 	rr:datatype xsd:date ;
+# 	rr:termType rr:Literal .
 
 map:om_062 rdf:type rr:ObjectMap ;
 	rr:constant "http://vocab.gtfs.org/terms#Route" ;
@@ -453,8 +453,8 @@ map:pm_013 rdf:type rr:PredicateMap ;
 map:pm_014 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:block .
 
-map:pm_015 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:service .
+# map:pm_015 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:service .
 
 map:pm_016 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:route .
@@ -543,8 +543,8 @@ map:pm_043 rdf:type rr:PredicateMap ;
 map:pm_044 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
 
-map:pm_045 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:serviceRule .
+# map:pm_045 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:serviceRule .
 
 map:pm_046 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
@@ -561,35 +561,35 @@ map:pm_049 rdf:type rr:PredicateMap ;
 map:pm_050 rdf:type rr:PredicateMap ;
 	rr:constant gtfs:dateAddition .
 
-map:pm_051 rdf:type rr:PredicateMap ;
-	rr:constant rdf:type .
+# map:pm_051 rdf:type rr:PredicateMap ;
+# 	rr:constant rdf:type .
 
-map:pm_052 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:monday .
+# map:pm_052 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:monday .
 
-map:pm_053 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:tuesday .
+# map:pm_053 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:tuesday .
 
-map:pm_054 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:wednesday .
+# map:pm_054 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:wednesday .
 
-map:pm_055 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:thursday .
+# map:pm_055 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:thursday .
 
-map:pm_056 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:friday .
+# map:pm_056 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:friday .
 
-map:pm_057 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:saturday .
+# map:pm_057 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:saturday .
 
-map:pm_058 rdf:type rr:PredicateMap ;
-	rr:constant gtfs:sunday .
+# map:pm_058 rdf:type rr:PredicateMap ;
+# 	rr:constant gtfs:sunday .
 
-map:pm_059 rdf:type rr:PredicateMap ;
-	rr:constant schema:startDate .
+# map:pm_059 rdf:type rr:PredicateMap ;
+# 	rr:constant schema:startDate .
 
-map:pm_060 rdf:type rr:PredicateMap ;
-	rr:constant schema:endDate .
+# map:pm_060 rdf:type rr:PredicateMap ;
+# 	rr:constant schema:endDate .
 
 map:pm_061 rdf:type rr:PredicateMap ;
 	rr:constant rdf:type .
@@ -675,9 +675,9 @@ map:pom_014 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_014 ;
 	rr:predicateMap map:pm_014 .
 
-map:pom_015 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_015, map:om_016 ;
-	rr:predicateMap map:pm_015 .
+# map:pom_015 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_015, map:om_016 ;
+# 	rr:predicateMap map:pm_015 .
 
 map:pom_016 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_017 ;
@@ -795,9 +795,9 @@ map:pom_044 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_045 ;
 	rr:predicateMap map:pm_044 .
 
-map:pom_045 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_046 ;
-	rr:predicateMap map:pm_045 .
+# map:pom_045 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_046 ;
+# 	rr:predicateMap map:pm_045 .
 
 map:pom_046 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_047 ;
@@ -819,45 +819,45 @@ map:pom_050 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_051 ;
 	rr:predicateMap map:pm_050 .
 
-map:pom_051 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_052 ;
-	rr:predicateMap map:pm_051 .
+# map:pom_051 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_052 ;
+# 	rr:predicateMap map:pm_051 .
 
-map:pom_052 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_053 ;
-	rr:predicateMap map:pm_052 .
+# map:pom_052 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_053 ;
+# 	rr:predicateMap map:pm_052 .
 
-map:pom_053 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_054 ;
-	rr:predicateMap map:pm_053 .
+# map:pom_053 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_054 ;
+# 	rr:predicateMap map:pm_053 .
 
-map:pom_054 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_055 ;
-	rr:predicateMap map:pm_054 .
+# map:pom_054 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_055 ;
+# 	rr:predicateMap map:pm_054 .
 
-map:pom_055 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_056 ;
-	rr:predicateMap map:pm_055 .
+# map:pom_055 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_056 ;
+# 	rr:predicateMap map:pm_055 .
 
-map:pom_056 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_057 ;
-	rr:predicateMap map:pm_056 .
+# map:pom_056 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_057 ;
+# 	rr:predicateMap map:pm_056 .
 
-map:pom_057 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_058 ;
-	rr:predicateMap map:pm_057 .
+# map:pom_057 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_058 ;
+# 	rr:predicateMap map:pm_057 .
 
-map:pom_058 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_059 ;
-	rr:predicateMap map:pm_058 .
+# map:pom_058 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_059 ;
+# 	rr:predicateMap map:pm_058 .
 
-map:pom_059 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_060 ;
-	rr:predicateMap map:pm_059 .
+# map:pom_059 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_060 ;
+# 	rr:predicateMap map:pm_059 .
 
-map:pom_060 rdf:type rr:PredicateObjectMap ;
-	rr:objectMap map:om_061 ;
-	rr:predicateMap map:pm_060 .
+# map:pom_060 rdf:type rr:PredicateObjectMap ;
+# 	rr:objectMap map:om_061 ;
+# 	rr:predicateMap map:pm_060 .
 
 map:pom_061 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_062 ;
@@ -891,7 +891,7 @@ map:pom_068 rdf:type rr:PredicateObjectMap ;
 	rr:objectMap map:om_069 ;
 	rr:predicateMap map:pm_068 .
 
-map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_agency_000, map:map_calendar_date_rules_000, map:map_calendar_rules_000, map:map_routes_000, map:map_services1_000, map:map_services2_000, map:map_stops_000, map:map_stoptimes_000, map:map_transfers_000, map:map_translations_000, map:map_trips_000 ;
+map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_agency_000, map:map_calendar_date_rules_000, map:map_routes_000, map:map_services2_000, map:map_stops_000, map:map_stoptimes_000, map:map_transfers_000, map:map_translations_000, map:map_trips_000 ; #map:map_calendar_rules_000, map:map_services1_000
 	rdf:type <http://rdfs.org/ns/void#Dataset> .
 
 map:s_000 rdf:type rr:SubjectMap ;
@@ -910,8 +910,8 @@ map:s_003 rdf:type rr:SubjectMap ;
 map:s_004 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/nmbs/stops/{stop_id}" .
 
-map:s_005 rdf:type rr:SubjectMap ;
-	rr:template "http://example.com/nmbs/services/{service_id}" .
+# map:s_005 rdf:type rr:SubjectMap ;
+# 	rr:template "http://example.com/nmbs/services/{service_id}" .
 
 map:s_006 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/nmbs/services/{service_id}" .
@@ -919,8 +919,8 @@ map:s_006 rdf:type rr:SubjectMap ;
 map:s_007 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/nmbs/calendar_date_rule/{service_id}-{date}" .
 
-map:s_008 rdf:type rr:SubjectMap ;
-	rr:template "http://example.com/nmbs/calendar_rules/{service_id}" .
+# map:s_008 rdf:type rr:SubjectMap ;
+# 	rr:template "http://example.com/nmbs/calendar_rules/{service_id}" .
 
 map:s_009 rdf:type rr:SubjectMap ;
 	rr:template "http://example.com/nmbs/translations/{trans_id}" .
@@ -948,9 +948,9 @@ map:source_004 rml:referenceFormulation ql:CSV ;
 	rml:source "/home/thomas/data/nmbs-gtfs/stops.csv" ;
 	rdf:type rml:LogicalSource .
 
-map:source_005 rml:referenceFormulation ql:CSV ;
-	rml:source "/home/thomas/data/nmbs-gtfs/calendar.csv" ;
-	rdf:type rml:LogicalSource .
+# map:source_005 rml:referenceFormulation ql:CSV ;
+# 	rml:source "/home/thomas/data/nmbs-gtfs/calendar.csv" ;
+# 	rdf:type rml:LogicalSource .
 
 map:source_006 rml:referenceFormulation ql:CSV ;
 	rml:source "/home/thomas/data/nmbs-gtfs/calendar_dates.csv" ;
@@ -960,9 +960,9 @@ map:source_007 rml:referenceFormulation ql:CSV ;
 	rml:source "/home/thomas/data/nmbs-gtfs/calendar_dates.csv" ;
 	rdf:type rml:LogicalSource .
 
-map:source_008 rml:referenceFormulation ql:CSV ;
-	rml:source "/home/thomas/data/nmbs-gtfs/calendar.csv" ;
-	rdf:type rml:LogicalSource .
+# map:source_008 rml:referenceFormulation ql:CSV ;
+# 	rml:source "/home/thomas/data/nmbs-gtfs/calendar.csv" ;
+# 	rdf:type rml:LogicalSource .
 
 map:source_009 rml:referenceFormulation ql:CSV ;
 	rml:source "/home/thomas/data/nmbs-gtfs/translations.csv" ;
