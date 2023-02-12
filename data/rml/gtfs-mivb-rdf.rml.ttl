@@ -1,0 +1,196 @@
+prefixes:
+  owl: http://www.w3.org/2002/07/owl#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  xml: http://www.w3.org/XML/1998/namespace
+  rr: http://www.w3.org/ns/r2rml#
+  rml: http://semweb.mmlab.be/ns/rml#
+  ql: http://semweb.mmlab.be/ns/ql#
+  map: http://mapping.example.com/
+  ma: http://www.w3.org/ns/ma-ont#
+  sd: http://www.w3.org/ns/sparql-service-description#
+  dc: http://purl.org/dc/elements/1.1/
+  foaf: http://xmlns.com/foaf/0.1/
+  rev: http://purl.org/stuff/rev#
+  v: http://rdf.data-vocabulary.org/#
+  schema: http://schema.org/
+  gtfs: http://vocab.gtfs.org/terms#
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  dct: http://purl.org/dc/terms/
+mappings:
+  map_agency_000:
+    sources:
+    - [/home/thomas/data/mivb-gtfs/agency.csv~csv]
+    s: http://example.com/mivb/agency/$(agency_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Agency]
+    - [foaf:page, $(agency_url)]
+    - [foaf:name, $(agency_name)]
+    - [gtfs:timeZone, $(agency_timezone)]
+    - [dct:language, $(agency_lang)]
+    - [foaf:phone, $(agency_phone)]
+  map_calendar_date_rules_000:
+    sources:
+    - [/home/thomas/data/mivb-gtfs/calendar_dates.csv~csv]
+    s: http://example.com/mivb/calendar_date_rule/$(service_id)-$(date)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#CalendarDateRule]
+    - [dct:date, $(date), http://www.w3.org/2001/XMLSchema#date]
+    - [gtfs:dateAddition, $(exception_type), http://www.w3.org/2001/XMLSchema#boolean]
+  map_calendar_rules_000:
+    sources:
+    - [/home/thomas/data/mivb-gtfs/calendar.csv~csv]
+    s: http://example.com/mivb/calendar_rules/$(service_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#CalendarRule]
+    - [gtfs:monday, $(monday), http://www.w3.org/2001/XMLSchema#boolean]
+    - [gtfs:tuesday, $(tuesday), http://www.w3.org/2001/XMLSchema#boolean]
+    - [gtfs:wednesday, $(wednesday), http://www.w3.org/2001/XMLSchema#boolean]
+    - [gtfs:thursday, $(thursday), http://www.w3.org/2001/XMLSchema#boolean]
+    - [gtfs:friday, $(friday), http://www.w3.org/2001/XMLSchema#boolean]
+    - [gtfs:saturday, $(saturday), http://www.w3.org/2001/XMLSchema#boolean]
+    - [gtfs:sunday, $(sunday), http://www.w3.org/2001/XMLSchema#boolean]
+    - [schema:startDate, $(start_date), http://www.w3.org/2001/XMLSchema#date]
+    - [schema:endDate, $(end_date), http://www.w3.org/2001/XMLSchema#date]
+  map_routes_000:
+    sources:
+    - [/home/thomas/data/mivb-gtfs/routes.csv~csv]
+    s: http://example.com/mivb/routes/$(route_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Route]
+    - [gtfs:shortName, $(route_short_name)]
+    - [gtfs:longName, $(route_long_name)]
+    - [dct:description, $(route_desc)]
+    - [gtfs:routeType, 'http://example.com/mivb/resource/RouteType/{route_type}']
+    - [gtfs:routeUrl, $(route_url)]
+    - [gtfs:color, $(route_color)]
+    - [gtfs:textColor, $(route_text_color)]
+  map_services1_000:
+    sources:
+    - [/home/thomas/data/mivb-gtfs/calendar.csv~csv]
+    s: http://example.com/mivb/services/$(service_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Service]
+    - p: gtfs:serviceRule
+      o:
+        mapping: map_calendar_rules_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(service_id)]
+          - [str2, $(service_id)]
+  map_services2_000:
+    sources:
+    - [/home/thomas/data/mivb-gtfs/calendar_dates.csv~csv]
+    s: http://example.com/mivb/services/$(service_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Service]
+    - p: gtfs:serviceRule
+      o:
+        mapping: map_calendar_date_rules_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(service_id)]
+          - [str2, $(service_id)]
+  map_stops_000:
+    sources:
+    - [/home/thomas/data/mivb-gtfs/stops.csv~csv]
+    s: http://example.com/mivb/stops/$(stop_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Stop]
+    - [gtfs:code, $(stop_code)]
+    - [dct:identifier, $(stop_id)]
+    - [foaf:name, $(stop_name)]
+    - [dct:description, $(stop_desc)]
+    - [geo:lat, $(stop_lat), http://www.w3.org/2001/XMLSchema#double]
+    - [geo:long, $(stop_lon), http://www.w3.org/2001/XMLSchema#double]
+    - [gtfs:zone, $(zone_id)]
+    - [foaf:page, $(stop_url)]
+    - [gtfs:locationType, 'http://example.com/mivb/resource/LocationType/{location_type}']
+    - p: gtfs:parentStation
+      o:
+        mapping: map_stops_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(parent_station)]
+          - [str2, $(stop_id)]
+  map_stoptimes_000:
+    sources:
+    - [/home/thomas/data/mivb-gtfs/stop_times.csv~csv]
+    s: http://example.com/mivb/stoptimes/$(trip_id)-$(stop_id)-$(arrival_time)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#StopTime]
+    - [gtfs:arrivalTime, $(arrival_time), http://www.w3.org/2001/XMLSchema#duration]
+    - [gtfs:departureTime, $(departure_time), http://www.w3.org/2001/XMLSchema#dateTime]
+    - [gtfs:stopSequence, $(stop_sequence), http://www.w3.org/2001/XMLSchema#integer]
+    - [gtfs:pickupType, 'http://example.com/mivb/resource/PickupType/{pickup_type}']
+    - [gtfs:dropOffType, 'http://example.com/mivb/resource/DropOffType/{drop_off_type}']
+    - p: gtfs:trip
+      o:
+        mapping: map_trips_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(trip_id)]
+          - [str2, $(trip_id)]
+    - p: gtfs:stop
+      o:
+        mapping: map_stops_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(stop_id)]
+          - [str2, $(stop_id)]
+  map_translations_000:
+    sources:
+    - [/home/thomas/data/mivb-gtfs/translations.csv~csv]
+    s: http://example.com/mivb/translations/$(trans_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Route]
+    - [dct:language, $(lang)]
+    - [gtfs:headsign, $(translation)]
+    - p: gtfs:headsign
+      o:
+        mapping: map_trips_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(trans_id)]
+          - [str2, $(trip_headsign)]
+  map_trips_000:
+    sources:
+    - [/home/thomas/data/mivb-gtfs/trips.csv~csv]
+    s: http://example.com/mivb/trips/$(trip_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Trip]
+    - [gtfs:headsign, $(trip_headsign)]
+    - [gtfs:direction, $(direction_id)]
+    - [gtfs:block, $(block_id)]
+    - p: gtfs:service
+      o:
+        mapping: map_services1_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(service_id)]
+          - [str2, $(service_id)]
+    - p: gtfs:service
+      o:
+        mapping: map_services2_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(service_id)]
+          - [str2, $(service_id)]
+    - p: gtfs:route
+      o:
+        mapping: map_routes_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(route_id)]
+          - [str2, $(route_id)]
+    - [http://mapping.example.com/pm_014, http://mapping.example.com/om_015]
