@@ -245,7 +245,7 @@
   rr:predicateObjectMap [
     rr:predicate gtfs:locationType ;
     rr:objectMap [
-      rml:reference "location_url";
+      rml:reference "location_type";
       rr:datatype xsd:enumeration
     ]
   ];
