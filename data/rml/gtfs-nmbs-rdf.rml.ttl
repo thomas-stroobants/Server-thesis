@@ -350,77 +350,138 @@
     ]
   ].
 
+<#TripsMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/thomas/data/nmbs-gtfs/trips.csv" ;
+    rr:class gtfs:Trip
+  ];
 
+  rr:subjectMap [
+    rr:template "http://example.com/nmbs/trips/{trip_id}"
+  ];
 
-  map_stoptimes_000:
-    sources:
-    - [/home/thomas/data/nmbs-gtfs/stop_times.csv~csv]
-    s: http://example.com/nmbs/stoptimes/$(trip_id)-$(stop_id)
-    po:
-    - [rdf:type, http://vocab.gtfs.org/terms#StopTime]
-    - [gtfs:arrivalTime, $(arrival_time), http://www.w3.org/2001/XMLSchema#time]
-    - [gtfs:departureTime, $(departure_time), http://www.w3.org/2001/XMLSchema#dateTime]
-    - [gtfs:stopSequence, $(stop_sequence), http://www.w3.org/2001/XMLSchema#integer]
-    - [gtfs:headsign, $(stop_headsign)]
-    - [gtfs:pickupType, 'http://example.com/nmbs/resource/PickupType/{pickup_type}']
-    - [gtfs:dropOffType, 'http://example.com/nmbs/resource/DropOffType/{drop_off_type}']
-    - [gtfs:distanceTraveled, $(shape_dist_traveled)]
-    - p: gtfs:trip
-      o:
-        mapping: map_trips_000
-        condition:
-          function: equal
-          parameters:
-          - [str1, $(trip_id)]
-          - [str2, $(trip_id)]
-    - p: gtfs:stop
-      o:
-        mapping: map_stops_000
-        condition:
-          function: equal
-          parameters:
-          - [str1, $(stop_id)]
-          - [str2, $(stop_id)]
-  map_transfers_000:
-    sources:
-    - [/home/thomas/data/nmbs-gtfs/transfers.csv~csv]
-    s: http://example.com/nmbs/transfers/$(from_stop_id)_$(to_stop_id)
-    po:
-    - [rdf:type, http://vocab.gtfs.org/terms#TransferRule]
-    - [gtfs:originStop, $(from_stop_id)]
-    - [gtfs:destinationStop, $(to_stop_id)]
-    - [gtfs:transferType, $(transfer_type)]
-  map_translations_000:
-    sources:
-    - [/home/thomas/data/nmbs-gtfs/translations.csv~csv]
-    s: http://example.com/nmbs/translations/$(trans_id)
-    po:
-    - [rdf:type, http://vocab.gtfs.org/terms#Route]
-    - [dct:language, $(lang)]
-    - [gtfs:headsign, $(translation)]
-    - p: gtfs:headsign
-      o:
-        mapping: map_trips_000
-        condition:
-          function: equal
-          parameters:
-          - [str1, $(trans_id)]
-          - [str2, $(trip_headsign)]
-  map_trips_000:
-    sources:
-    - [/home/thomas/data/nmbs-gtfs/trips.csv~csv]
-    s: http://example.com/nmbs/trips/$(trip_id)
-    po:
-    - [rdf:type, http://vocab.gtfs.org/terms#Trip]
-    - [gtfs:headsign, $(trip_headsign)]
-    - [gtfs:shortName, $(trip_short_name)]
-    - [gtfs:direction, $(direction_id)]
-    - [gtfs:block, $(block_id)]
-    - p: gtfs:route
-      o:
-        mapping: map_routes_000
-        condition:
-          function: equal
-          parameters:
-          - [str1, $(route_id)]
-          - [str2, $(route_id)]
+  rr:predicateObjectMap [
+    rr:predicate gtfs:route;
+    rr:objectMap [
+      rr:parentTriplesMap <#RoutesMapping>;
+      rr:joinCondition [
+        rr:child "route_id" ;
+        rr:parent "route_id" ;
+      ];
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:service;
+    rr:objectMap [
+      rr:parentTriplesMap <#ServiceMapping>;
+      rr:joinCondition [
+        rr:child "service_id" ;
+        rr:parent "service_id" ;
+      ];
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate dct:identifier;
+    rr:objectMap [
+      rml:reference "trip_id"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:headsign ;
+    rr:objectMap [
+      rml:reference "trip_headsign"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:shortName ;
+    rr:objectMap [
+      rml:reference "trip_short_name"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:direction ;
+    rr:objectMap [
+      rml:reference "direction_id"
+    ]
+  ].
+
+<#TransferMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/thomas/data/nmbs-gtfs/transfers.csv" ;
+    rr:class gtfs:TransferRule
+  ];
+
+  rr:subjectMap [
+    rr:template "http://example.com/nmbs/transfers/{from_stop_id}_{to_stop_id}"
+  ];
+ 
+  rr:predicateObjectMap [
+    rr:predicate gtfs:originStop ;
+    rr:objectMap [
+      rml:reference "from_stop_id"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:destinationStop ;
+    rr:objectMap [
+      rml:reference "to_stop_id"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:transferType ;
+    rr:objectMap [
+      rml:reference "transfer_type";
+      rr:datatype xsd:enumeration
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:minimumTransferTime ;
+    rr:objectMap [
+      rml:reference "min_transfer_time"
+    ]
+  ].
+
+<#TranslationMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/thomas/data/nmbs-gtfs/translations.csv" ;
+    rr:class gtfs:Station
+  ];
+
+  rr:subjectMap [
+    rr:template "http://example.com/nmbs/translations/{trans_id}"
+  ];
+ 
+  rr:predicateObjectMap [
+    rr:predicate gtfs:headsign ;
+    rr:objectMap [
+      rr:parentTriplesMap <#TripsMapping>;
+      rr:joinCondition [
+        rr:child "trans_id" ;
+        rr:parent "trip_headsign" ;
+      ];
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:headsign ;
+    rr:objectMap [
+      rml:reference "translation" ;
+      rr:language "lang"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate dct:language ;
+    rr:objectMap [
+      rml:reference "lang"
+    ]
+  ].
+
