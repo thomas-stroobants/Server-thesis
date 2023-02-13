@@ -285,7 +285,7 @@
       rr:parentTriplesMap <#TripsMapping>;
       rr:joinCondition [
         rr:child "trip_id";
-        rr:parent "stop_id"
+        rr:parent "trip_id"
       ];
     ]
   ];
