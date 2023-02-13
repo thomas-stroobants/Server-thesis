@@ -30,7 +30,7 @@
   ];
 
   rr:predicateObjectMap [
-    rr:predicate foaf:page ;
+    rr:predicate gtfs:fareUrl ;
     rr:objectMap [
       rml:reference "agency_url";
       rr:termType rr:IRI ;
@@ -72,7 +72,7 @@
   ];
 
   rr:subjectMap [
-    rr:template "http://example.com/nmbs"
+    rr:template "http://example.com/nmbs/calendar_date_rule/{service_id}-{date}"
   ];
 
   rr:predicateObjectMap [
@@ -93,31 +93,97 @@
 
 <#RoutesMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/nmbs-gtfs/routes.csv"
-  ]
+    rml:source "/home/thomas/data/nmbs-gtfs/routes.csv" ;
+    rr:class gtfs:Route
+  ];
 
-mappings:
-  map_routes_000:
-    sources:
-    - [/home/thomas/data/nmbs-gtfs/routes.csv~csv]
-    s: http://example.com/nmbs/routes/$(route_id)
-    po:
-    - [rdf:type, http://vocab.gtfs.org/terms#Route]
-    - [gtfs:shortName, $(route_short_name)]
-    - [gtfs:longName, $(route_long_name)]
-    - [dct:description, $(route_desc)]
-    - [gtfs:routeType, 'http://example.com/nmbs/resource/RouteType/{route_type}']
-    - [gtfs:routeUrl, $(route_url)]
-    - [gtfs:color, $(route_color)]
-    - [gtfs:textColor, $(route_text_color)]
-    - p: gtfs:agency
-      o:
-        mapping: map_agency_000
-        condition:
-          function: equal
-          parameters:
-          - [str1, $(agency_id)]
-          - [str2, $(agency_id)]
+  rr:subjectMap [
+    rr:template "http://example.com/nmbs/routes/{route_id}"
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:shortName ;
+    rr:objectMap [
+      rml:reference "route_short_name"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:longName ;
+    rr:objectMap [
+      rml:reference "route_long_name"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate dct:description ;
+    rr:objectMap [
+      rml:reference "route_desc"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:routeType ;
+    rr:objectMap [
+      rml:reference "route_type"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:routeUrl ;
+    rr:objectMap [
+      rml:reference "route_url" ;
+      rr:termType rr:IRI
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:color ;
+    rr:objectMap [
+      rml:reference "route_color"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:textColor ;
+    rr:objectMap [
+      rml:reference "route_text_color"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:Agency
+    rr:objectMap [
+      rr:parentTriplesMap <#AgencyMapping>;
+      rr:joinCondition [
+        rr:child "agency_id" ;
+        rr:parent "agency_id" ;
+      ];
+    ]
+  ].
+
+<#ServiceMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/thomas/data/nmbs-gtfs/calendar_dates.csv" ;
+    rr:class gtfs:Service
+  ];
+
+  rr:subjectMap [
+    rr:template "http://example.com/nmbs/services/{service_id}"
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:serviceRule ;
+    rr:objectMap [
+      rr:parentTriplesMap <#CalendarDatesMapping>;
+      rr:joinCondition [
+        rr:child "service_id" ;
+        rr:parent "service_id" ;
+      ];
+    ]
+  ].
+
+
   map_services2_000:
     sources:
     - [/home/thomas/data/nmbs-gtfs/calendar_dates.csv~csv]
