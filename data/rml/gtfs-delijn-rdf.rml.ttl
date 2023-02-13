@@ -435,16 +435,16 @@
     ]
   ];
 
-  rr:predicateObjectMap [
-    rr:predicate gtfs:service;
-    rr:objectMap [
-      rr:parentTriplesMap <#ServiceMapping>;
-      rr:joinCondition [
-        rr:child "service_id" ;
-        rr:parent "service_id" ;
-      ];
-    ]
-  ];
+  # rr:predicateObjectMap [
+  #   rr:predicate gtfs:service;
+  #   rr:objectMap [
+  #     rr:parentTriplesMap <#ServiceMapping>;
+  #     rr:joinCondition [
+  #       rr:child "service_id" ;
+  #       rr:parent "service_id" ;
+  #     ];
+  #   ]
+  # ];
 
   rr:predicateObjectMap [
     rr:predicate dct:identifier;
