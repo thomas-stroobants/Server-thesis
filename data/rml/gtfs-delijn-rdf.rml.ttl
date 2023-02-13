@@ -337,14 +337,21 @@
     rr:class gtfs:StopTime
   ];
 
+  # rr:predicateObjectMap [
+  #   rr:predicate gtfs:trip ;
+  #   rr:objectMap [
+  #     rr:parentTriplesMap <#TripsMapping>;
+  #     rr:joinCondition [
+  #       rr:child "trip_id";
+  #       rr:parent "trip_id"
+  #     ];
+  #   ]
+  # ];
+
   rr:predicateObjectMap [
     rr:predicate gtfs:trip ;
     rr:objectMap [
-      rr:parentTriplesMap <#TripsMapping>;
-      rr:joinCondition [
-        rr:child "trip_id";
-        rr:parent "trip_id"
-      ];
+      rml:reference "trip_id"
     ]
   ];
 
@@ -364,14 +371,21 @@
     ]
   ];
 
+  # rr:predicateObjectMap [
+  #   rr:predicate gtfs:stop ;
+  #   rr:objectMap [
+  #     rr:parentTriplesMap <#StopsMapping>;
+  #     rr:joinCondition [
+  #       rr:child "stop_id" ;
+  #       rr:parent "stop_id" ;
+  #     ];
+  #   ]
+  # ];
+
   rr:predicateObjectMap [
     rr:predicate gtfs:stop ;
     rr:objectMap [
-      rr:parentTriplesMap <#StopsMapping>;
-      rr:joinCondition [
-        rr:child "stop_id" ;
-        rr:parent "stop_id" ;
-      ];
+      rml:reference "stop_id"
     ]
   ];
 
