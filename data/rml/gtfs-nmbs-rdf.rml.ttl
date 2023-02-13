@@ -68,11 +68,12 @@
 <#CalendarDatesMapping> a rr:TriplesMap;
   rml:logicalSource [
     rml:source "/home/thomas/data/nmbs-gtfs/calendar_dates.csv" ;
-    rr:class gtfs:CalendarDateRule
+    rml:referenceFormulation ql:CSV
   ];
 
   rr:subjectMap [
-    rr:template "http://example.com/nmbs/calendar_date_rule/{service_id}-{date}"
+    rr:template "http://example.com/nmbs/calendar_date_rule/{service_id}-{date}";
+    rr:class gtfs:CalendarDateRule
   ];
 
   rr:predicateObjectMap [
@@ -94,11 +95,12 @@
 <#RoutesMapping> a rr:TriplesMap;
   rml:logicalSource [
     rml:source "/home/thomas/data/nmbs-gtfs/routes.csv" ;
-    rr:class gtfs:Route
+    rml:referenceFormulation ql:CSV
   ];
 
   rr:subjectMap [
-    rr:template "http://example.com/nmbs/routes/{route_id}"
+    rr:template "http://example.com/nmbs/routes/{route_id}";
+    rr:class gtfs:Route
   ];
 
   rr:predicateObjectMap [
@@ -165,11 +167,12 @@
 <#ServiceMapping> a rr:TriplesMap;
   rml:logicalSource [
     rml:source "/home/thomas/data/nmbs-gtfs/calendar_dates.csv" ;
-    rr:class gtfs:Service
+    rml:referenceFormulation ql:CSV
   ];
 
   rr:subjectMap [
-    rr:template "http://example.com/nmbs/services/{service_id}"
+    rr:template "http://example.com/nmbs/services/{service_id}";
+    rr:class gtfs:Service
   ];
 
   rr:predicateObjectMap [
@@ -186,11 +189,12 @@
 <#StopsMapping> a rr:TriplesMap;
   rml:logicalSource [
     rml:source "/home/thomas/data/nmbs-gtfs/stops.csv" ;
-    rr:class gtfs:Stop
+    rml:referenceFormulation ql:CSV
   ];
 
   rr:subjectMap [
-    rr:template "http://example.com/nmbs/stops/{stop_id}"
+    rr:template "http://example.com/nmbs/stops/{stop_id}";
+    rr:class gtfs:Stop
   ];
 
   rr:predicateObjectMap [
@@ -267,11 +271,12 @@
 <#StopTimesMapping> a rr:TriplesMap;
   rml:logicalSource [
     rml:source "/home/thomas/data/nmbs-gtfs/stop_times.csv";
-    rr:class gtfs:StopTime
+    rml:referenceFormulation ql:CSV
   ];
 
   rr:subjectMap [
-    rr:template "http://example.com/nmbs/stoptimes/{trip_id}-{stop_id}"
+    rr:template "http://example.com/nmbs/stoptimes/{trip_id}-{stop_id}";
+    rr:class gtfs:StopTime
   ];
 
   rr:predicateObjectMap [
@@ -353,11 +358,12 @@
 <#TripsMapping> a rr:TriplesMap;
   rml:logicalSource [
     rml:source "/home/thomas/data/nmbs-gtfs/trips.csv" ;
-    rr:class gtfs:Trip
+    rml:referenceFormulation ql:CSV
   ];
 
   rr:subjectMap [
-    rr:template "http://example.com/nmbs/trips/{trip_id}"
+    rr:template "http://example.com/nmbs/trips/{trip_id}";
+    rr:class gtfs:Trip
   ];
 
   rr:predicateObjectMap [
@@ -413,11 +419,12 @@
 <#TransferMapping> a rr:TriplesMap;
   rml:logicalSource [
     rml:source "/home/thomas/data/nmbs-gtfs/transfers.csv" ;
-    rr:class gtfs:TransferRule
+    rml:referenceFormulation ql:CSV
   ];
 
   rr:subjectMap [
-    rr:template "http://example.com/nmbs/transfers/{from_stop_id}_{to_stop_id}"
+    rr:template "http://example.com/nmbs/transfers/{from_stop_id}_{to_stop_id}";
+    rr:class gtfs:TransferRule
   ];
  
   rr:predicateObjectMap [
@@ -452,11 +459,12 @@
 <#TranslationMapping> a rr:TriplesMap;
   rml:logicalSource [
     rml:source "/home/thomas/data/nmbs-gtfs/translations.csv" ;
-    rr:class gtfs:Station
+    rml:referenceFormulation ql:CSV
   ];
 
   rr:subjectMap [
-    rr:template "http://example.com/nmbs/translations/{trans_id}"
+    rr:template "http://example.com/nmbs/translations/{trans_id}";
+    rr:class gtfs:Station
   ];
  
   rr:predicateObjectMap [
