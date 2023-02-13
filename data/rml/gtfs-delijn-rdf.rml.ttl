@@ -206,40 +206,40 @@
     rr:objectMap [
       rml:reference "route_text_color"
     ]
-  ];
-
-  rr:predicateObjectMap [
-    rr:predicate gtfs:Agency;
-    rr:objectMap [
-      rr:parentTriplesMap <#AgencyMapping>;
-      rr:joinCondition [
-        rr:child "agency_id" ;
-        rr:parent "agency_id" ;
-      ];
-    ]
   ].
 
-<#ServiceMapping> a rr:TriplesMap;
-  rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/calendar_dates.csv" ;
-    rml:referenceFormulation ql:CSV
-  ];
+  # rr:predicateObjectMap [
+  #   rr:predicate gtfs:Agency;
+  #   rr:objectMap [
+  #     rr:parentTriplesMap <#AgencyMapping>;
+  #     rr:joinCondition [
+  #       rr:child "agency_id" ;
+  #       rr:parent "agency_id" ;
+  #     ];
+  #   ]
+  # ].
 
-  rr:subjectMap [
-    rr:template "http://example.com/de-lijn/services/{service_id}";
-    rr:class gtfs:Service
-  ];
+# <#ServiceMapping> a rr:TriplesMap;
+#   rml:logicalSource [
+#     rml:source "/home/thomas/data/de-lijn-gtfs/calendar_dates.csv" ;
+#     rml:referenceFormulation ql:CSV
+#   ];
 
-  rr:predicateObjectMap [
-    rr:predicate gtfs:serviceRule ;
-    rr:objectMap [
-      rr:parentTriplesMap <#CalendarDatesMapping>;
-      rr:joinCondition [
-        rr:child "service_id" ;
-        rr:parent "service_id" ;
-      ];
-    ]
-  ].
+#   rr:subjectMap [
+#     rr:template "http://example.com/de-lijn/services/{service_id}";
+#     rr:class gtfs:Service
+#   ];
+
+#   rr:predicateObjectMap [
+#     rr:predicate gtfs:serviceRule ;
+#     rr:objectMap [
+#       rr:parentTriplesMap <#CalendarDatesMapping>;
+#       rr:joinCondition [
+#         rr:child "service_id" ;
+#         rr:parent "service_id" ;
+#       ];
+#     ]
+#   ].
 
 <#StopsMapping> a rr:TriplesMap;
   rml:logicalSource [
