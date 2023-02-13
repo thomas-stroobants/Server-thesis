@@ -183,45 +183,175 @@
     ]
   ].
 
+<#StopsMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/thomas/data/nmbs-gtfs/stops.csv" ;
+    rr:class gtfs:Stop
+  ];
 
-  map_services2_000:
-    sources:
-    - [/home/thomas/data/nmbs-gtfs/calendar_dates.csv~csv]
-    s: http://example.com/nmbs/services/$(service_id)
-    po:
-    - [rdf:type, http://vocab.gtfs.org/terms#Service]
-    - p: gtfs:serviceRule
-      o:
-        mapping: map_calendar_date_rules_000
-        condition:
-          function: equal
-          parameters:
-          - [str1, $(service_id)]
-          - [str2, $(service_id)]
-  map_stops_000:
-    sources:
-    - [/home/thomas/data/nmbs-gtfs/stops.csv~csv]
-    s: http://example.com/nmbs/stops/$(stop_id)
-    po:
-    - [rdf:type, http://vocab.gtfs.org/terms#Stop]
-    - [gtfs:code, $(stop_code)]
-    - [dct:identifier, $(stop_id)]
-    - [foaf:name, $(stop_name)]
-    - [dct:description, $(stop_desc)]
-    - [geo:lat, $(stop_lat), http://www.w3.org/2001/XMLSchema#double]
-    - [geo:long, $(stop_lon), http://www.w3.org/2001/XMLSchema#double]
-    - [gtfs:zone, $(zone_id)]
-    - [foaf:page, $(stop_url)]
-    - [gtfs:locationType, 'http://example.com/nmbs/resource/LocationType/{location_type}']
-    - [dct:identifier, $(platform_code)]
-    - p: gtfs:parentStation
-      o:
-        mapping: map_stops_000
-        condition:
-          function: equal
-          parameters:
-          - [str1, $(parent_station)]
-          - [str2, $(stop_id)]
+  rr:subjectMap [
+    rr:template "http://example.com/nmbs/stops/{stop_id}"
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:code ;
+    rr:objectMap [
+      rml:reference "stop_code";
+      rr:datatype xsd:integer
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate dct:identifier ;
+    rr:objectMap [
+      rml:reference "stop_id"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate geo:lat ;
+    rr:objectMap [
+      rml:reference "stop_lat";
+      rr:datatype xsd:double
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate geo:long ;
+    rr:objectMap [
+      rml:reference "stop_lon" ;
+      rr:datatype xsd:double
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:zone ;
+    rr:objectMap [
+      rml:reference "zone_id"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate foaf:page ;
+    rr:objectMap [
+      rr:template "{stop_url}"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:locationType ;
+    rr:objectMap [
+      rml:reference "location_url";
+      rr:datatype xsd:enumeration
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate dct:identifier ;
+    rr:objectMap [
+      rml:reference "platform_code"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:parentStation
+    rr:objectMap [
+      rr:parentTriplesMap <#StopsMapping>;
+      rr:joinCondition [
+        rr:child "parent_station" ;
+        rr:parent "stop_id" ;
+      ];
+    ]
+  ].
+
+<#StopTimesMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/thomas/data/nmbs-gtfs/stop_times.csv";
+    rr:class gtfs:StopTime
+  ];
+
+  rr:subjectMap [
+    rr:template "http://example.com/nmbs/stoptimes/{trip_id}-{stop_id}"
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:trip ;
+    rr:objectMap [
+      rr:parentTriplesMap <#TripsMapping>;
+      rr:joinCondition [
+        rr:child "trip_id";
+        rr:parent "stop_id"
+      ];
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:arrivalTime ;
+    rr:objectMap [
+      rml:reference "arrival_time" ;
+      rr:datatype xsd:time
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:departureTime ;
+    rr:objectMap [
+      rml:reference "departure_time" ;
+      rr:datatype xsd:dateTime
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:stop ;
+    rr:objectMap [
+      rr:parentTriplesMap <#StopsMapping>;
+      rr:joinCondition [
+        rr:child "stop_id" ;
+        rr:parent "stop_id" ;
+      ];
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:stopSequence ;
+    rr:objectMap [
+      rml:reference "stop_sequence" ;
+      rr:datatype xsd:integer
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:headsign ;
+    rr:objectMap [
+      rml:reference "stop_headsign"
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:pickupType ;
+    rr:objectMap [
+      rml:reference "pickup_type" ;
+      rr:datatype xsd:enumeration
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:dropOffType ;
+    rr:objectMap [
+      rml:reference "drop_off_type" ;
+      rr:datatype xsd:enumeration
+    ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:distanceTraveled ;
+    rr:objectMap [
+      rml:reference "shape_dist_traveled"
+    ]
+  ].
+
+
+
   map_stoptimes_000:
     sources:
     - [/home/thomas/data/nmbs-gtfs/stop_times.csv~csv]
