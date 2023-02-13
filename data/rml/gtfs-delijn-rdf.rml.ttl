@@ -209,7 +209,7 @@
   ];
 
   rr:predicateObjectMap [
-    rr:predicate gtfs:Agency
+    rr:predicate gtfs:Agency;
     rr:objectMap [
       rr:parentTriplesMap <#AgencyMapping>;
       rr:joinCondition [
@@ -279,7 +279,7 @@
     rr:objectMap [
       rml:reference "stop_desc"
     ]
-  ]
+  ];
 
   rr:predicateObjectMap [
     rr:predicate geo:lat ;

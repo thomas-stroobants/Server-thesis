@@ -154,7 +154,7 @@
   ];
 
   rr:predicateObjectMap [
-    rr:predicate gtfs:Agency
+    rr:predicate gtfs:Agency;
     rr:objectMap [
       rr:parentTriplesMap <#AgencyMapping>;
       rr:joinCondition [
@@ -258,7 +258,7 @@
   ];
 
   rr:predicateObjectMap [
-    rr:predicate gtfs:parentStation
+    rr:predicate gtfs:parentStation;
     rr:objectMap [
       rr:parentTriplesMap <#StopsMapping>;
       rr:joinCondition [
@@ -482,7 +482,7 @@
     rr:predicate gtfs:headsign ;
     rr:objectMap [
       rml:reference "translation" ;
-      rr:language "lang"
+      # rr:language "lang"
     ]
   ];
 
