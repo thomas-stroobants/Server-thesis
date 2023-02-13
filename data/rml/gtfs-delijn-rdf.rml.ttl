@@ -438,14 +438,21 @@
     rr:class gtfs:Trip
   ];
 
+  # rr:predicateObjectMap [
+  #   rr:predicate gtfs:route;
+  #   rr:objectMap [
+  #     rr:parentTriplesMap <#RoutesMapping>;
+  #     rr:joinCondition [
+  #       rr:child "route_id" ;
+  #       rr:parent "route_id" ;
+  #     ];
+  #   ]
+  # ];
+
   rr:predicateObjectMap [
     rr:predicate gtfs:route;
     rr:objectMap [
-      rr:parentTriplesMap <#RoutesMapping>;
-      rr:joinCondition [
-        rr:child "route_id" ;
-        rr:parent "route_id" ;
-      ];
+      rml:reference "route_id"
     ]
   ];
 
