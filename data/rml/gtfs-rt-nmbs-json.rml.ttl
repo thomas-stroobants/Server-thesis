@@ -127,3 +127,5 @@
 	        rr:termType rr:IRI ;
         ]
     ].
+
+#TODO mappign for scheduleRelationship: SKIPPED
