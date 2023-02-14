@@ -1,11 +1,14 @@
 import json
 import time
+import datetime
+from pathlib import Path
+
 
 # my_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(1347517370))
-with open('./nmbs-rt-data/nmbs-rt-gtfs-new.json') as sfile:
+with open(f'{Path.home()}/data/nmbs-rt-data/nmbs-rt-gtfs.json') as sfile:
     data = json.load(sfile)
-
-    data["header"]["timestamp"] = time.strftime('%Y-%m-%dT%H:%M:%S', time.localtime(int(data["header"]["timestamp"])))
+    isoheader = datetime.datetime.fromtimestamp(int(data["header"]["timestamp"])).isoformat()
+    data["header"]["timestamp"] = isoheader
 
     for item in data["entity"]:
         trip_id = item["tripUpdate"]["trip"]["tripId"]
@@ -18,9 +21,9 @@ with open('./nmbs-rt-data/nmbs-rt-gtfs-new.json') as sfile:
             tripdata['tripStartTime'] = trip_starttime
             #adapting the time format from posix to hh:mm:ss 
             if 'arrival' in tripdata:
-                tripdata['arrival']['time'] = time.strftime('%H:%M:%S', time.localtime(int(tripdata['arrival']['time'])))
+                tripdata['arrival']['time'] = datetime.datetime.fromtimestamp(int(tripdata['arrival']['time'])).isoformat()
             if 'departure' in tripdata:
-                tripdata['departure']['time'] = time.strftime('%H:%M:%S', time.localtime(int(tripdata['departure']['time'])))
+                tripdata['departure']['time'] = datetime.datetime.fromtimestamp(int(tripdata['departure']['time'])).isoformat()
 
-with open('./nmbs-rt-data/nmbs-rt-json-new-adap.json', 'w') as ofile:
+with open(f'{Path.home()}/data/nmbs-rt-data/nmbs-rt-gtfs-adap.json', 'w') as ofile:
     json.dump(data, ofile, indent = 2, sort_keys=True)
