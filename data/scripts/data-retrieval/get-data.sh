@@ -16,8 +16,8 @@ DIR=(   "$HOME/data/de-lijn-gtfs/"
 #download file
 function download_data() {
     # Download gtfs data from de lijn, mivb, nmbs and tec
-    curl -o "$HOME/data/de_lijn-gtfs.zip" https://gtfs.irail.be/de-lijn/de_lijn-gtfs.zip
-    curl -o "$HOME/data/nmbs-gtfs.zip" https://sncb-opendata.hafas.de/gtfs/static/c21ac6758dd25af84cca5b707f3cb3de 
+    curl -o "$HOME/data/de_lijn-gtfs-$(date +'%d-%m-%Y').zip" https://gtfs.irail.be/de-lijn/de_lijn-gtfs.zip
+    curl -o "$HOME/data/nmbs-gtfs-$(date +'%d-%m-%Y').zip" https://sncb-opendata.hafas.de/gtfs/static/c21ac6758dd25af84cca5b707f3cb3de 
     # curl -o "$HOME/data/mivb-gtfs.zip" https://gtfs.irail.be/mivb/mivb-gtfs.zip
     # curl -o "$HOME/data/tec-gtfs.zip" https://gtfs.irail.be/tec/tec-gtfs.zip
 
@@ -64,9 +64,9 @@ function delete_zip() {
 echo "$(date) | Starting process of data retrieval and transformation of GTFS static data.."
 echo "$(date) | Downloading data from servers.."
 download_data
-echo "$(date) | Extract files from ZIP folders.."
-unzip_data
-echo "$(date) | Changing file extensions from .txt to .csv.."
-txt_to_csv
-echo "$(date) | Deleting ZIP folders"
-delete_zip
+# echo "$(date) | Extract files from ZIP folders.."
+# unzip_data
+# echo "$(date) | Changing file extensions from .txt to .csv.."
+# txt_to_csv
+# echo "$(date) | Deleting ZIP folders"
+# delete_zip

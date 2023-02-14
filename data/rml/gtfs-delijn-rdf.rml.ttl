@@ -206,40 +206,40 @@
     rr:objectMap [
       rml:reference "route_text_color"
     ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:Agency;
+    rr:objectMap [
+      rr:parentTriplesMap <#AgencyMapping>;
+      rr:joinCondition [
+        rr:child "agency_id" ;
+        rr:parent "agency_id" ;
+      ];
+    ]
   ].
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:Agency;
-  #   rr:objectMap [
-  #     rr:parentTriplesMap <#AgencyMapping>;
-  #     rr:joinCondition [
-  #       rr:child "agency_id" ;
-  #       rr:parent "agency_id" ;
-  #     ];
-  #   ]
-  # ].
+<#ServiceMapping> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/thomas/data/de-lijn-gtfs/calendar_dates.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
 
-# <#ServiceMapping> a rr:TriplesMap;
-#   rml:logicalSource [
-#     rml:source "/home/thomas/data/de-lijn-gtfs/calendar_dates.csv" ;
-#     rml:referenceFormulation ql:CSV
-#   ];
+  rr:subjectMap [
+    rr:template "http://example.com/de-lijn/services/{service_id}";
+    rr:class gtfs:Service
+  ];
 
-#   rr:subjectMap [
-#     rr:template "http://example.com/de-lijn/services/{service_id}";
-#     rr:class gtfs:Service
-#   ];
-
-#   rr:predicateObjectMap [
-#     rr:predicate gtfs:serviceRule ;
-#     rr:objectMap [
-#       rr:parentTriplesMap <#CalendarDatesMapping>;
-#       rr:joinCondition [
-#         rr:child "service_id" ;
-#         rr:parent "service_id" ;
-#       ];
-#     ]
-#   ].
+  rr:predicateObjectMap [
+    rr:predicate gtfs:serviceRule ;
+    rr:objectMap [
+      rr:parentTriplesMap <#CalendarDatesMapping>;
+      rr:joinCondition [
+        rr:child "service_id" ;
+        rr:parent "service_id" ;
+      ];
+    ]
+  ].
 
 <#StopsMapping> a rr:TriplesMap;
   rml:logicalSource [
@@ -328,7 +328,7 @@
 
 <#StopTimesMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/stop_times.csv";
+    rml:source "/home/thomas/data/de-lijn-gtfs/stop_times_1.csv";
     rml:referenceFormulation ql:CSV
   ];
 
@@ -337,23 +337,23 @@
     rr:class gtfs:StopTime
   ];
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:trip ;
-  #   rr:objectMap [
-  #     rr:parentTriplesMap <#TripsMapping>;
-  #     rr:joinCondition [
-  #       rr:child "trip_id";
-  #       rr:parent "trip_id"
-  #     ];
-  #   ]
-  # ];
-
   rr:predicateObjectMap [
     rr:predicate gtfs:trip ;
     rr:objectMap [
-      rml:reference "trip_id"
+      rr:parentTriplesMap <#TripsMapping>;
+      rr:joinCondition [
+        rr:child "trip_id";
+        rr:parent "trip_id"
+      ];
     ]
   ];
+
+  # rr:predicateObjectMap [
+  #   rr:predicate gtfs:trip ;
+  #   rr:objectMap [
+  #     rml:reference "trip_id"
+  #   ]
+  # ];
 
   rr:predicateObjectMap [
     rr:predicate gtfs:arrivalTime ;
@@ -371,23 +371,23 @@
     ]
   ];
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:stop ;
-  #   rr:objectMap [
-  #     rr:parentTriplesMap <#StopsMapping>;
-  #     rr:joinCondition [
-  #       rr:child "stop_id" ;
-  #       rr:parent "stop_id" ;
-  #     ];
-  #   ]
-  # ];
-
   rr:predicateObjectMap [
     rr:predicate gtfs:stop ;
     rr:objectMap [
-      rml:reference "stop_id"
+      rr:parentTriplesMap <#StopsMapping>;
+      rr:joinCondition [
+        rr:child "stop_id" ;
+        rr:parent "stop_id" ;
+      ];
     ]
   ];
+
+  # rr:predicateObjectMap [
+  #   rr:predicate gtfs:stop ;
+  #   rr:objectMap [
+  #     rml:reference "stop_id"
+  #   ]
+  # ];
 
   rr:predicateObjectMap [
     rr:predicate gtfs:stopSequence ;
@@ -438,34 +438,34 @@
     rr:class gtfs:Trip
   ];
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:route;
-  #   rr:objectMap [
-  #     rr:parentTriplesMap <#RoutesMapping>;
-  #     rr:joinCondition [
-  #       rr:child "route_id" ;
-  #       rr:parent "route_id" ;
-  #     ];
-  #   ]
-  # ];
-
   rr:predicateObjectMap [
     rr:predicate gtfs:route;
     rr:objectMap [
-      rml:reference "route_id"
+      rr:parentTriplesMap <#RoutesMapping>;
+      rr:joinCondition [
+        rr:child "route_id" ;
+        rr:parent "route_id" ;
+      ];
     ]
   ];
 
   # rr:predicateObjectMap [
-  #   rr:predicate gtfs:service;
+  #   rr:predicate gtfs:route;
   #   rr:objectMap [
-  #     rr:parentTriplesMap <#ServiceMapping>;
-  #     rr:joinCondition [
-  #       rr:child "service_id" ;
-  #       rr:parent "service_id" ;
-  #     ];
+  #     rml:reference "route_id"
   #   ]
   # ];
+
+  rr:predicateObjectMap [
+    rr:predicate gtfs:service;
+    rr:objectMap [
+      rr:parentTriplesMap <#ServiceMapping>;
+      rr:joinCondition [
+        rr:child "service_id" ;
+        rr:parent "service_id" ;
+      ];
+    ]
+  ];
 
   rr:predicateObjectMap [
     rr:predicate dct:identifier;

@@ -10,7 +10,8 @@ start_time=$(date +%s)
 echo "$(date) | Start of data retrieval static data"
 # Download the realtime data bluebike
 
-# TODO: download BlueBike Data
+echo "$(date) | Downloading BlueBike Data"
+curl -o "$HOME/data/BlueBike/bluebike.ttl" https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/bluebike.ttl
 
 
 # Delete NMBS data from Virtuoso
