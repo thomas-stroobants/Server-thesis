@@ -51,26 +51,7 @@
         ]
     ].
 
-# <#TripStartDateMapping> a rr:TriplesMap;
-#     rml:logicalSource [
-#         rml:source "/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-new-adap.json" ;
-#         rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-#         rml:referenceFormulation ql:JSONPath 
-#     ];
-
-#     rr:subjectMap [
-#         rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
-#     ];
-
-#     rr:predicateObjectMap [
-#         rr:predicate dct:date ;
-#         rr:objectMap [
-#             rml:reference "trip.startDate";
-#             rr:datatype xsd:date;
-#         ]
-#     ].
-
-<#DelayMapping> a rr:TriplesMap;
+<#StopTimeUpdateMapping> a rr:TriplesMap;
     rml:logicalSource [
         rml:source "/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-adap.json" ;
         rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
@@ -82,53 +63,21 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate gtfs:departureTime ;
+        rr:predicate xsd:duration ;
         rr:objectMap [
-            rml:reference "delay";
-            rr:datatype xsd:duration;
+            rml:reference "departure.delay";
+            # rr:datatype xsd:duration;
         ]
-    ].
-
-<#StopIDMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
     ];
 
     rr:predicateObjectMap [
-        rr:predicate gtfs:stop ;
+        rr:predicate gtfs:code ;
         rr:objectMap [
-            # rml:reference "stopId";
-            rr:template "http://example.com/de-lijn/stops/{stopId}" ;
-	        rr:termType rr:IRI ;
+            rml:reference "stopCode"
         ]
     ].
 
-<#StopCodeMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "/home/tomas/data/de-lijn-rt-data/de-lijn-new-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/de-lijn/stops/{stopId}" ;
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate gtfs:stop ;        # TODO: correct value??
-        rr:objectMap [
-            rml:template "https://www.delijn.be/nl/haltes/halte/{stopCode}" ;
-            rml:termType rr:IRI ;
-        ]
-    ].
-
-<#CancledMapping> a rr:TriplesMap;
+<#TripUpdateMapping> a rr:TriplesMap;
     rml:logicalSource [
         rml:source "/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-adap.json" ;
         rml:iterator "$.entity[*].tripUpdate.trip" ;
@@ -142,6 +91,13 @@
     rr:predicateObjectMap [
         rr:predicate rdfs:label ;
         rr:objectMap [
-            gtfs:reference "scheduleRelationship";
+            rml:reference "scheduleRelationship";
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate xsd:date ;
+        rr:objectMap [
+            rml:reference "startDate"
         ]
     ].
