@@ -51,7 +51,7 @@
         ]
     ].
 
-<#TripStartDateMapping> a rr:TriplesMap;
+<#StopTimeUpdateMapping> a rr:TriplesMap;
     rml:logicalSource [
         rml:source "/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-adap.json" ;
         rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
@@ -60,6 +60,7 @@
 
     rr:subjectMap [
         rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
+        rr:class gtfs:StopTime
     ];
 
     rr:predicateObjectMap [
@@ -68,36 +69,6 @@
             rml:reference "tripStartDate";
             rr:datatype xsd:date;
         ]
-    ].
-
-<#ArrivalTimeMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate gtfs:arrivalTime ;
-        rr:objectMap [
-            rml:reference "arrival.time";
-            rr:datatype xsd:dateTime;
-        ]
-    ].
-
-<#DepartureTimeMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
     ];
 
     rr:predicateObjectMap [
@@ -106,17 +77,6 @@
             rml:reference "departure.time";
             rr:datatype xsd:dateTime;
         ]
-    ].
-
-<#StopIDMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
     ];
 
     rr:predicateObjectMap [
@@ -126,17 +86,6 @@
             rr:template "http://example.com/nmbs/stops/{stopId}" ;
 	        rr:termType rr:IRI ;
         ]
-    ].
-
-<#TripIDMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
     ];
 
     rr:predicateObjectMap [
@@ -145,6 +94,13 @@
             # rml:reference "stopId";
             rr:template "http://example.com/nmbs/trips/{tripId}" ;
 	        rr:termType rr:IRI ;
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "scheduleRelationship";
         ]
     ].
 
@@ -163,23 +119,5 @@
         rr:predicate xsd:time ;
         rr:objectMap [
             rml:reference "tripStartTime";
-        ]
-    ].
-
-<#SkippedMapping> a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
-        rml:referenceFormulation ql:JSONPath 
-    ];
-
-    rr:subjectMap [
-        rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate rdfs:label ;
-        rr:objectMap [
-            rml:reference "scheduleRelationship";
         ]
     ].
