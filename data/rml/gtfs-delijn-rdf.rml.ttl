@@ -88,7 +88,7 @@
     rr:predicate gtfs:dateAddition ;
     rr:objectMap [
       rml:reference "exception_type" ;
-      rr:datatype xsd:boolean
+      # rr:datatype xsd:boolean
     ]
   ].
 
