@@ -18,6 +18,7 @@ alias isql-delete-delijn='isql 1111 dba dba ~/data/scripts/query/delete-delijn-g
 alias morph-nmbs='python3 -m morph_kgc ~/graphs/config/config-nmbs.ini'
 alias morph-nmbs-rt='python3 -m morph_kgc ~/graphs/config/config-nmbs-rt.ini'
 alias morph-delijn='python3 -m morph_kgc ~/graphs/config/config-dl.ini'
+alias morph-delijn2='python3 -m morph_kgc ~/graphs/config/config-dl-2.ini'
 alias morph-delijn-rt='python3 -m morph_kgc ~/graphs/config/config-dl-rt.ini'
 alias morph-irail='python3 -m morph_kgc ~/graphs/config/config-irail.ini'
 alias morph-tec='python3 -m morph_kgc ~/graphs/config/config-tec.ini'
