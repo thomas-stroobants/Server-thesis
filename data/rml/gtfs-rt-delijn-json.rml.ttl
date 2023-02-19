@@ -60,6 +60,7 @@
 
     rr:subjectMap [
         rr:template "http://example.com/de-lijn/stoptimes/{tripId}-{stopId}"  ;
+        rr:class gtfs:StopTime
     ];
 
     rr:predicateObjectMap [
@@ -75,6 +76,14 @@
         rr:objectMap [
             rml:reference "stopCode"
         ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate gtfs:stop ;
+        rr:objectMap [
+            rr:template "hrrp://example.com/de-lijn/stops/{stop_id}";
+            rr:termType rr:IRI 
+        ]
     ].
 
 <#TripUpdateMapping> a rr:TriplesMap;
@@ -86,6 +95,7 @@
 
     rr:subjectMap [
         rr:template "http://example.com/de-lijn/trips/{tripId}"  ;
+        rr:class gtfs:Trip
     ];
 
     rr:predicateObjectMap [
