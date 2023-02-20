@@ -1,16 +1,19 @@
-DEBUG | 2023-02-15 19:54:41,009 | CONFIGURATION: {'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'output_file': '/home/thomas/graphs/knowledge-graph-delijn-rt.nt', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'safe_percent_encoding': '', 'number_of_processes': '2', 'logging_level': 'DEBUG', 'logging_file': '/home/thomas/graphs/log/morph-log-delijn-rt-test.log', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partitioning': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'infer_sql_datatypes': 'no'}
-DEBUG | 2023-02-15 19:54:41,009 | DATA SOURCE `Datasource1`: {'mappings': '/home/thomas/data/rml/gtfs-rt-delijn-json.rml.ttl'}
-INFO | 2023-02-15 19:54:41,301 | 7 mapping rules retrieved.
-INFO | 2023-02-15 19:54:41,307 | Mapping partition with 7 groups generated.
-INFO | 2023-02-15 19:54:41,308 | Maximum number of rules within mapping group: 1.
-INFO | 2023-02-15 19:54:41,308 | Mappings processed in 0.298 seconds.
-DEBUG | 2023-02-15 19:54:41,309 | Parallelizing with 2 cores.
-DEBUG | 2023-02-15 19:54:41,388 | 1 triples generated for mapping rule `2` in 0.069 seconds.
-DEBUG | 2023-02-15 19:54:41,391 | 1 triples generated for mapping rule `0` in 0.072 seconds.
-DEBUG | 2023-02-15 19:54:41,437 | 1 triples generated for mapping rule `1` in 0.035 seconds.
-DEBUG | 2023-02-15 19:54:41,471 | 978 triples generated for mapping rule `4` in 0.066 seconds.
-DEBUG | 2023-02-15 19:54:41,506 | 978 triples generated for mapping rule `3` in 0.059 seconds.
-DEBUG | 2023-02-15 19:54:41,644 | 9306 triples generated for mapping rule `5` in 0.167 seconds.
-DEBUG | 2023-02-15 19:54:41,675 | 9306 triples generated for mapping rule `6` in 0.157 seconds.
-INFO | 2023-02-15 19:54:41,697 | Number of triples generated in total: 20571.
-INFO | 2023-02-15 19:54:41,697 | Materialization finished in 0.388 seconds.
+DEBUG | 2023-02-20 17:09:48,451 | CONFIGURATION: {'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'output_file': '/home/thomas/graphs/knowledge-graph-delijn-rt.nt', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'safe_percent_encoding': '', 'number_of_processes': '2', 'logging_level': 'DEBUG', 'logging_file': '/home/thomas/graphs/log/morph-log-delijn-rt-test.log', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partitioning': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'infer_sql_datatypes': 'no'}
+DEBUG | 2023-02-20 17:09:48,451 | DATA SOURCE `Datasource1`: {'mappings': '/home/thomas/data/rml/gtfs-rt-delijn-json.rml.ttl'}
+INFO | 2023-02-20 17:09:48,786 | 10 mapping rules retrieved.
+INFO | 2023-02-20 17:09:48,793 | Mapping partition with 10 groups generated.
+INFO | 2023-02-20 17:09:48,793 | Maximum number of rules within mapping group: 1.
+INFO | 2023-02-20 17:09:48,794 | Mappings processed in 0.342 seconds.
+DEBUG | 2023-02-20 17:09:48,795 | Parallelizing with 2 cores.
+DEBUG | 2023-02-20 17:09:48,874 | 1 triples generated for mapping rule `2` in 0.068 seconds.
+DEBUG | 2023-02-20 17:09:48,877 | 1 triples generated for mapping rule `1` in 0.071 seconds.
+DEBUG | 2023-02-20 17:09:48,906 | 1 triples generated for mapping rule `0` in 0.025 seconds.
+DEBUG | 2023-02-20 17:09:48,944 | 978 triples generated for mapping rule `4` in 0.060 seconds.
+DEBUG | 2023-02-20 17:09:48,961 | 978 triples generated for mapping rule `5` in 0.051 seconds.
+DEBUG | 2023-02-20 17:09:49,042 | 978 triples generated for mapping rule `3` in 0.092 seconds.
+DEBUG | 2023-02-20 17:09:49,044 | 978 triples generated for mapping rule `6` in 0.078 seconds.
+DEBUG | 2023-02-20 17:09:49,153 | 10298 triples generated for mapping rule `9` in 0.099 seconds.
+DEBUG | 2023-02-20 17:09:49,222 | 9306 triples generated for mapping rule `7` in 0.157 seconds.
+DEBUG | 2023-02-20 17:09:49,362 | 9306 triples generated for mapping rule `8` in 0.125 seconds.
+INFO | 2023-02-20 17:09:49,387 | Number of triples generated in total: 32825.
+INFO | 2023-02-20 17:09:49,387 | Materialization finished in 0.592 seconds.

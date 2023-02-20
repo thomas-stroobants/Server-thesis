@@ -5,10 +5,10 @@ PREFIX gtfs: <http://vocab.gtfs.org/terms#>
 -- PREFIX example: <http://example.com/>
 
 MODIFY <http://example.com/de-lijn>
-DELETE
-    {
-        ?s gtfs:departureTime ?dt .
-    }
+-- DELETE
+--     {
+--         ?s gtfs:departureTime ?dt .
+--     }
 INSERT
     {
         ?s gtfs:departureTime ?ndt .
