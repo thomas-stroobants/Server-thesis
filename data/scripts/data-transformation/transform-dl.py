@@ -16,10 +16,10 @@ with open(f'{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs.json') as sfile:
             for stopArr in item["tripUpdate"]["stopTimeUpdate"]:
                 stopArr['tripId'] = trip_id
                 delay_seconds = stopArr["departure"]["delay"]
-                if delay_seconds >= 0:
-                    stopArr["departure"]["delay"] = f"P{delay_seconds}M"
-                else: 
-                    stopArr["departure"]["delay"] = f"-P{delay_seconds}M"
+                # if delay_seconds >= 0:
+                #     stopArr["departure"]["delay"] = f"P{delay_seconds}M"
+                # else: 
+                #     stopArr["departure"]["delay"] = f"-P{delay_seconds}M"
             
 
             
