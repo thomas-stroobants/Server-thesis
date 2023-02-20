@@ -81,7 +81,7 @@
     rr:predicateObjectMap [
         rr:predicate gtfs:stop ;
         rr:objectMap [
-            rr:template "hrrp://example.com/de-lijn/stops/{stop_id}";
+            rr:template "http://example.com/de-lijn/stops/{stop_id}";
             rr:termType rr:IRI 
         ]
     ].
