@@ -328,7 +328,7 @@
 
 <#StopTimesMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/stop_times_2.csv";
+    rml:source "/home/thomas/data/de-lijn-gtfs/stop_times_02.csv";
     rml:referenceFormulation ql:CSV
   ];
 
