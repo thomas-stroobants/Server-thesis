@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv("/home/thomas/data/iRail/facilities.csv")
+df = pd.read_csv("/home/thomas/data/iRail/facilities-21-02-2023.csv")
 
 for i in range(len(df.index)):
     old_value = df.loc[i, "URI"]
@@ -14,4 +14,4 @@ df["blue-bike"] = df["blue-bike"].astype(int)
 
 
 
-df.to_csv("/home/thomas/data/iRail/facilities1.csv", index=False)
+df.to_csv("/home/thomas/data/iRail/facilities.csv", index=False)
