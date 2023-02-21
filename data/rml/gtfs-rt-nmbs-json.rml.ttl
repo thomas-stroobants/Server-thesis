@@ -74,7 +74,7 @@
     rr:predicateObjectMap [
         rr:predicate gtfs:departureTime ;
         rr:objectMap [
-            rml:reference "departure.time";
+            rml:reference "departure.delay";
             rr:datatype xsd:dateTime;
         ]
     ];
@@ -115,9 +115,16 @@
         rr:template "http://example.com/nmbs/trips/{tripId}"  ;
     ];
 
+    # rr:predicateObjectMap [
+    #     rr:predicate xsd:time ;
+    #     rr:objectMap [
+    #         rml:reference "tripStartTime";
+    #     ]
+    # ];
+
     rr:predicateObjectMap [
-        rr:predicate xsd:time ;
+        rr:predicate rdfs:label ;
         rr:objectMap [
-            rml:reference "tripStartTime";
+            rml:reference "scheduleRelationship";
         ]
     ].
