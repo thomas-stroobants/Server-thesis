@@ -72,10 +72,9 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate gtfs:departureTime ;
+        rr:predicate xsd:integer ;
         rr:objectMap [
             rml:reference "departure.delay";
-            rr:datatype xsd:dateTime;
         ]
     ];
 

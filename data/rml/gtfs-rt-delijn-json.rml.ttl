@@ -64,7 +64,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate xsd:duration ;
+        rr:predicate xsd:integer ;
         rr:objectMap [
             rml:reference "departure.delay";
             # rr:datatype xsd:duration;
