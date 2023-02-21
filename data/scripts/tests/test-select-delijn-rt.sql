@@ -4,3 +4,16 @@ PREFIX gtfs: <http://vocab.gtfs.org/terms#>
 -- SELECT * from <http://example.com/de-lijn-rt> where { ?s gtfs:stop ?o . };
 -- SELECT * from <http://example.com/de-lijn-rt> where { ?s gtfs:stop <http://example.com/de-lijn/stops/150118> . };
 SELECT * from <http://example.com/de-lijn-rt> where { <http://example.com/de-lijn/stoptimes/42909920-150118> ?p ?o .};
+
+SPARQL 
+PREFIX gtfs: <http://vocab.gtfs.org/terms#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT (SUM(?p) )
+WHERE {
+  VALUES (?p) {
+         (502) 
+         ("2023-02-14T09:01:00"^^xsd:duration)
+  }
+}
+;
