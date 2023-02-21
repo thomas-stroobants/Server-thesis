@@ -20,9 +20,6 @@ with open(f'{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs.json') as sfile:
                 #     stopArr["departure"]["delay"] = f"P{delay_seconds}M"
                 # else: 
                 #     stopArr["departure"]["delay"] = f"-P{delay_seconds}M"
-            
 
-            
-
-with open(f'{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs-adap1.json', 'w') as ofile:
+with open(f'{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs-adap.json', 'w') as ofile:
     json.dump(data, ofile, indent = 2, sort_keys=True)
