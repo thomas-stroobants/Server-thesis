@@ -22,6 +22,7 @@ Code/
 .bashrc
 .profile
 .wget-hsts
+data/test-data/*.zip
 .bash_logout
 .pam*
 Desktop/
