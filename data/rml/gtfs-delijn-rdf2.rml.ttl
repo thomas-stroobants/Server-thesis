@@ -349,20 +349,20 @@
   # ];
 
   # #4082160 triples
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:trip ;
-  #   rr:objectMap [
-  #     rr:template "http://example.com/de-lijn/trips/{trip_id}";
-  #   ]
-  # ];
+  rr:predicateObjectMap [
+    rr:predicate gtfs:trip ;
+    rr:objectMap [
+      rr:template "http://example.com/de-lijn/trips/{trip_id}";
+    ]
+  ];
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:arrivalTime ;
-  #   rr:objectMap [
-  #     rml:reference "arrival_time" ;
-  #     rr:datatype xsd:time
-  #   ]
-  # ];
+  rr:predicateObjectMap [
+    rr:predicate gtfs:arrivalTime ;
+    rr:objectMap [
+      rml:reference "arrival_time" ;
+      rr:datatype xsd:time
+    ]
+  ];
 
   #18280382
   rr:predicateObjectMap [
@@ -371,7 +371,7 @@
       rml:reference "departure_time" ;
       rr:datatype xsd:dateTime
     ]
-  ].   
+  ];   
 
   # rr:predicateObjectMap [
   #   rr:predicate gtfs:stop ;
@@ -384,50 +384,50 @@
   #   ]
   # ];
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:stop ;
-  #   rr:objectMap [
-  #     rr:template "http://example.com/de-lijn/stops/{stop_id}";
-  #   ]
-  # ].
+  rr:predicateObjectMap [
+    rr:predicate gtfs:stop ;
+    rr:objectMap [
+      rr:template "http://example.com/de-lijn/stops/{stop_id}";
+    ]
+  ];
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:stopSequence ;
-  #   rr:objectMap [
-  #     rml:reference "stop_sequence" ;
-  #     rr:datatype xsd:integer
-  #   ]
-  # ];
+  rr:predicateObjectMap [
+    rr:predicate gtfs:stopSequence ;
+    rr:objectMap [
+      rml:reference "stop_sequence" ;
+      rr:datatype xsd:integer
+    ]
+  ];
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:headsign ;
-  #   rr:objectMap [
-  #     rml:reference "stop_headsign"
-  #   ]
-  # ];
+  rr:predicateObjectMap [
+    rr:predicate gtfs:headsign ;
+    rr:objectMap [
+      rml:reference "stop_headsign"
+    ]
+  ];
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:pickupType ;
-  #   rr:objectMap [
-  #     rml:reference "pickup_type" ;
-  #     rr:datatype xsd:enumeration
-  #   ]
-  # ];
+  rr:predicateObjectMap [
+    rr:predicate gtfs:pickupType ;
+    rr:objectMap [
+      rml:reference "pickup_type" ;
+      rr:datatype xsd:enumeration
+    ]
+  ];
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:dropOffType ;
-  #   rr:objectMap [
-  #     rml:reference "drop_off_type" ;
-  #     rr:datatype xsd:enumeration
-  #   ]
-  # ];
+  rr:predicateObjectMap [
+    rr:predicate gtfs:dropOffType ;
+    rr:objectMap [
+      rml:reference "drop_off_type" ;
+      rr:datatype xsd:enumeration
+    ]
+  ];
 
-  # rr:predicateObjectMap [
-  #   rr:predicate gtfs:distanceTraveled ;
-  #   rr:objectMap [
-  #     rml:reference "shape_dist_traveled"
-  #   ]
-  # ].
+  rr:predicateObjectMap [
+    rr:predicate gtfs:distanceTraveled ;
+    rr:objectMap [
+      rml:reference "shape_dist_traveled"
+    ]
+  ].
 
 # <#TripsMapping> a rr:TriplesMap;
 #   rml:logicalSource [
