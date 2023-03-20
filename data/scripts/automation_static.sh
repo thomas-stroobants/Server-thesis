@@ -11,8 +11,6 @@ echo "$(date) | Start of data retrieval static data"
 # Download the static data
 $HOME/data/scripts/data-retrieval/get-data.sh
 
-# TODO: download BlueBike Data
-
 echo "$(date) | transforming iRail data"
 python3 $HOME/data/scripts/data-transformation/replace-irail.py &
 pid_irail_transf=$!
@@ -24,6 +22,8 @@ python3 $HOME/data/scripts/data-transformation/connect-datetime.py
 python3 $HOME/data/scripts/data-transformation/connect-datetime-dl.py 
 # pid_dl=$!
 # echo "$(date) | Waiting for PID NMBS ($pid_nmbs) and De Lijn ($pid_dl) to finish"
+
+#TODO Divide file stoptimes De Lijn
 
 wait $pid_irail_transf # $pid_nmbs $pid_dl 
 echo "$(date) | data transformation complete"
@@ -56,11 +56,14 @@ python3 -m morph_kgc ~/graphs/config/config-nmbs.ini &
 pid_morph_nmbs=$!
 
 echo "$(date) | Starting materialization of De Lijn data using Morph-KGC"
-python3 -m morph_kgc ~/graphs/config/config-dl.ini &
+python3 -m morph_kgc ~/graphs/config/config-dl.ini 
 pid_morph_delijn=$!
 
+echo "$(date) | Starting materialization of De Lijn (2) data using Morph-KGC"
+python3 -m morph_kgc ~/graphs/config/config-dl2.ini 
+pid_morph_delijn2=$!
 
-wait $pid_morph_nmbs $pid_morph_delijn $pid_morph_irail
+wait $pid_morph_nmbs $pid_morph_delijn $pid_morph_irail $pid_morph_delijn2
 echo "$(date) | Materialization complete"
 
 # Loading the data into Virtuoso

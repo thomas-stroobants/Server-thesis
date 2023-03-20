@@ -1,0 +1,54 @@
+SPARQL
+PREFIX rr: <http://www.w3.org/ns/r2rml#> 
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#> 
+PREFIX map: <http://mapping.example.com/> 
+PREFIX ma: <http://www.w3.org/ns/ma-ont#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX rev: <http://purl.org/stuff/rev#> 
+PREFIX v: <http://rdf.data-vocabulary.org/#> 
+PREFIX schema: <http://schema.org/> 
+PREFIX gtfs: <http://vocab.gtfs.org/terms#> 
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> 
+PREFIX dct: <http://purl.org/dc/terms/> 
+
+
+SELECT ?stopCode1 ?time1 ?seq1 ?trip ?destStop ?time2 ?seq2 ?stopTime2 ?trip2 ?direction
+WHERE {
+    ?startStop a gtfs:Stop .
+    ?startStop foaf:name "Stekene Kerk" .
+    ?startStop gtfs:code ?stopCode1 .
+
+
+    ?destStop a gtfs:Stop .
+    ?destStop foaf:name "Sint-Niklaas Uitgang Noordlaan" .
+    
+    ?trip a gtfs:Trip .
+    ?trip gtfs:route ?route .
+    ?trip gtfs:direction ?direction .
+    ?trip dct:identifier ?tripId .
+
+
+    ?stopTime a gtfs:StopTime .
+    ?stopTime gtfs:stop ?startStop.
+    ?stopTime gtfs:trip ?trip .
+    ?stopTime gtfs:departureTime ?time1 .
+    ?stopTime gtfs:stopSequence ?seq1 .
+    FILTER (?time1 >= "2023-02-21T07:00:00"^^xsd:dateTime && ?time1 <= "2023-02-21T08:00:00"^^xsd:dateTime)
+
+    
+    ?stopTime2 a gtfs:StopTime .
+    ?stopTime2 gtfs:stop ?destStop .
+    ?stopTime2 gtfs:trip ?trip .
+    ?stopTime2 gtfs:departureTime ?time2 .
+    ?stopTime2 gtfs:stopSequence ?seq2 .
+    FILTER (?time2 >= "2023-02-21T07:00:00"^^xsd:dateTime && ?time2 <= "2023-02-21T08:00:00"^^xsd:dateTime)
+
+    FILTER(?seq1 < ?seq2)
+
+} GROUP BY ?startStop ORDER BY ?time1 ?time2;
