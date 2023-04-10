@@ -40,7 +40,7 @@ WHERE {
     ?stopTime gtfs:trip ?trip .
     ?stopTime gtfs:departureTime ?time1 .
     ?stopTime gtfs:stopSequence ?seq1 .
-    # FILTER (?time1 >= "2023-02-21T07:00:00"^^xsd:dateTime && ?time1 <= "2023-02-21T08:00:00"^^xsd:dateTime)
+    FILTER (?time1 >= "2023-02-21T07:00:00"^^xsd:dateTime && ?time1 <= "2023-02-21T08:00:00"^^xsd:dateTime)
 
     
     ?stopTime2 a gtfs:StopTime .
