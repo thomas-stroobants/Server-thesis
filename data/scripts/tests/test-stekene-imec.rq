@@ -36,20 +36,20 @@ WHERE {
         gtfs:direction ?direction ;
         dct:identifier ?tripGSPIMECId .
 
-    # ?stopTimeGSPdl a gtfs:StopTime ;
-    #         gtfs:stop ?stopGSPdl ;
-    #         gtfs:tripGSPIMEC ?tripGSPIMEC ;
-    #         gtfs:departureTime ?departureTimeGSPdl ;
-    #         gtfs:stopSequence ?seqGSPdl .
+    ?stopTimeGSPdl a gtfs:StopTime ;
+            gtfs:stop ?stopGSPdl ;
+            gtfs:trip ?tripGSPIMEC ;
+            gtfs:departureTime ?departureTimeGSPdl ;
+            gtfs:stopSequence ?seqGSPdl .
 
-    # ?stopTimeIMECdl a gtfs:StopTime ;
-    #         gtfs:stop ?stopIMECdl ;
-    #         gtfs:tripGSPIMEC ?tripGSPIMEC ;
-    #         gtfs:departureTime ?departureTimeIMECdl ;
-    #         gtfs:stopSequence ?seqIMECdl .
+    ?stopTimeIMECdl a gtfs:StopTime ;
+            gtfs:stop ?stopIMECdl ;
+            gtfs:trip ?tripGSPIMEC ;
+            gtfs:departureTime ?departureTimeIMECdl ;
+            gtfs:stopSequence ?seqIMECdl .
 
-    # FILTER (?departureTimeIMECdl >= "2023-02-21T08:00:00"^^xsd:dateTime && ?departureTimeIMECdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
-    # FILTER (?departureTimeGSPdl >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeGSPdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
-    # FILTER(?seqGSPdl < ?seqIMECdl)
+    FILTER (?departureTimeIMECdl >= "2023-02-21T08:00:00"^^xsd:dateTime && ?departureTimeIMECdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
+    FILTER (?departureTimeGSPdl >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeGSPdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
+    FILTER(?seqGSPdl < ?seqIMECdl)
 
 } GROUP BY ?stopGSPdl ORDER BY ?departureTimeGSPdl ?departureTimeIMECdl;
