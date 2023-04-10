@@ -42,6 +42,6 @@ where {
 
     ?trip_id a gtfs:Trip ;    
         gtfs:headsign ?tripname .
-    FILTER (?depature_time2 >= "2023-02-21T07:51:00"^^xsd:dateTime && ?depature_time2 <= "2023-02-21T08:15:00"^^xsd:dateTime)
+    FILTER (?depature_time2 >= "2023-02-21T07:51:00"^^xsd:dateTime && ?depature_time2 <= "2023-02-21T08:15:00"^^xsd:dateTime) 
     FILTER (?seq2 > ?seq1) # to have the correct direction for the trip
 } ORDER BY ?depature_time2 ;
