@@ -18,7 +18,7 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT ?tripSNGS ?stopSNnmbs ?departureTimeSNnmbs ?stopGSPnmbs ?departureTimeGSPnmbs ?tripname ?nameGSPdl ?departureTimeGSPdl ?nameIMECdl ?departureTimeIMECdl
+SELECT ?tripSNGSP ?stopSNnmbs ?departureTimeSNnmbs ?stopGSPnmbs ?departureTimeGSPnmbs ?tripname ?nameGSPdl ?departureTimeGSPdl ?nameIMECdl ?departureTimeIMECdl
 WHERE {
     #details stop GSP delijn
     ?stopGSPdl a gtfs:Stop ;
@@ -73,7 +73,7 @@ WHERE {
         gtfs:departureTime ?departureTimeGSPnmbs ;
         gtfs:stopSequence ?seqGSPnmbs .
 
-    ?tripSNGS a gtfs:Trip ;    
+    ?tripSNGSP a gtfs:Trip ;    
         gtfs:headsign ?tripname .
     # FILTER (?departureTimeGSPnmbs >= (?bufferGSPdl - 600) && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
     # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?bufferGSPdl) 
