@@ -1,0 +1,80 @@
+SPARQL
+PREFIX rr: <http://www.w3.org/ns/r2rml#> 
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#> 
+PREFIX map: <http://mapping.example.com/> 
+PREFIX ma: <http://www.w3.org/ns/ma-ont#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX rev: <http://purl.org/stuff/rev#> 
+PREFIX v: <http://rdf.data-vocabulary.org/#> 
+PREFIX schema: <http://schema.org/> 
+PREFIX gtfs: <http://vocab.gtfs.org/terms#> 
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> 
+PREFIX dct: <http://purl.org/dc/terms/> 
+
+
+# SELECT ?stopName1 ?time1 ?seq1 ?trip ?destStop ?time2 ?seq2 ?stopTime2 ?direction ?diff
+# WHERE {
+#     ?startStop a gtfs:Stop .
+#     ?startStop foaf:name ?stopName1.
+#     ?startStop gtfs:code 204917 .       #station gent sp
+
+
+#     ?destStop a gtfs:Stop .
+#     ?destStop foaf:name ?stopName2.
+#     ?destStop gtfs:code 200659 .        #zwijnaarde technologiepark
+
+#     ?trip a gtfs:Trip .
+#     ?trip gtfs:route ?route .
+#     ?trip gtfs:direction ?direction .
+#     ?trip dct:identifier ?tripId .
+
+#     ?stopTime1 a gtfs:StopTime ;
+#             gtfs:stop ?startStop ;
+#             gtfs:trip ?trip ;
+#             gtfs:departureTime ?time1 ;
+#             gtfs:stopSequence ?seq1 .
+
+#     ?stopTime2 a gtfs:StopTime ;
+#             gtfs:stop ?destStop ;
+#             gtfs:trip ?trip ;
+#             gtfs:departureTime ?time2 ;
+#             gtfs:stopSequence ?seq2 .
+
+#     FILTER (?time2 >= "2023-02-21T08:00:00"^^xsd:dateTime && ?time2 <= "2023-02-21T09:00:00"^^xsd:dateTime)
+#     FILTER (?time1 >= "2023-02-21T00:00:00"^^xsd:dateTime && ?time1 <= "2023-02-21T09:00:00"^^xsd:dateTime)
+#     BIND ( (?time2 - ?time1) AS ?diff)
+#     FILTER(?seq1 < ?seq2)
+
+# } GROUP BY ?startStop ORDER BY ?time1 ?time2;
+
+SELECT ?trip_id ?startstop ?depature_time ?stopstop ?depature_time2 ?tripname
+where { 
+    #start location
+    ?startstop foaf:name "Sint-Niklaas";
+        a gtfs:Stop .
+
+    ?stopstop foaf:name "Gent-Sint-Pieters" ;
+        a gtfs:Stop .
+
+    ?stoptime a gtfs:StopTime;
+        gtfs:stop ?startstop ;
+        gtfs:trip ?trip_id ;
+        gtfs:departureTime ?depature_time.
+
+    ?stoptime2 a gtfs:StopTime;
+        gtfs:stop ?stopstop ;
+        gtfs:trip ?trip_id ;
+        gtfs:departureTime ?depature_time2.
+
+    ?trip_id a gtfs:Trip ;    
+        gtfs:headsign ?tripname .
+    FILTER (?depature_time2 >= "2023-02-21T07:51:00"^^xsd:dateTime && ?depature_time2 <= "2023-02-21T08:15:00"^^xsd:dateTime)
+    FILTER (?tripname != "Saint-Nicolas") # ignore the trains that are arriving in the tstaion we want to depart from
+} 
+LIMIT 20;
