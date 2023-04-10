@@ -18,7 +18,7 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT ?tripSNGSP ?stopSNnmbs ?departureTimeSNnmbs ?stopGSPnmbs ?departureTimeGSPnmbs ?tripname ?nameGSPdl ?departureTimeGSPdl ?nameIMECdl ?departureTimeIMECdl
+SELECT ?bufferGSP ?bufferGSPdl ?tripSNGSP ?stopSNnmbs ?departureTimeSNnmbs ?stopGSPnmbs ?departureTimeGSPnmbs ?tripname ?nameGSPdl ?departureTimeGSPdl ?nameIMECdl ?departureTimeIMECdl
 WHERE {
     #details stop GSP delijn
     ?stopGSPdl a gtfs:Stop ;
@@ -77,11 +77,11 @@ WHERE {
         gtfs:headsign ?tripname .
 
     BIND ( (?departureTimeGSPdl - 3600) AS ?bufferGSP)
-    FILTER (?departureTimeGSPnmbs >= ?bufferGSP && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
-    FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
+    # FILTER (?departureTimeGSPnmbs >= ?bufferGSP && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
+    # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
 
-    # FILTER (?departureTimeGSPnmbs >= "2023-02-21T07:51:00"^^xsd:dateTime && ?departureTimeGSPnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
-    # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    FILTER (?departureTimeGSPnmbs >= "2023-02-21T07:51:00"^^xsd:dateTime && ?departureTimeGSPnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
     FILTER (?seqGSPnmbs > ?seqSNnmbs) # to have the correct direction for the trip
 
 
