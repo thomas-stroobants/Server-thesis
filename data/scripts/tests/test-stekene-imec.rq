@@ -18,7 +18,7 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT ?stopSNnmbs ?departureTimeSNnmbs ?stopGSPnmbs ?departureTimeGSPnmbs ?tripname ?nameGSPdl ?departureTimeGSPdl ?nameIMECdl ?departureTimeIMECdl #?tripSNGSP 
+SELECT ?stopCodeStekenedl ?departureTimeSTdl ?stopCodeSNdl ?departureTimeSNdl ?stopSNnmbs ?departureTimeSNnmbs ?stopGSPnmbs ?departureTimeGSPnmbs ?tripname ?nameGSPdl ?departureTimeGSPdl ?nameIMECdl ?departureTimeIMECdl #?tripSNGSP 
 WHERE {
     #########################################################
     ## Part De Lijn Gent-Sint-Pieters to IMEC AA-Tower
@@ -95,6 +95,40 @@ WHERE {
     # FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= ?bufferGSPdl) 
     # FILTER (?departureTimeSNnmbs >= ?limitTime) 
     FILTER (?seqGSPnmbs > ?seqSNnmbs) # to have the correct direction for the trip
+
+    #########################################################
+    ## Part De Lijn Stekene to Sint-Niklaas
+    #########################################################
+
+    ?stopStekenedl a gtfs:Stop ;
+            foaf:name "Stekene Kerk" ;
+            gtfs:code ?stopCodeStekenedl .
+
+    ?stopSNdl a gtfs:Stop ;
+            foaf:name "Sint-Niklaas Uitgang Noordlaan" ;
+            gtfs:code ?stopCodeSNdl .
+    
+    ?tripSTSN a gtfs:Trip ;
+        gtfs:route ?route ;
+        gtfs:direction ?direction ;
+        dct:identifier ?tripId .
+
+    # ?stopTimeStekenedl a gtfs:StopTime ;
+    #         gtfs:stop ?stopStekenedl ;
+    #         gtfs:trip ?tripSTSN ;
+    #         gtfs:departureTime ?departureTimeSTdl ;
+    #         gtfs:stopSequence ?seqSTdl .
+    # FILTER (?departureTimeSTdl >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSTdl <= "2023-02-21T08:00:00"^^xsd:dateTime)
+    
+    # ?stopTimeSNdl a gtfs:StopTime ;
+    #         gtfs:stop ?stopSNdl ;
+    #         gtfs:trip ?tripSTSN ;
+    #         gtfs:departureTime ?departureTimeSNdl ;
+    #         gtfs:stopSequence ?seqSNdl .
+    # FILTER (?departureTimeSNdl >= "2023-02-21T07:00:00"^^xsd:dateTime && ?departureTimeSNdl <= "2023-02-21T08:00:00"^^xsd:dateTime)
+
+    # FILTER(?seqSTdl < ?seqSNdl)
+
 
 
 } ORDER BY ?departureTimeGSPdl ?departureTimeIMECdl;
