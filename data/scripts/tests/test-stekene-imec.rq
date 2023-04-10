@@ -18,36 +18,38 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT ?stopName1 ?time1 ?seq1 ?trip ?destStop ?time2 ?seq2 ?stopTime2 ?direction
+SELECT ?nameGSPdl ?departureTimeGSPdl ?seqGSPdl ?tripGSPIMEC ?stopIMECdl ?departureTimeIMECdl ?seqIMECdl ?stopTimeIMECdl
 WHERE {
-    ?startStop a gtfs:Stop .
-    ?startStop foaf:name ?stopName1.
-    ?startStop gtfs:code 204917 .       #station gent sp
+    #details stop GSP delijn
+    ?stopGSPdl a gtfs:Stop .
+        foaf:name ?nameGSPdl ;
+        gtfs:code 204917 .       #station gent sp
 
+    #details stop IMEC delijn
+    ?stopIMECdl a gtfs:Stop ;
+        foaf:name ?nameIMECdl ;
+        gtfs:code 200659 .        #zwijnaarde technologiepark
 
-    ?destStop a gtfs:Stop .
-    ?destStop foaf:name ?stopName2.
-    ?destStop gtfs:code 200659 .        #zwijnaarde technologiepark
+    #details trip GSP IMEC delijn
+    ?tripGSPIMEC a gtfs:Trip ;
+        gtfs:route ?route ;
+        gtfs:direction ?direction ;
+        dct:identifier ?tripGSPIMECId .
 
-    ?trip a gtfs:Trip .
-    ?trip gtfs:route ?route .
-    ?trip gtfs:direction ?direction .
-    ?trip dct:identifier ?tripId .
+    ?stopTimeGSPdl a gtfs:StopTime ;
+            gtfs:stop ?stopGSPdl ;
+            gtfs:tripGSPIMEC ?tripGSPIMEC ;
+            gtfs:departureTime ?departureTimeGSPdl ;
+            gtfs:stopSequence ?seqGSPdl .
 
-    ?stopTime1 a gtfs:StopTime ;
-            gtfs:stop ?startStop ;
-            gtfs:trip ?trip ;
-            gtfs:departureTime ?time1 ;
-            gtfs:stopSequence ?seq1 .
+    ?stopTimeIMECdl a gtfs:StopTime ;
+            gtfs:stop ?stopIMECdl ;
+            gtfs:tripGSPIMEC ?tripGSPIMEC ;
+            gtfs:departureTime ?departureTimeIMECdl ;
+            gtfs:stopSequence ?seqIMECdl .
 
-    ?stopTime2 a gtfs:StopTime ;
-            gtfs:stop ?destStop ;
-            gtfs:trip ?trip ;
-            gtfs:departureTime ?time2 ;
-            gtfs:stopSequence ?seq2 .
+    FILTER (?departureTimeIMECdl >= "2023-02-21T08:00:00"^^xsd:dateTime && ?departureTimeIMECdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
+    FILTER (?departureTimeGSPdl >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeGSPdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
+    FILTER(?seqGSPdl < ?seqIMECdl)
 
-    FILTER (?time2 >= "2023-02-21T08:00:00"^^xsd:dateTime && ?time2 <= "2023-02-21T09:00:00"^^xsd:dateTime)
-    FILTER (?time1 >= "2023-02-21T00:00:00"^^xsd:dateTime && ?time1 <= "2023-02-21T09:00:00"^^xsd:dateTime)
-    FILTER(?seq1 < ?seq2)
-
-} GROUP BY ?startStop ORDER BY ?time1 ?time2;
+} GROUP BY ?stopGSPdl ORDER BY ?departureTimeGSPdl ?departureTimeIMECdl;
