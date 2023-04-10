@@ -52,4 +52,8 @@ WHERE {
     FILTER (?departureTimeGSPdl >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeGSPdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
     FILTER(?seqGSPdl < ?seqIMECdl)
 
-} GROUP BY ?stopGSPdl ORDER BY ?departureTimeGSPdl ?departureTimeIMECdl;
+
+
+
+
+} ORDER BY ?departureTimeGSPdl ?departureTimeIMECdl;
