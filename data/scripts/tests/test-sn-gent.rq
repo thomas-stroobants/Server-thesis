@@ -17,37 +17,6 @@ PREFIX gtfs: <http://vocab.gtfs.org/terms#>
 PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> 
 PREFIX dct: <http://purl.org/dc/terms/> 
 
-
-# SELECT ?stopName1 ?time1 ?seq1 ?trip ?destStop ?time2 ?seq2 ?stopTime2 ?direction ?diff
-# WHERE {
-#     ?startStop a gtfs:Stop .
-#     ?startStop foaf:name ?stopName1.
-#     ?startStop gtfs:code 204917 .       #station gent sp
-
-
-#     ?destStop a gtfs:Stop .
-#     ?destStop foaf:name ?stopName2.
-#     ?destStop gtfs:code 200659 .        #zwijnaarde technologiepark
-
-#     ?trip a gtfs:Trip .
-#     ?trip gtfs:route ?route .
-#     ?trip gtfs:direction ?direction .
-#     ?trip dct:identifier ?tripId .
-
-#     ?stopTime1 a gtfs:StopTime ;
-#             gtfs:stop ?startStop ;
-#             gtfs:trip ?trip ;
-#             gtfs:departureTime ?time1 ;
-#             gtfs:stopSequence ?seq1 .
-
-#     ?stopTime2 a gtfs:StopTime ;
-#             gtfs:stop ?destStop ;
-#             gtfs:trip ?trip ;
-#             gtfs:departureTime ?time2 ;
-#             gtfs:stopSequence ?seq2 .
-
-#     FILTER (?time2 >= "2023-02-21T08:00:00"^^xsd:dateTime && ?time2 <= "2023-02-21T09:00:00"^^xsd:dateTime)
-#     FILTER (?time1 >= "2023-02-21T00:00:00"^^xsd:dateTime && ?time1 <= "2023-02-21T09:00:00"^^xsd:dateTime)
 #     BIND ( (?time2 - ?time1) AS ?diff)
 #     FILTER(?seq1 < ?seq2)
 
@@ -78,5 +47,4 @@ where {
         gtfs:headsign ?tripname .
     FILTER (?depature_time2 >= "2023-02-21T07:51:00"^^xsd:dateTime && ?depature_time2 <= "2023-02-21T08:15:00"^^xsd:dateTime)
     FILTER (?seq2 > ?seq1) # to have the correct direction for the trip
-} 
-LIMIT 20;
+} ORDER BY ?depature_time2 ;
