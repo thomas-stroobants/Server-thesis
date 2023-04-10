@@ -18,9 +18,6 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 #     BIND ( (?time2 - ?time1) AS ?diff)
-#     FILTER(?seq1 < ?seq2)
-
-# } GROUP BY ?startStop ORDER BY ?time1 ?time2;
 
 SELECT ?trip_id ?startstop ?depature_time ?stopstop ?depature_time2 ?tripname
 where { 
