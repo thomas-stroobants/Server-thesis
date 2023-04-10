@@ -18,8 +18,12 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT ?stopSNnmbs ?departureTimeSNnmbs ?stopGSPnmbs ?departureTimeGSPnmbs ?tripname ?nameGSPdl ?departureTimeGSPdl ?nameIMECdl ?departureTimeIMECdl ?tripSNGSP 
+SELECT ?stopSNnmbs ?departureTimeSNnmbs ?stopGSPnmbs ?departureTimeGSPnmbs ?tripname ?nameGSPdl ?departureTimeGSPdl ?nameIMECdl ?departureTimeIMECdl #?tripSNGSP 
 WHERE {
+    #########################################################
+    ## Part De Lijn Gent-Sint-Pieters to IMEC AA-Tower
+    #########################################################
+
     #details stop GSP delijn
     ?stopGSPdl a gtfs:Stop ;
         foaf:name ?nameGSPdl ;
@@ -54,6 +58,10 @@ WHERE {
 
     BIND ( (?departureTimeGSPdl - 300) AS ?bufferGSPdl)    #buffer to have time to transfer from train to bus
 
+    #########################################################
+    ## Part NMBS Sint-Niklaas to  Gent-Sint-Pieters
+    #########################################################
+
     #start location
     ?stopSNnmbs foaf:name "Sint-Niklaas";
         a gtfs:Stop .
@@ -77,11 +85,14 @@ WHERE {
         gtfs:headsign ?tripname .
 
     BIND ( (?departureTimeGSPdl - 3600) AS ?bufferGSP)
-    # FILTER (?departureTimeGSPnmbs >= ?bufferGSP && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
+    BIND ((?departureTimeGSPdl - 43200) AS ?limitTime)
     # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
 
     FILTER (?departureTimeGSPnmbs >= ?bufferGSP && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
-    FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
+    # FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= ?bufferGSPdl) 
+    FILTER (?departureTimeSNnmbs >= ?limitTime) 
     FILTER (?seqGSPnmbs > ?seqSNnmbs) # to have the correct direction for the trip
 
 
