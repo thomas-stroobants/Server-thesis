@@ -52,7 +52,7 @@ WHERE {
     FILTER (?departureTimeGSPdl >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeGSPdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
     FILTER(?seqGSPdl < ?seqIMECdl)
 
-    BIND ( (?departureTimeGSPdl - ?300) AS ?bufferGSPdl)    #buffer to have time to transfer from train to bus
+    BIND ( (?departureTimeGSPdl - 300) AS ?bufferGSPdl)    #buffer to have time to transfer from train to bus
 
     #start location
     ?stopSNnmbs foaf:name "Sint-Niklaas";
@@ -75,11 +75,13 @@ WHERE {
 
     ?tripSNGSP a gtfs:Trip ;    
         gtfs:headsign ?tripname .
-    # FILTER (?departureTimeGSPnmbs >= (?bufferGSPdl - 600) && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
-    # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?bufferGSPdl) 
 
-    FILTER (?departureTimeGSPnmbs >= "2023-02-21T07:51:00"^^xsd:dateTime && ?departureTimeGSPnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
-    FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    BIND ( (?departureTimeGSPdl - 3600) AS ?bufferGSP)
+    FILTER (?departureTimeGSPnmbs >= ?bufferGSP && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
+    FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
+
+    # FILTER (?departureTimeGSPnmbs >= "2023-02-21T07:51:00"^^xsd:dateTime && ?departureTimeGSPnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
     FILTER (?seqGSPnmbs > ?seqSNnmbs) # to have the correct direction for the trip
 
 
