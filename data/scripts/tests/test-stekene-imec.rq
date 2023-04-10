@@ -85,14 +85,15 @@ WHERE {
         gtfs:headsign ?tripname .
 
     BIND ( (?departureTimeGSPdl - 3600) AS ?bufferGSP)
-    BIND ((?departureTimeGSPdl - 43200) AS ?limitTime)
+    # BIND ((?departureTimeGSPdl - 43200) AS ?limitTime)
+    BIND ("2023-02-21T00:00:00"^^xsd:dateTime AS ?limitTime)
     # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
 
     FILTER (?departureTimeGSPnmbs >= ?bufferGSP && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
-    # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
     # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
     # FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= ?bufferGSPdl) 
-    FILTER (?departureTimeSNnmbs >= ?limitTime) 
+    # FILTER (?departureTimeSNnmbs >= ?limitTime) 
     FILTER (?seqGSPnmbs > ?seqSNnmbs) # to have the correct direction for the trip
 
 
