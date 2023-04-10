@@ -30,11 +30,11 @@ WHERE {
         foaf:name ?nameIMECdl ;
         gtfs:code 200659 .        #zwijnaarde technologiepark
 
-    # #details trip GSP IMEC delijn
-    # ?tripGSPIMEC a gtfs:Trip ;
-    #     gtfs:route ?route ;
-    #     gtfs:direction ?direction ;
-    #     dct:identifier ?tripGSPIMECId .
+    #details trip GSP IMEC delijn
+    ?tripGSPIMEC a gtfs:Trip ;
+        gtfs:route ?route ;
+        gtfs:direction ?direction ;
+        dct:identifier ?tripGSPIMECId .
 
     # ?stopTimeGSPdl a gtfs:StopTime ;
     #         gtfs:stop ?stopGSPdl ;
