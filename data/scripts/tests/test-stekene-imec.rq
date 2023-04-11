@@ -113,11 +113,11 @@ WHERE {
         gtfs:direction ?direction ;
         dct:identifier ?tripId .
 
-    # ?stopTimeStekenedl a gtfs:StopTime ;
-    #         gtfs:stop ?stopStekenedl ;
-    #         gtfs:trip ?tripSTSN ;
-    #         gtfs:departureTime ?departureTimeSTdl ;
-    #         gtfs:stopSequence ?seqSTdl .
+    # ?stopTimeStekenedl a gtfs:StopTime .
+            # gtfs:stop ?stopStekenedl .
+            # gtfs:trip ?tripSTSN ;
+            # gtfs:departureTime ?departureTimeSTdl ;
+            # gtfs:stopSequence ?seqSTdl .
     # FILTER (?departureTimeSTdl >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSTdl <= "2023-02-21T08:00:00"^^xsd:dateTime)
     
     # ?stopTimeSNdl a gtfs:StopTime ;
@@ -131,4 +131,5 @@ WHERE {
 
 
 
-} ORDER BY ?departureTimeGSPdl ?departureTimeIMECdl;
+} ORDER BY ?departureTimeGSPdl ?departureTimeIMECdl
+# LIMIT 10  ;
