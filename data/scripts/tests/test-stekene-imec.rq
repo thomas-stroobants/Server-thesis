@@ -92,9 +92,9 @@ WHERE {
     FILTER (?departureTimeGSPnmbs >= ?bufferGSP && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
 
     # FILTER (?departureTimeGSPnmbs >= "2023-02-21T07:15:00"^^xsd:dateTime && ?departureTimeGSPnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
-    FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    # FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
     # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
-    # FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= ?bufferGSPdl) 
+    FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= ?bufferGSPdl) 
     # FILTER (?departureTimeSNnmbs >= ?limitTime) 
     FILTER (?seqGSPnmbs > ?seqSNnmbs) # to have the correct direction for the trip
 
