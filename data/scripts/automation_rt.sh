@@ -11,7 +11,8 @@ echo "$(date) | Start of data retrieval static data"
 # Download the realtime data bluebike
 
 echo "$(date) | Downloading BlueBike Data"
-curl -o "$HOME/data/BlueBike/bluebike.ttl" https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/bluebike.ttl
+# curl -o "$HOME/data/BlueBike/bluebike.ttl" https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/bluebike.ttl
+python3 $HOME/data/scripts/data-retrieval/get_rt_data.py
 
 
 # Delete NMBS data from Virtuoso
