@@ -18,7 +18,7 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT ?stopCode1 ?time1 ?seq1 ?trip ?destStop ?time2 ?seq2 ?stopTime2 ?trip2 ?direction
+SELECT ?trip ?stopCode1 ?time1 ?stopCode2 ?time2
 WHERE {
     ?startStop a gtfs:Stop .
     ?startStop foaf:name "Stekene Kerk" .
@@ -27,6 +27,7 @@ WHERE {
 
     ?destStop a gtfs:Stop .
     ?destStop foaf:name "Sint-Niklaas Uitgang Noordlaan" .
+    ?destStop gtfs:code ?stopCode2 .
     
     ?trip a gtfs:Trip .
     ?trip gtfs:route ?route .
