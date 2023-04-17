@@ -73,7 +73,6 @@ pid_load_nmbs=$!
 isql 1111 dba dba ~/data/scripts/query/delijn-load.sql &
 pid_load_delijn=$!
 
-# TODO: loading blue-bike data into Virtuoso
 
 wait $pid_load_nmbs $pid_load_delijn
 echo "$(date) | Loading data into Virtuoso complete"

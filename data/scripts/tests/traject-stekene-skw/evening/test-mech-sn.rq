@@ -1,0 +1,48 @@
+SPARQL
+PREFIX rr: <http://www.w3.org/ns/r2rml#> 
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#> 
+PREFIX map: <http://mapping.example.com/> 
+PREFIX ma: <http://www.w3.org/ns/ma-ont#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX rev: <http://purl.org/stuff/rev#> 
+PREFIX v: <http://rdf.data-vocabulary.org/#> 
+PREFIX schema: <http://schema.org/> 
+PREFIX gtfs: <http://vocab.gtfs.org/terms#> 
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> 
+PREFIX dct: <http://purl.org/dc/terms/> 
+
+#     BIND ( (?time2 - ?time1) AS ?diff)
+
+SELECT ?trip_id ?startstop ?depature_time ?stopstop ?depature_time2 ?tripname
+where { 
+    #start location
+    ?startstop foaf:name "Sint-Niklaas";
+        a gtfs:Stop .
+
+    ?stopstop foaf:name "Gent-Sint-Pieters" ;
+        a gtfs:Stop .
+
+    ?stoptime a gtfs:StopTime;
+        gtfs:stop ?startstop ;
+        gtfs:trip ?trip_id ;
+        gtfs:departureTime ?depature_time ;
+        gtfs:stopSequence ?seq1 .
+
+    ?stoptime2 a gtfs:StopTime;
+        gtfs:stop ?stopstop ;
+        gtfs:trip ?trip_id ;
+        gtfs:departureTime ?depature_time2 ;
+        gtfs:stopSequence ?seq2 .
+
+    ?trip_id a gtfs:Trip ;    
+        gtfs:headsign ?tripname .
+    FILTER (?depature_time2 >= "2023-02-21T07:51:00"^^xsd:dateTime && ?depature_time2 <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    FILTER (?depature_time >= "2023-02-21T00:00:00"^^xsd:dateTime && ?depature_time <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    FILTER (?seq2 > ?seq1) # to have the correct direction for the trip
+} ORDER BY ?depature_time2 ;
