@@ -68,8 +68,17 @@ def get_json_gtfs_rt(url, file_name, params=None, headers=None):
     else: 
         print(f"Request failed with status code: {response.status_code}")
 
+def get_bluebike_data(isotime):
+    remote_url = 'https://www.pieter.pm/Blue-Bike-to-Linked-GBFS/history/bluebike.ttl' 
+    local_file = f"{Path.home()}/data/BlueBike/bluebike-{isotime}.ttl"
+    urllib.request.urlretrieve(remote_url, local_file)
+
+
 isotime = datetime.datetime.now().replace(microsecond=0).isoformat()
-# get_protobuf_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs-{isotime}.json", params=params, headers=headers)
 get_protobuf_gtfs_rt(nmbs_rt_url, f"{Path.home()}/data/nmbs-rt-data/nmbs-rt-gtfs-{isotime}.json")
 get_json_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs-{isotime}.json", params=paramsjson, headers=headers)
+get_bluebike_data(isotime)
+
+
+# get_protobuf_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs-{isotime}.json", params=params, headers=headers)
 # get_protobuf_gtfs_rt(de_lijn_rt1_url, f"{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs1-{isotime}.json", headers=headers)
