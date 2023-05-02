@@ -35,10 +35,10 @@ WHERE {
         gtfs:code 200659 .        #zwijnaarde technologiepark
 
     #details trip GSP IMEC delijn
-    ?tripGSPIMEC a gtfs:Trip ;
-        gtfs:route ?route ;
-        gtfs:direction ?direction ;
-        dct:identifier ?tripGSPIMECId .
+    ?tripGSPIMEC a gtfs:Trip .
+        # gtfs:route ?route ;
+        # # gtfs:direction ?direction ;
+        # dct:identifier ?tripGSPIMECId .
 
     ?stopTimeGSPdl a gtfs:StopTime ;
             gtfs:stop ?stopGSPdl ;
@@ -52,8 +52,8 @@ WHERE {
             gtfs:departureTime ?departureTimeIMECdl ;
             gtfs:stopSequence ?seqIMECdl .
 
-    FILTER (?departureTimeIMECdl >= "2023-02-21T08:00:00"^^xsd:dateTime && ?departureTimeIMECdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
-    FILTER (?departureTimeGSPdl >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeGSPdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
+    FILTER (?departureTimeIMECdl >= ?departureTimeGSPdl && ?departureTimeIMECdl <= "2023-02-21T09:00:00"^^xsd:dateTime)
+    FILTER (?departureTimeGSPdl >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeGSPdl <= ?departureTimeIMECdl)
     FILTER(?seqGSPdl < ?seqIMECdl)
 
     BIND ( (?departureTimeGSPdl - 300) AS ?bufferGSPdl)    #buffer to have time to transfer from train to bus
@@ -84,24 +84,13 @@ WHERE {
     ?tripSNGSP a gtfs:Trip ;    
         gtfs:headsign ?tripname .
 
-    BIND ( (?departureTimeGSPdl - 3600) AS ?bufferGSP)
-    # BIND ((?departureTimeGSPdl - 43200) AS ?limitTime)
-    BIND ("2023-02-21T00:00:00"^^xsd:dateTime AS ?limitTime)
-    # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
-
-    FILTER (?departureTimeGSPnmbs >= ?bufferGSP && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
-
-    # FILTER (?departureTimeGSPnmbs >= "2023-02-21T07:15:00"^^xsd:dateTime && ?departureTimeGSPnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
-    FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
-    # FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
-    # FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
-    # FILTER (?departureTimeSNnmbs >= ?limitTime && ?departureTimeSNnmbs <= ?bufferGSPdl) 
-    # FILTER (?departureTimeSNnmbs >= ?limitTime) 
+    FILTER (?departureTimeGSPnmbs >= "2023-02-21T07:15:00"^^xsd:dateTime && ?departureTimeGSPnmbs <= ?bufferGSPdl) 
+    FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= ?departureTimeGSPnmbs) 
     FILTER (?seqGSPnmbs > ?seqSNnmbs) # to have the correct direction for the trip
 
-    #########################################################
-    ## Part De Lijn Stekene to Sint-Niklaas
-    #########################################################
+    # #########################################################
+    # ## Part De Lijn Stekene to Sint-Niklaas
+    # #########################################################
 
     # ?stopStekenedl a gtfs:Stop ;
     #         # foaf:name "Stekene Kerk" ;
@@ -132,11 +121,8 @@ WHERE {
     #         gtfs:trip ?tripSTSN ;
     #         gtfs:departureTime ?departureTimeSNdl ;
     #         gtfs:stopSequence ?seqSNdl .
-    # FILTER (?departureTimeSNdl >= "2023-02-21T07:00:00"^^xsd:dateTime && ?departureTimeSNdl <= "2023-02-21T08:00:00"^^xsd:dateTime)
+    # FILTER (?departureTimeSNdl >= "2023-02-21T07:00:00"^^xsd:dateTime && ?departureTimeSNdl <= ?departureTimeSNnmbs)
 
     # FILTER(?seqSTdl < ?seqSNdl)
 
-
-
 } ORDER BY ?departureTimeGSPdl ?departureTimeIMECdl;
-# LIMIT 10  ;
