@@ -22,12 +22,12 @@ SELECT ?stopName1 ?time1 ?seq1 ?trip ?destStop ?time2 ?seq2 ?stopTime2 ?directio
 WHERE {
     ?startStop a gtfs:Stop .
     ?startStop foaf:name ?stopName1.
-    ?startStop gtfs:code 204917 .       #station gent sp
+    ?startStop gtfs:code 109696 .       #mechelen
 
 
     ?destStop a gtfs:Stop .
     ?destStop foaf:name ?stopName2.
-    ?destStop gtfs:code 200659 .        #zwijnaarde technologiepark
+    ?destStop gtfs:code 109507 .        #skw
 
     ?trip a gtfs:Trip .
     ?trip gtfs:route ?route .
@@ -46,8 +46,8 @@ WHERE {
             gtfs:departureTime ?time2 ;
             gtfs:stopSequence ?seq2 .
 
+    FILTER (?time1 >= "2023-02-21T08:00:00"^^xsd:dateTime && ?time1 <= "2023-02-21T08:50:00"^^xsd:dateTime)
     FILTER (?time2 >= "2023-02-21T08:00:00"^^xsd:dateTime && ?time2 <= "2023-02-21T09:00:00"^^xsd:dateTime)
-    FILTER (?time1 >= "2023-02-21T00:00:00"^^xsd:dateTime && ?time1 <= "2023-02-21T09:00:00"^^xsd:dateTime).
     FILTER(?seq1 < ?seq2)
 
 } GROUP BY ?startStop ORDER BY ?time1 ?time2;
