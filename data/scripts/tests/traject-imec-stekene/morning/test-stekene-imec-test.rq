@@ -18,7 +18,7 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT ?stopCodeStekenedl ?departureTimeSTdl ?stopCodeSNdl ?departureTimeSNdl ?stopSNnmbs ?departureTimeSNnmbs ?stopGSPnmbs ?departureTimeGSPnmbs ?tripname ?nameGSPdl ?departureTimeGSPdl ?nameIMECdl ?departureTimeIMECdl #?tripSNGSP 
+SELECT ?stopCodeStekenedl ?departureTimeSTdl ?stopCodeSNdl ?departureTimeSNdl ?stopSNnmbs ?bluebikeSN ?departureTimeSNnmbs ?stopGSPnmbs ?departureTimeGSPnmbs ?bluebikeGSP ?tripname ?nameGSPdl ?departureTimeGSPdl ?nameIMECdl ?departureTimeIMECdl #?tripSNGSP 
 WHERE {
     #########################################################
     ## Part De Lijn Gent-Sint-Pieters to IMEC AA-Tower
@@ -64,10 +64,12 @@ WHERE {
 
     #start location
     ?stopSNnmbs foaf:name "Sint-Niklaas";
-        a gtfs:Stop .
+        a gtfs:Stop ;
+        gtfs:bikeAllowed ?bluebikeSN .
 
     ?stopGSPnmbs foaf:name "Gent-Sint-Pieters" ;
-        a gtfs:Stop .
+        a gtfs:Stop ;
+        gtfs:bikeAllowed ?bluebikeGSP .
 
     ?stopTimeSNnmbs a gtfs:StopTime;
         gtfs:stop ?stopSNnmbs ;
