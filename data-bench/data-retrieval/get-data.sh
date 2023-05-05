@@ -20,7 +20,12 @@ function download_data() {
     curl -o "$HOME/data-bench/nmbs-gtfs-$(date +'%d-%m-%Y').zip" https://sncb-opendata.hafas.de/gtfs/static/c21ac6758dd25af84cca5b707f3cb3de 
     # curl -o "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y').zip" https://gtfs.irail.be/mivb/mivb-gtfs.zip
     # curl -o "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y').zip" https://gtfs.irail.be/tec/tec-gtfs.zip
-
+    if [ ! -d "$HOME/data-bench/iRail/" ];
+    then 
+        mkdir $HOME/data-bench/iRail/
+    else
+        echo "Directory $HOME/data-bench/iRail/ already exists.."
+    fi
     # Download NMBS station information from iRail
     curl -o "$HOME/data-bench/iRail/stations.csv" https://raw.githubusercontent.com/iRail/stations/master/stations.csv 
     curl -o "$HOME/data-bench/iRail/stops.csv" https://raw.githubusercontent.com/iRail/stations/master/stops.csv
