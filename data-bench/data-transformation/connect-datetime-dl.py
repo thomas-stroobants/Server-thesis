@@ -5,14 +5,14 @@ import csv
 import pandas as pd
 
 # read calendar_dates to dataframe
-calendar_dates_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs/calendar_dates.csv')
+calendar_dates_df = pd.read_csv('/home/thomas/data-bench/de-lijn-gtfs/calendar_dates.csv')
 calendar_dates_df = calendar_dates_df.drop('exception_type', axis=1)
 # read trips to dataframe
-trips_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs/trips.csv')
+trips_df = pd.read_csv('/home/thomas/data-bench/de-lijn-gtfs/trips.csv')
 column_list_trip = ['route_id', 'trip_headsign', 'trip_short_name', 'direction_id', 'block_id', 'shape_id']
 trips_df = trips_df.drop(column_list_trip, axis=1)
 # read stop_times to dataframe
-stop_times_df = pd.read_csv('/home/thomas/data/de-lijn-gtfs/stop_times.csv')
+stop_times_df = pd.read_csv('/home/thomas/data-bench/de-lijn-gtfs/stop_times.csv')
 
 print(f"{datetime.datetime.now()} Modifying departure times above 24...")
 
@@ -51,6 +51,6 @@ print(f"{datetime.datetime.now()} len of DF is {len(merged_df2)}")
 
 # write results to new file
 print(f"{datetime.datetime.now()} Writing results to file")
-merged_df2.to_csv('/home/thomas/data/de-lijn-gtfs/stop_times.csv', index=False)
+merged_df2.to_csv('/home/thomas/data-bench/de-lijn-gtfs/stop_times.csv', index=False)
 
 print(f"{datetime.datetime.now()} Finished adapting data stop_times from De Lijn..")
