@@ -19,30 +19,33 @@ PREFIX dct: <http://purl.org/dc/terms/>
 
 #     BIND ( (?time2 - ?time1) AS ?diff)
 
-SELECT ?trip_id ?startstop ?depature_time ?stopstop ?depature_time2 ?tripname
+SELECT ?stopSNnmbs ?bluebikeSN ?departureTimeSNnmbs ?tripname ?stopGSPnmbs ?bluebikeGSP ?departureTimeGSPnmbs
 where { 
-    #start location
-    ?startstop foaf:name "Sint-Niklaas";
-        a gtfs:Stop .
+        ?stopSNnmbs foaf:name "Sint-Niklaas";
+        a gtfs:Stop ;
+        gtfs:bikeAllowed ?bluebikeSN .
 
-    ?stopstop foaf:name "Gent-Sint-Pieters" ;
-        a gtfs:Stop .
+    ?stopGSPnmbs foaf:name "Gent-Sint-Pieters" ;
+        a gtfs:Stop ;
+        gtfs:bikeAllowed ?bluebikeGSP .
 
-    ?stoptime a gtfs:StopTime;
-        gtfs:stop ?startstop ;
-        gtfs:trip ?trip_id ;
-        gtfs:departureTime ?depature_time ;
-        gtfs:stopSequence ?seq1 .
+    ?stopTimeSNnmbs a gtfs:StopTime;
+        gtfs:stop ?stopSNnmbs ;
+        gtfs:trip ?tripSNGSP ;
+        gtfs:departureTime ?departureTimeSNnmbs ;
+        gtfs:stopSequence ?seqSNnmbs .
 
-    ?stoptime2 a gtfs:StopTime;
-        gtfs:stop ?stopstop ;
-        gtfs:trip ?trip_id ;
-        gtfs:departureTime ?depature_time2 ;
-        gtfs:stopSequence ?seq2 .
+    ?stopTimeGSPnmbs a gtfs:StopTime;
+        gtfs:stop ?stopGSPnmbs ;
+        gtfs:trip ?tripSNGSP ;
+        gtfs:departureTime ?departureTimeGSPnmbs ;
+        gtfs:stopSequence ?seqGSPnmbs .
 
-    ?trip_id a gtfs:Trip ;    
+    ?tripSNGSP a gtfs:Trip ;    
         gtfs:headsign ?tripname .
-    FILTER (?depature_time2 >= "2023-02-21T07:51:00"^^xsd:dateTime && ?depature_time2 <= "2023-02-21T08:15:00"^^xsd:dateTime) 
-    FILTER (?depature_time >= "2023-02-21T00:00:00"^^xsd:dateTime && ?depature_time <= "2023-02-21T08:15:00"^^xsd:dateTime) 
-    FILTER (?seq2 > ?seq1) # to have the correct direction for the trip
-} ORDER BY ?depature_time2 ;
+
+    FILTER (?departureTimeGSPnmbs >= "2023-02-21T07:15:00"^^xsd:dateTime && ?departureTimeGSPnmbs <= "2023-02-21T08:30:00"^^xsd:dateTime) 
+    FILTER (?departureTimeSNnmbs >= "2023-02-21T00:00:00"^^xsd:dateTime && ?departureTimeSNnmbs <= "2023-02-21T08:15:00"^^xsd:dateTime) 
+    FILTER (?seqGSPnmbs > ?seqSNnmbs) # to have the correct direction for the trip
+
+} ORDER BY ?departureTimeGSPnmbs ;
