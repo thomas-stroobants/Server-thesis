@@ -5,7 +5,7 @@ import csv
 import threading
 import os
 
-scripts = ["script1.sh", "schript2.py"]
+scripts = ["$HOME/data-bench/data-retrieval/get-data.sh", "python3 $HOME/data-bench/data-retrieval/get_rt_data.py"]
 
 # get resources from psutil
 def get_resource_usage(pid):
