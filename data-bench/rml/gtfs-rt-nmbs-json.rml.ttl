@@ -1,0 +1,129 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix map: <http://mapping.example.com/> .
+@prefix ma: <http://www.w3.org/ns/ma-ont#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rev: <http://purl.org/stuff/rev#> .
+@prefix v: <http://rdf.data-vocabulary.org/#> .
+@prefix schema: <http://schema.org/> .
+@prefix gtfs: <http://vocab.gtfs.org/terms#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix dct: <http://purl.org/dc/terms/> .  
+@base <http://example.com> .
+
+<#HeaderMapping> a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-adap.json" ;
+        rml:iterator "$.header" ;
+        rml:referenceFormulation ql:JSONPath 
+    ];
+
+    rr:subjectMap [
+        rr:template "http://example.com/nmbs/rt/{timestamp}" ;
+        # rr:class ex:FeedHeader;
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate schema:version ;
+        rr:objectMap [
+            rml:reference "gtfsRealtimeVersion"
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "incrementality"
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate dct:modified ;
+        rr:objectMap [
+            rml:reference "timestamp";
+            rr:datatype xsd:date
+        ]
+    ].
+
+<#StopTimeUpdateMapping> a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-adap.json" ;
+        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+        rml:referenceFormulation ql:JSONPath 
+    ];
+
+    rr:subjectMap [
+        rr:template "http://example.com/nmbs/stoptimes/{tripId}-{stopId}"  ;
+        rr:class gtfs:StopTime
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate dct:date ;
+        rr:objectMap [
+            rml:reference "tripStartDate";
+            rr:datatype xsd:date;
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate xsd:integer ;
+        rr:objectMap [
+            rml:reference "departure.delay";
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate gtfs:stop ;
+        rr:objectMap [
+            # rml:reference "stopId";
+            rr:template "http://example.com/nmbs/stops/{stopId}" ;
+	        rr:termType rr:IRI ;
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate gtfs:trip ;
+        rr:objectMap [
+            # rml:reference "stopId";
+            rr:template "http://example.com/nmbs/trips/{tripId}" ;
+	        rr:termType rr:IRI ;
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "scheduleRelationship";
+        ]
+    ].
+
+<#TripStartTimeMapping> a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "/home/thomas/data/nmbs-rt-data/nmbs-rt-gtfs-adap.json" ;
+        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+        rml:referenceFormulation ql:JSONPath 
+    ];
+
+    rr:subjectMap [
+        rr:template "http://example.com/nmbs/trips/{tripId}"  ;
+    ];
+
+    # rr:predicateObjectMap [
+    #     rr:predicate xsd:time ;
+    #     rr:objectMap [
+    #         rml:reference "tripStartTime";
+    #     ]
+    # ];
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "scheduleRelationship";
+        ]
+    ].

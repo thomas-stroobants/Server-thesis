@@ -1,0 +1,153 @@
+prefixes:
+  owl: http://www.w3.org/2002/07/owl#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  xml: http://www.w3.org/XML/1998/namespace
+  rr: http://www.w3.org/ns/r2rml#
+  rml: http://semweb.mmlab.be/ns/rml#
+  ql: http://semweb.mmlab.be/ns/ql#
+  map: http://mapping.example.com/
+  ma: http://www.w3.org/ns/ma-ont#
+  sd: http://www.w3.org/ns/sparql-service-description#
+  dc: http://purl.org/dc/elements/1.1/
+  foaf: http://xmlns.com/foaf/0.1/
+  rev: http://purl.org/stuff/rev#
+  v: http://rdf.data-vocabulary.org/#
+  schema: http://schema.org/
+  gtfs: http://vocab.gtfs.org/terms#
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  dct: http://purl.org/dc/terms/
+mappings:
+  map_agency_000:
+    sources:
+    - [/home/thomas/data/tec-gtfs/agency.csv~csv]
+    s: http://example.com/tec/agency/$(agency_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Agency]
+    - [foaf:page, $(agency_url)]
+    - [foaf:name, $(agency_name)]
+    - [gtfs:timeZone, $(agency_timezone)]
+    - [dct:language, $(agency_lang)]
+    - [foaf:phone, $(agency_phone)]
+  map_calendar_date_rules_000:
+    sources:
+    - [/home/thomas/data/tec-gtfs/calendar_dates.csv~csv]
+    s: http://example.com/tec/calendar_date_rule/$(service_id)-$(date)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#CalendarDateRule]
+    - [dct:date, $(date), http://www.w3.org/2001/XMLSchema#date]
+    - [gtfs:dateAddition, $(exception_type), http://www.w3.org/2001/XMLSchema#boolean]
+  map_feed_000:
+    sources:
+    - [/home/thomas/data/tec-gtfs/feed_info.csv~csv]
+    s: http://example.com/tec/feed/$(feed_publisher_name)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Feed]
+    - [dct:publisher, $(feed_publisher_name)]
+    - [foaf:page, $(feed_publisher_url)]
+    - [dct:language, $(feed_lang)]
+    - [dct:language, $(default_lang)]
+    - [schema:startDate, $(feed_start_date), http://www.w3.org/2001/XMLSchema#date]
+    - [schema:email, $(feed_contact_email)]
+    - [foaf:page, $(feed_contact_url)]
+  map_routes_000:
+    sources:
+    - [/home/thomas/data/tec-gtfs/routes.csv~csv]
+    s: http://example.com/tec/routes/$(route_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Route]
+    - [gtfs:shortName, $(route_short_name)]
+    - [gtfs:longName, $(route_long_name)]
+    - [dct:description, $(route_desc)]
+    - [gtfs:routeType, 'http://example.com/tec/resource/RouteType/{route_type}']
+    - [gtfs:routeUrl, $(route_url)]
+    - p: gtfs:agency
+      o:
+        mapping: map_agency_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(agency_id)]
+          - [str2, $(agency_id)]
+  map_services2_000:
+    sources:
+    - [/home/thomas/data/tec-gtfs/calendar_dates.csv~csv]
+    s: http://example.com/tec/services/$(service_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Service]
+    - p: gtfs:serviceRule
+      o:
+        mapping: map_calendar_date_rules_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(service_id)]
+          - [str2, $(service_id)]
+  map_stops_000:
+    sources:
+    - [/home/thomas/data/tec-gtfs/stops.csv~csv]
+    s: http://example.com/tec/stops/$(stop_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Stop]
+    - [gtfs:code, $(stop_code)]
+    - [dct:identifier, $(stop_id)]
+    - [foaf:name, $(stop_name)]
+    - [dct:description, $(stop_desc)]
+    - [geo:lat, $(stop_lat), http://www.w3.org/2001/XMLSchema#double]
+    - [geo:long, $(stop_lon), http://www.w3.org/2001/XMLSchema#double]
+    - [gtfs:zone, $(zone_id)]
+    - [foaf:page, $(stop_url)]
+    - [gtfs:locationType, 'http://example.com/tec/resource/LocationType/{location_type}']
+  map_stoptimes_000:
+    sources:
+    - [/home/thomas/data/tec-gtfs/stop_times.csv~csv]
+    s: http://example.com/tec/stoptimes/$(trip_id)-$(stop_id)-$(arrival_time)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#StopTime]
+    - [gtfs:arrivalTime, $(arrival_time), http://www.w3.org/2001/XMLSchema#duration]
+    - [gtfs:departureTime, $(departure_time), http://www.w3.org/2001/XMLSchema#dateTime]
+    - [gtfs:stopSequence, $(stop_sequence), http://www.w3.org/2001/XMLSchema#integer]
+    - [gtfs:pickupType, 'http://example.com/tec/resource/PickupType/{pickup_type}']
+    - [gtfs:dropOffType, 'http://example.com/tec/resource/DropOffType/{drop_off_type}']
+    - p: gtfs:trip
+      o:
+        mapping: map_trips_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(trip_id)]
+          - [str2, $(trip_id)]
+    - p: gtfs:stop
+      o:
+        mapping: map_stops_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(stop_id)]
+          - [str2, $(stop_id)]
+  map_trips_000:
+    sources:
+    - [/home/thomas/data/tec-gtfs/trips.csv~csv]
+    s: http://example.com/tec/trips/$(trip_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Trip]
+    - [gtfs:shortName, $(trip_short_name)]
+    - [gtfs:direction, $(direction_id)]
+    - [gtfs:block, $(block_id)]
+    - p: gtfs:service
+      o:
+        mapping: map_services2_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(service_id)]
+          - [str2, $(service_id)]
+    - p: gtfs:route
+      o:
+        mapping: map_routes_000
+        condition:
+          function: equal
+          parameters:
+          - [str1, $(route_id)]
+          - [str2, $(route_id)]
