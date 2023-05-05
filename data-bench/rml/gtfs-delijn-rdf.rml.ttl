@@ -20,7 +20,7 @@
 
 <#AgencyMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/agency.csv";
+    rml:source "/home/thomas/data-bench/de-lijn-gtfs/agency.csv";
     rml:referenceFormulation ql:CSV
   ];
 
@@ -67,7 +67,7 @@
 
 <#CalendarDatesMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/calendar_dates.csv" ;
+    rml:source "/home/thomas/data-bench/de-lijn-gtfs/calendar_dates.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 
@@ -94,7 +94,7 @@
 
 <#FeedMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/feed_info.csv";
+    rml:source "/home/thomas/data-bench/de-lijn-gtfs/feed_info.csv";
     rml:referenceFormulation ql:CSV
   ];
 
@@ -149,7 +149,7 @@
 
 <#RoutesMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/routes.csv" ;
+    rml:source "/home/thomas/data-bench/de-lijn-gtfs/routes.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 
@@ -221,7 +221,7 @@
 
 <#ServiceMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/calendar_dates.csv" ;
+    rml:source "/home/thomas/data-bench/de-lijn-gtfs/calendar_dates.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 
@@ -243,7 +243,7 @@
 
 <#StopsMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/stops.csv" ;
+    rml:source "/home/thomas/data-bench/de-lijn-gtfs/stops.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 
@@ -328,7 +328,7 @@
 
 <#StopTimesMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/stop_times_01.csv";
+    rml:source "/home/thomas/data-bench/de-lijn-gtfs/stop_times_01.csv";
     rml:referenceFormulation ql:CSV
   ];
 
@@ -429,7 +429,7 @@
 
 <#TripsMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/de-lijn-gtfs/trips.csv" ;
+    rml:source "/home/thomas/data-bench/de-lijn-gtfs/trips.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 

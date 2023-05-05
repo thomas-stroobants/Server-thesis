@@ -20,7 +20,7 @@
 
 <#AgencyMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/nmbs-gtfs/agency.csv";
+    rml:source "/home/thomas/data-bench/nmbs-gtfs/agency.csv";
     rml:referenceFormulation ql:CSV
   ];
 
@@ -67,7 +67,7 @@
 
 <#CalendarDatesMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/nmbs-gtfs/calendar_dates.csv" ;
+    rml:source "/home/thomas/data-bench/nmbs-gtfs/calendar_dates.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 
@@ -94,7 +94,7 @@
 
 <#RoutesMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/nmbs-gtfs/routes.csv" ;
+    rml:source "/home/thomas/data-bench/nmbs-gtfs/routes.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 
@@ -166,7 +166,7 @@
 
 <#ServiceMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/nmbs-gtfs/calendar_dates.csv" ;
+    rml:source "/home/thomas/data-bench/nmbs-gtfs/calendar_dates.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 
@@ -188,7 +188,7 @@
 
 <#StopsMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/nmbs-gtfs/stops.csv" ;
+    rml:source "/home/thomas/data-bench/nmbs-gtfs/stops.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 
@@ -270,7 +270,7 @@
 
 <#StopTimesMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/nmbs-gtfs/stop_times.csv";
+    rml:source "/home/thomas/data-bench/nmbs-gtfs/stop_times.csv";
     rml:referenceFormulation ql:CSV
   ];
 
@@ -357,7 +357,7 @@
 
 <#TripsMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/nmbs-gtfs/trips.csv" ;
+    rml:source "/home/thomas/data-bench/nmbs-gtfs/trips.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 
@@ -418,7 +418,7 @@
 
 <#TransferMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/nmbs-gtfs/transfers.csv" ;
+    rml:source "/home/thomas/data-bench/nmbs-gtfs/transfers.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 
@@ -458,7 +458,7 @@
 
 <#TranslationMapping> a rr:TriplesMap;
   rml:logicalSource [
-    rml:source "/home/thomas/data/nmbs-gtfs/translations.csv" ;
+    rml:source "/home/thomas/data-bench/nmbs-gtfs/translations.csv" ;
     rml:referenceFormulation ql:CSV
   ];
 

@@ -19,7 +19,7 @@
 
 <#HeaderMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-adap.json" ;
+        rml:source "/home/thomas/data-bench/de-lijn-rt-data/de-lijn-rt-gtfs-adap.json" ;
         rml:iterator "$.header" ;
         rml:referenceFormulation ql:JSONPath 
     ];
@@ -53,7 +53,7 @@
 
 <#StopTimeUpdateMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-adap.json" ;
+        rml:source "/home/thomas/data-bench/de-lijn-rt-data/de-lijn-rt-gtfs-adap.json" ;
         rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
         rml:referenceFormulation ql:JSONPath 
     ];
@@ -88,7 +88,7 @@
 
 <#TripUpdateMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "/home/thomas/data/de-lijn-rt-data/de-lijn-rt-gtfs-adap.json" ;
+        rml:source "/home/thomas/data-bench/de-lijn-rt-data/de-lijn-rt-gtfs-adap.json" ;
         rml:iterator "$.entity[*].tripUpdate.trip" ;
         rml:referenceFormulation ql:JSONPath 
     ];

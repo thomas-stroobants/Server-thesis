@@ -19,7 +19,7 @@
 
 <#BlueBikeMapping> a rr:TriplesMap;
     rml:logicalSource [
-        rml:source "/home/thomas/data/iRail/facilities.csv" ;
+        rml:source "/home/thomas/data-bench/iRail/facilities.csv" ;
         rml:referenceFormulation ql:CSV 
     ];
 
