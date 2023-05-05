@@ -5,15 +5,15 @@ import csv
 import pandas as pd
 
 # read calendar_dates to dataframe
-calendar_dates_df = pd.read_csv('/home/thomas/data/nmbs-gtfs/calendar_dates.csv')
+calendar_dates_df = pd.read_csv('/home/thomas/data-bench/nmbs-gtfs/calendar_dates.csv')
 calendar_dates_df = calendar_dates_df.drop('exception_type', axis=1)
 # read trips to dataframe
-trips_df = pd.read_csv('/home/thomas/data/nmbs-gtfs/trips.csv')
+trips_df = pd.read_csv('/home/thomas/data-bench/nmbs-gtfs/trips.csv')
 # delete columns that we don't need
 column_list_trip = ['route_id', 'trip_headsign', 'trip_short_name', 'direction_id', 'block_id', 'shape_id', 'trip_type']
 trips_df = trips_df.drop(column_list_trip, axis=1)
 # read stop_times to dataframe
-stop_times_df = pd.read_csv('/home/thomas/data/nmbs-gtfs/stop_times.csv')
+stop_times_df = pd.read_csv('/home/thomas/data-bench/nmbs-gtfs/stop_times.csv')
 
 #apply leading zero where needed on time and remove all times from daylight savings
 # stop_times_df['departure_time'] = stop_times_df['departure_time'].apply(lambda x: '0'+x if len(x) == 7 else x)
@@ -50,6 +50,6 @@ merged_df2 = merged_df2.drop(column_list_stop, axis=1)
 print(f"{datetime.datetime.now()} len of DF is {len(merged_df2)}")
 # write results to new file
 print(f"{datetime.datetime.now()} Writing results to file")
-merged_df2.to_csv('/home/thomas/data/nmbs-gtfs/stop_times.csv', index=False)
+merged_df2.to_csv('/home/thomas/data-bench/nmbs-gtfs/stop_times.csv', index=False)
 
 print(f"{datetime.datetime.now()} Finished adapting data stop_times from NMBS..")
