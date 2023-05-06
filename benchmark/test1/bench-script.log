@@ -1,0 +1,6 @@
+Runtime  get-data.sh  22.24 seconds -- loadavg 2.67%
+Runtime  get-rt-data.py  0.60 seconds -- 
+Runtime  replace-irail.py 0.00 seconds -- loadavg 3.83%
+Runtime  connect-datetime.py 238.57 seconds -- loadavg 9.08% | 7.25%
+Runtime  connect-datetime-dl.py  612.39 seconds -- loadavg 12.67% | 9.92%
+Runtime  split-stop.sh  22.24 seconds -- loadavg 16.83% | 11.08% | 7.92%
