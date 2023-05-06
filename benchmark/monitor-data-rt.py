@@ -33,7 +33,7 @@ def record_usage(proc, interval, filename):
         cpu_percent = process.cpu_percent(interval=interval)
         mem_percent = process.memory_percent()
         mem_mbytes = process.memory_info().rss / (1024 ** 2)
-        inter_time = start_time - time.time()
+        inter_time = round((time.time() - start_time), 5)
         records.append([inter_time, cpu_percent, mem_percent, mem_mbytes])
         time.sleep(interval)
 
@@ -49,9 +49,10 @@ def record_usage(proc, interval, filename):
 for script in scripts:
     filename = get_cvs_filename(script)
     print(f"new filename: {filename} and script {script}")
-    # proc = subprocess.Popen(script)
-    # record_usage(proc, 0.3, filename)
-    print(f"Load average: {psutil.getloadavg()}")
+    proc = subprocess.Popen(script)
+    record_usage(proc, 0.3, filename)
+    loadavg = [round((x / psutil.cpu_count() * 100),2) for x in psutil.getloadavg()]
+    print(f"Load average: {loadavg}")
 
 # while proc.poll() is None:
 #     cpu_usage.append(process.cpu_percent(interval=0.1))
