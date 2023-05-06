@@ -27,11 +27,14 @@ def record_usage(proc, interval, filename):
     records = []
     process = psutil.Process(proc.pid)
 
+    start_time = time.time()
+
     while proc.poll() is None:
         cpu_percent = process.cpu_percent(interval=interval)
         mem_percent = process.memory_percent()
         mem_mbytes = process.memory_info().rss / (1024 ** 2)
-        records.append([time.time(), cpu_percent, mem_percent, mem_mbytes])
+        inter_time = start_time - time.time()
+        records.append([inter_time, cpu_percent, mem_percent, mem_mbytes])
         time.sleep(interval)
 
     with open(filename, 'w') as f:
@@ -48,6 +51,7 @@ for script in scripts:
     print(f"new filename: {filename} and script {script}")
     # proc = subprocess.Popen(script)
     # record_usage(proc, 0.3, filename)
+    print(f"Load average: {psutil.getloadavg()}")
 
 # while proc.poll() is None:
 #     cpu_usage.append(process.cpu_percent(interval=0.1))
