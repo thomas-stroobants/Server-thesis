@@ -1,12 +1,10 @@
 import psutil, subprocess, time, csv, os
 
 scripts = [
-    f"{os.path.expanduser('~')}/data-bench/data-retrieval/get-data.sh",
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-retrieval/get_rt_data.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/replace-irail.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime-dl.py"],
-    f"{os.path.expanduser('~')}/data-bench/data-transformation/test-split-stop.sh",
+    ["python3", "-m", "morph_kgc", f"{os.path.expanduser('~')}/graphs-bench/config/config-irail.ini"],
+    ["python3", "-m", "morph_kgc", f"{os.path.expanduser('~')}/graphs-bench/config/config-nmbs.ini"],
+    ["python3", "-m", "morph_kgc", f"{os.path.expanduser('~')}/graphs-bench/config/config-dl.ini"],
+    ["python3", "-m", "morph_kgc", f"{os.path.expanduser('~')}/graphs-bench/config/config-dl-2.ini"]
 
 ]
 
@@ -16,7 +14,7 @@ scripts = [
 def get_cvs_filename(script):
     filename = "test.csv"
     if isinstance(script, list):    #for python scripts
-        filename = f"{os.path.expanduser('~')}/benchmark/bench-{os.path.splitext(os.path.basename(script[1]))[0]}.csv"
+        filename = f"{os.path.expanduser('~')}/benchmark/bench-{os.path.splitext(os.path.basename(script[-1]))[0]}.csv"
     else:                           #for bash scripts
         filename = f"{os.path.expanduser('~')}/benchmark/bench-{os.path.splitext(os.path.basename(script))[0]}.csv"
 

@@ -1,12 +1,10 @@
 import psutil, subprocess, time, csv, os
 
 scripts = [
-    f"{os.path.expanduser('~')}/data-bench/data-retrieval/get-data.sh",
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-retrieval/get_rt_data.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/replace-irail.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime-dl.py"],
-    f"{os.path.expanduser('~')}/data-bench/data-transformation/test-split-stop.sh",
+    ["python3", "-m", "morph_kgc", f"{os.path.expanduser('~')}/graphs-bench/config/config-irail.ini"],
+    ["python3", "-m", "morph_kgc", f"{os.path.expanduser('~')}/graphs-bench/config/config-nmbs.ini"],
+    # ["python3", "-m", "morph_kgc", f"{os.path.expanduser('~')}/graphs-bench/config/config-dl.ini"],
+    # ["python3", "-m", "morph_kgc", f"{os.path.expanduser('~')}/graphs-bench/config/config-dl-2.ini"]
 
 ]
 
@@ -16,9 +14,9 @@ scripts = [
 def get_cvs_filename(script):
     filename = "test.csv"
     if isinstance(script, list):    #for python scripts
-        filename = f"{os.path.expanduser('~')}/benchmark/bench-{os.path.splitext(os.path.basename(script[1]))[0]}.csv"
+        filename = f"{os.path.expanduser('~')}/benchmark/bench-test-{os.path.splitext(os.path.basename(script[-1]))[0]}.csv"
     else:                           #for bash scripts
-        filename = f"{os.path.expanduser('~')}/benchmark/bench-{os.path.splitext(os.path.basename(script))[0]}.csv"
+        filename = f"{os.path.expanduser('~')}/benchmark/bench-test-{os.path.splitext(os.path.basename(script))[0]}.csv"
 
     print(f"Filename is {filename}")
     return filename
@@ -26,13 +24,21 @@ def get_cvs_filename(script):
 def record_usage(proc, interval, filename):
     records = []
     process = psutil.Process(proc.pid)
-
+    print(f"PID is {proc.pid}")
+    # children = process.children()
+    # print(f"Children are {children}")
+    # for child in children:
+    #     print(f"Child PID is {child.pid}")
+    #     cpu_percent = child.cpu_percent(interval=interval)
+    #     mem_percent = child.memory_percent()
+    #     mem_mbytes = child.memory_info().rss / (1024 ** 2)
+    #     print(f"{cpu_percent}   |   {mem_mbytes}")
     start_time = time.time()
 
     while proc.poll() is None:
-        cpu_percent = process.cpu_percent(interval=interval)
-        mem_percent = process.memory_percent()
-        mem_mbytes = process.memory_info().rss / (1024 ** 2)
+        cpu_percent = psutil.cpu_percent(interval=interval, percpu=True)
+        mem_percent = psutil.virtual_memory().percent
+        mem_mbytes = psutil.virtual_memory().active / (1024 ** 2)
         inter_time = round((time.time() - start_time), 5)
         records.append([inter_time, cpu_percent, mem_percent, mem_mbytes])
         time.sleep(interval)
@@ -47,18 +53,10 @@ def record_usage(proc, interval, filename):
 
 
 for script in scripts:
+    print(f"Load average before: {psutil.getloadavg()}")
     filename = get_cvs_filename(script)
     print(f"new filename: {filename} and script {script}")
     proc = subprocess.Popen(script)
     record_usage(proc, 0.3, filename)
     loadavg = [round((x / psutil.cpu_count() * 100),2) for x in psutil.getloadavg()]
     print(f"Load average: {loadavg}")
-
-# while proc.poll() is None:
-#     cpu_usage.append(process.cpu_percent(interval=0.1))
-#     mem_usage.append(process.memory_info())
-
-# print(f"Average CPU: {sum(cpu_usage)/len(cpu_usage)}%")
-# print(f"Average mem: {sum(mem_usage)/len(mem_usage)/(1024**3):.2f} bytes")
-# print(f"{cpu_usage}")
-# print(f"{mem_usage}")
