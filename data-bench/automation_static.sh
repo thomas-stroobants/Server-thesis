@@ -23,7 +23,8 @@ python3 $HOME/data/scripts/data-transformation/connect-datetime-dl.py
 # pid_dl=$!
 # echo "$(date) | Waiting for PID NMBS ($pid_nmbs) and De Lijn ($pid_dl) to finish"
 
-#TODO Divide file stoptimes De Lijn
+#Divide file stoptimes De Lijn
+$HOME/data/scripts/data-transformation/test-split-stop.sh
 
 wait $pid_irail_transf # $pid_nmbs $pid_dl 
 echo "$(date) | data transformation complete"
@@ -52,7 +53,7 @@ python3 -m morph_kgc ~/graphs/config/config-irail.ini &
 pid_morph_irail=$!
 
 echo "$(date) | Starting materialization of NMBS data using Morph-KGC"
-python3 -m morph_kgc ~/graphs/config/config-nmbs.ini &
+python3 -m morph_kgc ~/graphs-bench/config/config-nmbs.ini &
 pid_morph_nmbs=$!
 
 echo "$(date) | Starting materialization of De Lijn data using Morph-KGC"
