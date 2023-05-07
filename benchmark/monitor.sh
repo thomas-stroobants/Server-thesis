@@ -19,15 +19,24 @@ pid_morph_nmbs=$!
 while ps -p $pid_morph_nmbs > /dev/null; do
     # Get the current time stamp
     timestamp=$(date +%s)
+    ps_output=$(ps aux | grep $script_name | grep -v grep)
 
-    # Get CPU and memory usage of the Python script
-    pid=$(ps aux | grep $script_name | grep -v grep | awk '{print $2}')
-    cpu_usage=$(ps aux | grep $script_name | grep -v grep | awk '{print $3}')
-    memory_usage=$(ps aux | grep $script_name | grep -v grep | awk '{print $4}')
-    memory_bytes=$(ps aux | grep $script_name | grep -v grep | awk '{print $6}')
+    while read -r line; do
+        pid=$(echo "$line" | awk '{print $2}')
+        cpu_usage=$(echo "$line" | awk '{print $3}')
+        memory_usage=$(echo "$line" | awk '{print $4}')
+        memory_bytes=$(echo "$line" | awk '{print $6}')
+        echo "$timestamp, $pid, $cpu_usage, $memory_usage, $memory_bytes" >> $csv_file
+    done <<< "$ps_output"
 
-    # Write data to the CSV file
-    echo "$timestamp, $pid, $cpu_usage, $memory_usage, $memory_bytes" >> $csv_file
+    # # Get CPU and memory usage of the Python script
+    # pid=$(ps aux | grep $script_name | grep -v grep | awk '{print $2}')
+    # cpu_usage=$(ps aux | grep $script_name | grep -v grep | awk '{print $3}')
+    # memory_usage=$(ps aux | grep $script_name | grep -v grep | awk '{print $4}')
+    # memory_bytes=$(ps aux | grep $script_name | grep -v grep | awk '{print $6}')
+
+    # # Write data to the CSV file
+    # echo "$timestamp, $pid, $cpu_usage, $memory_usage, $memory_bytes" >> $csv_file
 
     # Sleep for 0.2 seconds
     sleep 0.2
