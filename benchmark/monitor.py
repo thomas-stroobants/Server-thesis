@@ -5,7 +5,7 @@ import csv
 import threading
 import os
 
-scripts = ["/home/thomas/data-bench/data-retrieval/get-data.sh", "python3 /home/thomas/data-bench/data-retrieval/get_rt_data.py"]
+scripts = ["/home/thomas/data-bench/data-retrieval/get-dat.sh"] #, "python3 /home/thomas/data-bench/data-retrieval/get_rt_data.py"]
 
 # get resources from psutil
 def get_resource_usage(process):
@@ -43,20 +43,21 @@ def check_resource_usage(script, process, writer, check_time):
 # direct wegschrijven naar writer of gebruik maken van array?
 
 for script in scripts:
-    log_path = os.path.basename(script).split('.')[0]  + ".log"     # get name for log
+    log_path = "/home/thomas/benchmark/" + os.path.basename(script).split('.')[0]  + ".log"     # get name for log
     print(f"Log file is {log_path}")
     with open(log_path, "w") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["Script", "Runtime", "CPU usage", "Memory usage"])     # write header to csv
         process = subprocess.Popen(script, shell=False)                          # start script
         pid = process.pid
+        print(f"PID of process is")
         ps_process = psutil.Process(pid)
-        start_time = time.time()
+        start_time = time.strftime("%H:%M:%S", time.time())
         while process.poll() is None:
-            check_resource_usage(script, ps_process, writer, time.time()) 
+            check_resource_usage(script, ps_process, writer, time.strftime("%H:%M:%S", time.time())) 
             time.sleep(0.3)                  # check resources
 
-        end_time = time.time()
+        end_time = time.strftime("%H:%M:%S", time.time())
         runtime = end_time - start_time
         print(f"Runtime: {runtime} seconds")
 
@@ -79,7 +80,7 @@ for script in scripts:
 #     #     print(f"CORE {idx+1}: {usage}%")
     
 
-#     mem_usage = psutil.memoru()
+#     mem_usage = psutil.memory()
 
 #     print(f"Free: {mem_usage.percent}%")
 #     print(f"Total: {mem_usage.total/(1024**3):.2f}G")
