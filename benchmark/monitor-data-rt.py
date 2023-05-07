@@ -44,7 +44,7 @@ def record_usage(proc, interval, filename):
         writer.writerows(records)
     
     runtime = records[-1][0] - records[0][0]
-    print(f"Runtime is {runtime:.5f} seconds")
+    print(f"Runtime is {runtime} milliseconds")
 
 
 for script in scripts:
