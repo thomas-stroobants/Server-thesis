@@ -29,3 +29,5 @@ Desktop/
 snap/
 Downloads/
 .python_history
+data-bench/*-gtfs*/
+data-bench/*-rt-data/
