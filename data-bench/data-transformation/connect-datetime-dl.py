@@ -14,7 +14,7 @@ trips_df = trips_df.drop(column_list_trip, axis=1)
 # read stop_times to dataframe
 stop_times_df = pd.read_csv('/home/thomas/data-bench/de-lijn-gtfs/stop_times.csv')
 
-print(f"{datetime.datetime.now()} Modifying departure times above 24...")
+# print(f"{datetime.datetime.now()} Modifying departure times above 24...")
 
 #apply leading zero where needed on time and remove all times from daylight savings
 stop_times_df['departure_time'] = stop_times_df['departure_time'].apply(lambda x: '0'+x if len(x) == 7 else x)
@@ -39,7 +39,7 @@ merged_df2 = pd.merge(merged_df, stop_times_df, on='trip_id')
 def dateToISO(row):
     return datetime.datetime.strptime(str(row['date'])+row['departure_time'], '%Y%m%d%H:%M:%S').isoformat()
 
-print(f"{datetime.datetime.now()} Replacing time format to ISO dateTime...")
+# print(f"{datetime.datetime.now()} Replacing time format to ISO dateTime...")
 merged_df2['departure_time'] = merged_df2.apply(lambda row: dateToISO(row), axis=1)
 
 # drop service_id and date
@@ -47,10 +47,10 @@ column_list_stop = ['service_id', 'date']
 merged_df2 = merged_df2.drop(column_list_stop, axis=1)
 # print(merged_df2)
 
-print(f"{datetime.datetime.now()} len of DF is {len(merged_df2)}")
+# print(f"{datetime.datetime.now()} len of DF is {len(merged_df2)}")
 
 # write results to new file
-print(f"{datetime.datetime.now()} Writing results to file")
+# print(f"{datetime.datetime.now()} Writing results to file")
 merged_df2.to_csv('/home/thomas/data-bench/de-lijn-gtfs/stop_times.csv', index=False)
 
-print(f"{datetime.datetime.now()} Finished adapting data stop_times from De Lijn..")
+# print(f"{datetime.datetime.now()} Finished adapting data stop_times from De Lijn..")
