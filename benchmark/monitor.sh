@@ -10,15 +10,17 @@ script_name="$HOME/graphs-bench/config/config-nmbs.ini"
 csv_file="$HOME/benchmark/performance_data.csv"
 
 # Write headers to the CSV file
-echo "Time, CPU %, Memory %, Memory Bytes" > $csv_file
+echo "PID, Time, CPU %, Memory %, Memory Bytes" > $csv_file
 
 python3 -m morph_kgc ~/graphs-bench/config/config-nmbs.ini &
 pid_morph_nmbs=$!
-
+start_time=$(date +%s%N | cut -b1-13)
 # Loop to run the script and monitor performance every second
 while ps -p $pid_morph_nmbs > /dev/null; do
     # Get the current time stamp
-    timestamp=$(date +%s)
+    timestamp=$(date +%s%N | cut -b1-13)
+
+    runtime=$(($timestamp - $start_time))
     ps_output=$(ps aux | grep $script_name | grep -v grep)
 
     while read -r line; do
@@ -26,18 +28,9 @@ while ps -p $pid_morph_nmbs > /dev/null; do
         cpu_usage=$(echo "$line" | awk '{print $3}')
         memory_usage=$(echo "$line" | awk '{print $4}')
         memory_bytes=$(echo "$line" | awk '{print $6}')
-        echo "$timestamp, $pid, $cpu_usage, $memory_usage, $memory_bytes" >> $csv_file
+        echo "$pid, $runtime, $cpu_usage, $memory_usage, $memory_bytes" >> $csv_file ;
     done <<< "$ps_output"
 
-    # # Get CPU and memory usage of the Python script
-    # pid=$(ps aux | grep $script_name | grep -v grep | awk '{print $2}')
-    # cpu_usage=$(ps aux | grep $script_name | grep -v grep | awk '{print $3}')
-    # memory_usage=$(ps aux | grep $script_name | grep -v grep | awk '{print $4}')
-    # memory_bytes=$(ps aux | grep $script_name | grep -v grep | awk '{print $6}')
-
-    # # Write data to the CSV file
-    # echo "$timestamp, $pid, $cpu_usage, $memory_usage, $memory_bytes" >> $csv_file
-
     # Sleep for 0.2 seconds
-    sleep 0.2
+    sleep 0.1
 done
