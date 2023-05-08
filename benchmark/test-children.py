@@ -33,13 +33,13 @@ def record_usage(proc, interval, filename):
     #     mem_percent = child.memory_percent()
     #     mem_mbytes = child.memory_info().rss / (1024 ** 2)
     #     print(f"{cpu_percent}   |   {mem_mbytes}")
-    start_time = time.time()
+    start_time = int(time.time_ns() /1000000)
 
     while proc.poll() is None:
         cpu_percent = psutil.cpu_percent(interval=interval, percpu=True)
         mem_percent = psutil.virtual_memory().percent
         mem_mbytes = psutil.virtual_memory().active / (1024 ** 2)
-        inter_time = round((time.time() - start_time), 5)
+        inter_time = int((time.time_ns() / 1000000) - start_time)
         records.append([inter_time, cpu_percent, mem_percent, mem_mbytes])
         time.sleep(interval)
 
