@@ -1,0 +1,59 @@
+#! /usr/bin/bash
+
+# Define the name of the Python script to be monitored
+isql_clear_bulk="$HOME/data-bench/query/clear-bulk-load-list.sql"
+isql_delete_nmbs="$HOME/data-bench/query/delete-nmbs-graph.sql"
+isql_delete_delijn="$HOME/data-bench/query/delete-delijn-graph.sql"
+isql_load_nmbs="$HOME/data-bench/query/nmbs-load.sql"
+isql_load_delijn="$HOME/data-bench/query/delijn-load.sql"
+
+# Define the name of the CSV file to store the data
+csv_iqsl_clear="$HOME/benchmark/bench-isql-clear.csv"
+csv_isql_del_nmbs="$HOME/benchmark/bench-isql-delete-nmbs.csv"
+csv_isql_del_delijn="$HOME/benchmark/bench-isql-delete-delijn.csv"
+csv_isql_load_nmbs="$HOME/benchmark/bench-isql-load-nmbs.csv"
+csv_isql_load_delijn="$HOME/benchmark/bench-isql-load-nmbs.csv"
+
+
+monitor_virtuoso() {
+    isql_command=$1
+    csv_file=$2
+    virtuoso_pid=$3
+
+    # Write headers to the CSV file
+    echo "PID, Time, CPU %, Memory %, Memory Bytes, Virtual Memory Bytes" > $csv_file
+
+    isql 1111 dba dba $isql_command &
+    pid_isql=$!
+    # start_time=$(date +%s%N | cut -b1-13)
+    start_time=$(($(date +%s%N) / 1000000))
+    # Loop to run the script and monitor performance every second
+    while ps -p $pid_isql > /dev/null; do
+        # Get the current time stamp
+        # timestamp=$(date +%s%N | cut -b1-13)
+        timestamp=$(($(date +%s%N) / 1000000))
+        
+        runtime=$(($timestamp - $start_time))
+        # ps_output=$(ps aux | grep $virtuoso_pid | grep -v grep | grep -v sudo)
+        ps_output=$(top -b -n 1 -H | grep virtuoso-t)
+
+        while read -r line; do
+            pid=$(echo "$line" | awk '{print $2}')
+            cpu_usage=$(echo "$line" | awk '{print $3}')
+            memory_usage=$(echo "$line" | awk '{print $4}')
+            memory_bytes=$(echo "$line" | awk '{print $6}')
+            virt_memory_bytes=$(echo "$line" | awk '{print $5}')
+            echo "$pid, $runtime, $cpu_usage, $memory_usage, $memory_bytes, $virt_memory_bytes" >> $csv_file ;
+        done <<< "$ps_output"
+
+        # Sleep for 0.1 seconds
+        sleep 0.1
+    done
+    totaltime=$((($(date +%s%N | cut -b1-13) - $start_time)))
+    echo "Total runtime of $ini_file is $totaltime milliseconds"
+}
+
+monitor_virtuoso $script_irail $csv_irail
+monitor_virtuoso $script_nmbs $csv_nmbs
+monitor_virtuoso $script_dl1 $csv_dl1
+monitor_virtuoso $script_dl2 $csv_dl2
