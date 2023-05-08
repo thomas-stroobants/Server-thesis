@@ -18,9 +18,9 @@ csv_isql_load_delijn="$HOME/benchmark/bench-isql-load-nmbs.csv"
 check_bytes() {
     value=$1
     unit=${value:(-1)}
-    if [ "unit" == "g" ]; then
-        num=${value%unit}
-        value=$(echo "$num * (1024 ** 3)" | bc)
+    if [ "$unit" == "g" ]; then
+        num=${value%$unit}
+        value=$((echo "$num * 1024 * 1024 " | bc))
     fi
     echo $value
 }
@@ -52,7 +52,9 @@ monitor_virtuoso() {
             pid=$(echo "$line" | awk '{print $1}')
             cpu_usage=$(echo "$line" | awk '{print $7}')
             memory_usage=$(echo "$line" | awk '{print $8}')
-            memory_bytes=$(check_bytes $(echo "$line" | awk '{print $4}'))
+            # mem_temp=$(echo "$line" | awk '{print $4}')
+            # check_bytes $(echo "$line" | awk '{print $4}')
+            memory_bytes=$((check_bytes $(echo "$line" | awk '{print $4}')))
             virt_memory_bytes=$(echo "$line" | awk '{print $3}')
             echo "$pid, $runtime, $cpu_usage, $memory_usage, $memory_bytes, $virt_memory_bytes" >> $csv_file ;
         done <<< "$ps_output"
