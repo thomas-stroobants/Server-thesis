@@ -15,6 +15,16 @@ csv_isql_load_nmbs="$HOME/benchmark/bench-isql-load-nmbs.csv"
 csv_isql_load_delijn="$HOME/benchmark/bench-isql-load-nmbs.csv"
 
 
+check_bytes() {
+    value=$1
+    unit=${value:(-1)}
+    if [ "unit" == "g" ]; then
+        num=${value%unit}
+        value=$(echo "$num * (1024 ** 3)" | bc)
+    fi
+    echo $value 
+}
+
 monitor_virtuoso() {
     isql_command=$1
     csv_file=$2
