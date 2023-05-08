@@ -7,11 +7,38 @@ scripts = [
     ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime.py"],
     ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime-dl.py"],
     f"{os.path.expanduser('~')}/data-bench/data-transformation/test-split-stop.sh",
-
 ]
 
-# proc = subprocess.Popen(["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime.py"])
-# process = psutil.Process(proc.pid)
+def monitor_virtuoso(isql_command, csv_file, virtuoso_pid):
+    proc = subprocess.Popen(["isql", "1111", "dba", "dba", isql_command])
+    start_time= int(time.time_ns() / 1000000)
+
+    proc_virtuoso = psutil.Process(virtuoso_pid)
+    results = []
+
+    while proc.poll() is None:
+        for thread in proc_virtuoso.threads():
+        # for proc in psutil.process_iter(['pid', 'name', 'cpu_percent', 'memory_percent', 'memory_info']):
+            inter_time = int((time.time_ns() / 1000000) - start_time)
+            proc_thread = psutil.Process(thread.id)
+            cpu_percent = proc_thread.cpu_percent(interval=0.1)
+            mem_percent = proc_thread.memory_percent()
+            mem_mbytes = proc_thread.memory_info().rss / (1024 ** 2)
+            virt_mem_mbytes = proc_thread.memory_info().vms / (1024 ** 2)
+            results.append([inter_time, cpu_percent, mem_percent, mem_mbytes])
+            print(f"{thread.id} | {cpu_percent} | {mem_percent} | {mem_mbytes} | {virt_mem_mbytes}")
+            # if proc.info['name'] == 'virtuoso-t':
+            #     pid = proc.info['pid']
+            #     cpu_usage = proc.info['cpu_percent']
+            #     memory_usage = proc.info['memory_percent']
+            #     memory_bytes = proc.info['memory_info'].rss
+            #     virt_memory_bytes = proc.info['memory_info'].vms
+            #     print(f"{pid} | {cpu_usage} | {memory_bytes} | {virt_memory_bytes}")
+            #     results.append([pid, cpu_usage, memory_usage, memory_bytes, virt_memory_bytes])
+
+
+
+
 
 def get_cvs_filename(script):
     filename = "test.csv"
@@ -54,11 +81,3 @@ for script in scripts:
     loadavg = [round((x / psutil.cpu_count() * 100),2) for x in psutil.getloadavg()]
     print(f"Load average: {loadavg}")
 
-# while proc.poll() is None:
-#     cpu_usage.append(process.cpu_percent(interval=0.1))
-#     mem_usage.append(process.memory_info())
-
-# print(f"Average CPU: {sum(cpu_usage)/len(cpu_usage)}%")
-# print(f"Average mem: {sum(mem_usage)/len(mem_usage)/(1024**3):.2f} bytes")
-# print(f"{cpu_usage}")
-# print(f"{mem_usage}")
