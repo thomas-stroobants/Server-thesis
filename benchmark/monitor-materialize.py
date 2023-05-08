@@ -25,13 +25,13 @@ def record_usage(proc, interval, filename):
     records = []
     process = psutil.Process(proc.pid)
 
-    start_time = time.time()
+    start_time = int(time.time_ns() / 1000000)
 
     while proc.poll() is None:
         cpu_percent = process.cpu_percent(interval=interval)
         mem_percent = process.memory_percent()
         mem_mbytes = process.memory_info().rss / (1024 ** 2)
-        inter_time = round((time.time() - start_time), 5)
+        inter_time = int((time.time_ns()/ 1000000) - start_time)
         records.append([inter_time, cpu_percent, mem_percent, mem_mbytes])
         time.sleep(interval)
 
