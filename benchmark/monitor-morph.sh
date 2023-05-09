@@ -73,5 +73,5 @@ monitor_morph_kgc() {
 
 monitor_morph_kgc $script_irail $csv_irail
 monitor_morph_kgc $script_nmbs $csv_nmbs
-# monitor_morph_kgc $script_dl1 $csv_dl1
-# monitor_morph_kgc $script_dl2 $csv_dl2
+monitor_morph_kgc $script_dl1 $csv_dl1
+monitor_morph_kgc $script_dl2 $csv_dl2
