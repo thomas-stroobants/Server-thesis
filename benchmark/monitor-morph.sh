@@ -31,7 +31,7 @@ monitor_morph_kgc() {
     csv_file=$2
 
     # Write headers to the CSV file
-    echo "PID, Time, CPU %, Memory %, Memory Bytes, Virtual Memory Bytes" > $csv_file
+    echo "PID, Time, CPU %, Memory %, Memory Bytes, Virtual Memory Bytes, State" > $csv_file
 
     python3 -m morph_kgc $ini_file &
     pid_morph=$!
@@ -48,7 +48,7 @@ monitor_morph_kgc() {
         # ps_output=$(top -b -n 1 -H | grep morph_kgc)
         # ps_output=$(ps --forest -o pid,%cpu,%mem,rss,vsz --pid $pid_morph)      #if using 1 core for process
 
-        ps_output=$(ps --forest -o pid,%cpu,%mem,rss,vsz --ppid $pid_morph)     #if using multiple cores for process
+        ps_output=$(ps --forest -o pid,%cpu,%mem,rss,vsz,s --pid $pid_morph && ps --forest -o pid,%cpu,%mem,rss,vsz,s --ppid $pid_morph)     #if using multiple cores for process
 
         while read -r line; do
             pid=$(echo "$line" | awk '{print $1}')
@@ -63,16 +63,17 @@ monitor_morph_kgc() {
             # check_bytes $(echo "$line" | awk '{print $3}')
             memory_bytes=$(echo "$line" | awk '{print $4}' )
             virt_memory_bytes=$(echo "$line" | awk '{print $5}' )
-            echo "$pid, $runtime, $cpu_usage, $memory_usage, $memory_bytes, $virt_memory_bytes" >> $csv_file ;
+            state=$(echo "$line" | awk '{print $6}' )
+            echo "$pid, $runtime, $cpu_usage, $memory_usage, $memory_bytes, $virt_memory_bytes, $state" >> $csv_file ;
         done <<< "$ps_output"
         # Sleep for 0.1 seconds     --> no sleep needed, process takes around 500 milliseconds to complete
         # sleep 0.1
     done
-    totaltime=$((($(date +%s%N | cut -b1-13) - $start_time)))
+    totaltime=$(((($(date +%s%N) / 1000000) - $start_time)))
     echo "Total runtime of $ini_file is $totaltime milliseconds"
 }
 
 monitor_morph_kgc $script_irail $csv_irail
 monitor_morph_kgc $script_nmbs $csv_nmbs
-monitor_morph_kgc $script_dl1 $csv_dl1
-monitor_morph_kgc $script_dl2 $csv_dl2
+# monitor_morph_kgc $script_dl1 $csv_dl1
+# monitor_morph_kgc $script_dl2 $csv_dl2
