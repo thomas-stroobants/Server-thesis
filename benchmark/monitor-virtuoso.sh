@@ -56,10 +56,8 @@ monitor_virtuoso() {
             virt_memory_bytes=$(echo "$line" | awk '{print $2}')
             echo "$pid, $runtime, $cpu_usage, $memory_usage, $memory_bytes, $virt_memory_bytes" >> $csv_file ;
         done <<< "$ps_output"
-        totaltime=$((($(date +%s%N) /1000000) - $timestamp))
-        echo "process took $totaltime milliseconds"
-        # Sleep for 0.1 seconds
-        sleep 0.1
+        # Sleep for 0.1 seconds     --> no sleep needed, process takes around 500 milliseconds to complete
+        # sleep 0.1
     done
     totaltime=$((($(date +%s%N) /1000000)  - $start_time))
     echo "Total runtime of $isql_command is $totaltime milliseconds"
