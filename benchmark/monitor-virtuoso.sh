@@ -19,7 +19,8 @@ check_bytes() {
     value=$1
     unit=${value:(-1)}
     if [ "$unit" == "g" ]; then
-        num=$( echo ${value%$unit} | tr , . )
+        # num=$( echo ${value%$unit} | tr , . )
+        num=$(echo ${value%$unit})
         value=$(echo "$num * 1024 * 1024 " | bc)        
     fi
     echo $value
@@ -48,12 +49,12 @@ monitor_virtuoso() {
 
         while read -r line; do
             pid=$(echo "$line" | awk '{print $1}')
-            cpu_usage=$(echo "$line" | awk '{print $5}')
-            memory_usage=$(echo "$line" | awk '{print $6}')
+            cpu_usage=$(echo "$line" | awk '{print $5}' | tr , . )
+            memory_usage=$(echo "$line" | awk '{print $6}' | tr , . )
             # mem_temp=$(echo "$line" | awk '{print $4}')
             # check_bytes $(echo "$line" | awk '{print $3}')
-            memory_bytes=$(check_bytes $(echo "$line" | awk '{print $4}'))
-            virt_memory_bytes=$(check_bytes $(echo "$line" | awk '{print $2}'))
+            memory_bytes=$(check_bytes $(echo "$line" | awk '{print $4}' | tr , . ))
+            virt_memory_bytes=$(check_bytes $(echo "$line" | awk '{print $2}' | tr , . ))
             echo "$pid, $runtime, $cpu_usage, $memory_usage, $memory_bytes, $virt_memory_bytes" >> $csv_file ;
         done <<< "$ps_output"
         # Sleep for 0.1 seconds     --> no sleep needed, process takes around 500 milliseconds to complete
@@ -63,9 +64,9 @@ monitor_virtuoso() {
     echo "Total runtime of $isql_command is $totaltime milliseconds"
 }
 
-monitor_virtuoso $isql_clear_bulk $csv_iqsl_clear 9529
-monitor_virtuoso $isql_delete_nmbs $csv_isql_del_nmbs 9529
-# monitor_virtuoso $isql_load_nmbs $csv_isql_load_nmbs 9529
+# monitor_virtuoso $isql_clear_bulk $csv_iqsl_clear 9529
+# monitor_virtuoso $isql_delete_nmbs $csv_isql_del_nmbs 9529
+monitor_virtuoso $isql_load_nmbs $csv_isql_load_nmbs 9529
 # monitor_virtuoso $script_nmbs $csv_nmbs
 # monitor_virtuoso $script_dl1 $csv_dl1
 # monitor_virtuoso $script_dl2 $csv_dl2
