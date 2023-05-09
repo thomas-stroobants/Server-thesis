@@ -46,7 +46,9 @@ monitor_morph_kgc() {
         runtime=$(($timestamp - $start_time))
         # ps_output=$(ps aux | grep $virtuoso_pid | grep -v grep | grep -v sudo)
         # ps_output=$(top -b -n 1 -H | grep morph_kgc)
-        ps_output=$(ps --forest -o pid,%cpu,%mem,rss,vsz --pid $pid_morph && ps --forest -o pid,%cpu,%mem,rss,vsz --ppid $pid_morph)
+        # ps_output=$(ps --forest -o pid,%cpu,%mem,rss,vsz --pid $pid_morph)      #if using 1 core for process
+
+        ps_output=$(ps --forest -o pid,%cpu,%mem,rss,vsz --ppid $pid_morph)     #if using multiple cores for process
 
         while read -r line; do
             pid=$(echo "$line" | awk '{print $1}')
