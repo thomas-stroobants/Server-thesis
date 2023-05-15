@@ -45,7 +45,7 @@ monitor_virtuoso() {
         
         runtime=$(($timestamp - $start_time))
         # ps_output=$(ps aux | grep $virtuoso_pid | grep -v grep | grep -v sudo)
-        ps_output=$(top -b -n 1 -H -p $virtuoso_pid)
+        ps_output=$(top -b -n 1 -H -p $virtuoso_pid | grep )
 
         while read -r line; do
             pid=$(echo "$line" | awk '{print $1}')
@@ -64,10 +64,10 @@ monitor_virtuoso() {
     echo "Total runtime of $isql_command is $totaltime milliseconds"
 }
 
-pid_server=595462
+pid_server=3085036
 
 monitor_virtuoso $isql_clear_bulk $csv_iqsl_clear $pid_server
 monitor_virtuoso $isql_delete_nmbs $csv_isql_del_nmbs $pid_server
-monitor_virtuoso $isql_load_nmbs $csv_isql_load_nmbs $pid_server
 monitor_virtuoso $isql_delete_delijn $csv_isql_del_delijn $pid_server
+monitor_virtuoso $isql_load_nmbs $csv_isql_load_nmbs $pid_server
 monitor_virtuoso $isql_load_delijn $csv_isql_load_delijn $pid_server
