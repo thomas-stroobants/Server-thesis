@@ -32,7 +32,7 @@ monitor_virtuoso() {
     virtuoso_pid=$3
 
     # Write headers to the CSV file
-    echo "PID, Time, CPU %, Memory %, Memory Bytes, Virtual Memory Bytes" > $csv_file
+    echo "PID, Time, CPU %, Memory %, Memory Bytes, Virtual Memory Bytes, State" > $csv_file
 
     isql 1111 dba dba $isql_command &
     pid_isql=$!
@@ -45,17 +45,18 @@ monitor_virtuoso() {
         
         runtime=$(($timestamp - $start_time))
         # ps_output=$(ps aux | grep $virtuoso_pid | grep -v grep | grep -v sudo)
-        ps_output=$(top -b -n 1 -H -p $virtuoso_pid | grep )
+        ps_output=$(top -b -n 1 -H -p $virtuoso_pid | grep virtuoso-t)
 
         while read -r line; do
             pid=$(echo "$line" | awk '{print $1}')
-            cpu_usage=$(echo "$line" | awk '{print $5}' | tr , . )
-            memory_usage=$(echo "$line" | awk '{print $6}' | tr , . )
+            cpu_usage=$(echo "$line" | awk '{print $6}' | tr , . )
+            memory_usage=$(echo "$line" | awk '{print $7}' | tr , . )
             # mem_temp=$(echo "$line" | awk '{print $4}')
             # check_bytes $(echo "$line" | awk '{print $3}')
             memory_bytes=$(check_bytes $(echo "$line" | awk '{print $4}' | tr , . ))
             virt_memory_bytes=$(check_bytes $(echo "$line" | awk '{print $2}' | tr , . ))
-            echo "$pid, $runtime, $cpu_usage, $memory_usage, $memory_bytes, $virt_memory_bytes" >> $csv_file ;
+            state=$(echo "$line" | awk '{print $5}' )
+            echo "$pid, $runtime, $cpu_usage, $memory_usage, $memory_bytes, $virt_memory_bytes, $state" >> $csv_file ;
         done <<< "$ps_output"
         # Sleep for 0.1 seconds     --> no sleep needed, process takes around 500 milliseconds to complete
         # sleep 0.1
@@ -64,7 +65,7 @@ monitor_virtuoso() {
     echo "Total runtime of $isql_command is $totaltime milliseconds"
 }
 
-pid_server=3085036
+pid_server=103561
 
 monitor_virtuoso $isql_clear_bulk $csv_iqsl_clear $pid_server
 monitor_virtuoso $isql_delete_nmbs $csv_isql_del_nmbs $pid_server
