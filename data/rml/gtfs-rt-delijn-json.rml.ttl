@@ -47,7 +47,7 @@
         rr:predicate dct:modified ;
         rr:objectMap [
             rml:reference "timestamp";
-            rr:datatype xsd:date
+            rr:datatype xsd:dateTime
         ]
     ].
 
@@ -64,10 +64,10 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate xsd:integer ;
+        rr:predicate gtfs:comment ;
         rr:objectMap [
             rml:reference "departure.delay";
-            # rr:datatype xsd:duration;
+            rr:datatype xsd:integer;
         ]
     ];
 
@@ -83,6 +83,22 @@
         rr:objectMap [
             rr:template "http://example.com/de-lijn/stops/{stopId}";
             rr:termType rr:IRI 
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate gtfs:trip ;
+        rr:objectMap [
+            # rml:reference "stopId";
+            rr:template "http://example.com/de-lijn/trips/{tripId}" ;
+	        rr:termType rr:IRI ;
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "scheduleRelationship";
         ]
     ].
 
@@ -103,11 +119,11 @@
         rr:objectMap [
             rml:reference "scheduleRelationship";
         ]
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate xsd:date ;
-        rr:objectMap [
-            rml:reference "startDate"
-        ]
     ].
+
+    # rr:predicateObjectMap [
+    #     rr:predicate xsd:date ;
+    #     rr:objectMap [
+    #         rml:reference "startDate"
+    #     ]
+    # ].
