@@ -37,7 +37,7 @@ WHERE
                 ?stoptime rdf:type gtfs:StopTime .
                 ?stoptime gtfs:stop ?nst .
                 OPTIONAL {?stoptime rdfs:label ?nsk} .
-                ?stoptime gtfs:comment ?ndelay .
+                OPTIONAL {?stoptime gtfs:comment ?ndelay} .
 
             }
     }  ;
