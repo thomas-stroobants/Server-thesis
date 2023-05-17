@@ -47,7 +47,7 @@
         rr:predicate dct:modified ;
         rr:objectMap [
             rml:reference "timestamp";
-            rr:datatype xsd:date
+            rr:datatype xsd:dateTime
         ]
     ].
 
