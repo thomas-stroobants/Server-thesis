@@ -1,12 +1,17 @@
 import psutil, subprocess, time, csv, os
 
+isql_clear_bulk = os.path.join(os.path.expanduser('~'), '/data-bench/query/clear-bulk-load-list.sql')
+isql_delete_nmbs = os.path.join(os.path.expanduser('~'), '/data-bench/query/delete-nmbs-graph.sql')
+isql_delete_delijn = os.path.join(os.path.expanduser('~'), '/data-bench/query/delete-delijn-graph.sql')
+isql_load_nmbs = os.path.join(os.path.expanduser('~'), '/data-bench/query/nmbs-load.sql')
+isql_load_delijn = os.path.join(os.path.expanduser('~'), '/data-bench/query/delijn-load.sql')
+
 scripts = [
-    f"{os.path.expanduser('~')}/data-bench/data-retrieval/get-data.sh",
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-retrieval/get_rt_data.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/replace-irail.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime-dl.py"],
-    f"{os.path.expanduser('~')}/data-bench/data-transformation/test-split-stop.sh",
+    isql_clear_bulk,
+    isql_delete_nmbs,
+    isql_delete_delijn,
+    isql_load_nmbs,
+    isql_load_delijn
 ]
 
 def monitor_virtuoso(isql_command, csv_file, virtuoso_pid):
