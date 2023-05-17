@@ -28,7 +28,6 @@ WHERE
                 ?stoptime rdf:type gtfs:StopTime .
                 OPTIONAL {?stoptime rdfs:label ?sk} .
                 OPTIONAL {?stoptime gtfs:comment ?odelay} .
-                -- FILTER (?dt >= "2023-05-16T00:00:00"^^xsd:dateTime && ?dt <= "2023-05-16T24:00:00"^^xsd:dateTime)
             }
         GRAPH <http://example.com/nmbs-rt>
             {
@@ -42,5 +41,3 @@ WHERE
 
             }
     }  ;
-
--- <http://example.com/nmbs/stoptimes/88____%3A007%3A%3A8821006%3A8891702%3A25%3A2250%3A20231208-8892007>
