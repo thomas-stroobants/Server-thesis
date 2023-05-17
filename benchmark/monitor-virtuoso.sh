@@ -12,7 +12,7 @@ csv_iqsl_clear="$HOME/benchmark/bench-isql-clear.csv"
 csv_isql_del_nmbs="$HOME/benchmark/bench-isql-delete-nmbs.csv"
 csv_isql_del_delijn="$HOME/benchmark/bench-isql-delete-delijn.csv"
 csv_isql_load_nmbs="$HOME/benchmark/bench-isql-load-nmbs.csv"
-csv_isql_load_delijn="$HOME/benchmark/bench-isql-load-nmbs.csv"
+csv_isql_load_delijn="$HOME/benchmark/bench-isql-load-delijn.csv"
 
 
 check_bytes() {
