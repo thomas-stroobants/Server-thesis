@@ -1,5 +1,4 @@
-# Python script to convert the times in stop_times from xsd:time to xsd:dateTime, setting the time and dat in ISO standard format
-# Second to that, it will remove all stoptimes that are for daylightsavings, above 25hours
+# Python script to convert the times in stop_times from xsd:time to xsd:dateTime, setting the time and date in ISO standard format
 import datetime
 import pandas as pd
 
@@ -16,8 +15,16 @@ trips_df = trips_df.drop(trip_column_list, axis=1)
 # Read stop_times to dataframe
 stop_times_df = pd.read_csv('/home/thomas/data-bench/nmbs-gtfs/stop_times.csv')
 
+def checkmidnight(time):
+    hour, minute, second = map(int, time.split(":"))
+    if hour >= 24:
+        hour = hour % 24
+        time = f"{hour:02d}:{minute:02d}:{second:02d}"
+    return time
+
 # Remove the rows with departure_time above 23:59:59
 stop_times_df = stop_times_df[stop_times_df['departure_time'] <= '23:59:59']
+# stop_times_df['departure_time'] = stop_times_df['departure_time'].apply(lambda x: checkmidnight(x))
 
 # Merge calendar_dates_df and trips_df on the service_id column
 merged_serviceid_df = pd.merge(calendar_dates_df, trips_df, on='service_id')
