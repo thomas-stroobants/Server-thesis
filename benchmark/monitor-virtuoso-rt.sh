@@ -2,17 +2,17 @@
 
 # Define the name of the Python script to be monitored
 isql_clear_bulk="$HOME/data-bench/query/clear-bulk-load-list.sql"
-isql_delete_nmbs="$HOME/data-bench/query/delete-nmbs-graph.sql"
-isql_delete_delijn="$HOME/data-bench/query/delete-delijn-graph.sql"
-isql_load_nmbs="$HOME/data-bench/query/nmbs-load.sql"
-isql_load_delijn="$HOME/data-bench/query/delijn-load.sql"
+isql_delete_nmbs="$HOME/data-bench/query/delete-nmbs-graph-rt.sql"
+isql_delete_delijn="$HOME/data-bench/query/delete-delijn-graph-rt.sql"
+isql_load_nmbs="$HOME/data-bench/query/nmbs-rt-load.sql"
+isql_load_delijn="$HOME/data-bench/query/delijn-rt-load.sql"
 
 # Define the name of the CSV file to store the data
 csv_iqsl_clear="$HOME/benchmark/bench-isql-clear.csv"
-csv_isql_del_nmbs="$HOME/benchmark/bench-isql-delete-nmbs.csv"
-csv_isql_del_delijn="$HOME/benchmark/bench-isql-delete-delijn.csv"
-csv_isql_load_nmbs="$HOME/benchmark/bench-isql-load-nmbs.csv"
-csv_isql_load_delijn="$HOME/benchmark/bench-isql-load-delijn.csv"
+csv_isql_del_nmbs="$HOME/benchmark/bench-isql-delete-nmbs-rt.csv"
+csv_isql_del_delijn="$HOME/benchmark/bench-isql-delete-delijn-rt.csv"
+csv_isql_load_nmbs="$HOME/benchmark/bench-isql-load-nmbs-rt.csv"
+csv_isql_load_delijn="$HOME/benchmark/bench-isql-load-delijn-rt.csv"
 
 
 check_bytes() {

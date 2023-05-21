@@ -1,9 +1,12 @@
 import psutil, subprocess, time, csv, os
 
 scripts = [
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-retrieval/get_rt_data.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/transform-nmbs.py"],
-    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/transform-dl.py"],
+    f"{os.path.expanduser('~')}/data-bench/data-retrieval/get-data.sh",
+    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/replace-irail.py"],
+    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime.py"],
+    ["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime-dl.py"],
+    f"{os.path.expanduser('~')}/data-bench/data-transformation/test-split-stop.sh",
+
 ]
 
 # proc = subprocess.Popen(["python3", f"{os.path.expanduser('~')}/data-bench/data-transformation/connect-datetime.py"])
@@ -49,3 +52,12 @@ for script in scripts:
     record_usage(proc, 0.1, filename)
     # loadavg = [round((x / psutil.cpu_count() * 100),2) for x in psutil.getloadavg()]
     # print(f"Load average: {loadavg}")
+
+# while proc.poll() is None:
+#     cpu_usage.append(process.cpu_percent(interval=0.1))
+#     mem_usage.append(process.memory_info())
+
+# print(f"Average CPU: {sum(cpu_usage)/len(cpu_usage)}%")
+# print(f"Average mem: {sum(mem_usage)/len(mem_usage)/(1024**3):.2f} bytes")
+# print(f"{cpu_usage}")
+# print(f"{mem_usage}")

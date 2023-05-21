@@ -1,19 +1,15 @@
 #! /usr/bin/bash
 
 # top -b -d1 -o +%MEM | grep -A1 'KiB Mem' >> memory.log
-
+# python3 -m morph_kgc ~/graphs-bench/config/config-dl-rt.ini
 
 # Define the name of the Python script to be monitored
-script_irail="$HOME/graphs-bench/config/config-irail.ini"
-script_nmbs="$HOME/graphs-bench/config/config-nmbs.ini"
-script_dl1="$HOME/graphs-bench/config/config-dl.ini"
-script_dl2="$HOME/graphs-bench/config/config-dl-2.ini"
+script_nmbs="$HOME/graphs-bench/config/config-nmbs-rt.ini"
+script_dl="$HOME/graphs-bench/config/config-dl-rt.ini"
 
 # Define the name of the CSV file to store the data
-csv_irail="$HOME/benchmark/bench-morph-irail.csv"
-csv_nmbs="$HOME/benchmark/bench-morph-nmbs.csv"
-csv_dl1="$HOME/benchmark/bench-morph-dl1.csv"
-csv_dl2="$HOME/benchmark/bench-morph-dl2.csv"
+csv_nmbs="$HOME/benchmark/bench-morph-nmbs-rt.csv"
+csv_dl="$HOME/benchmark/bench-morph-dl-rt.csv"
 
 check_bytes() {
     value=$1
@@ -73,7 +69,5 @@ monitor_morph_kgc() {
     echo "Total runtime of $ini_file is $totaltime milliseconds"
 }
 
-monitor_morph_kgc $script_irail $csv_irail
 monitor_morph_kgc $script_nmbs $csv_nmbs
-monitor_morph_kgc $script_dl1 $csv_dl1
-monitor_morph_kgc $script_dl2 $csv_dl2
+monitor_morph_kgc $script_dl $csv_dl

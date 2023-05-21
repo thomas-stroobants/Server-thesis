@@ -47,7 +47,7 @@
         rr:predicate dct:modified ;
         rr:objectMap [
             rml:reference "timestamp";
-            rr:datatype xsd:date
+            rr:datatype xsd:dateTime
         ]
     ].
 
@@ -72,9 +72,10 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate xsd:integer ;
+        rr:predicate gtfs:comment ;
         rr:objectMap [
             rml:reference "departure.delay";
+            rr:datatype xsd:integer;
         ]
     ];
 
@@ -106,12 +107,13 @@
 <#TripStartTimeMapping> a rr:TriplesMap;
     rml:logicalSource [
         rml:source "/home/thomas/data-bench/nmbs-rt-data/nmbs-rt-gtfs-adap.json" ;
-        rml:iterator "$.entity[*].tripUpdate.stopTimeUpdate[*]" ;
+        rml:iterator "$.entity[*].tripUpdate.trip" ;
         rml:referenceFormulation ql:JSONPath 
     ];
 
     rr:subjectMap [
         rr:template "http://example.com/nmbs/trips/{tripId}"  ;
+        rr:class gtfs:Trip
     ];
 
     # rr:predicateObjectMap [

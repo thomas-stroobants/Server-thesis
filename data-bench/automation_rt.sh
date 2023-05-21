@@ -47,11 +47,11 @@ echo "$(date) | data transformation complete"
 
 
 echo "$(date) | Starting materialization of NMBS data using Morph-KGC"
-python3 -m morph_kgc ~/graphs/config/config-nmbs-rt.ini &
+python3 -m morph_kgc ~/graphs-bench/config/config-nmbs-rt.ini &
 pid_morph_nmbs=$!
 
 echo "$(date) | Starting materialization of De Lijn data using Morph-KGC"
-python3 -m morph_kgc ~/graphs/config/config-dl-rt.ini &
+python3 -m morph_kgc ~/graphs-bench/config/config-dl-rt.ini &
 pid_morph_delijn=$!
 
 

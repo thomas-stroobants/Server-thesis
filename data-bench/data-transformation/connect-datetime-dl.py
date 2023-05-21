@@ -26,9 +26,9 @@ def checkmidnight(time):
         time = f"{hour:02d}:{minute:02d}:{second:02d}"
     return time
 
-# remove the rows with departure_time above 24:59:59
-stop_times_df = stop_times_df[stop_times_df['departure_time'] <= '24:59:59']
-stop_times_df['departure_time'] = stop_times_df['departure_time'].apply(lambda x: checkmidnight(x))
+# remove the rows with departure_time above 23:59:59
+stop_times_df = stop_times_df[stop_times_df['departure_time'] <= '23:59:59']
+# stop_times_df['departure_time'] = stop_times_df['departure_time'].apply(lambda x: checkmidnight(x))
 
 # merge calendar_dates_df and trips_df on the service_id column
 merged_df = pd.merge(calendar_dates_df, trips_df, on='service_id')

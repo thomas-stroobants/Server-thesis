@@ -33,7 +33,7 @@ sudo virtuoso-t -f &
 cd $HOME
 
 # Delete NMBS data from Virtuoso
-isql 1111 dba dba ~/data/scripts/query/clear-bulk-load-list.sql ~/data/scripts/query/delete-nmbs-graph.sql &
+isql 1111 dba dba ~/data/scripts/query/clear-bulk-load-list.sql ~/data-bench/query/delete-nmbs-graph.sql &
 pid_delete_nmbs=$!
 echo "$(date) | PID isql delete nmbs is $pid_delete_nmbs"
 
