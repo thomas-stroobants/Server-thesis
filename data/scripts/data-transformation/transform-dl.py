@@ -1,14 +1,16 @@
 import json
-import time
-import os
 import datetime
 from pathlib import Path
+
+# Return the ISO time from POSIX time
+def get_iso_time(posix):
+    return datetime.datetime.fromtimestamp(int(posix)).isoformat()
 
 with open(f'{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs.json') as sfile:
     data = json.load(sfile)
 
-    data["header"]["timestamp"] = datetime.datetime.fromtimestamp(int(data["header"]["timestamp"])).isoformat()
-
+    data["header"]["timestamp"] = get_iso_time(data["header"]["timestamp"])
+    
     for item in data["entity"]:
         if 'stopTimeUpdate' in item["tripUpdate"]:
             trip_id = item["tripUpdate"]["trip"]["tripId"]

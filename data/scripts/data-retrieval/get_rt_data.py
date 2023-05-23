@@ -50,7 +50,7 @@ def get_protobuf_gtfs_rt(url, file_name, params=None, headers=None):
         # Convert data to string and to JSON
         feed.ParseFromString(response.content)
         feed_json = MessageToJson(feed)
-        #write data to file
+        # Write data to file
         open(file_name, "w").write(feed_json)
     else: 
         print(f"Request failed with status code: {response.status_code}")
@@ -76,8 +76,9 @@ def get_bluebike_data(isotime):
 
 isotime = datetime.datetime.now().replace(microsecond=0).isoformat()
 get_protobuf_gtfs_rt(nmbs_rt_url, f"{Path.home()}/data/nmbs-rt-data/nmbs-rt-gtfs-{isotime}.json")
+get_protobuf_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs-proto-{isotime}.json", params=params, headers=headers)
 get_json_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs-{isotime}.json", params=paramsjson, headers=headers)
-get_bluebike_data(isotime)
+# get_bluebike_data(isotime)
 
 
 # get_protobuf_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data/de-lijn-rt-data/de-lijn-rt-gtfs-{isotime}.json", params=params, headers=headers)

@@ -116,13 +116,6 @@
         rr:class gtfs:Trip
     ];
 
-    # rr:predicateObjectMap [
-    #     rr:predicate xsd:time ;
-    #     rr:objectMap [
-    #         rml:reference "tripStartTime";
-    #     ]
-    # ];
-
     rr:predicateObjectMap [
         rr:predicate rdfs:label ;
         rr:objectMap [
