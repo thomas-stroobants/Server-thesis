@@ -1,16 +1,16 @@
 #! /usr/bin/bash
 
 # DIR=( "$HOME/data/de-lijn-gtfs-$(date +'%d-%m-%Y')/" "$HOME/data/nmbs-gtfs-$(date +'%d-%m-%Y')/" "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y')/" "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y')/" )
-# DIR=(   "$HOME/data/de-lijn-gtfs-$(date +'%d-%m-%Y')/" 
-#         "$HOME/data/nmbs-gtfs-$(date +'%d-%m-%Y')/" 
+DIR=(   "$HOME/data/de-lijn-gtfs-$(date +'%d-%m-%Y')/" 
+        "$HOME/data/nmbs-gtfs-$(date +'%d-%m-%Y')/" 
 #         "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y')/" 
 #         "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y')/" 
-#     )
-DIR=(   "$HOME/data/de-lijn-gtfs/" 
-        "$HOME/data/nmbs-gtfs/" 
+    )
+# DIR=(   "$HOME/data/de-lijn-gtfs/" 
+#         "$HOME/data/nmbs-gtfs/" 
         # "$HOME/data/mivb-gtfs-$(date +'%d-%m-%Y')/" 
         # "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y')/" 
-    )
+    # )
 
 
 #download file
@@ -22,8 +22,8 @@ function download_data() {
     curl -o "$HOME/data/tec-gtfs-$(date +'%d-%m-%Y').zip" https://gtfs.irail.be/tec/tec-gtfs.zip
 
     # Download NMBS station information from iRail
-    curl -o "$HOME/data/iRail/stations-$(date +'%d-%m-%Y').csv" https://raw.githubusercontent.com/iRail/stations/master/stations.csv 
-    curl -o "$HOME/data/iRail/stops-$(date +'%d-%m-%Y').csv" https://raw.githubusercontent.com/iRail/stations/master/stops.csv
+    # curl -o "$HOME/data/iRail/stations-$(date +'%d-%m-%Y').csv" https://raw.githubusercontent.com/iRail/stations/master/stations.csv 
+    # curl -o "$HOME/data/iRail/stops-$(date +'%d-%m-%Y').csv" https://raw.githubusercontent.com/iRail/stations/master/stops.csv
     curl -o "$HOME/data/iRail/facilities-$(date +'%d-%m-%Y').csv" https://raw.githubusercontent.com/iRail/stations/master/facilities.csv
 }
 
