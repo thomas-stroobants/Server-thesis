@@ -1,0 +1,24 @@
+prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rml: http://semweb.mmlab.be/ns/rml#
+  map: http://mapping.example.com/
+  foaf: http://xmlns.com/foaf/0.1/
+  gtfs: http://vocab.gtfs.org/terms#
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  dct: http://purl.org/dc/terms/
+
+mappings:
+  map_stops_000:
+    sources:
+    - [/home/thomas/data/nmbs-gtfs/stops.csv~csv]
+    s: http://example.com/nmbs/stops/$(stop_id)
+    po:
+    - [rdf:type, http://vocab.gtfs.org/terms#Stop]
+    - [gtfs:code, $(stop_code)]
+    - [dct:description, $(stop_desc)]
+    - [geo:lat, $(stop_lat), http://www.w3.org/2001/XMLSchema#double]
+    - [geo:long, $(stop_lon), http://www.w3.org/2001/XMLSchema#double]
+    - [gtfs:locationType, 
+        'http://example.com/nmbs/resource/LocationType/{location_type}']
+
