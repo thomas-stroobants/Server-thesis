@@ -21,29 +21,29 @@ PREFIX dct: <http://purl.org/dc/terms/>
 SELECT  ?stopNameSTdl ?departureTimeSTdl ?stopNameSNdl ?departureTimeSNdl ?routeNumber ?tripName
 WHERE {
     # BIND("2023-05-19T00:00:00"^^xsd:dateTime as ?startTime)
-    ?stopStekenedl a gtfs:Stop ;
+    ?stopStekenedl #a gtfs:Stop ;
             foaf:name ?stopNameSTdl ;
             gtfs:code 204391 .
 
-    ?stopSNdl a gtfs:Stop ;
+    ?stopSNdl #a gtfs:Stop ;
             foaf:name ?stopNameSNdl ;
             gtfs:code 204714 .
     
-    ?tripSTSN a gtfs:Trip ;
+    ?tripSTSN #a gtfs:Trip ;
             gtfs:headsign ?tripName ;
             gtfs:route ?routeSTSN .
     
-    ?routeSTSN a gtfs:Route ;
+    ?routeSTSN #a gtfs:Route ;
             gtfs:shortName ?routeNumber .
 
-    ?stopTimeStekenedl a gtfs:StopTime ;
+    ?stopTimeStekenedl #a gtfs:StopTime ;
             gtfs:stop ?stopStekenedl ;
             gtfs:trip ?tripSTSN ;
             gtfs:departureTime ?departureTimeSTdl ;
             gtfs:stopSequence ?seqSTdl .
     FILTER (?departureTimeSTdl >= "2023-05-19T00:00:00"^^xsd:dateTime && ?departureTimeSTdl <= "2023-05-19T08:00:00"^^xsd:dateTime)
     
-    ?stopTimeSNdl a gtfs:StopTime ;
+    ?stopTimeSNdl #a gtfs:StopTime ;
             gtfs:stop ?stopSNdl ;
             gtfs:trip ?tripSTSN ;
             gtfs:departureTime ?departureTimeSNdl ;
