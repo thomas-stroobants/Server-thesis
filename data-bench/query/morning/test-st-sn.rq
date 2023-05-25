@@ -21,6 +21,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 SELECT  ?stopNameSTdl ?departureTimeSTdl ?stopNameSNdl ?departureTimeSNdl ?routeNumber ?tripName
 WHERE {
     BIND("2023-05-19T06:00:00"^^xsd:dateTime as ?startTime)
+    BIND("2023-05-19T08:00:00"^^xsd:dateTime as ?endTime)
     ?stopStekenedl #a gtfs:Stop ;
             foaf:name ?stopNameSTdl ;
             gtfs:code 204391 .
@@ -41,20 +42,18 @@ WHERE {
             gtfs:trip ?tripSTSN ;
             gtfs:departureTime ?departureTimeSTdl ;
             gtfs:stopSequence ?seqSTdl .
-    FILTER (?departureTimeSTdl >= ?startTime && ?departureTimeSTdl <= "2023-05-19T08:00:00"^^xsd:dateTime)
+    # FILTER (?departureTimeSTdl >= ?startTime && ?departureTimeSTdl <= "2023-05-19T08:00:00"^^xsd:dateTime)
+    # FILTER (?departureTimeSTdl >= ?startTime && ?departureTimeSTdl <= ?departureTimeSNdl)
+    FILTER (?departureTimeSTdl >= ?startTime )
     
     ?stopTimeSNdl #a gtfs:StopTime ;
             gtfs:stop ?stopSNdl ;
             gtfs:trip ?tripSTSN ;
             gtfs:departureTime ?departureTimeSNdl ;
             gtfs:stopSequence ?seqSNdl .
-    FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= "2023-05-19T08:00:00"^^xsd:dateTime)
+    # FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= "2023-05-19T08:00:00"^^xsd:dateTime)
+    FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= ?endTime)
 
     FILTER(?seqSTdl < ?seqSNdl)
-    # FILTER(?departureTimeSTdl < ?departureTimeSNdl)
 
-
-
-
-
-} Limit 20;
+};
