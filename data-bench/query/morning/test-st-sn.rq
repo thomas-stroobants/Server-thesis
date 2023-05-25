@@ -40,8 +40,8 @@ WHERE {
     ?stopTimeStekenedl #a gtfs:StopTime ;
             gtfs:stop ?stopStekenedl ;
             gtfs:trip ?tripSTSN ;
-            gtfs:departureTime ?departureTimeSTdl ;
-            gtfs:stopSequence ?seqSTdl .
+            gtfs:departureTime ?departureTimeSTdl .
+        #     gtfs:stopSequence ?seqSTdl .
     # FILTER (?departureTimeSTdl >= ?startTime && ?departureTimeSTdl <= "2023-05-19T08:00:00"^^xsd:dateTime)
     # FILTER (?departureTimeSTdl >= ?startTime && ?departureTimeSTdl <= ?departureTimeSNdl)
     FILTER (?departureTimeSTdl >= ?startTime )
@@ -49,8 +49,8 @@ WHERE {
     ?stopTimeSNdl #a gtfs:StopTime ;
             gtfs:stop ?stopSNdl ;
             gtfs:trip ?tripSTSN ;
-            gtfs:departureTime ?departureTimeSNdl ;
-            gtfs:stopSequence ?seqSNdl .
+            gtfs:departureTime ?departureTimeSNdl .
+        #     gtfs:stopSequence ?seqSNdl .
     # FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= "2023-05-19T08:00:00"^^xsd:dateTime)
     FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= ?endTime)
 
