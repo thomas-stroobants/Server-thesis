@@ -54,10 +54,7 @@ WHERE {
             gtfs:departureTime ?departureTimeSNdl .
     OPTIONAL { ?stopTimeSNdl gtfs:comment ?delaySN }.
     BIND(IF(BOUND(?delaySN),(?departureTimeSNdl + ?delaySN), ?departureTimeSNdl) as ?timeSNdl)
-        #     gtfs:stopSequence ?seqSNdl .
-    # FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= "2023-05-19T08:00:00"^^xsd:dateTime)
+    
     FILTER (?timeSNdl >= ?timeSTdl && ?timeSNdl <= ?endTime)
-
-    # FILTER(?seqSTdl < ?seqSNdl)
 
 } ORDER BY ?timeSTdl;
