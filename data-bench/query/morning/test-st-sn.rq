@@ -18,7 +18,7 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT  ?stopNameSTdl ?timeSTdl ?stopNameSNdl ?timeSNdl ?routeNumber ?tripName
+SELECT  ?routeNumber ?tripName ?stopNameSTdl ?timeSTdl ?delaySTdl ?stopNameSNdl ?timeSNdl ?delaySNdl
 WHERE {
     BIND("2023-05-19T06:00:00"^^xsd:dateTime as ?startTime)
     BIND("2023-05-19T08:00:00"^^xsd:dateTime as ?endTime)
@@ -43,8 +43,10 @@ WHERE {
             gtfs:stop ?stopStekenedl ;
             gtfs:trip ?tripSTSN ;
             gtfs:departureTime ?departureTimeSTdl .
-    OPTIONAL { ?stopTimeStekenedl gtfs:comment ?delayST }.
-    BIND(IF(BOUND(?delayST),(?departureTimeSTdl + ?delayST), ?departureTimeSTdl) as ?timeSTdl)
+    OPTIONAL { ?stopTimeStekenedl gtfs:comment ?delaySTdl }.
+    BIND(IF(BOUND(?delaySTdl),(?departureTimeSTdl + ?delaySTdl), ?departureTimeSTdl) as ?timeSTdl)
+    # BIND(IF(BOUND(?delaySTdl), ?delaySTdl, 0) as ?delaySTdl)
+    # BIND((?departureTimeSTdl + ?delaySTdl) as ?timeSTdl)
 
     FILTER (?timeSTdl >= ?startTime )
     
@@ -52,8 +54,10 @@ WHERE {
             gtfs:stop ?stopSNdl ;
             gtfs:trip ?tripSTSN ;
             gtfs:departureTime ?departureTimeSNdl .
-    OPTIONAL { ?stopTimeSNdl gtfs:comment ?delaySN }.
-    BIND(IF(BOUND(?delaySN),(?departureTimeSNdl + ?delaySN), ?departureTimeSNdl) as ?timeSNdl)
+    OPTIONAL { ?stopTimeSNdl gtfs:comment ?delaySNdl }.
+    BIND(IF(BOUND(?delaySNdl),(?departureTimeSNdl + ?delaySNdl), ?departureTimeSNdl) as ?timeSNdl)
+    # BIND(IF(BOUND(?delaySNdl), ?delaySNdl, 0) as ?delaySNdl)
+    # BIND((?departureTimeSNdl + ?delaySNdl) as ?timeSNdl)
     
     FILTER (?timeSNdl >= ?timeSTdl && ?timeSNdl <= ?endTime)
 
