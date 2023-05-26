@@ -1,0 +1,149 @@
+SPARQL
+PREFIX rr: <http://www.w3.org/ns/r2rml#> 
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#> 
+PREFIX map: <http://mapping.example.com/> 
+PREFIX ma: <http://www.w3.org/ns/ma-ont#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX rev: <http://purl.org/stuff/rev#> 
+PREFIX v: <http://rdf.data-vocabulary.org/#> 
+PREFIX schema: <http://schema.org/> 
+PREFIX gtfs: <http://vocab.gtfs.org/terms#> 
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> 
+PREFIX dct: <http://purl.org/dc/terms/> 
+
+
+SELECT ?routeNumberSTSN ?tripNameSTSN ?stopNameSTdl ?departureTimeSTdl ?stopNameSNdl ?departureTimeSNdl ?routeTypeSNGSP ?tripNameSNGSP ?SNname ?bluebikeSN ?departureTimeSNnmbs ?GSPname ?bluebikeGSP ?departureTimeGSPnmbs ?routeNumberGSPIM ?tripNameGSPIM ?stopNameGSPdl ?departureTimeGSPdl ?stopNameIMECdl ?departureTimeIMECdl
+WHERE {
+    BIND("2023-05-19T07:20:00"^^xsd:dateTime as ?startTime)
+    # BIND("2023-05-19T09:20:00"^^xsd:dateTime as ?endTime)
+    
+    #########################################################
+    ## Part De Lijn Stekene to Sint-Niklaas
+    #########################################################
+
+    # BIND("2023-05-19T06:00:00"^^xsd:dateTime as ?startTime)
+    # BIND("2023-05-19T08:00:00"^^xsd:dateTime as ?endTime)
+    # BIND("2023-05-19T08:20:00"^^xsd:dateTime as ?timeStationSN)
+    ?stopStekenedl #a gtfs:Stop ;
+            foaf:name ?stopNameSTdl ;
+            gtfs:code 204391 .
+
+    ?stopSNdl #a gtfs:Stop ;
+            foaf:name ?stopNameSNdl ;
+            gtfs:code 204714 .
+    
+    ?tripSTSN #a gtfs:Trip ;
+            gtfs:headsign ?tripNameSTSN ;
+            gtfs:route ?routeSTSN .
+    
+    ?routeSTSN #a gtfs:Route ;
+            gtfs:shortName ?routeNumberSTSN .
+
+    ?stopTimeStekenedl #a gtfs:StopTime ;
+            gtfs:stop ?stopStekenedl ;
+            gtfs:trip ?tripSTSN ;
+            gtfs:departureTime ?departureTimeSTdl .
+    FILTER (?departureTimeSTdl >= ?startTime )
+    
+    ?stopTimeSNdl #a gtfs:StopTime ;
+            gtfs:stop ?stopSNdl ;
+            gtfs:trip ?tripSTSN ;
+            gtfs:departureTime ?departureTimeSNdl .
+    FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= ?departureTimeSNnmbs)
+    # FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= ?timeStationSN)
+
+    # # BIND ( (?departureTimeGSPdl - 300) AS ?bufferGSPdl)    #buffer to have time to transfer from train to bus
+    {
+        #########################################################
+        ## Part NMBS Sint-Niklaas to  Gent-Sint-Pieters
+        #########################################################
+        SELECT ?routeTypeSNGSP ?tripNameSNGSP ?SNname ?bluebikeSN ?departureTimeSNnmbs ?GSPname ?bluebikeGSP ?departureTimeGSPnmbs ?routeNumberGSPIM ?tripNameGSPIM ?stopNameGSPdl ?departureTimeGSPdl ?stopNameIMECdl ?departureTimeIMECdl
+        WHERE {
+            # BIND("2023-05-19T07:00:00"^^xsd:dateTime as ?startTime)
+            # BIND("2023-05-19T08:30:00"^^xsd:dateTime as ?endTime)
+            BIND("Sint-Niklaas" as ?SNname)
+            BIND("Gent-Sint-Pieters" as ?GSPname)
+
+            BIND("2023-05-19T07:45:00"^^xsd:dateTime as ?timeStationSN)
+            # BIND("2023-05-19T08:55:00"^^xsd:dateTime as ?timeStationGSP)    
+
+            ?stopSNnmbs foaf:name ?SNname;
+                # a gtfs:Stop ;
+                gtfs:bikeAllowed ?bluebikeSN .
+
+            ?stopGSPnmbs foaf:name ?GSPname ;
+                # a gtfs:Stop ;
+                gtfs:bikeAllowed ?bluebikeGSP .
+
+            ?tripSNGSP #a gtfs:Trip ;    
+                gtfs:headsign ?tripNameSNGSP ;
+                gtfs:route ?routeSNGSP .
+
+            ?routeSNGSP 
+                gtfs:shortName ?routeTypeSNGSP.
+
+            ?stopTimeSNnmbs #a gtfs:StopTime;
+                gtfs:stop ?stopSNnmbs ;
+                gtfs:trip ?tripSNGSP ;
+                gtfs:departureTime ?departureTimeSNnmbs .
+            # FILTER (?departureTimeSNnmbs >= ?departureTimeSNdl) 
+            FILTER (?departureTimeSNnmbs >= ?timeStationSN) 
+
+            ?stopTimeGSPnmbs #a gtfs:StopTime;
+                gtfs:stop ?stopGSPnmbs ;
+                gtfs:trip ?tripSNGSP ;
+                gtfs:departureTime ?departureTimeGSPnmbs .
+            FILTER (?departureTimeGSPnmbs >= ?departureTimeSNnmbs && ?departureTimeGSPnmbs <= ?departureTimeGSPdl) 
+            # FILTER (?departureTimeGSPnmbs >= ?departureTimeSNnmbs && ?departureTimeGSPnmbs <= ?timeStationGSP)
+
+            {
+                #########################################################
+                ## Part De Lijn Gent-Sint-Pieters to IMEC AA-Tower
+                #########################################################
+                SELECT ?routeNumberGSPIM ?tripNameGSPIM ?stopNameGSPdl ?departureTimeGSPdl ?stopNameIMECdl ?departureTimeIMECdl
+                WHERE {
+                    
+                    BIND("2023-05-19T09:20:00"^^xsd:dateTime as ?endTime)
+                    BIND("2023-05-19T08:45:00"^^xsd:dateTime as ?timeStationGSP)
+                    #details stop GSP delijn
+                    ?stopGSPdl #a gtfs:Stop ;
+                        foaf:name ?stopNameGSPdl ;
+                        gtfs:code 204917 .       #station gent sp
+
+                    #details stop IMEC delijn
+                    ?stopIMECdl #a gtfs:Stop ;
+                        foaf:name ?stopNameIMECdl ;
+                        gtfs:code 200659 .        #zwijnaarde technologiepark
+
+                    #details trip GSP IMEC delijn
+                    ?tripGSPIMEC #a gtfs:Trip ;
+                        gtfs:headsign ?tripNameGSPIM ;
+                        gtfs:route ?routeGSPIM .
+
+                    ?routeGSPIM #a gtfs:Route ;
+                        gtfs:shortName ?routeNumberGSPIM .
+
+                    ?stopTimeGSPdl #a gtfs:StopTime ;
+                            gtfs:stop ?stopGSPdl ;
+                            gtfs:trip ?tripGSPIMEC ;
+                            gtfs:departureTime ?departureTimeGSPdl .
+                    FILTER (?departureTimeGSPdl >= ?timeStationGSP)
+
+                    ?stopTimeIMECdl #a gtfs:StopTime ;
+                            gtfs:stop ?stopIMECdl ;
+                            gtfs:trip ?tripGSPIMEC ;
+                            gtfs:departureTime ?departureTimeIMECdl .
+                    FILTER (?departureTimeIMECdl >= ?departureTimeGSPdl && ?departureTimeIMECdl <= ?endTime)
+                }
+            }
+        }    
+    }
+
+
+} ORDER BY ?departureTimeSTdl;
