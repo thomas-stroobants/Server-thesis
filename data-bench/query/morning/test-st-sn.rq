@@ -18,7 +18,7 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT  ?stopNameSTdl ?departureTimeSTdl ?stopNameSNdl ?departureTimeSNdl ?routeNumber ?tripName
+SELECT  ?stopNameSTdl ?timeSTdl ?stopNameSNdl ?timeSNdl ?routeNumber ?tripName
 WHERE {
     BIND("2023-05-19T06:00:00"^^xsd:dateTime as ?startTime)
     BIND("2023-05-19T08:00:00"^^xsd:dateTime as ?endTime)
@@ -33,6 +33,8 @@ WHERE {
     ?tripSTSN #a gtfs:Trip ;
             gtfs:headsign ?tripName ;
             gtfs:route ?routeSTSN .
+    OPTIONAL { ?tripSTSN rdfs:label ?cancelSTSN }.
+    FILTER(!BOUND(?cancelSTSN))
     
     ?routeSTSN #a gtfs:Route ;
             gtfs:shortName ?routeNumber .
@@ -41,19 +43,21 @@ WHERE {
             gtfs:stop ?stopStekenedl ;
             gtfs:trip ?tripSTSN ;
             gtfs:departureTime ?departureTimeSTdl .
-        #     gtfs:stopSequence ?seqSTdl .
-    # FILTER (?departureTimeSTdl >= ?startTime && ?departureTimeSTdl <= "2023-05-19T08:00:00"^^xsd:dateTime)
-    # FILTER (?departureTimeSTdl >= ?startTime && ?departureTimeSTdl <= ?departureTimeSNdl)
-    FILTER (?departureTimeSTdl >= ?startTime )
+    OPTIONAL { ?stopTimeStekenedl gtfs:comment ?delayST }.
+    BIND(IF(BOUND(?delayST),(?departureTimeSTdl + ?delayST), ?departureTimeSTdl) as ?timeSTdl)
+
+    FILTER (?timeSTdl >= ?startTime )
     
     ?stopTimeSNdl #a gtfs:StopTime ;
             gtfs:stop ?stopSNdl ;
             gtfs:trip ?tripSTSN ;
             gtfs:departureTime ?departureTimeSNdl .
+    OPTIONAL { ?stopTimeSNdl gtfs:comment ?delaySN }.
+    BIND(IF(BOUND(?delaySN),(?departureTimeSNdl + ?delaySN), ?departureTimeSNdl) as ?timeSNdl)
         #     gtfs:stopSequence ?seqSNdl .
     # FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= "2023-05-19T08:00:00"^^xsd:dateTime)
-    FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= ?endTime)
+    FILTER (?timeSNdl >= ?timeSTdl && ?timeSNdl <= ?endTime)
 
     # FILTER(?seqSTdl < ?seqSNdl)
 
-} ORDER BY ?departureTimeSTdl;
+} ORDER BY ?timeSTdl;
