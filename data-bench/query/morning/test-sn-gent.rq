@@ -19,7 +19,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 
 #     BIND ( (?time2 - ?time1) AS ?diff)
 
-SELECT ?routeTypeSNGSP ?tripname ?SNname ?bluebikeSN ?departureTimeSNnmbs ?GSPname ?bluebikeGSP ?departureTimeGSPnmbs
+SELECT ?routeTypeSNGSP ?tripname ?SNname ?bluebikeSN ?timeSNnmbs ?GSPname ?bluebikeGSP ?timeGSPnmbs
 where { 
     BIND("2023-05-19T07:00:00"^^xsd:dateTime as ?startTime)
     BIND("2023-05-19T08:30:00"^^xsd:dateTime as ?endTime)
@@ -37,6 +37,8 @@ where {
     ?tripSNGSP #a gtfs:Trip ;    
         gtfs:headsign ?tripname ;
         gtfs:route ?routeSNGSP .
+    OPTIONAL { ?tripSNGSP rdfs:label ?cancelSNGSP }.
+    FILTER(!BOUND(?cancelSNGSP))
 
     ?routeSNGSP 
         gtfs:shortName ?routeTypeSNGSP.
@@ -46,13 +48,28 @@ where {
         gtfs:trip ?tripSNGSP ;
         gtfs:departureTime ?departureTimeSNnmbs ;
         gtfs:stopSequence ?seqSNnmbs .
-    FILTER (?departureTimeSNnmbs >= ?startTime) 
+    OPTIONAL { ?stopTimeSNnmbs gtfs:comment ?delaySNnmbs }.
+    OPTIONAL { ?stopTimeSNnmbs rdfs:label ?skippedSN }.
+    BIND(IF(BOUND(?delaySNnmbs),(?departureTimeSNnmbs + ?delaySNnmbs), ?departureTimeSNnmbs) as ?timeSNnmbs)
+    # BIND(?departureTimeSNnmbs as ?timeSNnmbs)
+    FILTER(!BOUND(?skippedSN))
+
+    # FILTER (?departureTimeSNnmbs >= ?startTime) 
+    FILTER (?timeSNnmbs >= ?startTime) 
+
 
     ?stopTimeGSPnmbs #a gtfs:StopTime;
         gtfs:stop ?stopGSPnmbs ;
         gtfs:trip ?tripSNGSP ;
         gtfs:departureTime ?departureTimeGSPnmbs ;
         gtfs:stopSequence ?seqGSPnmbs .
-    FILTER (?departureTimeGSPnmbs >= ?departureTimeSNnmbs && ?departureTimeGSPnmbs <= ?endTime) 
+    OPTIONAL { ?stopTimeGSPnmbs gtfs:comment ?delayGSPnmbs }.
+    OPTIONAL { ?stopTimeGSPnmbs rdfs:label ?skippedGSP }.
+    BIND(IF(BOUND(?delayGSPnmbs),(?departureTimeGSPnmbs + ?delayGSPnmbs), ?departureTimeGSPnmbs) as ?timeGSPnmbs)
+    # BIND(?departureTimeGSPnmbs as ?timeGSPnmbs)
+    FILTER(!BOUND(?skippedGSP))
 
-} ORDER BY ?departureTimeGSPnmbs ;
+    # FILTER (?departureTimeGSPnmbs >= ?departureTimeSNnmbs && ?departureTimeGSPnmbs <= ?endTime) 
+    FILTER (?timeGSPnmbs >= ?timeSNnmbs && ?timeGSPnmbs <= ?endTime) 
+
+} ORDER BY ?timeSNnmbs ;
