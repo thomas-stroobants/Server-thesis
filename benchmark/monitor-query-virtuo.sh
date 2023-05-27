@@ -9,10 +9,10 @@ isql_gsp_imec="$HOME/data-bench/query/route/test-gsp-imec.rq"
 isql_steken_imec="$HOME/data-bench/query/route/test-stekene-imec.rq"
 
 # Define the name of the CSV file to store the data
-csv_isql_stekene_sn="$HOME/benchmark/bench-isql-test-st-sn.csv"
-csv_isql_sn_gsp="$HOME/benchmark/bench-isql-test-sn-gent.csv"
-csv_isql_gsp_imec="$HOME/benchmark/bench-isql-test-gsp-imec.csv"
-csv_isql_steken_imec="$HOME/benchmark/bench-isql-test-stekene-imec.csv"
+csv_isql_stekene_sn="$HOME/benchmark/bench-query/bench-isql-test-st-sn.csv"
+csv_isql_sn_gsp="$HOME/benchmark/bench-query/bench-isql-test-sn-gent.csv"
+csv_isql_gsp_imec="$HOME/benchmark/bench-query/bench-isql-test-gsp-imec.csv"
+csv_isql_steken_imec="$HOME/benchmark/bench-query/bench-isql-test-stekene-imec.csv"
 
 
 check_bytes() {

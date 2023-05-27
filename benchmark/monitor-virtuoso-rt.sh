@@ -13,14 +13,14 @@ isql_update_trip_delijn="$HOME/data-bench/query/update/test-update-dl-trip.sql"
 isql_update_stoptime_delijn="$HOME/data-bench/query/update/test-update-dl.sql"
 
 # Define the name of the CSV file to store the data
-csv_iqsl_clear="$HOME/benchmark/bench-isql-clear.csv"
-csv_isql_del_nmbs="$HOME/benchmark/bench-isql-delete-nmbs-rt.csv"
-csv_isql_del_delijn="$HOME/benchmark/bench-isql-delete-delijn-rt.csv"
-csv_isql_load_nmbs="$HOME/benchmark/bench-isql-load-nmbs-rt.csv"
-csv_isql_load_delijn="$HOME/benchmark/bench-isql-load-delijn-rt.csv"
-csv_isql_update_nmbs="$HOME/benchmark/bench-isql-update-nmbs-rt.csv"
-csv_isql_update_trip_delijn="$HOME/benchmark/bench-isql-update-delijn-trip-rt.csv"
-csv_isql_update_stoptime_delijn="$HOME/benchmark/bench-isql-update-delijn-stoptime-rt.csv"
+csv_iqsl_clear="$HOME/benchmark/virtuoso-rt/bench-isql-clear.csv"
+csv_isql_del_nmbs="$HOME/benchmark/virtuoso-rt/bench-isql-delete-nmbs-rt.csv"
+csv_isql_del_delijn="$HOME/benchmark/virtuoso-rt/bench-isql-delete-delijn-rt.csv"
+csv_isql_load_nmbs="$HOME/benchmark/virtuoso-rt/bench-isql-load-nmbs-rt.csv"
+csv_isql_load_delijn="$HOME/benchmark/virtuoso-rt/bench-isql-load-delijn-rt.csv"
+csv_isql_update_nmbs="$HOME/benchmark/virtuoso-rt/bench-isql-update-nmbs-rt.csv"
+csv_isql_update_trip_delijn="$HOME/benchmark/virtuoso-rt/bench-isql-update-delijn-trip-rt.csv"
+csv_isql_update_stoptime_delijn="$HOME/benchmark/virtuoso-rt/bench-isql-update-delijn-stoptime-rt.csv"
 
 
 check_bytes() {
