@@ -8,27 +8,23 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 MODIFY <http://example.com/de-lijn>
 DELETE
     {
-        ?stoptime gtfs:comment ?odelay .
+        ?trip rdfs:label ?cl .
     }
 INSERT
     {
-        ?stoptime gtfs:comment ?ndelay .
+        ?trip rdfs:label ?ncl .
     }
 WHERE
     {
         GRAPH <http://example.com/de-lijn>
             {
-                ?stoptime gtfs:trip ?trip .
-                ?stoptime rdf:type gtfs:StopTime .
-                ?stoptime gtfs:stop ?st .
-                OPTIONAL {?stoptime gtfs:comment ?odelay} .
+                ?trip rdf:type gtfs:Trip .
+                OPTIONAL {?trip rdfs:label ?cl} .
             }
         GRAPH <http://example.com/de-lijn-rt>
             {
-                ?stoptime gtfs:trip ?trip .
-                ?stoptime rdf:type gtfs:StopTime .
-                ?stoptime gtfs:stop ?nst .
-                OPTIONAL {?stoptime gtfs:comment ?ndelay} .
+                ?trip rdf:type gtfs:Trip .
+                OPTIONAL {?trip rdfs:label ?ncl} .
             }
     }  ;
 
