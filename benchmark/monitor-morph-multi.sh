@@ -15,14 +15,14 @@ script_nmbs_7="$HOME/graphs-bench/config/config-nmbs-7.ini"
 script_nmbs_8="$HOME/graphs-bench/config/config-nmbs-8.ini"
 
 # Define the name of the CSV file to store the data
-csv_nmbs_1="$HOME/benchmark/bench-morph-nmbs-1.csv"
-csv_nmbs_2="$HOME/benchmark/bench-morph-nmbs-2.csv"
-csv_nmbs_3="$HOME/benchmark/bench-morph-nmbs-3.csv"
-csv_nmbs_4="$HOME/benchmark/bench-morph-nmbs-4.csv"
-csv_nmbs_5="$HOME/benchmark/bench-morph-nmbs-5.csv"
-csv_nmbs_6="$HOME/benchmark/bench-morph-nmbs-6.csv"
-csv_nmbs_7="$HOME/benchmark/bench-morph-nmbs-7.csv"
-csv_nmbs_8="$HOME/benchmark/bench-morph-nmbs-8.csv"
+csv_nmbs_1="$HOME/benchmark/bench-morph/bench-morph-nmbs-1.csv"
+csv_nmbs_2="$HOME/benchmark/bench-morph/bench-morph-nmbs-2.csv"
+csv_nmbs_3="$HOME/benchmark/bench-morph/bench-morph-nmbs-3.csv"
+csv_nmbs_4="$HOME/benchmark/bench-morph/bench-morph-nmbs-4.csv"
+csv_nmbs_5="$HOME/benchmark/bench-morph/bench-morph-nmbs-5.csv"
+csv_nmbs_6="$HOME/benchmark/bench-morph/bench-morph-nmbs-6.csv"
+csv_nmbs_7="$HOME/benchmark/bench-morph/bench-morph-nmbs-7.csv"
+csv_nmbs_8="$HOME/benchmark/bench-morph/bench-morph-nmbs-8.csv"
 
 check_bytes() {
     value=$1
@@ -54,7 +54,7 @@ monitor_morph_kgc() {
         
         runtime=$(($timestamp - $start_time))
         # ps_output=$(ps aux | grep $virtuoso_pid | grep -v grep | grep -v sudo)
-        ps_output=$(top -b -n 1 -H -o -PID | grep morph_kgc)
+        ps_output=$(top -b -n 1 -H -o -PID | grep $pid_morph)
 
         while read -r line; do
             pid=$(echo "$line" | awk '{print $1}')
