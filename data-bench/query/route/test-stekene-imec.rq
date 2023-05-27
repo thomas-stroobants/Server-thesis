@@ -1,0 +1,125 @@
+SPARQL
+PREFIX rr: <http://www.w3.org/ns/r2rml#> 
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#> 
+PREFIX map: <http://mapping.example.com/> 
+PREFIX ma: <http://www.w3.org/ns/ma-ont#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX rev: <http://purl.org/stuff/rev#> 
+PREFIX v: <http://rdf.data-vocabulary.org/#> 
+PREFIX schema: <http://schema.org/> 
+PREFIX gtfs: <http://vocab.gtfs.org/terms#> 
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> 
+PREFIX dct: <http://purl.org/dc/terms/> 
+
+
+SELECT  ?routeNumber ?tripName ?stopNameSTdl ?timeSTdl ?delaySTdl ?stopNameSNdl ?timeSNdl ?delaySNdl ?routeTypeSNGSP ?tripname ?SNname ?bluebikeSN ?timeSNnmbs ?delaySNnmbs ?GSPname ?bluebikeGSP ?timeGSPnmbs ?delayGSPnmbs
+WHERE {
+    
+    BIND("2023-05-19T06:00:00"^^xsd:dateTime as ?startTime)
+    BIND("2023-05-19T08:00:00"^^xsd:dateTime as ?endTime)
+
+    #################################################################
+    ## Part Stekene-SN
+    #################################################################
+    ?stopStekenedl #a gtfs:Stop ;
+            foaf:name ?stopNameSTdl ;
+            gtfs:code 204391 .
+
+    ?stopSNdl #a gtfs:Stop ;
+            foaf:name ?stopNameSNdl ;
+            gtfs:code 204714 .
+    
+    ?tripSTSN #a gtfs:Trip ;
+            gtfs:headsign ?tripName ;
+            gtfs:route ?routeSTSN .
+    OPTIONAL { ?tripSTSN rdfs:label ?cancelSTSN }.
+    FILTER(!BOUND(?cancelSTSN))
+    
+    ?routeSTSN #a gtfs:Route ;
+            gtfs:shortName ?routeNumber .
+
+    ?stopTimeStekenedl #a gtfs:StopTime ;
+            gtfs:stop ?stopStekenedl ;
+            gtfs:trip ?tripSTSN ;
+            gtfs:departureTime ?departureTimeSTdl .
+    OPTIONAL { ?stopTimeStekenedl gtfs:comment ?delaySTdl }.
+    BIND(IF(BOUND(?delaySTdl),(?departureTimeSTdl + ?delaySTdl), ?departureTimeSTdl) as ?timeSTdl)
+    # BIND(IF(BOUND(?delaySTdl), ?delaySTdl, 0) as ?delaySTdl)
+    # BIND((?departureTimeSTdl + ?delaySTdl) as ?timeSTdl)
+
+    FILTER (?timeSTdl >= ?startTime )
+    
+    ?stopTimeSNdl #a gtfs:StopTime ;
+            gtfs:stop ?stopSNdl ;
+            gtfs:trip ?tripSTSN ;
+            gtfs:departureTime ?departureTimeSNdl .
+    OPTIONAL { ?stopTimeSNdl gtfs:comment ?delaySNdl }.
+    BIND(IF(BOUND(?delaySNdl),(?departureTimeSNdl + ?delaySNdl), ?departureTimeSNdl) as ?timeSNdl)
+    # BIND(IF(BOUND(?delaySNdl), ?delaySNdl, 0) as ?delaySNdl)
+    # BIND((?departureTimeSNdl + ?delaySNdl) as ?timeSNdl)
+    
+    FILTER (?timeSNdl >= ?timeSTdl && ?timeSNdl <= ?endTime)
+
+    #################################################################
+    ## Part SN-GSP
+    #################################################################
+
+    BIND("2023-05-19T07:00:00"^^xsd:dateTime as ?startNMBSTime)
+    BIND("2023-05-19T08:30:00"^^xsd:dateTime as ?endNMBSTime)
+    BIND("Sint-Niklaas" as ?SNname)
+    BIND("Gent-Sint-Pieters" as ?GSPname)
+
+    ?stopSNnmbs foaf:name ?SNname;
+        # a gtfs:Stop ;
+        gtfs:bikeAllowed ?bluebikeSN .
+
+    ?stopGSPnmbs foaf:name ?GSPname ;
+        # a gtfs:Stop ;
+        gtfs:bikeAllowed ?bluebikeGSP .
+
+    ?tripSNGSP #a gtfs:Trip ;    
+        gtfs:headsign ?tripname ;
+        gtfs:route ?routeSNGSP .
+    OPTIONAL { ?tripSNGSP rdfs:label ?cancelSNGSP }.
+    FILTER(!BOUND(?cancelSNGSP))
+
+    ?routeSNGSP 
+        gtfs:shortName ?routeTypeSNGSP.
+
+    ?stopTimeSNnmbs #a gtfs:StopTime;
+        gtfs:stop ?stopSNnmbs ;
+        gtfs:trip ?tripSNGSP ;
+        gtfs:departureTime ?departureTimeSNnmbs .
+    OPTIONAL { ?stopTimeSNnmbs gtfs:comment ?delaySNnmbs }.
+    OPTIONAL { ?stopTimeSNnmbs rdfs:label ?skippedSN }.
+    # BIND(IF(BOUND(?delaySNnmbs),(?departureTimeSNnmbs + ?delaySNnmbs), ?departureTimeSNnmbs) as ?timeSNnmbs)
+    BIND(IF(BOUND(?delaySNnmbs), ?delaySNnmbs, 0) as ?delaySNnmbs)
+    BIND((?departureTimeSNnmbs + ?delaySNnmbs) as ?timeSNnmbs)
+    # BIND(?departureTimeSNnmbs as ?timeSNnmbs)
+    FILTER(!BOUND(?skippedSN))
+
+    # FILTER (?departureTimeSNnmbs >= ?startTime) 
+    FILTER (?timeSNnmbs >= ?startNMBSTime) 
+
+    ?stopTimeGSPnmbs #a gtfs:StopTime;
+        gtfs:stop ?stopGSPnmbs ;
+        gtfs:trip ?tripSNGSP ;
+        gtfs:departureTime ?departureTimeGSPnmbs .
+    OPTIONAL { ?stopTimeGSPnmbs gtfs:comment ?delayGSPnmbs }.
+    OPTIONAL { ?stopTimeGSPnmbs rdfs:label ?skippedGSP }.
+    # BIND(IF(BOUND(?delayGSPnmbs),(?departureTimeGSPnmbs + ?delayGSPnmbs), ?departureTimeGSPnmbs) as ?timeGSPnmbs)
+    BIND(IF(BOUND(?delayGSPnmbs), ?delayGSPnmbs, 0) as ?delayGSPnmbs)
+    BIND((?departureTimeGSPnmbs + ?delayGSPnmbs) as ?timeGSPnmbs)
+    # BIND(?departureTimeGSPnmbs as ?timeGSPnmbs)
+    FILTER(!BOUND(?skippedGSP))
+
+    # FILTER (?departureTimeGSPnmbs >= ?departureTimeSNnmbs && ?departureTimeGSPnmbs <= ?endTime) 
+    FILTER (?timeGSPnmbs >= ?timeSNnmbs && ?timeGSPnmbs <= ?endNMBSTime) 
+
+} ORDER BY ?timeSTdl;

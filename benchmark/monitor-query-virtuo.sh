@@ -1,26 +1,18 @@
 #! /usr/bin/bash
 
-log_monitor="$HOME/benchmark/log/test-virtuoso-rt-full.log"
+log_monitor="$HOME/benchmark/log/test-virtuoso-query.log"
 
 # Define the name of the Python script to be monitored
-isql_clear_bulk="$HOME/data-bench/query/clear-bulk-load-list.sql"
-isql_delete_nmbs="$HOME/data-bench/query/delete-nmbs-graph-rt.sql"
-isql_delete_delijn="$HOME/data-bench/query/delete-delijn-graph-rt.sql"
-isql_load_nmbs="$HOME/data-bench/query/nmbs-rt-load.sql"
-isql_load_delijn="$HOME/data-bench/query/delijn-rt-load.sql"
-isql_update_nmbs="$HOME/data-bench/query/update/test-update.sql"
-isql_update_trip_delijn="$HOME/data-bench/query/update/test-update-dl-trip.sql"
-isql_update_stoptime_delijn="$HOME/data-bench/query/update/test-update-dl.sql"
+isql_stekene_sn="$HOME/data-bench/query/route/test-st-sn.rq"
+isql_sn_gsp="$HOME/data-bench/query/route/test-sn-gent.rq"
+isql_gsp_imec="$HOME/data-bench/query/route/test-gsp-imec.rq"
+isql_steken_imec="$HOME/data-bench/query/route/test-stekene-imec.rq"
 
 # Define the name of the CSV file to store the data
-csv_iqsl_clear="$HOME/benchmark/bench-isql-clear.csv"
-csv_isql_del_nmbs="$HOME/benchmark/bench-isql-delete-nmbs-rt.csv"
-csv_isql_del_delijn="$HOME/benchmark/bench-isql-delete-delijn-rt.csv"
-csv_isql_load_nmbs="$HOME/benchmark/bench-isql-load-nmbs-rt.csv"
-csv_isql_load_delijn="$HOME/benchmark/bench-isql-load-delijn-rt.csv"
-csv_isql_update_nmbs="$HOME/benchmark/bench-isql-update-nmbs-rt.csv"
-csv_isql_update_trip_delijn="$HOME/benchmark/bench-isql-update-delijn-trip-rt.csv"
-csv_isql_update_stoptime_delijn="$HOME/benchmark/bench-isql-update-delijn-stoptime-rt.csv"
+csv_isql_stekene_sn="$HOME/benchmark/bench-isql-test-st-sn.csv"
+csv_isql_sn_gsp="$HOME/benchmark/bench-isql-test-sn-gent.csv"
+csv_isql_gsp_imec="$HOME/benchmark/bench-isql-test-gsp-imec.csv"
+csv_isql_steken_imec="$HOME/benchmark/bench-isql-test-stekene-imec.csv"
 
 
 check_bytes() {
@@ -75,11 +67,7 @@ monitor_virtuoso() {
 
 pid_server=$1
 
-monitor_virtuoso $isql_clear_bulk $csv_iqsl_clear $pid_server
-monitor_virtuoso $isql_delete_nmbs $csv_isql_del_nmbs $pid_server
-monitor_virtuoso $isql_delete_delijn $csv_isql_del_delijn $pid_server
-monitor_virtuoso $isql_load_nmbs $csv_isql_load_nmbs $pid_server
-monitor_virtuoso $isql_load_delijn $csv_isql_load_delijn $pid_server
-monitor_virtuoso $isql_update_nmbs $csv_isql_update_nmbs $pid_server
-monitor_virtuoso $isql_update_trip_delijn $csv_isql_update_trip_delijn $pid_server
-monitor_virtuoso $isql_update_stoptime_delijn $csv_isql_update_stoptime_delijn $pid_server
+monitor_virtuoso $isql_stekene_sn $csv_isql_stekene_sn $pid_server
+monitor_virtuoso $isql_sn_gsp $csv_isql_sn_gsp $pid_server
+monitor_virtuoso $isql_gsp_imec $csv_isql_gsp_imec $pid_server
+monitor_virtuoso $isql_steken_imec $csv_isql_steken_imec $pid_server

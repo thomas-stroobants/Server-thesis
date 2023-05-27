@@ -1,7 +1,6 @@
 #! /usr/bin/bash
 
-# top -b -d1 -o +%MEM | grep -A1 'KiB Mem' >> memory.log
-
+log_monitor="$HOME/benchmark/log/test-morph-full.log"
 
 # Define the name of the Python script to be monitored
 script_irail="$HOME/graphs-bench/config/config-irail.ini"
@@ -31,11 +30,11 @@ monitor_morph_kgc() {
     csv_file=$2
 
     # Write headers to the CSV file
-    echo "PID;Time;CPU %;Memory %;Memory Bytes;Virtual Memory Bytes;State" > $csv_file
+    echo "PID;Time;CPU %;Memory %;Memory Bytes;Wchan;State" > $csv_file
 
     python3 -m morph_kgc $ini_file &
     pid_morph=$!
-    # echo $pid_morph
+    echo $pid_morph >> $log_monitor
     # start_time=$(date +%s%N | cut -b1-13)
     start_time=$(($(date +%s%N) / 1000000))
     # Loop to run the script and monitor performance every second
@@ -45,32 +44,22 @@ monitor_morph_kgc() {
         
         runtime=$(($timestamp - $start_time))
         # ps_output=$(ps aux | grep $virtuoso_pid | grep -v grep | grep -v sudo)
-        # ps_output=$(top -b -n 1 -H | grep morph_kgc)
-        # ps_output=$(ps --forest -o pid,%cpu,%mem,rss,vsz --pid $pid_morph)      #if using 1 core for process
-
-        ps_output=$(ps --forest -o pid,%cpu,%mem,rss,vsz,s --pid $pid_morph && ps --forest -o pid,%cpu,%mem,rss,vsz,s --ppid $pid_morph)     #if using multiple cores for process
+        ps_output=$(top -b -n 1 -H -o -PID | grep $pid_morph)
 
         while read -r line; do
             pid=$(echo "$line" | awk '{print $1}')
-            if [[ "$pid" == "PID" ]]
-            then 
-                continue        #skip loop, header output
-            fi
-            # echo "$line"
-            cpu_usage=$(echo "$line" | awk '{print $2}'  | tr . , )
-            memory_usage=$(echo "$line" | awk '{print $3}'  | tr . , )
-            # mem_temp=$(echo "$line" | awk '{print $4}')
-            # check_bytes $(echo "$line" | awk '{print $3}')
-            memory_bytes=$(echo "$line" | awk '{print $4}'  | tr . , )
-            virt_memory_bytes=$(echo "$line" | awk '{print $5}'  | tr . , )
-            state=$(echo "$line" | awk '{print $6}' )
-            echo "$pid;$runtime;$cpu_usage;$memory_usage;$memory_bytes;$virt_memory_bytes;$state" >> $csv_file ;
+            cpu_usage=$(echo "$line" | awk '{print $5}' )
+            memory_usage=$(echo "$line" | awk '{print $6}' )
+            memory_bytes=$(echo "$line" | awk '{print $3}' )
+            wchan=$(echo "$line" | awk '{print $10}' )
+            state=$(echo "$line" | awk '{print $4}' )
+            echo "$pid;$runtime;$cpu_usage;$memory_usage;$memory_bytes;$wchan;$state" >> $csv_file ;
         done <<< "$ps_output"
-        # Sleep for 0.1 seconds     --> no sleep needed, process takes around 500 milliseconds to complete
+        # Sleep for 0.1 seconds     --> no sleep needed, process takes around 300 milliseconds to complete
         # sleep 0.1
     done
     totaltime=$(((($(date +%s%N) / 1000000) - $start_time)))
-    echo "Total runtime of $ini_file is $totaltime milliseconds"
+    echo "Total runtime of $ini_file is $totaltime milliseconds" >> $log_monitor
 }
 
 monitor_morph_kgc $script_irail $csv_irail

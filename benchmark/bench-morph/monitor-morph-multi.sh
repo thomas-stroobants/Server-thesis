@@ -1,6 +1,5 @@
 #! /usr/bin/bash
 
-# top -b -d1 -o +%MEM | grep -A1 'KiB Mem' >> memory.log
 
 log_monitor="$HOME/benchmark/log/test-nmbs-morph.log"
 
@@ -47,11 +46,6 @@ monitor_morph_kgc() {
 
         while read -r line; do
             pid=$(echo "$line" | awk '{print $1}')
-            # if [[ "$pid" == "PID" ]]
-            # then 
-            #     continue        #skip loop, header output
-            # fi
-            # echo "$line"
             cpu_usage=$(echo "$line" | awk '{print $5}' )
             memory_usage=$(echo "$line" | awk '{print $6}' )
             memory_bytes=$(echo "$line" | awk '{print $3}' )
