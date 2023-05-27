@@ -2,7 +2,7 @@
 
 # top -b -d1 -o +%MEM | grep -A1 'KiB Mem' >> memory.log
 
-log_monitor="$HOME/benchmark/log/test-nmbs-morph.log"
+log_monitor="$HOME/benchmark/log/test-nmbs-morph-rt.log"
 
 # Define the name of the Python script to be monitored
 script_nmbs_1="$HOME/graphs-bench/config/config-nmbs-rt-1.ini"
