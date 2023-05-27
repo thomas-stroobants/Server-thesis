@@ -1,0 +1,67 @@
+3925123
+Total runtime of /home/thomas/graphs-bench/config/config-dl-1.ini is 485967 milliseconds
+3977242
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-1.ini is 562231 milliseconds
+4037077
+Total runtime of /home/thomas/graphs-bench/config/config-dl_2.ini is 275823 milliseconds
+4100765
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-2.ini is 339767 milliseconds
+4179685
+Total runtime of /home/thomas/graphs-bench/config/config-dl-3.ini is 225084 milliseconds
+51025
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-3.ini is 222235 milliseconds
+114886
+Total runtime of /home/thomas/graphs-bench/config/config-dl-4.ini is 201722 milliseconds
+183126
+failed at dl2-4.ini
+240632
+240760
+Total runtime of /home/thomas/graphs-bench/config/config-dl-1.ini is 484908 milliseconds
+291268
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-1.ini is 555627 milliseconds
+348671
+Total runtime of /home/thomas/graphs-bench/config/config-dl_2.ini is 272895 milliseconds
+411082
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-2.ini is 340185 milliseconds
+489087
+Total runtime of /home/thomas/graphs-bench/config/config-dl-3.ini is 222622 milliseconds
+552305
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-3.ini is 217282 milliseconds
+614170
+Total runtime of /home/thomas/graphs-bench/config/config-dl-4.ini is 200643 milliseconds
+681160
+Total runtime of /home/thomas/graphs-bench/config/config-dl-5.ini is 175330 milliseconds
+746271
+Total runtime of /home/thomas/graphs-bench/config/config-dl-6.ini is 174706 milliseconds
+817689
+Total runtime of /home/thomas/graphs-bench/config/config-dl-7.ini is 157467 milliseconds
+885193
+Total runtime of /home/thomas/graphs-bench/config/config-dl-8.ini is 155330 milliseconds
+1451737
+Total runtime of /home/thomas/graphs-bench/config/config-dl-1.ini is 489350 milliseconds
+1502771
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-1.ini is 561292 milliseconds
+1560844
+Total runtime of /home/thomas/graphs-bench/config/config-dl_2.ini is 270797 milliseconds
+1622728
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-2.ini is 305709 milliseconds
+1692534
+Total runtime of /home/thomas/graphs-bench/config/config-dl-3.ini is 244366 milliseconds
+1762062
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-3.ini is 207874 milliseconds
+1821550
+Total runtime of /home/thomas/graphs-bench/config/config-dl-4.ini is 210673 milliseconds
+1891762
+Total runtime of /home/thomas/graphs-bench/config/config-dl-5.ini is 176898 milliseconds
+1957783
+Total runtime of /home/thomas/graphs-bench/config/config-dl-6.ini is 176258 milliseconds
+2030372
+Total runtime of /home/thomas/graphs-bench/config/config-dl-7.ini is 142947 milliseconds
+2094543
+Total runtime of /home/thomas/graphs-bench/config/config-dl-8.ini is 141186 milliseconds
+2164710
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-4.ini is 181635 milliseconds
+2224880
+Total runtime of /home/thomas/graphs-bench/config/config-dl2-5.ini is 153057 milliseconds
+2280955
+crashed at dl-6
