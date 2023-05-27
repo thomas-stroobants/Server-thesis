@@ -1,0 +1,13 @@
+DEBUG | 2023-05-27 15:13:11,831 | CONFIGURATION: {'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'output_file': '/home/thomas/graphs-bench/knowledge-graph-delijn2-2.nt', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'safe_percent_encoding': '', 'number_of_processes': '6', 'logging_level': 'DEBUG', 'logging_file': '/home/thomas/graphs-bench/log/morph-log-delijn-rml2-6.log', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partitioning': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'infer_sql_datatypes': 'no'}
+DEBUG | 2023-05-27 15:13:11,831 | DATA SOURCE `Datasource1`: {'mappings': '/home/thomas/data-bench/rml/gtfs-delijn-rdf2.rml.ttl'}
+INFO | 2023-05-27 15:13:12,142 | 10 mapping rules retrieved.
+INFO | 2023-05-27 15:13:12,149 | Mapping partition with 10 groups generated.
+INFO | 2023-05-27 15:13:12,149 | Maximum number of rules within mapping group: 1.
+INFO | 2023-05-27 15:13:12,150 | Mappings processed in 0.317 seconds.
+DEBUG | 2023-05-27 15:13:12,634 | Parallelizing with 6 cores.
+DEBUG | 2023-05-27 15:13:40,129 | 0 triples generated for mapping rule `5` in 27.476 seconds.
+DEBUG | 2023-05-27 15:13:40,414 | 0 triples generated for mapping rule `8` in 27.761 seconds.
+DEBUG | 2023-05-27 15:14:36,252 | 7056791 triples generated for mapping rule `3` in 56.105 seconds.
+DEBUG | 2023-05-27 15:14:38,253 | 7056791 triples generated for mapping rule `7` in 85.598 seconds.
+DEBUG | 2023-05-27 15:14:38,278 | 7200338 triples generated for mapping rule `1` in 85.626 seconds.
+DEBUG | 2023-05-27 15:14:39,030 | 7056791 triples generated for mapping rule `6` in 86.305 seconds.

@@ -1,0 +1,19 @@
+DEBUG | 2023-05-27 15:07:37,009 | CONFIGURATION: {'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'output_file': '/home/thomas/graphs-bench/knowledge-graph-delijn2-2.nt', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'safe_percent_encoding': '', 'number_of_processes': '4', 'logging_level': 'DEBUG', 'logging_file': '/home/thomas/graphs-bench/log/morph-log-delijn-rml2-4.log', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partitioning': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'infer_sql_datatypes': 'no'}
+DEBUG | 2023-05-27 15:07:37,009 | DATA SOURCE `Datasource1`: {'mappings': '/home/thomas/data-bench/rml/gtfs-delijn-rdf2.rml.ttl'}
+INFO | 2023-05-27 15:07:37,311 | 10 mapping rules retrieved.
+INFO | 2023-05-27 15:07:37,318 | Mapping partition with 10 groups generated.
+INFO | 2023-05-27 15:07:37,318 | Maximum number of rules within mapping group: 1.
+INFO | 2023-05-27 15:07:37,319 | Mappings processed in 0.309 seconds.
+DEBUG | 2023-05-27 15:07:37,508 | Parallelizing with 4 cores.
+DEBUG | 2023-05-27 15:08:02,706 | 0 triples generated for mapping rule `8` in 25.184 seconds.
+DEBUG | 2023-05-27 15:08:28,852 | 0 triples generated for mapping rule `5` in 26.134 seconds.
+DEBUG | 2023-05-27 15:08:41,609 | 7056791 triples generated for mapping rule `7` in 64.087 seconds.
+DEBUG | 2023-05-27 15:08:44,716 | 7200338 triples generated for mapping rule `1` in 67.195 seconds.
+DEBUG | 2023-05-27 15:09:31,339 | 17697205 triples generated for mapping rule `2` in 113.817 seconds.
+DEBUG | 2023-05-27 15:09:34,027 | 7056791 triples generated for mapping rule `6` in 65.171 seconds.
+DEBUG | 2023-05-27 15:09:35,054 | 7056791 triples generated for mapping rule `3` in 47.883 seconds.
+DEBUG | 2023-05-27 15:09:59,055 | 7210700 triples generated for mapping rule `4` in 68.611 seconds.
+DEBUG | 2023-05-27 15:10:30,297 | 7056791 triples generated for mapping rule `9` in 40.871 seconds.
+DEBUG | 2023-05-27 15:10:33,537 | 7056791 triples generated for mapping rule `0` in 44.132 seconds.
+INFO | 2023-05-27 15:10:38,081 | Number of triples generated in total: 67392198.
+INFO | 2023-05-27 15:10:38,081 | Materialization finished in 180.574 seconds.

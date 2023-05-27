@@ -78,19 +78,19 @@ monitor_morph_kgc() {
     echo "Total runtime of $ini_file is $totaltime milliseconds" >> $log_monitor
 }
 
-monitor_morph_kgc $script_dl_1 $csv_dl_1
-monitor_morph_kgc $script_dl2_1 $csv_dl2_1
-monitor_morph_kgc $script_dl_2 $csv_dl_2
-monitor_morph_kgc $script_dl2_2 $csv_dl2_2
-monitor_morph_kgc $script_dl_3 $csv_dl_3
-monitor_morph_kgc $script_dl2_3 $csv_dl2_3
-monitor_morph_kgc $script_dl_4 $csv_dl_4
+# monitor_morph_kgc $script_dl_1 $csv_dl_1
+# monitor_morph_kgc $script_dl2_1 $csv_dl2_1
+# monitor_morph_kgc $script_dl_2 $csv_dl_2
+# monitor_morph_kgc $script_dl2_2 $csv_dl2_2
+# monitor_morph_kgc $script_dl_3 $csv_dl_3
+# monitor_morph_kgc $script_dl2_3 $csv_dl2_3
+# monitor_morph_kgc $script_dl_4 $csv_dl_4
 monitor_morph_kgc $script_dl2_4 $csv_dl2_4
-monitor_morph_kgc $script_dl_5 $csv_dl_5
+# monitor_morph_kgc $script_dl_5 $csv_dl_5
 monitor_morph_kgc $script_dl2_5 $csv_dl2_5
-monitor_morph_kgc $script_dl_6 $csv_dl_6
+# monitor_morph_kgc $script_dl_6 $csv_dl_6
 monitor_morph_kgc $script_dl2_6 $csv_dl2_6
-monitor_morph_kgc $script_dl_7 $csv_dl_7
+# monitor_morph_kgc $script_dl_7 $csv_dl_7
 monitor_morph_kgc $script_dl2_7 $csv_dl2_7
-monitor_morph_kgc $script_dl_8 $csv_dl_8
+# monitor_morph_kgc $script_dl_8 $csv_dl_8
 monitor_morph_kgc $script_dl2_8 $csv_dl2_8

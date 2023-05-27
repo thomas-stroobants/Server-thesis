@@ -1,0 +1,18 @@
+DEBUG | 2023-05-27 11:59:18,398 | CONFIGURATION: {'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'output_file': '/home/thomas/graphs-bench/knowledge-graph-delijn2-1.nt', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'safe_percent_encoding': '', 'mapping_partitioning': 'MAXIMAL', 'number_of_processes': '1', 'logging_level': 'DEBUG', 'logging_file': '/home/thomas/graphs-bench/log/morph-log-delijn-rml2-1.log', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'infer_sql_datatypes': 'no'}
+DEBUG | 2023-05-27 11:59:18,398 | DATA SOURCE `Datasource1`: {'mappings': '/home/thomas/data-bench/rml/gtfs-delijn-rdf2.rml.ttl'}
+INFO | 2023-05-27 11:59:18,698 | 10 mapping rules retrieved.
+INFO | 2023-05-27 11:59:18,833 | Mapping partition with 10 groups generated.
+INFO | 2023-05-27 11:59:18,833 | Maximum number of rules within mapping group: 1.
+INFO | 2023-05-27 11:59:18,834 | Mappings processed in 0.435 seconds.
+DEBUG | 2023-05-27 12:00:00,475 | 7056791 triples generated for mapping rule `3` in 41.640 seconds.
+DEBUG | 2023-05-27 12:00:45,461 | 7056791 triples generated for mapping rule `0` in 40.618 seconds.
+DEBUG | 2023-05-27 12:01:27,322 | 7056791 triples generated for mapping rule `9` in 37.426 seconds.
+DEBUG | 2023-05-27 12:02:32,136 | 7200338 triples generated for mapping rule `1` in 60.068 seconds.
+DEBUG | 2023-05-27 12:04:20,474 | 17697205 triples generated for mapping rule `2` in 103.310 seconds.
+DEBUG | 2023-05-27 12:04:58,497 | 0 triples generated for mapping rule `8` in 26.625 seconds.
+DEBUG | 2023-05-27 12:05:57,874 | 7056791 triples generated for mapping rule `7` in 59.377 seconds.
+DEBUG | 2023-05-27 12:06:27,511 | 0 triples generated for mapping rule `5` in 24.661 seconds.
+DEBUG | 2023-05-27 12:07:26,136 | 7056791 triples generated for mapping rule `6` in 58.623 seconds.
+DEBUG | 2023-05-27 12:08:34,604 | 7210700 triples generated for mapping rule `4` in 63.590 seconds.
+INFO | 2023-05-27 12:08:39,588 | Number of triples generated in total: 67392198.
+INFO | 2023-05-27 12:08:39,588 | Materialization finished in 560.753 seconds.
