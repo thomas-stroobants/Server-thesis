@@ -57,13 +57,11 @@ monitor_virtuoso() {
 
         while read -r line; do
             pid=$(echo "$line" | awk '{print $1}')
-            cpu_usage=$(echo "$line" | awk '{print $6}')
-            memory_usage=$(echo "$line" | awk '{print $7}')
-            # mem_temp=$(echo "$line" | awk '{print $4}')
-            # check_bytes $(echo "$line" | awk '{print $3}')
-            memory_bytes=$(check_bytes $(echo "$line" | awk '{print $4}'))
+            cpu_usage=$(echo "$line" | awk '{print $5}')
+            memory_usage=$(echo "$line" | awk '{print $6}')
+            memory_bytes=$(check_bytes $(echo "$line" | awk '{print $3}'))
             virt_memory_bytes=$(check_bytes $(echo "$line" | awk '{print $2}'))
-            state=$(echo "$line" | awk '{print $5}' )
+            state=$(echo "$line" | awk '{print $4}' )
             echo "$pid;$runtime;$cpu_usage;$memory_usage;$memory_bytes;$virt_memory_bytes;$state" >> $csv_file ;
         done <<< "$ps_output"
         # Sleep for 0.1 seconds     --> no sleep needed, process takes around 500 milliseconds to complete

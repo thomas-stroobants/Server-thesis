@@ -1,0 +1,352 @@
+Total runtime of /home/thomas/data-bench/query/clear-bulk-load-list.sql is 13 milliseconds
+Total runtime of /home/thomas/data-bench/query/delete-nmbs-graph-rt.sql is 11 milliseconds
+Total runtime of /home/thomas/data-bench/query/delete-delijn-graph-rt.sql is 8 milliseconds
+Total runtime of /home/thomas/data-bench/query/nmbs-rt-load.sql is 1840 milliseconds
+Total runtime of /home/thomas/data-bench/query/delijn-rt-load.sql is 3110 milliseconds
+Total runtime of /home/thomas/data-bench/query/update/test-update.sql is 1339 milliseconds
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl-trip.sql is 685 milliseconds
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl.sql is 705 milliseconds
+Total runtime of /home/thomas/data-bench/query/clear-bulk-load-list.sql is 14 milliseconds
+Total runtime of /home/thomas/data-bench/query/delete-nmbs-graph-rt.sql is 750 milliseconds
+Total runtime of /home/thomas/data-bench/query/delete-delijn-graph-rt.sql is 1467 milliseconds
+Total runtime of /home/thomas/data-bench/query/nmbs-rt-load.sql is 2184 milliseconds
+Total runtime of /home/thomas/data-bench/query/delijn-rt-load.sql is 3577 milliseconds
+Total runtime of /home/thomas/data-bench/query/update/test-update.sql is 790 milliseconds
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl-trip.sql is 787 milliseconds
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl.sql is 795 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 1 msec.
+Total runtime of /home/thomas/data-bench/query/clear-bulk-load-list.sql is 9 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 317 msec.
+Total runtime of /home/thomas/data-bench/query/delete-nmbs-graph-rt.sql is 758 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 836 msec.
+Total runtime of /home/thomas/data-bench/query/delete-delijn-graph-rt.sql is 1494 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 464 msec.
+
+Done. -- 1768 msec.
+
+Done. -- 1 msec.
+
+Done. -- 0 msec.
+Total runtime of /home/thomas/data-bench/query/nmbs-rt-load.sql is 2911 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 1 msec.
+
+Done. -- 1384 msec.
+
+Done. -- 1856 msec.
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.
+Total runtime of /home/thomas/data-bench/query/delijn-rt-load.sql is 3537 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 188 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update.sql is 787 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 243 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl-trip.sql is 793 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 43 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl.sql is 800 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+Total runtime of /home/thomas/data-bench/query/clear-bulk-load-list.sql is 10 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 339 msec.
+Total runtime of /home/thomas/data-bench/query/delete-nmbs-graph-rt.sql is 760 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 870 msec.
+Total runtime of /home/thomas/data-bench/query/delete-delijn-graph-rt.sql is 1482 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 446 msec.
+
+Done. -- 1724 msec.
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.
+Total runtime of /home/thomas/data-bench/query/nmbs-rt-load.sql is 2182 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 1421 msec.
+
+Done. -- 1829 msec.
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.
+Total runtime of /home/thomas/data-bench/query/delijn-rt-load.sql is 3413 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 189 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update.sql is 808 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 244 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl-trip.sql is 786 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 42 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl.sql is 805 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 1 msec.
+Total runtime of /home/thomas/data-bench/query/clear-bulk-load-list.sql is 9 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 1 msec.
+
+Done. -- 345 msec.
+Total runtime of /home/thomas/data-bench/query/delete-nmbs-graph-rt.sql is 765 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 901 msec.
+Total runtime of /home/thomas/data-bench/query/delete-delijn-graph-rt.sql is 1503 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 440 msec.
+
+Done. -- 1766 msec.
+
+Done. -- 1 msec.
+
+Done. -- 0 msec.
+Total runtime of /home/thomas/data-bench/query/nmbs-rt-load.sql is 2955 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 1 msec.
+
+Done. -- 1443 msec.
+
+Done. -- 1827 msec.
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.
+Total runtime of /home/thomas/data-bench/query/delijn-rt-load.sql is 3586 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 212 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update.sql is 776 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 242 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl-trip.sql is 795 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 42 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl.sql is 804 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 1 msec.
+Total runtime of /home/thomas/data-bench/query/clear-bulk-load-list.sql is 11 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 340 msec.
+Total runtime of /home/thomas/data-bench/query/delete-nmbs-graph-rt.sql is 763 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 901 msec.
+Total runtime of /home/thomas/data-bench/query/delete-delijn-graph-rt.sql is 1474 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 1 msec.
+
+Done. -- 423 msec.
+
+Done. -- 1741 msec.
+
+Done. -- 1 msec.
+
+Done. -- 0 msec.
+Total runtime of /home/thomas/data-bench/query/nmbs-rt-load.sql is 2947 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 0 msec.
+
+Done. -- 1443 msec.
+
+Done. -- 1820 msec.
+
+Done. -- 0 msec.
+
+Done. -- 0 msec.
+Total runtime of /home/thomas/data-bench/query/delijn-rt-load.sql is 3556 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 195 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update.sql is 791 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 239 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl-trip.sql is 795 milliseconds
+OpenLink Virtuoso Interactive SQL (Virtuoso)
+Version 07.20.3233 as of Jan 30 2023
+Type HELP; for help and EXIT; to exit.
+Connected to OpenLink Virtuoso
+Driver: 07.20.3233 OpenLink Virtuoso ODBC Driver
+
+Done. -- 45 msec.
+Total runtime of /home/thomas/data-bench/query/update/test-update-dl.sql is 815 milliseconds

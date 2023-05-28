@@ -18,7 +18,7 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT ?routeNumberGSPIM ?tripNameGSPIM ?stopNameGSPdl ?timeGSPdl ?stopNameIMECdl ?timeIMECdl
+SELECT ?routeNumberGSPIM ?tripNameGSPIM ?stopNameGSPdl ?timeGSPdl ?delayGSPdl ?stopNameIMECdl ?timeIMECdl ?delayIMECdl
 WHERE {
     BIND("2023-05-19T07:30:00"^^xsd:dateTime as ?startTime)
     BIND("2023-05-19T09:20:00"^^xsd:dateTime as ?endTime)

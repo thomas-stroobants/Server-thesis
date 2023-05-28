@@ -18,9 +18,9 @@ PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX dct: <http://purl.org/dc/terms/> 
 
 
-SELECT ?routeNumberSTSN ?tripNameSTSN ?stopNameSTdl ?departureTimeSTdl ?stopNameSNdl ?departureTimeSNdl 
-        ?routeTypeSNGSP ?tripNameSNGSP ?SNname ?bluebikeSN ?departureTimeSNnmbs ?GSPname ?bluebikeGSP ?departureTimeGSPnmbs 
-        ?routeNumberGSPIM ?tripNameGSPIM ?stopNameGSPdl ?departureTimeGSPdl ?stopNameIMECdl ?departureTimeIMECdl
+SELECT ?routeNumberSTSN ?tripNameSTSN ?stopNameSTdl ?timeSTdl ?delaySTdl ?stopNameSNdl ?timeSNdl ?delaySNdl
+         ?routeTypeSNGSP ?tripNameSNGSP ?SNname ?bluebikeSN ?timeSNnmbs ?delaySNnmbs ?GSPname ?bluebikeGSP ?timeGSPnmbs ?delayGSPnmbs
+          ?routeNumberGSPIM ?tripNameGSPIM ?stopNameGSPdl ?timeGSPdl ?delayGSPdl ?stopNameIMECdl ?timeIMECdl ?delayIMECdl
 WHERE {
     BIND("2023-05-19T07:00:00"^^xsd:dateTime as ?startTime)
     BIND((?startTime + 4000) AS ?timeSN)
@@ -43,6 +43,8 @@ WHERE {
     ?tripSTSN #a gtfs:Trip ;
             gtfs:headsign ?tripNameSTSN ;
             gtfs:route ?routeSTSN .
+    OPTIONAL { ?tripSTSN rdfs:label ?cancelSTSN }.
+    FILTER(!BOUND(?cancelSTSN))
     
     ?routeSTSN #a gtfs:Route ;
             gtfs:shortName ?routeNumberSTSN .
@@ -51,14 +53,20 @@ WHERE {
             gtfs:stop ?stopStekenedl ;
             gtfs:trip ?tripSTSN ;
             gtfs:departureTime ?departureTimeSTdl .
-    FILTER (?departureTimeSTdl >= ?startTime )
+    OPTIONAL { ?stopTimeStekenedl gtfs:comment ?delaySTdl }.
+    # BIND(IF(BOUND(?delaySTdl),(?departureTimeSTdl + ?delaySTdl), ?departureTimeSTdl) as ?timeSTdl)
+    BIND(?departureTimeSTdl as ?timeSTdl)
+    FILTER (?timeSTdl >= ?startTime )
     
     ?stopTimeSNdl #a gtfs:StopTime ;
             gtfs:stop ?stopSNdl ;
             gtfs:trip ?tripSTSN ;
             gtfs:departureTime ?departureTimeSNdl .
-    # FILTER (?departureTimeSNdl >= ?departureTimeSTdl && ?departureTimeSNdl <= ?departureTimeSNnmbs)
-    FILTER (?departureTimeSNdl > ?departureTimeSTdl && ?departureTimeSNdl < ?departureTimeSNnmbs)
+    OPTIONAL { ?stopTimeSNdl gtfs:comment ?delaySNdl }.
+    # BIND(IF(BOUND(?delaySNdl),(?departureTimeSNdl + ?delaySNdl), ?departureTimeSNdl) as ?timeSNdl)
+    BIND(?departureTimeSNdl as ?timeSNdl)
+    # FILTER (?departureTimeSNdl > ?departureTimeSTdl && ?departureTimeSNdl < ?departureTimeSNnmbs)
+    FILTER (?timeSNdl > ?timeSTdl && ?timeSNdl < ?timeSNnmbs)
 
     # # BIND ( (?departureTimeGSPdl - 300) AS ?bufferGSPdl)    #buffer to have time to transfer from train to bus
     {
@@ -73,9 +81,7 @@ WHERE {
             BIND("Gent-Sint-Pieters" as ?GSPname)
 
             # BIND("2023-05-19T08:20:00"^^xsd:dateTime as ?timeStationSN)
-            BIND("2023-05-19T08:55:00"^^xsd:dateTime as ?timeStationGSP)   
-
-            
+            BIND("2023-05-19T08:55:00"^^xsd:dateTime as ?timeStationGSP)            
             BIND((?timeStationGSP - 4000) as ?timeMinGSP)     
 
             ?stopSNnmbs foaf:name ?SNname;
@@ -89,6 +95,8 @@ WHERE {
             ?tripSNGSP #a gtfs:Trip ;    
                 gtfs:headsign ?tripNameSNGSP ;
                 gtfs:route ?routeSNGSP .
+            OPTIONAL { ?tripSNGSP rdfs:label ?cancelSNGSP }.
+            FILTER(!BOUND(?cancelSNGSP))
 
             ?routeSNGSP 
                 gtfs:shortName ?routeTypeSNGSP.
@@ -97,17 +105,27 @@ WHERE {
                 gtfs:stop ?stopSNnmbs ;
                 gtfs:trip ?tripSNGSP ;
                 gtfs:departureTime ?departureTimeSNnmbs .
+            OPTIONAL { ?stopTimeSNnmbs gtfs:comment ?delaySNnmbs }.
+            OPTIONAL { ?stopTimeSNnmbs rdfs:label ?skippedSN }.
+            # BIND(IF(BOUND(?delaySNnmbs), ?delaySNnmbs, 0) as ?delaySNnmbs)
+            # BIND((?departureTimeSNnmbs + ?delaySNnmbs) as ?timeSNnmbs)
+            BIND(?departureTimeSNnmbs as ?timeSNnmbs)
+            FILTER(!BOUND(?skippedSN))
             # FILTER (?departureTimeSNnmbs >= ?departureTimeSNdl) 
-            FILTER (?departureTimeSNnmbs >= ?timeMinGSP) 
-            # FILTER (?departureTimeSNnmbs > ?midnight) 
+            FILTER (?timeSNnmbs >= ?timeMinGSP) 
 
             ?stopTimeGSPnmbs #a gtfs:StopTime;
                 gtfs:stop ?stopGSPnmbs ;
                 gtfs:trip ?tripSNGSP ;
                 gtfs:departureTime ?departureTimeGSPnmbs .
-            # FILTER (?departureTimeGSPnmbs >= ?departureTimeSNnmbs && ?departureTimeGSPnmbs <= ?departureTimeGSPdl) 
-            # FILTER (?departureTimeGSPnmbs >= ?departureTimeSNnmbs && ?departureTimeGSPnmbs <= ?timeStationGSP)
-            FILTER (?departureTimeGSPnmbs > ?departureTimeSNnmbs && ?departureTimeGSPnmbs < ?departureTimeGSPdl)
+            OPTIONAL { ?stopTimeGSPnmbs gtfs:comment ?delayGSPnmbs }.
+            OPTIONAL { ?stopTimeGSPnmbs rdfs:label ?skippedGSP }.
+            # BIND(IF(BOUND(?delayGSPnmbs), ?delayGSPnmbs, 0) as ?delayGSPnmbs)
+            # BIND((?departureTimeGSPnmbs + ?delayGSPnmbs) as ?timeGSPnmbs)
+            BIND(?departureTimeGSPnmbs as ?timeGSPnmbs)
+            FILTER(!BOUND(?skippedGSP))
+            # FILTER (?departureTimeGSPnmbs > ?departureTimeSNnmbs && ?departureTimeGSPnmbs < ?departureTimeGSPdl)
+            FILTER (?timeGSPnmbs > ?timeSNnmbs && ?timeGSPnmbs < ?timeGSPdl) 
 
             {
                 #########################################################
@@ -134,6 +152,8 @@ WHERE {
                     ?tripGSPIMEC #a gtfs:Trip ;
                         gtfs:headsign ?tripNameGSPIM ;
                         gtfs:route ?routeGSPIM .
+                    OPTIONAL { ?tripGSPIMEC rdfs:label ?cancelGSPIMEC }.
+                    FILTER(!BOUND(?cancelGSPIMEC))
 
                     ?routeGSPIM #a gtfs:Route ;
                         gtfs:shortName ?routeNumberGSPIM .
@@ -142,14 +162,21 @@ WHERE {
                             gtfs:stop ?stopGSPdl ;
                             gtfs:trip ?tripGSPIMEC ;
                             gtfs:departureTime ?departureTimeGSPdl .
-                    FILTER (?departureTimeGSPdl >= ?windowGSP)
-                    # FILTER (?departureTimeGSPdl > ?midnight)
+                    OPTIONAL { ?stopTimeGSPdl gtfs:comment ?delayGSPdl }.
+                    # BIND(IF(BOUND(?delayGSPdl),(?departureTimeGSPdl + ?delayGSPdl), ?departureTimeGSPdl) as ?timeGSPdl)
+                    BIND(?departureTimeGSPdl as ?timeGSPdl)
+                    FILTER (?timeGSPdl >= ?windowGSP)
+                    # FILTER (?timeGSPdl > ?midnight)
 
                     ?stopTimeIMECdl #a gtfs:StopTime ;
                             gtfs:stop ?stopIMECdl ;
                             gtfs:trip ?tripGSPIMEC ;
                             gtfs:departureTime ?departureTimeIMECdl .
-                    FILTER (?departureTimeIMECdl > ?departureTimeGSPdl && ?departureTimeIMECdl <= ?endTime)
+                    OPTIONAL { ?stopTimeIMECdl gtfs:comment ?delayIMECdl }.
+                    # BIND(30 as ?delayIMECdl)
+                    # BIND(IF(BOUND(?delayIMECdl),(?departureTimeIMECdl + ?delayIMECdl), ?departureTimeIMECdl) as ?timeIMECdl)
+                    BIND(?departureTimeIMECdl as ?timeIMECdl)
+                    FILTER (?timeIMECdl > ?timeGSPdl && ?timeIMECdl <= ?endTime)
                 }
             }
         }    
