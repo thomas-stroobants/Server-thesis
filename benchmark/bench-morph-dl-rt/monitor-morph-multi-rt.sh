@@ -5,14 +5,14 @@
 log_monitor="$HOME/benchmark/log/test-dl-morph-rt.log"
 
 # Define the name of the Python script to be monitored
-script_dl_1="$HOME/graphs-bench/config/config-dl-rt-1.ini"
-script_dl_2="$HOME/graphs-bench/config/config-dl-rt-2.ini"
-script_dl_3="$HOME/graphs-bench/config/config-dl-rt-3.ini"
-script_dl_4="$HOME/graphs-bench/config/config-dl-rt-4.ini"
-script_dl_5="$HOME/graphs-bench/config/config-dl-rt-5.ini"
-script_dl_6="$HOME/graphs-bench/config/config-dl-rt-6.ini"
-script_dl_7="$HOME/graphs-bench/config/config-dl-rt-7.ini"
-script_dl_8="$HOME/graphs-bench/config/config-dl-rt-8.ini"
+script_dl_1="$HOME/graphs-bench/config/bench-dl/config-dl-rt-1.ini"
+script_dl_2="$HOME/graphs-bench/config/bench-dl/config-dl-rt-2.ini"
+script_dl_3="$HOME/graphs-bench/config/bench-dl/config-dl-rt-3.ini"
+script_dl_4="$HOME/graphs-bench/config/bench-dl/config-dl-rt-4.ini"
+script_dl_5="$HOME/graphs-bench/config/bench-dl/config-dl-rt-5.ini"
+script_dl_6="$HOME/graphs-bench/config/bench-dl/config-dl-rt-6.ini"
+script_dl_7="$HOME/graphs-bench/config/bench-dl/config-dl-rt-7.ini"
+script_dl_8="$HOME/graphs-bench/config/bench-dl/config-dl-rt-8.ini"
 
 # Define the name of the CSV file to store the data
 csv_dl_1="$HOME/benchmark/bench-morph-dl-rt/bench-morph-dl-rt-1.csv"
@@ -66,11 +66,11 @@ monitor_morph_kgc() {
     echo "Total runtime of $ini_file is $totaltime milliseconds" >> $log_monitor
 }
 
-monitor_morph_kgc $script_dl_1 $csv_dl_1
-monitor_morph_kgc $script_dl_2 $csv_dl_2
+# monitor_morph_kgc $script_dl_1 $csv_dl_1
+# monitor_morph_kgc $script_dl_2 $csv_dl_2
 monitor_morph_kgc $script_dl_3 $csv_dl_3
-monitor_morph_kgc $script_dl_4 $csv_dl_4
-monitor_morph_kgc $script_dl_5 $csv_dl_5
-monitor_morph_kgc $script_dl_6 $csv_dl_6
-monitor_morph_kgc $script_dl_7 $csv_dl_7
-monitor_morph_kgc $script_dl_8 $csv_dl_8
+# monitor_morph_kgc $script_dl_4 $csv_dl_4
+# monitor_morph_kgc $script_dl_5 $csv_dl_5
+# monitor_morph_kgc $script_dl_6 $csv_dl_6
+# monitor_morph_kgc $script_dl_7 $csv_dl_7
+# monitor_morph_kgc $script_dl_8 $csv_dl_8

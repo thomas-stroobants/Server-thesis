@@ -76,7 +76,8 @@ def get_bluebike_data(isotime):
 
 isotime = datetime.datetime.now().replace(microsecond=0).isoformat()
 get_protobuf_gtfs_rt(nmbs_rt_url, f"{Path.home()}/data-bench/nmbs-rt-data/nmbs-rt-gtfs.json")
-get_json_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data-bench/de-lijn-rt-data/de-lijn-rt-gtfs.json", params=paramsjson, headers=headers)
+get_protobuf_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data-bench/de-lijn-rt-data/de-lijn-rt-gtfs.json", params=params, headers=headers)
+# get_json_gtfs_rt(de_lijn_rt_url, f"{Path.home()}/data-bench/de-lijn-rt-data/de-lijn-rt-gtfs.json", params=paramsjson, headers=headers)
 # get_bluebike_data(isotime)
 
 

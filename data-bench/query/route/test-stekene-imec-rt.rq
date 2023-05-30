@@ -107,9 +107,10 @@ WHERE {
                 gtfs:departureTime ?departureTimeSNnmbs .
             OPTIONAL { ?stopTimeSNnmbs gtfs:comment ?delaySNnmbs }.
             OPTIONAL { ?stopTimeSNnmbs rdfs:label ?skippedSN }.
-            # BIND(IF(BOUND(?delaySNnmbs), ?delaySNnmbs, 0) as ?delaySNnmbs)
-            # BIND((?departureTimeSNnmbs + ?delaySNnmbs) as ?timeSNnmbs)
-            BIND(?departureTimeSNnmbs as ?timeSNnmbs)
+
+            BIND(IF(BOUND(?delaySNnmbs), ?delaySNnmbs, 0) as ?delaySNnmbs)
+            BIND((?departureTimeSNnmbs + ?delaySNnmbs) as ?timeSNnmbs)
+            
             FILTER(!BOUND(?skippedSN))
             # FILTER (?departureTimeSNnmbs >= ?departureTimeSNdl) 
             FILTER (?timeSNnmbs >= ?timeMinGSP) 
@@ -120,9 +121,10 @@ WHERE {
                 gtfs:departureTime ?departureTimeGSPnmbs .
             OPTIONAL { ?stopTimeGSPnmbs gtfs:comment ?delayGSPnmbs }.
             OPTIONAL { ?stopTimeGSPnmbs rdfs:label ?skippedGSP }.
-            # BIND(IF(BOUND(?delayGSPnmbs), ?delayGSPnmbs, 0) as ?delayGSPnmbs)
-            # BIND((?departureTimeGSPnmbs + ?delayGSPnmbs) as ?timeGSPnmbs)
-            BIND(?departureTimeGSPnmbs as ?timeGSPnmbs)
+
+            BIND(IF(BOUND(?delayGSPnmbs), ?delayGSPnmbs, 0) as ?delayGSPnmbs)
+            BIND((?departureTimeGSPnmbs + ?delayGSPnmbs) as ?timeGSPnmbs)
+            
             FILTER(!BOUND(?skippedGSP))
             # FILTER (?departureTimeGSPnmbs > ?departureTimeSNnmbs && ?departureTimeGSPnmbs < ?departureTimeGSPdl)
             FILTER (?timeGSPnmbs > ?timeSNnmbs && ?timeGSPnmbs < ?timeGSPdl) 
@@ -163,8 +165,8 @@ WHERE {
                             gtfs:trip ?tripGSPIMEC ;
                             gtfs:departureTime ?departureTimeGSPdl .
                     OPTIONAL { ?stopTimeGSPdl gtfs:comment ?delayGSPdl }.
-                    # BIND(IF(BOUND(?delayGSPdl),(?departureTimeGSPdl + ?delayGSPdl), ?departureTimeGSPdl) as ?timeGSPdl)
-                    BIND(?departureTimeGSPdl as ?timeGSPdl)
+                    BIND(IF(BOUND(?delayGSPdl),(?departureTimeGSPdl + ?delayGSPdl), ?departureTimeGSPdl) as ?timeGSPdl)
+                    
                     FILTER (?timeGSPdl >= ?windowGSP)
                     # FILTER (?timeGSPdl > ?midnight)
 
@@ -173,9 +175,8 @@ WHERE {
                             gtfs:trip ?tripGSPIMEC ;
                             gtfs:departureTime ?departureTimeIMECdl .
                     OPTIONAL { ?stopTimeIMECdl gtfs:comment ?delayIMECdl }.
-                    # BIND(30 as ?delayIMECdl)
-                    # BIND(IF(BOUND(?delayIMECdl),(?departureTimeIMECdl + ?delayIMECdl), ?departureTimeIMECdl) as ?timeIMECdl)
-                    BIND(?departureTimeIMECdl as ?timeIMECdl)
+                    BIND(IF(BOUND(?delayIMECdl),(?departureTimeIMECdl + ?delayIMECdl), ?departureTimeIMECdl) as ?timeIMECdl)
+                    
                     FILTER (?timeIMECdl > ?timeGSPdl && ?timeIMECdl <= ?endTime)
                 }
             }

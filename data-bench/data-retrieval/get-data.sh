@@ -29,7 +29,7 @@ function download_data() {
     # Download NMBS station information from iRail
     curl -o "$HOME/data-bench/iRail/stations.csv" https://raw.githubusercontent.com/iRail/stations/master/stations.csv 
     curl -o "$HOME/data-bench/iRail/stops.csv" https://raw.githubusercontent.com/iRail/stations/master/stops.csv
-    curl -o "$HOME/data-bench/iRail/facilities.csv" https://raw.githubusercontent.com/iRail/stations/master/facilities.csv
+    curl -o "$HOME/data-bench/iRail/facilities1.csv" https://raw.githubusercontent.com/iRail/stations/master/facilities.csv
 }
 
 # Unzip data from gtfs zip folders 
@@ -74,4 +74,4 @@ unzip_data
 echo "$(date) | Changing file extensions from .txt to .csv.."
 txt_to_csv
 echo "$(date) | Deleting ZIP folders"
-delete_zip
+# delete_zip

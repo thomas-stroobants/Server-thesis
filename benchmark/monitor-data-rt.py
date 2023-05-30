@@ -46,6 +46,6 @@ def record_usage(proc, interval, filename):
 for script in scripts:
     filename = get_cvs_filename(script)
     proc = subprocess.Popen(script)
-    record_usage(proc, 0.1, filename)
+    record_usage(proc, 0.01, filename)
     # loadavg = [round((x / psutil.cpu_count() * 100),2) for x in psutil.getloadavg()]
     # print(f"Load average: {loadavg}")

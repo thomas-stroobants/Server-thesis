@@ -1,0 +1,70 @@
+SPARQL
+PREFIX rr: <http://www.w3.org/ns/r2rml#> 
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#> 
+PREFIX map: <http://mapping.example.com/> 
+PREFIX ma: <http://www.w3.org/ns/ma-ont#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX rev: <http://purl.org/stuff/rev#> 
+PREFIX v: <http://rdf.data-vocabulary.org/#> 
+PREFIX schema: <http://schema.org/> 
+PREFIX gtfs: <http://vocab.gtfs.org/terms#> 
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> 
+PREFIX dct: <http://purl.org/dc/terms/> 
+
+# SELECT * WHERE {
+#     ?stop a gtfs:Stop .
+#     ?stop gtfs:code 204917 .
+#     # ?stop gtfs:bikeAllowed 1.
+#     # ?stop ?p ?o .
+#     # BIND(NOW() as ?time).
+#     BIND(IF(BOUND(?time),(?time + 600), NOW()) as ?newtime).
+
+#     # ?stop gtfs:parentStation ?parStation .
+#     # OPTIONAL {?stop foaf:name ?accName} .
+#     # OPTIONAL {?stop gtfs:locationType ?locType} .
+#     # ?parStation a gtfs:Stop .
+#     # ?parStation foaf:name ?name    
+# };
+
+MODIFY <http://example.com/nmbs>
+# DELETE
+#     {
+#         ?stoptime rdfs:label ?sk .
+#         ?stoptime gtfs:comment ?odelay .
+#         ?trip rdfs:label ?cl .
+#     }
+INSERT
+    {
+        # ?stoptime rdfs:label ?nsk .
+        ?stoptime gtfs:comment 200 .
+        # ?trip rdfs:label ?ncl .
+    }
+WHERE
+    {
+        GRAPH <http://example.com/nmbs>
+            {
+                ?trip rdf:type gtfs:Trip .
+                OPTIONAL {?trip rdfs:label ?cl} .
+                ?stoptime gtfs:trip ?trip .
+                ?stoptime rdf:type gtfs:StopTime .
+                OPTIONAL {?stoptime rdfs:label ?sk} .
+                OPTIONAL {?stoptime gtfs:comment ?odelay} .
+            }
+        # GRAPH <http://example.com/nmbs-rt>
+        #     {
+        #         ?trip rdf:type gtfs:Trip .
+        #         OPTIONAL {?trip rdfs:label ?ncl} .
+        #         ?stoptime gtfs:trip ?trip .
+        #         ?stoptime rdf:type gtfs:StopTime .
+        #         ?stoptime gtfs:stop ?nst .
+        #         OPTIONAL {?stoptime rdfs:label ?nsk} .
+        #         OPTIONAL {?stoptime gtfs:comment ?ndelay} .
+
+        #     }
+    }  ;

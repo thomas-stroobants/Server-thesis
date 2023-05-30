@@ -4,14 +4,14 @@
 log_monitor="$HOME/benchmark/log/test-nmbs-morph.log"
 
 # Define the name of the Python script to be monitored
-script_nmbs_1="$HOME/graphs-bench/config/config-nmbs-1.ini"
-script_nmbs_2="$HOME/graphs-bench/config/config-nmbs-2.ini"
-script_nmbs_3="$HOME/graphs-bench/config/config-nmbs-3.ini"
-script_nmbs_4="$HOME/graphs-bench/config/config-nmbs-4.ini"
-script_nmbs_5="$HOME/graphs-bench/config/config-nmbs-5.ini"
-script_nmbs_6="$HOME/graphs-bench/config/config-nmbs-6.ini"
-script_nmbs_7="$HOME/graphs-bench/config/config-nmbs-7.ini"
-script_nmbs_8="$HOME/graphs-bench/config/config-nmbs-8.ini"
+script_nmbs_1="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-1.ini"
+script_nmbs_2="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-2.ini"
+script_nmbs_3="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-3.ini"
+script_nmbs_4="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-4.ini"
+script_nmbs_5="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-5.ini"
+script_nmbs_6="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-6.ini"
+script_nmbs_7="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-7.ini"
+script_nmbs_8="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-8.ini"
 
 # Define the name of the CSV file to store the data
 csv_nmbs_1="$HOME/benchmark/bench-morph/bench-morph-nmbs-1.csv"
@@ -61,10 +61,10 @@ monitor_morph_kgc() {
 }
 
 monitor_morph_kgc $script_nmbs_1 $csv_nmbs_1
-monitor_morph_kgc $script_nmbs_2 $csv_nmbs_2
-monitor_morph_kgc $script_nmbs_3 $csv_nmbs_3
-monitor_morph_kgc $script_nmbs_4 $csv_nmbs_4
-monitor_morph_kgc $script_nmbs_5 $csv_nmbs_5
-monitor_morph_kgc $script_nmbs_6 $csv_nmbs_6
-monitor_morph_kgc $script_nmbs_7 $csv_nmbs_7
-monitor_morph_kgc $script_nmbs_8 $csv_nmbs_8
+# monitor_morph_kgc $script_nmbs_2 $csv_nmbs_2
+# monitor_morph_kgc $script_nmbs_3 $csv_nmbs_3
+# monitor_morph_kgc $script_nmbs_4 $csv_nmbs_4
+# monitor_morph_kgc $script_nmbs_5 $csv_nmbs_5
+# monitor_morph_kgc $script_nmbs_6 $csv_nmbs_6
+# monitor_morph_kgc $script_nmbs_7 $csv_nmbs_7
+# monitor_morph_kgc $script_nmbs_8 $csv_nmbs_8

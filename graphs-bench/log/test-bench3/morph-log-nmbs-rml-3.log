@@ -1,0 +1,66 @@
+DEBUG | 2023-05-29 16:03:04,645 | CONFIGURATION: {'na_values': ',#N/A,N/A,#N/A N/A,n/a,NA,<NA>,#NA,NULL,null,NaN,nan,None', 'output_file': '/home/thomas/graphs-bench/knowledge-graph-nmbs-2.nt', 'output_dir': '', 'output_format': 'N-TRIPLES', 'only_printable_characters': 'no', 'safe_percent_encoding': '', 'number_of_processes': '3', 'logging_level': 'DEBUG', 'logging_file': '/home/thomas/graphs-bench/log/morph-log-nmbs-rml-3.log', 'read_parsed_mappings_path': '', 'write_parsed_mappings_path': '', 'mapping_partitioning': 'PARTIAL-AGGREGATIONS', 'oracle_client_lib_dir': '', 'oracle_client_config_dir': '', 'infer_sql_datatypes': 'no'}
+DEBUG | 2023-05-29 16:03:04,645 | DATA SOURCE `Datasource1`: {'mappings': '/home/thomas/data-bench/rml/gtfs-nmbs-rdf.rml.ttl'}
+DEBUG | 2023-05-29 16:03:05,464 | Removed self-join from mapping rule `18`.
+INFO | 2023-05-29 16:03:05,468 | 56 mapping rules retrieved.
+INFO | 2023-05-29 16:03:05,490 | Mapping partition with 53 groups generated.
+INFO | 2023-05-29 16:03:05,491 | Maximum number of rules within mapping group: 2.
+INFO | 2023-05-29 16:03:05,492 | Mappings processed in 0.846 seconds.
+DEBUG | 2023-05-29 16:03:05,837 | Parallelizing with 3 cores.
+DEBUG | 2023-05-29 16:03:05,857 | 1 triples generated for mapping rule `0` in 0.009 seconds.
+DEBUG | 2023-05-29 16:03:05,866 | 1 triples generated for mapping rule `3` in 0.015 seconds.
+DEBUG | 2023-05-29 16:03:05,868 | 0 triples generated for mapping rule `11` in 0.016 seconds.
+DEBUG | 2023-05-29 16:03:05,879 | 1 triples generated for mapping rule `2` in 0.010 seconds.
+DEBUG | 2023-05-29 16:03:05,880 | 0 triples generated for mapping rule `13` in 0.007 seconds.
+DEBUG | 2023-05-29 16:03:05,888 | 1 triples generated for mapping rule `5` in 0.005 seconds.
+DEBUG | 2023-05-29 16:03:05,895 | 780 triples generated for mapping rule `12` in 0.011 seconds.
+DEBUG | 2023-05-29 16:03:05,897 | 1 triples generated for mapping rule `1` in 0.006 seconds.
+DEBUG | 2023-05-29 16:03:05,912 | 780 triples generated for mapping rule `9` in 0.011 seconds.
+DEBUG | 2023-05-29 16:03:05,913 | 0 triples generated for mapping rule `4` in 0.009 seconds.
+DEBUG | 2023-05-29 16:03:05,932 | 0 triples generated for mapping rule `15` in 0.008 seconds.
+DEBUG | 2023-05-29 16:03:05,936 | 780 triples generated for mapping rule `17` in 0.011 seconds.
+DEBUG | 2023-05-29 16:03:05,956 | 2640 triples generated for mapping rule `26` in 0.023 seconds.
+DEBUG | 2023-05-29 16:03:05,957 | 780 triples generated for mapping rule `16` in 0.016 seconds.
+DEBUG | 2023-05-29 16:03:05,978 | 0 triples generated for mapping rule `14` in 0.011 seconds.
+DEBUG | 2023-05-29 16:03:05,996 | 2028 triples generated for mapping rule `28` in 0.032 seconds.
+DEBUG | 2023-05-29 16:03:06,023 | 1474 triples generated for mapping rule `27` in 0.020 seconds.
+DEBUG | 2023-05-29 16:03:06,046 | 4114 triples generated for mapping rule `21` in 0.022 seconds.
+DEBUG | 2023-05-29 16:03:06,066 | 0 triples generated for mapping rule `24` in 0.012 seconds.
+DEBUG | 2023-05-29 16:03:06,081 | 2640 triples generated for mapping rule `29` in 0.014 seconds.
+DEBUG | 2023-05-29 16:03:06,113 | 2640 triples generated for mapping rule `22` in 0.024 seconds.
+DEBUG | 2023-05-29 16:03:06,145 | 2640 triples generated for mapping rule `23` in 0.019 seconds.
+DEBUG | 2023-05-29 16:03:06,160 | 0 triples generated for mapping rule `25` in 0.008 seconds.
+DEBUG | 2023-05-29 16:03:06,169 | 0 triples generated for mapping rule `20` in 0.008 seconds.
+DEBUG | 2023-05-29 16:03:08,193 | 634872 triples generated for mapping rule `18` in 2.214 seconds.
+DEBUG | 2023-05-29 16:03:08,896 | 634872 triples generated for mapping rule `6` in 3.024 seconds.
+DEBUG | 2023-05-29 16:03:09,108 | 7327 triples generated for mapping rule `19` in 0.443 seconds.
+DEBUG | 2023-05-29 16:03:11,231 | 634872 triples generated for mapping rule `8` in 1.868 seconds.
+DEBUG | 2023-05-29 16:03:14,864 | 634872 triples generated for mapping rule `7` in 3.157 seconds.
+DEBUG | 2023-05-29 16:03:15,331 | 780 triples generated for mapping rule `10` in 0.009 seconds.
+DEBUG | 2023-05-29 16:03:29,036 | 0 triples generated for mapping rule `38` in 19.733 seconds.
+DEBUG | 2023-05-29 16:03:41,084 | 529239 triples generated for mapping rule `30` in 25.746 seconds.
+DEBUG | 2023-05-29 16:04:01,637 | 529243 triples generated for mapping rule `37` in 32.600 seconds.
+DEBUG | 2023-05-29 16:04:05,743 | 529239 triples generated for mapping rule `39` in 24.057 seconds.
+DEBUG | 2023-05-29 16:04:21,962 | 0 triples generated for mapping rule `35` in 19.790 seconds.
+DEBUG | 2023-05-29 16:04:40,216 | 529321 triples generated for mapping rule `31` in 33.938 seconds.
+DEBUG | 2023-05-29 16:04:40,816 | 612 triples generated for mapping rule `48` in 0.009 seconds.
+DEBUG | 2023-05-29 16:04:40,917 | 612 triples generated for mapping rule `50` in 0.090 seconds.
+DEBUG | 2023-05-29 16:04:40,949 | 612 triples generated for mapping rule `47` in 0.013 seconds.
+DEBUG | 2023-05-29 16:04:40,975 | 612 triples generated for mapping rule `49` in 0.021 seconds.
+DEBUG | 2023-05-29 16:04:40,988 | 612 triples generated for mapping rule `51` in 0.007 seconds.
+DEBUG | 2023-05-29 16:04:41,004 | 717 triples generated for mapping rule `53` in 0.010 seconds.
+DEBUG | 2023-05-29 16:04:41,183 | 34875 triples generated for mapping rule `52` in 0.179 seconds.
+DEBUG | 2023-05-29 16:04:41,231 | 567 triples generated for mapping rule `55` in 0.009 seconds.
+DEBUG | 2023-05-29 16:04:41,253 | 2268 triples generated for mapping rule `54` in 0.016 seconds.
+DEBUG | 2023-05-29 16:04:41,312 | 0 triples generated for mapping rule `45` in 0.052 seconds.
+DEBUG | 2023-05-29 16:04:41,523 | 36121 triples generated for mapping rule `43` in 0.211 seconds.
+DEBUG | 2023-05-29 16:04:41,765 | 36121 triples generated for mapping rule `40` in 0.201 seconds.
+DEBUG | 2023-05-29 16:04:42,451 | 36121 triples generated for mapping rule `41` in 0.646 seconds.
+DEBUG | 2023-05-29 16:04:42,697 | 36121 triples generated for mapping rule `44` in 0.205 seconds.
+DEBUG | 2023-05-29 16:04:42,921 | 36121 triples generated for mapping rule `42` in 0.186 seconds.
+DEBUG | 2023-05-29 16:04:43,088 | 36121 triples generated for mapping rule `46` in 0.129 seconds.
+DEBUG | 2023-05-29 16:04:53,869 | 12972318 triples generated for mapping rule `32` in 107.700 seconds.
+DEBUG | 2023-05-29 16:04:54,539 | 529243 triples generated for mapping rule `36` in 32.574 seconds.
+DEBUG | 2023-05-29 16:05:28,789 | 529321 triples generated for mapping rule `34` in 32.865 seconds.
+DEBUG | 2023-05-29 16:05:52,805 | 1058526 triples generated for mapping rule `33` in 24.016 seconds.
+INFO | 2023-05-29 16:05:53,840 | Number of triples generated in total: 19502047.
+INFO | 2023-05-29 16:05:53,840 | Materialization finished in 168.003 seconds.

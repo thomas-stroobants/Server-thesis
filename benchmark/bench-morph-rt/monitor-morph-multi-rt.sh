@@ -5,24 +5,24 @@
 log_monitor="$HOME/benchmark/log/test-nmbs-morph-rt.log"
 
 # Define the name of the Python script to be monitored
-script_nmbs_1="$HOME/graphs-bench/config/config-nmbs-rt-1.ini"
-script_nmbs_2="$HOME/graphs-bench/config/config-nmbs-rt-2.ini"
-script_nmbs_3="$HOME/graphs-bench/config/config-nmbs-rt-3.ini"
-script_nmbs_4="$HOME/graphs-bench/config/config-nmbs-rt-4.ini"
-script_nmbs_5="$HOME/graphs-bench/config/config-nmbs-rt-5.ini"
-script_nmbs_6="$HOME/graphs-bench/config/config-nmbs-rt-6.ini"
-script_nmbs_7="$HOME/graphs-bench/config/config-nmbs-rt-7.ini"
-script_nmbs_8="$HOME/graphs-bench/config/config-nmbs-rt-8.ini"
+# script_nmbs_1="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-rt-1.ini"
+# script_nmbs_2="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-rt-2.ini"
+script_nmbs_3="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-rt-3.ini"
+# script_nmbs_4="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-rt-4.ini"
+# script_nmbs_5="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-rt-5.ini"
+# script_nmbs_6="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-rt-6.ini"
+# script_nmbs_7="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-rt-7.ini"
+# script_nmbs_8="$HOME/graphs-bench/config/bench-nmbs/config-nmbs-rt-8.ini"
 
 # Define the name of the CSV file to store the data
-csv_nmbs_1="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-1.csv"
-csv_nmbs_2="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-2.csv"
+# csv_nmbs_1="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-1.csv"
+# csv_nmbs_2="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-2.csv"
 csv_nmbs_3="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-3.csv"
-csv_nmbs_4="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-4.csv"
-csv_nmbs_5="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-5.csv"
-csv_nmbs_6="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-6.csv"
-csv_nmbs_7="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-7.csv"
-csv_nmbs_8="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-8.csv"
+# csv_nmbs_4="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-4.csv"
+# csv_nmbs_5="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-5.csv"
+# csv_nmbs_6="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-6.csv"
+# csv_nmbs_7="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-7.csv"
+# csv_nmbs_8="$HOME/benchmark/bench-morph-rt/bench-morph-nmbs-rt-8.csv"
 
 monitor_morph_kgc() {
     ini_file=$1
@@ -66,11 +66,10 @@ monitor_morph_kgc() {
     echo "Total runtime of $ini_file is $totaltime milliseconds" >> $log_monitor
 }
 
-monitor_morph_kgc $script_nmbs_1 $csv_nmbs_1
-monitor_morph_kgc $script_nmbs_2 $csv_nmbs_2
+# monitor_morph_kgc $script_nmbs_1 $csv_nmbs_1
 monitor_morph_kgc $script_nmbs_3 $csv_nmbs_3
-monitor_morph_kgc $script_nmbs_4 $csv_nmbs_4
-monitor_morph_kgc $script_nmbs_5 $csv_nmbs_5
-monitor_morph_kgc $script_nmbs_6 $csv_nmbs_6
-monitor_morph_kgc $script_nmbs_7 $csv_nmbs_7
-monitor_morph_kgc $script_nmbs_8 $csv_nmbs_8
+# monitor_morph_kgc $script_nmbs_4 $csv_nmbs_4
+# monitor_morph_kgc $script_nmbs_5 $csv_nmbs_5
+# monitor_morph_kgc $script_nmbs_6 $csv_nmbs_6
+# monitor_morph_kgc $script_nmbs_7 $csv_nmbs_7
+# monitor_morph_kgc $script_nmbs_8 $csv_nmbs_8
